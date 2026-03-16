@@ -36,16 +36,19 @@
       background: #B4FF00;
       animation: ldpulse 1s ease-in-out infinite;
     }
-    .ld-dot:nth-child(2){ animation-delay:.15s }
-    .ld-dot:nth-child(3){ animation-delay:.30s }
-    @keyframes ldpulse{0%,80%,100%{transform:scale(0);opacity:.4}40%{transform:scale(1);opacity:1}}
+    .ld-dot:nth-child(2){ animation-delay: .15s }
+    .ld-dot:nth-child(3){ animation-delay: .30s }
+    @keyframes ldpulse {
+      0%,80%,100% { transform: scale(0); opacity: .4 }
+      40%          { transform: scale(1); opacity: 1  }
+    }
   </style>
 </head>
 <body>
   <div id="loading">
-    <div style="font-size:32px">🎮</div>
+    <div style="font-size:36px">🎮</div>
     <div>Lootzy đang tải...</div>
-    <div>
+    <div style="display:flex;gap:6px;margin-top:4px">
       <span class="ld-dot"></span>
       <span class="ld-dot"></span>
       <span class="ld-dot"></span>
@@ -53,40 +56,21 @@
   </div>
   <div id="root"></div>
 
-  <!-- React 18 + ReactDOM 18 — UMD production (works on ALL iOS Safari versions) -->
+  <!-- React 18 UMD — works on ALL iOS Safari versions -->
   <script crossorigin src="https://unpkg.com/react@18.3.1/umd/react.production.min.js"></script>
   <script crossorigin src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js"></script>
 
-  <!-- Shim: map require('react') → window.React so our IIFE bundle works -->
+  <!-- require() shim so IIFE bundle can resolve React/ReactDOM -->
   <script>
     window.require = function(id) {
-      if (id === 'react')         return window.React;
-      if (id === 'react-dom')     return window.ReactDOM;
-      if (id === 'react/jsx-runtime') return window.React;
+      if (id === 'react')              return window.React;
+      if (id === 'react-dom')          return window.ReactDOM;
+      if (id === 'react-dom/client')   return window.ReactDOM;
       throw new Error('Unknown module: ' + id);
     };
   </script>
 
-  <!-- Game bundle (IIFE, all game code) -->
+  <!-- Game bundle (IIFE) — self-mounts into #root -->
   <script src="./lootzy-bundle.js"></script>
-
-  <!-- Mount -->
-  <script>
-    try {
-      var App = window.LootzyApp && (window.LootzyApp.default || window.LootzyApp);
-      if (!App) throw new Error('App not found in bundle');
-      document.getElementById('loading').style.display = 'none';
-      ReactDOM.createRoot(document.getElementById('root')).render(
-        React.createElement(React.StrictMode, null,
-          React.createElement(App)
-        )
-      );
-    } catch(e) {
-      document.getElementById('loading').innerHTML =
-        '<div style="color:#ff4444;padding:24px;text-align:center">' +
-        '❌ Lỗi tải game:<br><small>' + e.message + '</small></div>';
-      console.error(e);
-    }
-  </script>
 </body>
 </html>
