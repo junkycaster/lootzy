@@ -58,6 +58,11 @@ var LootzyApp = (() => {
   @keyframes pouBlink{0%,88%,100%{transform:scaleY(1)}92%{transform:scaleY(0.06)}}
   @keyframes toastIn{from{opacity:0;transform:translateX(-50%) translateY(-10px)}to{opacity:1;transform:translateX(-50%) translateY(0)}}
   @keyframes petBump{0%{transform:scale(1)}30%{transform:scale(1.12) rotate(-4deg)}60%{transform:scale(0.96) rotate(3deg)}100%{transform:scale(1) rotate(0deg)}}
+  @keyframes petJump{0%{transform:translateY(0) scale(1) rotate(0)}20%{transform:translateY(-40px) scale(1.1) rotate(-8deg)}45%{transform:translateY(-55px) scale(1.08) rotate(6deg)}65%{transform:translateY(-20px) scale(1.04) rotate(-2deg)}80%{transform:translateY(4px) scale(0.95) rotate(1deg)}90%{transform:translateY(-8px) scale(1.02)}100%{transform:translateY(0) scale(1) rotate(0)}}
+  @keyframes petSpin{0%{transform:scale(1) rotate(0)}30%{transform:scale(1.15) rotate(180deg)}65%{transform:scale(1.1) rotate(330deg)}100%{transform:scale(1) rotate(360deg)}}
+  @keyframes petShiver{0%,100%{transform:translateX(0) rotate(0) scale(1)}10%{transform:translateX(-6px) rotate(-3deg)}20%{transform:translateX(6px) rotate(3deg)}30%{transform:translateX(-5px) rotate(-2deg)}40%{transform:translateX(5px) rotate(2deg)}50%{transform:translateX(-4px)}60%{transform:translateX(4px)}70%{transform:translateX(-3px)}80%{transform:translateX(3px)}}
+  @keyframes petSlump{0%{transform:translateY(0) scale(1)}30%{transform:translateY(8px) scaleY(0.92) scaleX(1.06)}55%{transform:translateY(10px) scaleY(0.90) scaleX(1.08)}100%{transform:translateY(6px) scaleY(0.93) scaleX(1.05)}}
+  @keyframes emotionFloat{0%{opacity:1;transform:translateY(0) scale(1)}70%{opacity:0.8}100%{opacity:0;transform:translateY(-60px) scale(0.7)}}
   @keyframes slideUp{from{transform:translateY(100%)}to{transform:translateY(0)}}
   @keyframes floatUp{0%{opacity:1;transform:translateY(0) scale(1) rotate(0deg)}60%{opacity:0.9}100%{opacity:0;transform:translateY(-150px) scale(0.7) rotate(20deg)}}
   @keyframes floatUpL{0%{opacity:1;transform:translateY(0) scale(1) rotate(0deg)}100%{opacity:0;transform:translateY(-140px) translateX(-40px) scale(0.6) rotate(-25deg)}}
@@ -910,7 +915,9 @@ var LootzyApp = (() => {
     const [eyeOffset, setEyeOffset] = (0, import_react.useState)({ x: 0, y: 0 });
     const [showShopPanel, setShowShopPanel] = (0, import_react.useState)(false);
     const [petSpeech, setPetSpeech] = (0, import_react.useState)(null);
-    const [petBump, setPetBump] = (0, import_react.useState)(false);
+    const [petPos, setPetPos] = (0, import_react.useState)({ x: 0, y: 0 });
+    const [petAnimName, setPetAnimName] = (0, import_react.useState)(null);
+    const [petEmotion, setPetEmotion] = (0, import_react.useState)(null);
     const petRef = (0, import_react.useRef)(null);
     const speechTimer = (0, import_react.useRef)(null);
     const { petData, happiness } = state;
@@ -985,13 +992,58 @@ var LootzyApp = (() => {
     const handlePetTap = (0, import_react.useCallback)(() => {
       if (currentAnim) return;
       const h = state.happiness ?? 70;
+      let animName, emotion, mouth, dur;
+      let tx = 0, ty = 0;
+      if (h >= 85) {
+        tx = (Math.random() - 0.5) * 100;
+        ty = (Math.random() - 0.5) * 30;
+        animName = Math.random() > 0.5 ? "petJump" : "petSpin";
+        emotion = "hearts";
+        mouth = "big";
+        dur = 900;
+      } else if (h >= 65) {
+        tx = (Math.random() - 0.5) * 60;
+        ty = 0;
+        animName = Math.random() > 0.5 ? "petWiggle" : "petBump";
+        emotion = "stars";
+        mouth = "smile";
+        dur = 700;
+      } else if (h >= 40) {
+        tx = (Math.random() - 0.5) * 30;
+        ty = 0;
+        animName = "petBump";
+        emotion = null;
+        mouth = "flat";
+        dur = 500;
+      } else if (h >= 20) {
+        tx = (Math.random() - 0.5) * 15;
+        ty = 6;
+        animName = "petSlump";
+        emotion = "tears";
+        mouth = "sad";
+        dur = 800;
+      } else {
+        tx = 0;
+        ty = 0;
+        animName = "petShiver";
+        emotion = "angry";
+        mouth = "sad";
+        dur = 700;
+      }
       const pool = h >= 85 ? PET_SPEECH.vhappy : h >= 65 ? PET_SPEECH.happy : h >= 40 ? PET_SPEECH.ok : h >= 20 ? PET_SPEECH.sad : PET_SPEECH.vsad;
-      const line = pool[Math.floor(Math.random() * pool.length)];
-      setPetSpeech(line);
-      setPetBump(true);
-      setTimeout(() => setPetBump(false), 400);
+      setPetSpeech(pool[Math.floor(Math.random() * pool.length)]);
+      setPetPos({ x: tx, y: ty });
+      setPetAnimName(animName);
+      setPetEmotion(emotion);
+      setMouthOverride(mouth);
       if (speechTimer.current) clearTimeout(speechTimer.current);
-      speechTimer.current = setTimeout(() => setPetSpeech(null), 2600);
+      speechTimer.current = setTimeout(() => {
+        setPetSpeech(null);
+        setPetPos({ x: 0, y: 0 });
+        setPetAnimName(null);
+        setPetEmotion(null);
+        setMouthOverride(null);
+      }, Math.max(dur, 2400));
     }, [state.happiness, currentAnim]);
     (0, import_react.useEffect)(() => {
       const handleMove = (cx, cy) => {
@@ -1076,7 +1128,10 @@ var LootzyApp = (() => {
           gap: 6,
           zIndex: 5,
           cursor: "pointer",
-          position: "relative"
+          position: "relative",
+          transform: `translate(${petPos.x}px, ${petPos.y}px)`,
+          transition: petPos.x === 0 && petPos.y === 0 ? "transform 0.5s cubic-bezier(0.34,1.56,0.64,1)" : "transform 0.35s cubic-bezier(0.34,1.56,0.64,1)"
+          // jump out
         },
         onClick: handlePetTap,
         onTouchEnd: (e) => {
@@ -1113,14 +1168,46 @@ var LootzyApp = (() => {
         borderRight: "8px solid transparent",
         borderTop: "8px solid white"
       } })),
+      petEmotion && /* @__PURE__ */ React.createElement("div", { style: {
+        position: "absolute",
+        bottom: "85%",
+        left: "50%",
+        transform: "translateX(-50%)",
+        pointerEvents: "none",
+        zIndex: 18
+      } }, petEmotion === "hearts" && ["\u2764\uFE0F", "\u{1F495}", "\u{1F970}"].map((e, i) => /* @__PURE__ */ React.createElement("span", { key: i, style: {
+        position: "absolute",
+        fontSize: 18,
+        left: `${(i - 1) * 28}px`,
+        top: 0,
+        animation: `emotionFloat ${0.7 + i * 0.15}s ease-out ${i * 0.12}s forwards`
+      } }, e)), petEmotion === "stars" && ["\u2728", "\u2B50", "\u2728"].map((e, i) => /* @__PURE__ */ React.createElement("span", { key: i, style: {
+        position: "absolute",
+        fontSize: 16,
+        left: `${(i - 1) * 26}px`,
+        top: 0,
+        animation: `emotionFloat ${0.65 + i * 0.12}s ease-out ${i * 0.1}s forwards`
+      } }, e)), petEmotion === "tears" && ["\u{1F4A7}", "\u{1F622}", "\u{1F4A7}"].map((e, i) => /* @__PURE__ */ React.createElement("span", { key: i, style: {
+        position: "absolute",
+        fontSize: 16,
+        left: `${(i - 1) * 24}px`,
+        top: 0,
+        animation: `emotionFloat ${0.8 + i * 0.1}s ease-out ${i * 0.15}s forwards`
+      } }, e)), petEmotion === "angry" && ["\u{1F4A2}", "\u{1F624}", "\u{1F4A2}"].map((e, i) => /* @__PURE__ */ React.createElement("span", { key: i, style: {
+        position: "absolute",
+        fontSize: 16,
+        left: `${(i - 1) * 26}px`,
+        top: 0,
+        animation: `emotionFloat ${0.7 + i * 0.1}s ease-out ${i * 0.1}s forwards`
+      } }, e))),
       /* @__PURE__ */ React.createElement(
         PouPet,
         {
           petData: { ...petData || {}, mouthType },
           size: Math.min(190, window.innerWidth * 0.48),
-          bounce: !currentAnim && !state.isSleeping,
+          bounce: !currentAnim && !petAnimName && !state.isSleeping,
           mood: happiness,
-          animStyle: petBump ? { animation: "petBump 0.35s ease-out" } : petAnimStyle,
+          animStyle: petAnimName ? { animation: `${petAnimName} 0.65s ease-out` } : petAnimStyle,
           eyeOffset,
           cleanLevel: state.clean,
           isSleeping: state.isSleeping
