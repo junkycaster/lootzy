@@ -1,4 +1,59 @@
-(()=>{var wt=Object.create;var lt=Object.defineProperty;var Et=Object.getOwnPropertyDescriptor;var Ct=Object.getOwnPropertyNames;var Bt=Object.getPrototypeOf,At=Object.prototype.hasOwnProperty;var Ge=(e=>typeof require<"u"?require:typeof Proxy<"u"?new Proxy(e,{get:(a,r)=>(typeof require<"u"?require:a)[r]}):e)(function(e){if(typeof require<"u")return require.apply(this,arguments);throw Error('Dynamic require of "'+e+'" is not supported')});var Mt=(e,a,r,o)=>{if(a&&typeof a=="object"||typeof a=="function")for(let s of Ct(a))!At.call(e,s)&&s!==r&&lt(e,s,{get:()=>a[s],enumerable:!(o=Et(a,s))||o.enumerable});return e};var st=(e,a,r)=>(r=e!=null?wt(Bt(e)):{},Mt(a||!e||!e.__esModule?lt(r,"default",{value:e,enumerable:!0}):r,e));var ut=st(Ge("react")),xt=st(Ge("react-dom/client"));var y=Ge("react"),je="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&display=swap",L={coin:"#FFD700",coinD:"#E6A800",green:"#4CAF50",greenD:"#388E3C",red:"#F44336",orange:"#FF9800",cyan:"#00BCD4",yellow:"#FFE140",white:"#FFFFFF",black:"#1A1A1A",gray:"#9E9E9E",lgray:"#F5F5F5",sky:"#5BA8D4",skyD:"#3D88B8"},l={game:"'Nunito',system-ui,sans-serif"},zt="v1.0 \xB7 build 20260316-1540",Ue=`
+var LootzyApp = (() => {
+  var __create = Object.create;
+  var __defProp = Object.defineProperty;
+  var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
+  var __getOwnPropNames = Object.getOwnPropertyNames;
+  var __getProtoOf = Object.getPrototypeOf;
+  var __hasOwnProp = Object.prototype.hasOwnProperty;
+  var __require = /* @__PURE__ */ ((x) => typeof require !== "undefined" ? require : typeof Proxy !== "undefined" ? new Proxy(x, {
+    get: (a, b) => (typeof require !== "undefined" ? require : a)[b]
+  }) : x)(function(x) {
+    if (typeof require !== "undefined") return require.apply(this, arguments);
+    throw Error('Dynamic require of "' + x + '" is not supported');
+  });
+  var __copyProps = (to, from, except, desc) => {
+    if (from && typeof from === "object" || typeof from === "function") {
+      for (let key of __getOwnPropNames(from))
+        if (!__hasOwnProp.call(to, key) && key !== except)
+          __defProp(to, key, { get: () => from[key], enumerable: !(desc = __getOwnPropDesc(from, key)) || desc.enumerable });
+    }
+    return to;
+  };
+  var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__getProtoOf(mod)) : {}, __copyProps(
+    // If the importer is in node compatibility mode or this is not an ESM
+    // file that has been converted to a CommonJS file using a Babel-
+    // compatible transform (i.e. "__esModule" has not been set), then set
+    // "default" to the CommonJS "module.exports" for node compatibility.
+    isNodeMode || !mod || !mod.__esModule ? __defProp(target, "default", { value: mod, enumerable: true }) : target,
+    mod
+  ));
+
+  // lootzy-entry.jsx
+  var import_react2 = __toESM(__require("react"));
+  var import_client = __toESM(__require("react-dom/client"));
+
+  // mnt/outputs/lootzy-v4.jsx
+  var import_react = __require("react");
+  var FONT_LINK = "https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&display=swap";
+  var C = {
+    coin: "#FFD700",
+    coinD: "#E6A800",
+    green: "#4CAF50",
+    greenD: "#388E3C",
+    red: "#F44336",
+    orange: "#FF9800",
+    cyan: "#00BCD4",
+    yellow: "#FFE140",
+    white: "#FFFFFF",
+    black: "#1A1A1A",
+    gray: "#9E9E9E",
+    lgray: "#F5F5F5",
+    sky: "#5BA8D4",
+    skyD: "#3D88B8"
+  };
+  var F = { game: "'Nunito',system-ui,sans-serif" };
+  var BUILD = "v1.0 \xB7 build 20260316-2010";
+  var KEYFRAMES = `
   @keyframes pouBounce{0%,100%{transform:translateY(0) scaleX(1)}45%{transform:translateY(-9px) scaleX(0.95)}75%{transform:translateY(2px) scaleX(1.04)}}
   @keyframes pouBlink{0%,88%,100%{transform:scaleY(1)}92%{transform:scaleY(0.06)}}
   @keyframes toastIn{from{opacity:0;transform:translateX(-50%) translateY(-10px)}to{opacity:1;transform:translateX(-50%) translateY(0)}}
@@ -24,11 +79,4446 @@
   @keyframes floatZzz{0%{opacity:0;transform:translateY(0) scale(0.7)}30%{opacity:1}100%{opacity:0;transform:translateY(-60px) scale(1.2) rotate(12deg)}}
   @keyframes blockClear{0%{transform:scale(1);opacity:1}40%{transform:scale(1.2);opacity:0.9;background:#FFD700}100%{transform:scale(0);opacity:0}}
   @keyframes blockPlace{0%{transform:scale(0.6);opacity:0.5}100%{transform:scale(1);opacity:1}}
-`,dt=[{id:"eat",icon:"\u{1F356}",label:"Cho \u0102n",color:"#FF7043",lightBg:"#FFF3F0",particles:["\u{1F357}","\u{1F355}","\u{1F34E}","\u{1F32E}","\u{1F363}","\u{1F35C}","\u{1F9C1}"],petAnim:"petEat 1.6s ease-in-out",mouthOverride:"big",applyEffect:e=>({hunger:Math.min(100,e.hunger+32),happiness:Math.min(100,e.happiness+6),xp:e.xp+8,points:e.points})},{id:"bath",icon:"\u{1F6BF}",label:"T\u1EAFm",color:"#29B6F6",lightBg:"#F0FAFF",particles:["\u{1F4A7}","\u{1FAE7}","\u2728","\u{1F4A6}","\u{1F30A}","\u{1F9FC}"],petAnim:"petShake 1.5s ease-in-out",applyEffect:e=>({clean:Math.min(100,e.clean+38),happiness:Math.min(100,e.happiness+10),xp:e.xp+6,points:e.points})},{id:"play",icon:"\u{1F3AE}",label:"Ch\u01A1i",color:"#AB47BC",lightBg:"#F9F0FF",particles:["\u2B50","\u{1F31F}","\u2728","\u{1F389}","\u{1F38A}","\u{1F4AB}","\u{1F308}"],petAnim:"petWiggle 1.4s ease-in-out",applyEffect:e=>({happiness:Math.min(100,e.happiness+28),energy:Math.max(0,e.energy-10),xp:e.xp+12,points:e.points+10})},{id:"sleep",icon:"\u{1F634}",label:"Ng\u1EE7",color:"#7E57C2",lightBg:"#F3F0FF",particles:["\u{1F4A4}","\u{1F319}","\u2B50","\u2728","\u{1F634}","\u2601\uFE0F","\u{1F4A4}"],petAnim:"petSleep 2.5s ease-in-out",applyEffect:e=>({energy:Math.min(100,e.energy+42),happiness:Math.min(100,e.happiness+8),hunger:Math.max(0,e.hunger-6),xp:e.xp+10,points:e.points})}],He=[{id:"pts100",emoji:"\u{1FA99}",name:"+100 \u0111i\u1EC3m",pts:100,xp:0,type:"points",rarity:"common",color:"#66BB6A",label:"Th\u01B0\u1EDDng"},{id:"pts200",emoji:"\u{1F4B0}",name:"+200 \u0111i\u1EC3m",pts:200,xp:0,type:"points",rarity:"common",color:"#66BB6A",label:"Th\u01B0\u1EDDng"},{id:"xp50",emoji:"\u2B50",name:"+50 XP",pts:0,xp:50,type:"points",rarity:"common",color:"#66BB6A",label:"Th\u01B0\u1EDDng"},{id:"food3",emoji:"\u{1F34E}",name:"\u0110\u1ED3 \u0103n \xD73",pts:0,xp:10,type:"pet_item",rarity:"common",color:"#81C784",label:"Th\u01B0\u1EDDng"},{id:"drink2",emoji:"\u{1F9C3}",name:"Th\u1EE9c u\u1ED1ng",pts:30,xp:0,type:"pet_item",rarity:"common",color:"#81C784",label:"Th\u01B0\u1EDDng"},{id:"garena5",emoji:"\u{1F3AE}",name:"Garena 5K",pts:0,xp:0,type:"voucher",rarity:"rare",color:"#29B6F6",label:"Hi\u1EBFm",desc:"Th\u1EBB n\u1EA1p Garena 5.000\u0111"},{id:"garena10",emoji:"\u{1F0CF}",name:"Garena 10K",pts:0,xp:0,type:"voucher",rarity:"rare",color:"#29B6F6",label:"Hi\u1EBFm",desc:"Th\u1EBB n\u1EA1p Garena 10.000\u0111"},{id:"pts500",emoji:"\u{1F48E}",name:"+500 \u0111i\u1EC3m",pts:500,xp:0,type:"points",rarity:"rare",color:"#29B6F6",label:"Hi\u1EBFm"},{id:"garena50",emoji:"\u{1F396}\uFE0F",name:"Garena 50K",pts:0,xp:0,type:"voucher",rarity:"epic",color:"#FF9800",label:"Huy\u1EC1n tho\u1EA1i",desc:"Th\u1EBB n\u1EA1p Garena 50.000\u0111"},{id:"garena100",emoji:"\u{1F4B3}",name:"Garena 100K",pts:0,xp:0,type:"voucher",rarity:"epic",color:"#FF9800",label:"Huy\u1EC1n tho\u1EA1i",desc:"Th\u1EBB n\u1EA1p Garena 100.000\u0111"},{id:"gift_real",emoji:"\u{1F381}",name:"Qu\xE0 th\u1EADt",pts:0,xp:0,type:"physical",rarity:"epic",color:"#E040FB",label:"Huy\u1EC1n tho\u1EA1i",desc:"Li\xEAn h\u1EC7 HEAVY \u0111\u1EC3 nh\u1EADn"}],gt=(e=1)=>{let a=Math.max(1,e),r=Math.min(.45,.05+(a-1)*.014),o=Math.min(.48,.3+(a-1)*.006),s=Math.random(),g=s>1-r?He.filter(m=>m.rarity==="epic"):s>1-r-o?He.filter(m=>m.rarity==="rare"):He.filter(m=>m.rarity==="common");return g[Math.floor(Math.random()*g.length)]},ct=[[[1]],[[1,1]],[[1],[1]],[[1,1,1]],[[1],[1],[1]],[[1,1],[1,1]],[[1,1,0],[0,1,1]],[[0,1,1],[1,1,0]],[[1,0],[1,0],[1,1]],[[0,1],[0,1],[1,1]],[[1,1,1],[0,1,0]],[[1,1,1,1]],[[1,1],[0,1],[0,1]],[[1,1],[1,0],[1,0]],[[1,0,0],[1,1,1]],[[0,0,1],[1,1,1]],[[1,0],[1,1],[0,1]],[[0,1],[1,1],[1,0]]],Oe=[{name:"common",bg:"#66BB6A",border:"#388E3C",pts:[5,8,10],w:65},{name:"rare",bg:"#42A5F5",border:"#0277BD",pts:[12,15,18],w:28},{name:"epic",bg:"#CE93D8",border:"#7B1FA2",pts:[20,25,30],w:7}],Ce=[{tier:0,r:14,pts:2,color:"#00E5FF",dark:"#006080",name:"T\xED Hon"},{tier:1,r:20,pts:5,color:"#00BFA5",dark:"#005248",name:"Nh\u1ECF Nh\u1ECF"},{tier:2,r:27,pts:10,color:"#69F0AE",dark:"#1B5E20",name:"V\u1EEBa V\u1EEBa"},{tier:3,r:35,pts:18,color:"#B4FF00",dark:"#4A6000",name:"Tr\xF2n Tr\u1ECBa"},{tier:4,r:44,pts:30,color:"#FFD740",dark:"#C67C00",name:"To \u0110\xF9ng"},{tier:5,r:54,pts:50,color:"#FF6D00",dark:"#7F2800",name:"Kh\u1ED5ng L\u1ED3"},{tier:6,r:65,pts:80,color:"#E040FB",dark:"#5E0070",name:"Si\xEAu C\u1EA5p"},{tier:7,r:77,pts:120,color:"#FF1744",dark:"#7F0014",name:"Huy\u1EC1n Tho\u1EA1i"},{tier:8,r:90,pts:180,color:"#FAFAFA",dark:"#B0BEC5",name:"T\u1ED1i Th\u01B0\u1EE3ng"}],Ve=()=>{let e=Math.random()*100,a=e<7?Oe[2]:e<35?Oe[1]:Oe[0],r=ct[Math.floor(Math.random()*ct.length)],o=[];for(let s=0;s<r.length;s++)for(let g=0;g<r[s].length;g++)r[s][g]&&o.push(a.pts[Math.floor(Math.random()*a.pts.length)]);return{shape:r,rar:a,pts:o}},$e=(e,a,r,o)=>{for(let s=0;s<e.length;s++)for(let g=0;g<e[s].length;g++){if(!e[s][g])continue;let m=a+s,b=r+g;if(m<0||m>=8||b<0||b>=8||o[m][b]!==null)return!1}return!0},Dt=[{days:3,icon:"\u{1F331}",boxes:1,pts:0,label:"3 ng\xE0y"},{days:7,icon:"\u{1F33F}",boxes:2,pts:100,label:"7 ng\xE0y"},{days:14,icon:"\u{1F333}",boxes:3,pts:300,label:"14 ng\xE0y"},{days:30,icon:"\u{1F3C6}",boxes:5,pts:500,label:"30 ng\xE0y"}],Tt={LOOTZY2026:{msg:"\u{1F38A} +500 \u0111i\u1EC3m + 2 h\u1ED9p qu\xE0!",pts:500,boxes:2},WELCOME100:{msg:"\u{1F389} +100 \u0111i\u1EC3m",pts:100,boxes:0},HEAVY2026:{msg:"\u2B50 +1000 \u0111i\u1EC3m + 3 h\u1ED9p qu\xE0!",pts:1e3,boxes:3},GARENA2026:{msg:"\u{1F3AE} +5 h\u1ED9p qu\xE0 Garena!",pts:0,boxes:5}},pt=[{id:"apple",icon:"\u{1F34E}",name:"T\xE1o T\u01B0\u01A1i",category:"food",desc:"\u{1F34E} +20 no",cost:25,effect:{hunger:20}},{id:"meat",icon:"\u{1F356}",name:"Th\u1ECBt N\u01B0\u1EDBng",category:"food",desc:"\u{1F34E} +40 no",cost:55,effect:{hunger:40}},{id:"cake",icon:"\u{1F382}",name:"B\xE1nh Kem",category:"food",desc:"\u{1F34E}+20 \u2764\uFE0F+15",cost:70,effect:{hunger:20,happiness:15}},{id:"milk",icon:"\u{1F95B}",name:"S\u1EEFa T\u01B0\u01A1i",category:"food",desc:"\u{1F34E}+15 \u26A1+20",cost:65,effect:{hunger:15,energy:20}},{id:"soap",icon:"\u{1F9FC}",name:"X\xE0 Ph\xF2ng",category:"clean",desc:"\u{1F9FC} +30",cost:40,effect:{clean:30}},{id:"perfume",icon:"\u{1F338}",name:"N\u01B0\u1EDBc Hoa",category:"clean",desc:"\u{1F9FC} +50",cost:85,effect:{clean:50}},{id:"toy",icon:"\u{1F3AE}",name:"\u0110\u1ED3 Ch\u01A1i",category:"fun",desc:"\u2764\uFE0F +25",cost:50,effect:{happiness:25}},{id:"ball",icon:"\u26BD",name:"Qu\u1EA3 B\xF3ng",category:"fun",desc:"\u2764\uFE0F+30 XP+5",cost:60,effect:{happiness:30,xp:5}},{id:"drink",icon:"\u26A1",name:"N\u01B0\u1EDBc T\u0103ng L\u1EF1c",category:"boost",desc:"\u26A1 +40",cost:80,effect:{energy:40}},{id:"potion",icon:"\u{1F9EA}",name:"Thu\u1ED1c \u0110\u1EB7c Bi\u1EC7t",category:"boost",desc:"+25 t\u1EA5t c\u1EA3",cost:150,effect:{hunger:25,happiness:25,clean:25,energy:25}},{id:"crown",icon:"\u{1F451}",name:"V\u01B0\u01A1ng Mi\u1EC7n",category:"boost",desc:"\u2764\uFE0F+50 XP+30",cost:200,effect:{happiness:50,xp:30}},{id:"star",icon:"\u2B50",name:"Ng\xF4i Sao May",category:"boost",desc:"XP +100",cost:180,effect:{xp:100}}],Pe=[{name:"\u0110\u1ED3ng",icon:"\u{1F949}",color:"#CD8B52",minPts:0},{name:"B\u1EA1c",icon:"\u{1F948}",color:"#B8C4CC",minPts:500},{name:"V\xE0ng",icon:"\u{1F947}",color:"#FFD700",minPts:1500},{name:"B\u1EA1ch Kim",icon:"\u{1F48E}",color:"#A78BFA",minPts:3e3},{name:"Kim C\u01B0\u01A1ng",icon:"\u{1F48D}",color:"#22D3EE",minPts:5e3}],Ke=e=>[...Pe].reverse().find(a=>e>=a.minPts)||Pe[0],Rt=[{rank:1,name:"MeoNhon_99",icon:"\u{1F431}",lv:28,pts:6720,petColor:"#E8A87C",hunger:92,happiness:98,clean:78,energy:88,tagline:"Nh\xE0 v\xF4 \u0111\u1ECBch kh\xF4ng ngai \u{1F451}",petName:"Miu Miu",badges:["\u{1F947}","\u{1F525}","\u{1F48E}"],streak:21},{rank:2,name:"HoThuong",icon:"\u{1F42F}",lv:25,pts:5840,petColor:"#FF9800",hunger:80,happiness:85,clean:94,energy:70,tagline:"Chi\u1EBFn binh b\u1EA5t khu\u1EA5t \u{1F525}",petName:"H\u1ED5 Con",badges:["\u{1F948}","\u26A1","\u{1F3CB}"],streak:14},{rank:3,name:"CunCon2006",icon:"\u{1F436}",lv:22,pts:4980,petColor:"#90EE90",hunger:65,happiness:95,clean:60,energy:82,tagline:"Vui v\u1EBB m\u1ED7i ng\xE0y \u{1F31F}",petName:"B\xF4ng",badges:["\u{1F949}","\u{1F31F}","\u{1F3AE}"],streak:9},{rank:4,name:"SoiGia",icon:"\u{1F43A}",lv:17,pts:2750,petColor:"#7CB9E8",hunger:50,happiness:72,clean:85,energy:58,tagline:"\u0110ang leo rank nhanh \u26A1",petName:"Wolf Jr",badges:["\u{1F680}","\u{1F4AA}"],streak:5},{rank:5,name:"B\u1EA1n",icon:"\u{1F31F}",lv:6,pts:340,petColor:null,hunger:null,happiness:null,clean:null,energy:null,tagline:"\u0110\xF3 l\xE0 b\u1EA1n! \u{1F64B}",petName:null,badges:["\u{1F331}"],streak:3}],It=["#C8956C","#E8A87C","#8B6347","#D4A373","#F4A261","#E76F51","#6AB4C8","#7CB9E8","#90EE90","#FFB347","#DDA0DD","#FF69B4"],oe=(e,a,r)=>Math.min(r,Math.max(a,e));function Xe(e,a=4){if(e.length<=2)return e;let[r,o]=[e[0],e[e.length-1]],s=0,g=0;for(let m=1;m<e.length-1;m++){let b=o.x-r.x,f=o.y-r.y,d=Math.sqrt(b*b+f*f),u=d===0?Math.hypot(e[m].x-r.x,e[m].y-r.y):Math.abs(b*(r.y-e[m].y)-(r.x-e[m].x)*f)/d;u>s&&(s=u,g=m)}return s>a?[...Xe(e.slice(0,g+1),a).slice(0,-1),...Xe(e.slice(g),a)]:[r,o]}function Pt(e){if(!e||e.length<3)return"";let a=e.length,r=`M ${e[0].x.toFixed(1)} ${e[0].y.toFixed(1)}`;for(let o=0;o<a;o++){let s=e[(o-1+a)%a],g=e[o],m=e[(o+1)%a],b=e[(o+2)%a],f=g.x+(m.x-s.x)/6,d=g.y+(m.y-s.y)/6,u=m.x-(b.x-g.x)/6,B=m.y-(b.y-g.y)/6;r+=` C ${f.toFixed(1)} ${d.toFixed(1)},${u.toFixed(1)} ${B.toFixed(1)},${m.x.toFixed(1)} ${m.y.toFixed(1)}`}return r+" Z"}var ft=[{x:.5,y:.08},{x:.63,y:.12},{x:.76,y:.22},{x:.85,y:.38},{x:.88,y:.56},{x:.82,y:.72},{x:.68,y:.82},{x:.52,y:.86},{x:.36,y:.86},{x:.22,y:.82},{x:.12,y:.72},{x:.1,y:.56},{x:.13,y:.38},{x:.22,y:.22},{x:.35,y:.12}],Wt=(e,a,r)=>e.map(o=>({x:o.x*a,y:o.y*r}));function xe({petData:e={},size:a=160,bounce:r=!0,mood:o=70,animStyle:s,eyeOffset:g={x:0,y:0},cleanLevel:m=100,isSleeping:b=!1}){let{drawnPath:f,color:d="#C8956C",eyeLeft:u,eyeRight:B,mouth:k,mouthType:x="smile"}=e,p=200,S=200,n=Wt(f||ft,p,S),h=Pt(n),A=u||{x:.36,y:.4},U=B||{x:.64,y:.4},Z=k||{x:.5,y:.62},ne=A.x*p,H=A.y*S,Q=U.x*p,Y=U.y*S,I=Z.x*p,F=Z.y*S,w=p*.1,W=w*.5,G=w*.38,X=g.x*G,le=g.y*G,ie=Math.max(0,100-m),re=ie/100,pe=[{cx:.58,cy:.55,r:.055},{cx:.35,cy:.6,r:.04},{cx:.72,cy:.4,r:.033},{cx:.28,cy:.45,r:.03},{cx:.5,cy:.7,r:.045},{cx:.65,cy:.72,r:.028},{cx:.4,cy:.75,r:.025},{cx:.55,cy:.38,r:.022}],he=()=>{if(b)return React.createElement("path",{d:`M ${I-p*.06} ${F} Q ${I} ${F+p*.04} ${I+p*.06} ${F}`,stroke:L.black,strokeWidth:"2",fill:"none",strokeLinecap:"round"});let ee=p*.09;switch(x){case"big":return React.createElement("path",{d:`M ${I-ee*1.2} ${F-ee*.2} Q ${I} ${F+ee*1.5} ${I+ee*1.2} ${F-ee*.2}`,fill:"#8B2020",stroke:L.black,strokeWidth:"2",strokeLinecap:"round"});case"flat":return React.createElement("path",{d:`M ${I-ee} ${F} L ${I+ee} ${F}`,stroke:L.black,strokeWidth:"2.5",strokeLinecap:"round",fill:"none"});case"sad":return React.createElement("path",{d:`M ${I-ee} ${F+ee*.4} Q ${I} ${F-ee*.6} ${I+ee} ${F+ee*.4}`,stroke:L.black,strokeWidth:"2.5",fill:"none",strokeLinecap:"round"});default:return React.createElement("path",{d:`M ${I-ee} ${F} Q ${I} ${F+ee*1.2} ${I+ee} ${F}`,stroke:L.black,strokeWidth:"2.5",fill:"none",strokeLinecap:"round"})}};return React.createElement("div",{style:{width:a,height:a,flexShrink:0,animation:b?"petSleep 2.5s ease-in-out infinite":s||(r?"pouBounce 2s ease-in-out infinite":"none")}},React.createElement("svg",{viewBox:`0 0 ${p} ${S}`,width:a,height:a,style:{overflow:"visible"}},React.createElement("ellipse",{cx:p*.5,cy:S*.97,rx:p*.28,ry:S*.045,fill:"rgba(0,0,0,0.12)"}),React.createElement("path",{d:h,fill:d,stroke:L.black,strokeWidth:"3.5",strokeLinejoin:"round"}),React.createElement("path",{d:h,fill:"rgba(255,255,255,0.22)"}),ie>20&&pe.slice(0,Math.ceil(ie/12)).map((ee,fe)=>React.createElement("ellipse",{key:fe,cx:ee.cx*p,cy:ee.cy*S,rx:ee.r*p*(.7+fe*.05),ry:ee.r*S*.75,fill:`rgba(101,67,33,${Math.min(.65,re*(.4+fe*.06))})`,transform:`rotate(${fe*23},${ee.cx*p},${ee.cy*S})`})),m<30&&React.createElement("path",{d:h,fill:`rgba(80,50,20,${.18+(30-m)*.005})`}),o<30&&React.createElement(React.Fragment,null,React.createElement("circle",{cx:p*.62,cy:S*.52,r:5,fill:"rgba(0,0,0,0.12)"}),React.createElement("circle",{cx:p*.44,cy:S*.65,r:4,fill:"rgba(0,0,0,0.10)"})),b?React.createElement(React.Fragment,null,React.createElement("line",{x1:ne-w*.8,y1:H,x2:ne+w*.8,y2:H,stroke:L.black,strokeWidth:"3",strokeLinecap:"round"}),React.createElement("line",{x1:Q-w*.8,y1:Y,x2:Q+w*.8,y2:Y,stroke:L.black,strokeWidth:"3",strokeLinecap:"round"})):React.createElement(React.Fragment,null,React.createElement("g",{style:{animation:"pouBlink 3.5s infinite",transformOrigin:`${ne}px ${H}px`}},React.createElement("circle",{cx:ne,cy:H,r:w,fill:"white",stroke:L.black,strokeWidth:"2.5"}),React.createElement("circle",{cx:ne+X,cy:H+le,r:W,fill:L.black}),React.createElement("circle",{cx:ne+X-W*.35,cy:H+le-W*.4,r:W*.25,fill:"white"})),React.createElement("g",{style:{animation:"pouBlink 3.5s 0.18s infinite",transformOrigin:`${Q}px ${Y}px`}},React.createElement("circle",{cx:Q,cy:Y,r:w,fill:"white",stroke:L.black,strokeWidth:"2.5"}),React.createElement("circle",{cx:Q+X,cy:Y+le,r:W,fill:L.black}),React.createElement("circle",{cx:Q+X-W*.35,cy:Y+le-W*.4,r:W*.25,fill:"white"}))),he(),b&&React.createElement(React.Fragment,null,React.createElement("text",{x:Q+w*2.5,y:H-w*2,fontSize:p*.1,fill:"#7E57C2",fontWeight:"900",opacity:"0.9",style:{animation:"floatZzz 2s 0s ease-in-out infinite"}},"z"),React.createElement("text",{x:Q+w*3.5,y:H-w*3.4,fontSize:p*.07,fill:"#9575CD",fontWeight:"900",opacity:"0.7",style:{animation:"floatZzz 2s 0.7s ease-in-out infinite"}},"z"),React.createElement("text",{x:Q+w*4.5,y:H-w*4.6,fontSize:p*.05,fill:"#B39DDB",fontWeight:"900",opacity:"0.5",style:{animation:"floatZzz 2s 1.4s ease-in-out infinite"}},"z")),!b&&o>55&&React.createElement(React.Fragment,null,React.createElement("ellipse",{cx:ne-w*2.2,cy:H+w*.8,rx:w*1.4,ry:w*.8,fill:"#FF9BB2",opacity:"0.32"}),React.createElement("ellipse",{cx:Q+w*2.2,cy:Y+w*.8,rx:w*1.4,ry:w*.8,fill:"#FF9BB2",opacity:"0.32"}))))}function $t({action:e}){let a=(0,y.useRef)(Array.from({length:14},(r,o)=>{let s=["floatUp","floatUpL","floatUpR"];return{emoji:e.particles[o%e.particles.length],left:8+Math.random()*84,size:16+Math.random()*18,delay:o*.1,dur:.75+Math.random()*.55,anim:s[o%3]}})).current;return React.createElement("div",{style:{position:"absolute",inset:0,pointerEvents:"none",zIndex:30,overflow:"hidden"}},a.map((r,o)=>React.createElement("div",{key:o,style:{position:"absolute",left:`${r.left}%`,bottom:"20%",fontSize:r.size,opacity:0,animation:`${r.anim} ${r.dur}s ${r.delay}s ease-out forwards`}},r.emoji)))}function Lt({onAction:e,onClose:a,onStartGame:r,onStartWaterGame:o,state:s}){let g=dt.slice(0,3),m=dt[3],b=s.inventory||[],f=b.filter(p=>p&&p.category==="food").length,d=b.filter(p=>p&&p.category==="clean").length,u=s.clean<=85,B=s.clean>85,k=p=>p==="eat"?f===0?{text:"\u274C Kh\xF4ng c\xF3 \u0111\u1ED3 \u0103n",warn:!0}:{text:`\u{1F34E} \xD7${f} trong t\xFAi`,warn:!1}:p==="bath"?B?{text:"\u2705 \u0110ang s\u1EA1ch r\u1ED3i!",warn:!0}:s.clean<30?{text:"\u{1F9FC} R\u1EA5t b\u1EA9n! T\u1EAFm ngay",warn:!1}:{text:d>0?`\u{1F9FC} \xD7${d} trong t\xFAi`:"\u{1F9FC} B\u1EA9n - c\u1EA7n t\u1EAFm",warn:!1}:p==="play"?{text:"+12 XP \xB7 +10 \u0111i\u1EC3m",warn:!1}:null,x=({a:p})=>{let S=k(p.id);return React.createElement("button",{onClick:()=>e(p),style:{background:p.lightBg,border:`2.5px solid ${p.color}55`,borderRadius:20,padding:"12px 6px 10px",cursor:"pointer",display:"flex",flexDirection:"column",alignItems:"center",gap:4,transition:"transform 0.12s, box-shadow 0.12s",boxShadow:`0 3px 12px ${p.color}22`,flex:1},onMouseDown:n=>{n.currentTarget.style.transform="scale(0.90)",n.currentTarget.style.boxShadow="none"},onMouseUp:n=>{n.currentTarget.style.transform="scale(1)",n.currentTarget.style.boxShadow=`0 3px 12px ${p.color}22`}},React.createElement("span",{style:{fontSize:30,lineHeight:1}},p.icon),React.createElement("span",{style:{fontFamily:l.game,fontWeight:900,fontSize:11,color:p.color,textAlign:"center"}},p.label),S&&React.createElement("span",{style:{fontFamily:l.game,fontSize:8,fontWeight:800,textAlign:"center",lineHeight:1.2,color:S.warn?"#E53935":"#757575",background:S.warn?"#FFEBEE":"#F5F5F5",borderRadius:6,padding:"2px 5px",marginTop:1}},S.text))};return React.createElement("div",{onClick:a,style:{position:"absolute",inset:0,background:"rgba(0,0,0,0.4)",zIndex:40,display:"flex",flexDirection:"column",justifyContent:"flex-end"}},React.createElement("div",{onClick:p=>p.stopPropagation(),style:{background:"white",borderRadius:"26px 26px 0 0",padding:"14px 16px 24px",animation:"slideUp 0.22s ease-out"}},React.createElement("div",{style:{width:40,height:5,borderRadius:99,background:"#E0E0E0",margin:"0 auto 14px"}}),React.createElement("div",{style:{display:"flex",alignItems:"center",justifyContent:"space-between",marginBottom:14}},React.createElement("div",{style:{fontFamily:l.game,fontWeight:900,fontSize:15,color:L.black}},"\u26A1 Ch\u0103m s\xF3c pet"),React.createElement("div",{style:{display:"flex",gap:5}},[{icon:"\u{1F34E}",v:s.hunger,c:"#4CAF50"},{icon:"\u2764\uFE0F",v:s.happiness,c:"#E53935"},{icon:"\u{1F9FC}",v:s.clean,c:"#29B6F6"},{icon:"\u26A1",v:s.energy,c:"#F9A825"}].map(p=>React.createElement("div",{key:p.icon,style:{background:`${p.c}18`,borderRadius:8,padding:"3px 5px",textAlign:"center",border:`1.5px solid ${p.v<30?p.c+"88":"transparent"}`}},React.createElement("div",{style:{fontSize:12}},p.icon),React.createElement("div",{style:{fontFamily:l.game,fontSize:8,fontWeight:800,color:p.v<30?p.c:"#BDBDBD",marginTop:1}},p.v))))),React.createElement("div",{style:{display:"flex",gap:10,marginBottom:10}},g.map(p=>React.createElement(x,{key:p.id,a:p}))),React.createElement("button",{onClick:()=>e(m),disabled:s.isSleeping,style:{width:"100%",background:s.isSleeping?"#EDE7F6":"linear-gradient(135deg,#EDE7F6,#D1C4E9)",border:"2.5px solid #7E57C255",borderRadius:20,padding:"14px 24px",cursor:s.isSleeping?"not-allowed":"pointer",display:"flex",alignItems:"center",justifyContent:"center",gap:14,transition:"transform 0.12s, box-shadow 0.12s",boxShadow:"0 3px 12px #7E57C222",opacity:s.isSleeping?.65:1},onMouseDown:p=>{s.isSleeping||(p.currentTarget.style.transform="scale(0.97)")},onMouseUp:p=>{p.currentTarget.style.transform="scale(1)"}},React.createElement("span",{style:{fontSize:36,lineHeight:1}},"\u{1F634}"),React.createElement("div",{style:{textAlign:"left"}},React.createElement("div",{style:{fontFamily:l.game,fontWeight:900,fontSize:14,color:"#5E35B1"}},s.isSleeping?"\u0110ang ng\u1EE7\u2026":"Ng\u1EE7"),React.createElement("div",{style:{fontFamily:l.game,fontSize:11,color:"#9575CD",marginTop:2}},s.isSleeping?`\u23F3 Ch\u1EDD ${Math.max(0,Math.ceil(((s.sleepUntil||Date.now())-Date.now())/1e3))}s n\u1EEFa th\u1EE9c`:`+45 \u26A1 \xB7 +8 \u2764\uFE0F \xB7 +15 XP \xB7 ng\u1EE7 ${s.SLEEP_SECS||30}s`)),React.createElement("span",{style:{fontSize:20,marginLeft:"auto",opacity:.6}},"\u{1F4A4}")),React.createElement("button",{onClick:()=>{a(),r&&r()},style:{width:"100%",marginTop:10,background:"linear-gradient(135deg,#1A1A2E,#16213E)",border:"2.5px solid #B4FF0055",borderRadius:20,padding:"13px 24px",cursor:"pointer",display:"flex",alignItems:"center",justifyContent:"center",gap:14,transition:"transform 0.12s, box-shadow 0.12s",boxShadow:"0 4px 16px rgba(180,255,0,0.18)"},onMouseDown:p=>{p.currentTarget.style.transform="scale(0.97)"},onMouseUp:p=>{p.currentTarget.style.transform="scale(1)"}},React.createElement("span",{style:{fontSize:34,lineHeight:1}},"\u{1F3AE}"),React.createElement("div",{style:{textAlign:"left"}},React.createElement("div",{style:{fontFamily:l.game,fontWeight:900,fontSize:14,color:"#B4FF00"}},"Ch\u01A1i Block Blast"),React.createElement("div",{style:{fontFamily:l.game,fontSize:11,color:"#78909C",marginTop:2}},"Ki\u1EBFm \u{1FA99} \xB7 +\u2764\uFE0F h\u1EA1nh ph\xFAc \xB7 \u2212\u26A1 n\u0103ng l\u01B0\u1EE3ng")),React.createElement("span",{style:{fontSize:18,marginLeft:"auto",color:"#B4FF00",opacity:.8}},"\u25B6")),React.createElement("button",{onClick:()=>{a(),o&&o()},style:{width:"100%",marginTop:8,background:"linear-gradient(135deg,#0D1B2A,#1B3A5C)",border:"2.5px solid rgba(41,182,246,0.45)",borderRadius:20,padding:"13px 24px",cursor:"pointer",display:"flex",alignItems:"center",justifyContent:"center",gap:14,transition:"transform 0.12s, box-shadow 0.12s",boxShadow:"0 4px 16px rgba(41,182,246,0.22)"},onMouseDown:p=>{p.currentTarget.style.transform="scale(0.97)"},onMouseUp:p=>{p.currentTarget.style.transform="scale(1)"}},React.createElement("span",{style:{fontSize:34,lineHeight:1}},"\u{1F4A7}"),React.createElement("div",{style:{textAlign:"left"}},React.createElement("div",{style:{fontFamily:l.game,fontWeight:900,fontSize:14,color:"#29B6F6"}},"Th\u1EA3 B\xF3ng N\u01B0\u1EDBc"),React.createElement("div",{style:{fontFamily:l.game,fontSize:11,color:"#78909C",marginTop:2}},"Gh\xE9p b\xF3ng \u2192 b\xF3ng to \xB7 +\u2764\uFE0F h\u1EA1nh ph\xFAc \xB7 \u2212\u26A1 n\u0103ng l\u01B0\u1EE3ng")),React.createElement("span",{style:{fontSize:18,marginLeft:"auto",color:"#29B6F6",opacity:.8}},"\u25B6"))))}function Yt({onClose:e,state:a,dispatch:r,showToast:o}){let{points:s}=a,[g,m]=(0,y.useState)(null),b=x=>{if(s<x.cost){o("\u274C Kh\xF4ng \u0111\u1EE7 \u0111i\u1EC3m!");return}r({type:"BUY_ITEM",id:x.id,icon:x.icon,name:x.name,category:x.category,cost:x.cost,effect:x.effect}),m(x.id),o(`${x.icon} ${x.name} \u0111\xE3 mua! ${x.desc}`),setTimeout(()=>m(null),1200),a.doneMissions?.includes("d4")||r({type:"COMPLETE_MISSION",id:"d4",xp:20,pts:30})},f=[{key:"all",label:"T\u1EA5t c\u1EA3",icon:"\u{1F6CD}\uFE0F"},{key:"food",label:"Th\u1EE9c \u0103n",icon:"\u{1F34E}"},{key:"clean",label:"V\u1EC7 sinh",icon:"\u{1F9FC}"},{key:"fun",label:"Vui ch\u01A1i",icon:"\u{1F3AE}"},{key:"boost",label:"Boost",icon:"\u26A1"}],[d,u]=(0,y.useState)("all"),B={food:["apple","meat","cake","milk"],clean:["soap","perfume"],fun:["toy","ball","crown"],boost:["drink","potion","star"]},k=d==="all"?pt:pt.filter(x=>(B[d]||[]).includes(x.id));return React.createElement("div",{onClick:e,style:{position:"absolute",inset:0,background:"rgba(0,0,0,0.5)",zIndex:50,display:"flex",flexDirection:"column",justifyContent:"flex-end"}},React.createElement("div",{onClick:x=>x.stopPropagation(),style:{background:"#F9F9F9",borderRadius:"24px 24px 0 0",maxHeight:"78%",display:"flex",flexDirection:"column",animation:"slideUp 0.24s ease-out",overflow:"hidden"}},React.createElement("div",{style:{padding:"10px 16px 0",flexShrink:0}},React.createElement("div",{style:{width:40,height:5,borderRadius:99,background:"#E0E0E0",margin:"0 auto 12px"}}),React.createElement("div",{style:{display:"flex",alignItems:"center",justifyContent:"space-between",marginBottom:10}},React.createElement("div",{style:{fontFamily:l.game,fontWeight:900,fontSize:16,color:L.black}},"\u{1F6D2} Shop Pet"),React.createElement("div",{style:{background:"rgba(255,215,0,0.15)",borderRadius:20,padding:"5px 12px",border:"1.5px solid rgba(255,215,0,0.4)",fontFamily:l.game,fontWeight:900,fontSize:13,color:"#E6A800",display:"flex",alignItems:"center",gap:5}},"\u{1F4B0} ",s.toLocaleString())),React.createElement("div",{style:{display:"flex",gap:6,overflowX:"auto",paddingBottom:10}},f.map(x=>React.createElement("button",{key:x.key,onClick:()=>u(x.key),style:{background:d===x.key?"#1A1A1A":"white",border:"1.5px solid"+(d===x.key?"#1A1A1A":"#EEEEEE"),borderRadius:99,padding:"5px 12px",cursor:"pointer",flexShrink:0,display:"flex",alignItems:"center",gap:4,fontFamily:l.game,fontWeight:800,fontSize:11,color:d===x.key?"white":"#999"}},React.createElement("span",null,x.icon),React.createElement("span",null,x.label))))),React.createElement("div",{style:{overflowY:"auto",padding:"0 12px 24px",flex:1}},React.createElement("div",{style:{display:"grid",gridTemplateColumns:"repeat(2,1fr)",gap:10}},k.map(x=>{let p=s>=x.cost,S=g===x.id;return React.createElement("div",{key:x.id,style:{background:S?"#E8F5E9":p?"white":"#FAFAFA",borderRadius:18,padding:"14px 12px",border:`1.5px solid ${S?"#66BB6A":p?"#EEEEEE":"#F0F0F0"}`,boxShadow:p?"0 3px 12px rgba(0,0,0,0.06)":"none",display:"flex",flexDirection:"column",alignItems:"center",gap:6,transition:"all 0.2s"}},React.createElement("span",{style:{fontSize:36,filter:p?"none":"grayscale(0.7) opacity(0.55)"}},x.icon),React.createElement("div",{style:{fontFamily:l.game,fontWeight:900,fontSize:12,color:p?L.black:"#BDBDBD",textAlign:"center"}},x.name),React.createElement("div",{style:{fontFamily:l.game,fontSize:10,color:"#BDBDBD",textAlign:"center",lineHeight:1.4}},x.desc),React.createElement("button",{onClick:()=>b(x),style:{background:S?"#4CAF50":p?"#1A1A1A":"#E0E0E0",border:"none",borderRadius:12,padding:"8px 0",width:"100%",cursor:p?"pointer":"not-allowed",fontFamily:l.game,fontWeight:900,fontSize:12,color:S?"white":p?"#FFD700":"#BDBDBD",transition:"background 0.2s"}},S?"\u2713 \u0110\xE3 mua":`\u{1F4B0} ${x.cost}`))})))))}function Le({icon:e,value:a,max:r=100,color:o=L.green}){let s=Math.max(0,Math.min(100,a/r*100)),g=s<30;return React.createElement("div",{style:{display:"flex",flexDirection:"column",alignItems:"center",gap:2,minWidth:32,background:g?`${o}22`:"rgba(255,255,255,0.07)",borderRadius:8,padding:"4px 5px",border:g?`1px solid ${o}66`:"1px solid transparent",transition:"background 0.3s"}},React.createElement("div",{style:{fontSize:14,lineHeight:1}},e),React.createElement("div",{style:{width:28,height:4,background:"rgba(255,255,255,0.15)",borderRadius:99,overflow:"hidden"}},React.createElement("div",{style:{width:`${s}%`,height:4,background:o,borderRadius:99,transition:"width 0.3s"}})),React.createElement("div",{style:{fontFamily:l.game,fontWeight:900,fontSize:9,color:g?o:"rgba(255,255,255,0.75)"}},a))}function Xt({sleepUntil:e}){let[a,r]=(0,y.useState)(Math.max(0,Math.ceil((e-Date.now())/1e3)));return(0,y.useEffect)(()=>{let o=setInterval(()=>{let s=Math.max(0,Math.ceil((e-Date.now())/1e3));r(s),s<=0&&clearInterval(o)},500);return()=>clearInterval(o)},[e]),React.createElement("div",{style:{display:"flex",flexDirection:"column",alignItems:"center",gap:6}},React.createElement("div",{style:{background:"rgba(126,87,194,0.85)",borderRadius:99,padding:"10px 28px",fontFamily:l.game,fontWeight:900,fontSize:14,color:"white",display:"flex",alignItems:"center",gap:8,boxShadow:"0 6px 20px rgba(126,87,194,0.45)"}},React.createElement("span",{style:{fontSize:20}},"\u{1F634}"),React.createElement("span",null,"Pet \u0111ang ng\u1EE7..."),React.createElement("span",{style:{background:"rgba(255,255,255,0.2)",borderRadius:8,padding:"3px 10px",fontFamily:l.game,fontSize:13,fontWeight:900}},a,"s")),React.createElement("div",{style:{fontFamily:l.game,fontSize:10,color:"rgba(255,255,255,0.7)"}},"\u{1F4A4} \u0110\u1EEBng l\xE0m phi\u1EC1n pet nh\xE9!"))}function jt({state:e,dispatch:a,showToast:r,onStartGame:o,onStartWaterGame:s,onStartSurgery:g}){let[m,b]=(0,y.useState)(!1),[f,d]=(0,y.useState)(null),[u,B]=(0,y.useState)(null),[k,x]=(0,y.useState)({x:0,y:0}),[p,S]=(0,y.useState)(!1),n=(0,y.useRef)(null),{petData:h,happiness:A}=e,U=Ke(e.points);(0,y.useEffect)(()=>{if(!e.isSleeping||!e.sleepUntil)return;let Y=e.sleepUntil-Date.now();if(Y<=0){a({type:"WAKE_UP"}),r("\u{1F305} Pet \u0111\xE3 th\u1EE9c d\u1EADy! +45 \u26A1 N\u0103ng l\u01B0\u1EE3ng!");return}let I=setTimeout(()=>{a({type:"WAKE_UP"}),r("\u{1F305} Pet \u0111\xE3 th\u1EE9c d\u1EADy! +45 \u26A1 N\u0103ng l\u01B0\u1EE3ng!")},Y);return()=>clearTimeout(I)},[e.isSleeping,e.sleepUntil]),(0,y.useEffect)(()=>{let Y=setInterval(()=>{a({type:"DECREASE_CLEAN",amount:1})},12e3);return()=>clearInterval(Y)},[]);let Z=(0,y.useCallback)(Y=>{if(b(!1),Y.id==="eat"){let I=(e.inventory||[]).filter(w=>w&&typeof w=="object"&&w.category==="food");if(I.length===0){r("\u{1F34E} Kh\xF4ng c\xF3 \u0111\u1ED3 \u0103n trong t\xFAi! Mua \u1EDF Shop \u{1F6D2}");return}a({type:"USE_FOOD"});let F=I[Math.floor(Math.random()*I.length)];r(`${F.icon} Cho \u0103n ${F.name}! \u{1F34E} \u0110\xF3i +${F.effect?.hunger||20}`),e.doneMissions?.includes("d1")||a({type:"COMPLETE_MISSION",id:"d1",xp:30,pts:50})}else if(Y.id==="bath"){if(e.clean>85){r("\u{1F9FC} Pet ch\u01B0a b\u1EA9n! Ch\u1EDD th\xEAm r\u1ED3i t\u1EAFm nh\xE9 \u{1F43E}");return}let I=(e.inventory||[]).filter(F=>F&&typeof F=="object"&&F.category==="clean");if(a({type:"USE_CLEAN"}),I.length>0){let F=I[Math.floor(Math.random()*I.length)];r(`${F.icon} D\xF9ng ${F.name}! \u{1F9FC} S\u1EA1ch +${F.effect?.clean||30}`)}else r("\u{1F6BF} T\u1EAFm xong! (Kh\xF4ng c\xF3 x\xE0 ph\xF2ng \u2192 +20 s\u1EA1ch)");e.doneMissions?.includes("d2")||a({type:"COMPLETE_MISSION",id:"d2",xp:20,pts:30})}else if(Y.id==="sleep"){if(e.isSleeping){r("\u{1F634} Pet \u0111ang ng\u1EE7 r\u1ED3i...");return}let I=(e.SLEEP_SECS||30)*1e3;a({type:"START_SLEEP",duration:I}),r(`\u{1F634} Pet \u0111i ng\u1EE7... D\u1EADy sau ${e.SLEEP_SECS||30}s`),e.doneMissions?.includes("d3")||a({type:"COMPLETE_MISSION",id:"d3",xp:25,pts:40})}else{let I=Y.applyEffect(e);a({type:"APPLY_EFFECTS",payload:I}),r(`${Y.icon} ${Y.label} xong! +10 \u0111i\u1EC3m`)}d(Y),Y.mouthOverride&&B(Y.mouthOverride),setTimeout(()=>{d(null),B(null)},1900)},[e,a,r]);(0,y.useEffect)(()=>{let Y=(w,W)=>{if(!n.current)return;let G=n.current.getBoundingClientRect(),X=G.left+G.width/2,le=G.top+G.height/2,ie=w-X,re=W-le,pe=Math.sqrt(ie*ie+re*re);if(pe<1)return;let he=Math.min(pe/150,1),we=Math.atan2(re,ie);x({x:Math.cos(we)*he,y:Math.sin(we)*he})},I=w=>Y(w.clientX,w.clientY),F=w=>{w.touches[0]&&Y(w.touches[0].clientX,w.touches[0].clientY)};return window.addEventListener("mousemove",I),window.addEventListener("touchmove",F,{passive:!0}),()=>{window.removeEventListener("mousemove",I),window.removeEventListener("touchmove",F)}},[]);let ne=u||(A>60?"smile":A>30?"flat":"sad"),H=f?f.petAnim:void 0,Q=(e.xp||0)/(e.level*100)*100;return React.createElement("div",{style:{flex:1,display:"flex",flexDirection:"column",overflow:"hidden"}},React.createElement("div",{style:{flex:1,position:"relative",background:"linear-gradient(180deg,#5FC8F0 0%,#87CEEB 40%,#B8E4F7 100%)",display:"flex",alignItems:"center",justifyContent:"center",overflow:"hidden",minHeight:0}},React.createElement("div",{style:{position:"absolute",top:"8%",left:"6%",fontSize:"8vw",opacity:.5,animation:"float1 4s ease-in-out infinite",pointerEvents:"none"}},"\u2601\uFE0F"),React.createElement("div",{style:{position:"absolute",top:"16%",right:"5%",fontSize:"6vw",opacity:.4,animation:"float2 5s ease-in-out infinite",pointerEvents:"none"}},"\u2601\uFE0F"),React.createElement("div",{style:{position:"absolute",top:"4%",left:"38%",fontSize:"5vw",opacity:.3,animation:"float1 6.5s 1s ease-in-out infinite",pointerEvents:"none"}},"\u2601\uFE0F"),React.createElement("div",{style:{position:"absolute",top:"6%",right:"10%",fontSize:"7vw",opacity:.75,pointerEvents:"none"}},"\u2600\uFE0F"),React.createElement("div",{onClick:()=>S(!0),style:{position:"absolute",top:"10%",left:10,zIndex:10,cursor:"pointer"}},React.createElement("div",{style:{background:"linear-gradient(135deg,rgba(30,20,5,0.82),rgba(50,30,0,0.82))",borderRadius:16,padding:"8px 10px",display:"flex",flexDirection:"column",alignItems:"center",gap:3,border:"1.5px solid rgba(255,167,0,0.55)",boxShadow:"0 4px 16px rgba(0,0,0,0.28), 0 0 0 1px rgba(255,167,0,0.12)",backdropFilter:"blur(8px)",minWidth:52}},React.createElement("span",{style:{fontSize:20}},"\u{1F6D2}"),React.createElement("span",{style:{fontFamily:l.game,fontSize:9,fontWeight:900,color:"#FFB300"}},"Shop"),React.createElement("span",{style:{fontFamily:l.game,fontSize:8,fontWeight:800,color:"rgba(255,255,255,0.65)"}},e.points.toLocaleString(),"\u0111"))),React.createElement("div",{onClick:()=>g&&g(),style:{position:"absolute",top:"10%",right:10,zIndex:10,cursor:"pointer"}},React.createElement("div",{style:{background:"linear-gradient(135deg,rgba(20,10,35,0.82),rgba(40,10,60,0.82))",borderRadius:16,padding:"8px 10px",display:"flex",flexDirection:"column",alignItems:"center",gap:3,border:"1.5px solid rgba(180,100,255,0.55)",boxShadow:"0 4px 16px rgba(0,0,0,0.28), 0 0 0 1px rgba(180,100,255,0.12)",backdropFilter:"blur(8px)",minWidth:52}},React.createElement("span",{style:{fontSize:20}},"\u{1F52C}"),React.createElement("span",{style:{fontFamily:l.game,fontSize:9,fontWeight:900,color:"#CE93D8"}},"S\u1EEDa"),React.createElement("span",{style:{fontFamily:l.game,fontSize:8,fontWeight:800,color:"rgba(255,255,255,0.65)"}},"Pet"))),React.createElement("div",{ref:n,style:{display:"flex",flexDirection:"column",alignItems:"center",gap:6,zIndex:5}},React.createElement(xe,{petData:{...h||{},mouthType:ne},size:Math.min(190,window.innerWidth*.48),bounce:!f&&!e.isSleeping,mood:A,animStyle:H,eyeOffset:k,cleanLevel:e.clean,isSleeping:e.isSleeping}),React.createElement("div",{style:{background:"rgba(255,255,255,0.90)",borderRadius:99,padding:"5px 18px",fontFamily:l.game,fontWeight:900,fontSize:13,color:L.black,boxShadow:"0 3px 14px rgba(0,0,0,0.13)",display:"flex",alignItems:"center",gap:5}},h?.name||"Pou",e.clean<25&&React.createElement("span",{title:"R\u1EA5t b\u1EA9n!"},"\u{1F4A9}"),e.clean>=25&&e.clean<50&&React.createElement("span",{title:"Kh\xE1 b\u1EA9n"},"\u{1F7E4}"),e.clean>=50&&e.clean<75&&React.createElement("span",{title:"H\u01A1i b\u1EA9n"},"\u{1F32B}\uFE0F"),e.isSleeping&&React.createElement("span",null,"\u{1F634}"))),f&&React.createElement($t,{action:f}),f&&React.createElement("div",{style:{position:"absolute",top:"8%",left:"50%",transform:"translateX(-50%)",background:"rgba(0,0,0,0.78)",borderRadius:22,padding:"8px 22px",fontFamily:l.game,fontWeight:900,fontSize:14,color:"white",whiteSpace:"nowrap",zIndex:35,animation:"toastIn 0.3s ease-out"}},f.icon," ",f.label,"!")),React.createElement("div",{style:{height:5,background:"rgba(0,0,0,0.12)",flexShrink:0,zIndex:6}},React.createElement("div",{style:{width:`${Q}%`,height:5,background:"linear-gradient(90deg,#CCFF00,#96D300)",transition:"width 0.4s"}})),React.createElement("div",{style:{height:110,flexShrink:0,background:"linear-gradient(180deg,#8BC34A 0%,#689F38 100%)",display:"flex",alignItems:"center",justifyContent:"center",position:"relative",overflow:"hidden",borderTop:"3px solid #558B2F"}},[15,35,55,75,90].map((Y,I)=>React.createElement("div",{key:I,style:{position:"absolute",bottom:"18%",left:`${Y}%`,width:6+I%3*2,height:6+I%3*2,borderRadius:"50%",background:"rgba(0,0,0,0.08)"}})),e.isSleeping?React.createElement(Xt,{sleepUntil:e.sleepUntil}):!m&&!f?React.createElement("button",{onClick:()=>b(!0),style:{background:"#1A1A1A",border:"3px solid rgba(255,255,255,0.15)",borderRadius:99,padding:"14px 40px",fontFamily:l.game,fontWeight:900,fontSize:15,color:"white",cursor:"pointer",boxShadow:"0 8px 28px rgba(0,0,0,0.35)",display:"flex",alignItems:"center",gap:8,animation:"pulseBtn 2.5s ease-in-out infinite"}},"\u26A1 T\u01B0\u01A1ng T\xE1c"):f?React.createElement("div",{style:{fontFamily:l.game,fontWeight:900,fontSize:13,color:"rgba(255,255,255,0.8)"}},f.icon," ",f.label,"..."):null),m&&React.createElement(Lt,{onAction:Z,onClose:()=>b(!1),onStartGame:o,onStartWaterGame:s,state:e}),p&&React.createElement(Yt,{onClose:()=>S(!1),state:e,dispatch:a,showToast:r}))}function Nt({state:e,dispatch:a,showToast:r}){let[o,s]=(0,y.useState)("idle"),[g,m]=(0,y.useState)(null),[b,f]=(0,y.useState)(""),[d,u]=(0,y.useState)(null),B=()=>{e.giftBoxes<1||o!=="idle"||(s("opening"),setTimeout(()=>{let n=gt();a({type:"OPEN_GIFT_BOX"}),m(n),s("revealed"),n.rarity==="epic"?r(`\u{1F38A} HUY\u1EC0N THO\u1EA0I! ${n.emoji} ${n.name}`):n.rarity==="rare"?r(`\u{1F48E} Hi\u1EBFm! ${n.emoji} ${n.name}`):r(`${n.emoji} ${n.name}`)},1100))},k=()=>{let n=b.trim().toUpperCase(),h=Tt[n];h?(h.pts>0&&a({type:"ADD_POINTS",amount:h.pts}),h.boxes>0&&a({type:"ADD_GIFT_BOXES",amount:h.boxes}),u({ok:!0,msg:h.msg}),f(""),r(h.msg)):u({ok:!1,msg:"\u274C M\xE3 kh\xF4ng \u0111\xFAng"}),setTimeout(()=>u(null),2500)},x=e.streak||3,p=n=>e.doneMissions?.includes(n),S={common:"linear-gradient(135deg,#E8F5E9,#C8E6C9)",rare:"linear-gradient(135deg,#E3F2FD,#BBDEFB)",epic:"linear-gradient(135deg,#FFF3E0,#FFE0B2)"};return React.createElement("div",{style:{display:"flex",flexDirection:"column",padding:"10px 12px",gap:8,boxSizing:"border-box"}},React.createElement("div",{style:{background:"white",borderRadius:16,padding:"10px 12px",flexShrink:0,boxShadow:"0 2px 10px rgba(0,0,0,0.06)"}},React.createElement("div",{style:{fontFamily:l.game,fontWeight:900,fontSize:11,color:L.black,marginBottom:8,display:"flex",alignItems:"center",gap:5}},"\u{1F4CB} Nhi\u1EC7m V\u1EE5",React.createElement("span",{style:{fontFamily:l.game,fontSize:8,fontWeight:700,color:"#999",marginLeft:"auto"}},"Ho\xE0n th\xE0nh \u0111\u1EC3 nh\u1EADn \u{1F4E6}")),(()=>{let n=p("daily_checkin");return React.createElement("div",{style:{display:"flex",alignItems:"center",gap:8,marginBottom:6,background:n?"#F0FBF0":"#FAFAFA",borderRadius:10,padding:"6px 10px",border:`1px solid ${n?"#A5D6A9":"#EEEEEE"}`}},React.createElement("span",{style:{fontSize:18,flexShrink:0}},"\u{1F4C5}"),React.createElement("div",{style:{flex:1,minWidth:0}},React.createElement("div",{style:{fontFamily:l.game,fontWeight:800,fontSize:11,color:L.black}},"Checkin h\xF4m nay"),React.createElement("div",{style:{fontFamily:l.game,fontSize:9,color:"#999",marginTop:1}},"M\u1ED7i ng\xE0y nh\u1EADn 1 h\u1ED9p qu\xE0")),React.createElement("div",{style:{display:"flex",alignItems:"center",gap:6,flexShrink:0}},React.createElement("span",{style:{fontFamily:l.game,fontSize:10,fontWeight:900,color:"#FF9800"}},"\u{1F4E6}\xD71"),React.createElement("button",{onClick:()=>{n||(a({type:"COMPLETE_MISSION",id:"daily_checkin",pts:0,xp:20,boxes:1}),r("\u{1F4C5} Checkin! +1 h\u1ED9p qu\xE0 \u{1F381}"))},style:{background:n?"#E8F5E9":"linear-gradient(135deg,#FFD700,#FF9800)",border:"none",borderRadius:8,padding:"5px 12px",cursor:n?"default":"pointer",fontFamily:l.game,fontWeight:900,fontSize:10,color:n?"#66BB6A":"#1A1A1A"}},n?"\u2705 Xong":"Nh\u1EADn")))})(),(()=>{let n=p("invite_friends");return React.createElement("div",{style:{display:"flex",alignItems:"center",gap:8,marginBottom:6,background:n?"#F0FBF0":"#FAFAFA",borderRadius:10,padding:"6px 10px",border:`1px solid ${n?"#A5D6A9":"#EEEEEE"}`}},React.createElement("span",{style:{fontSize:18,flexShrink:0}},"\u{1F465}"),React.createElement("div",{style:{flex:1,minWidth:0}},React.createElement("div",{style:{fontFamily:l.game,fontWeight:800,fontSize:11,color:L.black}},"M\u1EDDi b\u1EA1n b\xE8"),React.createElement("div",{style:{fontFamily:l.game,fontSize:9,color:"#999",marginTop:1}},"B\u1EA1n ch\u1EA5p nh\u1EADn \u2192 +3 h\u1ED9p qu\xE0")),React.createElement("div",{style:{display:"flex",alignItems:"center",gap:6,flexShrink:0}},React.createElement("span",{style:{fontFamily:l.game,fontSize:10,fontWeight:900,color:"#039BE5"}},"\u{1F4E6}\xD73"),React.createElement("button",{onClick:()=>{if(n){r("\u{1F465} \u0110\xE3 m\u1EDDi r\u1ED3i!");return}r("\u{1F517} \u0110\xE3 copy link m\u1EDDi!"),a({type:"COMPLETE_MISSION",id:"invite_friends",pts:50,xp:30,boxes:3})},style:{background:n?"#E8F5E9":"#1A1A1A",border:"none",borderRadius:8,padding:"5px 12px",cursor:"pointer",fontFamily:l.game,fontWeight:900,fontSize:10,color:n?"#66BB6A":"white"}},n?"\u2705 Xong":"\u{1F517} M\u1EDDi")))})(),[{emoji:"\u{1F3AE}",name:"Nhi\u1EC7m v\u1EE5 Garena",sub:"Ch\u01A1i game theo h\u01B0\u1EDBng d\u1EABn",reward:"\u{1F4E6}\xD72",color:"#29B6F6",id:"partner_garena"},{emoji:"\u{1F3E6}",name:"K\u1EBFt n\u1ED1i V\xED \u0111i\u1EC7n t\u1EED",sub:"Li\xEAn k\u1EBFt t\xE0i kho\u1EA3n v\xED",reward:"\u{1F4E6}\xD71",color:"#66BB6A",id:"partner_wallet"},{emoji:"\u{1F4F1}",name:"T\u1EA3i app HEAVY",sub:"M\u1EDF app \xEDt nh\u1EA5t 1 l\u1EA7n",reward:"\u{1F4E6}\xD73",color:"#FF9800",id:"partner_heavy"}].map((n,h)=>{let A=p(n.id);return React.createElement("div",{key:n.id,style:{display:"flex",alignItems:"center",gap:8,marginBottom:h<2?6:0,background:A?"#F0FBF0":`${n.color}12`,borderRadius:10,padding:"6px 10px",border:`1.5px solid ${A?"#A5D6A9":n.color+"55"}`}},React.createElement("span",{style:{fontSize:18,flexShrink:0}},n.emoji),React.createElement("div",{style:{flex:1,minWidth:0}},React.createElement("div",{style:{display:"flex",alignItems:"center",gap:4}},React.createElement("div",{style:{fontFamily:l.game,fontWeight:800,fontSize:11,color:L.black}},n.name),React.createElement("span",{style:{fontFamily:l.game,fontSize:7,fontWeight:900,color:n.color,background:`${n.color}22`,borderRadius:99,padding:"1px 5px",flexShrink:0}},"\u0110\u1ED0I T\xC1C")),React.createElement("div",{style:{fontFamily:l.game,fontSize:9,color:"#999",marginTop:1}},n.sub)),React.createElement("div",{style:{display:"flex",alignItems:"center",gap:6,flexShrink:0}},React.createElement("span",{style:{fontFamily:l.game,fontSize:10,fontWeight:900,color:n.color}},n.reward),React.createElement("button",{onClick:()=>{A||r(`${n.emoji} ${n.name}: S\u1EAFp ra m\u1EAFt!`)},style:{background:A?"#E8F5E9":`linear-gradient(135deg,${n.color},${n.color}BB)`,border:"none",borderRadius:8,padding:"5px 12px",cursor:A?"default":"pointer",fontFamily:l.game,fontWeight:900,fontSize:10,color:A?"#66BB6A":"white"}},A?"\u2705 Xong":"L\xE0m")))})),React.createElement("div",{style:{background:"linear-gradient(135deg,#1A1A2E,#16213E)",borderRadius:16,padding:"10px 12px",flexShrink:0,border:"1.5px solid rgba(255,255,255,0.08)",boxShadow:"0 4px 18px rgba(0,0,0,0.25)",position:"relative",overflow:"hidden"}},[{top:4,right:8,d:0},{top:16,right:30,d:.7},{bottom:4,left:8,d:1.2}].map((n,h)=>React.createElement("div",{key:h,style:{position:"absolute",...n.top!==void 0?{top:n.top}:{bottom:n.bottom},...n.right!==void 0?{right:n.right}:{left:n.left},fontSize:9,animation:`sparkle 1.8s ${n.d}s ease-in-out infinite`,pointerEvents:"none"}},"\u2728")),React.createElement("div",{style:{marginBottom:10}},React.createElement("div",{style:{display:"flex",alignItems:"center",justifyContent:"space-between",marginBottom:6}},React.createElement("div",{style:{display:"flex",alignItems:"center",gap:5}},React.createElement("span",{style:{fontSize:14}},"\u{1F525}"),React.createElement("span",{style:{fontFamily:l.game,fontWeight:900,fontSize:11,color:"#FFD700"}},"Chu\u1ED7i ",x," ng\xE0y")),React.createElement("span",{style:{fontFamily:l.game,fontSize:8,color:"rgba(255,255,255,0.4)"}},"Nh\u1EADn th\u01B0\u1EDFng giai \u0111o\u1EA1n")),React.createElement("div",{style:{display:"flex",gap:4}},Dt.map(n=>{let h=x>=n.days,A=`milestone_${n.days}`,U=p(A),Z=h&&!U;return React.createElement("button",{key:n.days,onClick:()=>{Z&&(a({type:"COMPLETE_MISSION",id:A,pts:n.pts,xp:n.days*5,boxes:n.boxes}),r(`${n.icon} ${n.label}: +${n.boxes} h\u1ED9p qu\xE0!`))},style:{flex:1,borderRadius:9,padding:"5px 2px",cursor:Z?"pointer":"default",border:`1.5px solid ${U?"#66BB6A":h?"#FFB300":"rgba(255,255,255,0.12)"}`,background:U?"rgba(102,187,106,0.18)":h?"rgba(255,179,0,0.18)":"rgba(255,255,255,0.05)",display:"flex",flexDirection:"column",alignItems:"center",gap:2,transition:"transform 0.1s"}},React.createElement("span",{style:{fontSize:14}},U?"\u2705":n.icon),React.createElement("span",{style:{fontFamily:l.game,fontSize:7,fontWeight:900,color:U?"#66BB6A":h?"#FFB300":"rgba(255,255,255,0.3)"}},n.label),React.createElement("span",{style:{fontFamily:l.game,fontSize:7,color:"#FF9800",fontWeight:900}},"\u{1F4E6}\xD7",n.boxes,n.pts?` +${n.pts}\u0111`:""))}))),React.createElement("div",{style:{height:1,background:"rgba(255,255,255,0.08)",marginBottom:10}}),React.createElement("div",{style:{display:"flex",alignItems:"center",gap:12}},React.createElement("div",{style:{flexShrink:0,width:50,textAlign:"center"}},o==="idle"&&React.createElement("div",{style:{fontSize:38,animation:e.giftBoxes>0?"float1 2s ease-in-out infinite":"none",filter:e.giftBoxes>0?"drop-shadow(0 4px 12px rgba(255,200,0,0.55))":"grayscale(1) opacity(0.4)"}},"\u{1F381}"),o==="opening"&&React.createElement("div",{style:{fontSize:38,animation:"boxShake 1.1s ease-in-out"}},"\u{1F381}"),o==="revealed"&&g&&React.createElement("div",{style:{fontSize:38,animation:"rewardIn 0.4s cubic-bezier(0.34,1.56,0.64,1)",filter:`drop-shadow(0 3px 10px ${g.color}99)`}},g.emoji)),React.createElement("div",{style:{flex:1,minWidth:0}},o==="idle"&&React.createElement(React.Fragment,null,React.createElement("div",{style:{fontFamily:l.game,fontWeight:900,fontSize:13,color:"white",marginBottom:2}},"H\u1ED9p Qu\xE0 Th\u1EF1c"),React.createElement("div",{style:{display:"flex",gap:5,flexWrap:"wrap"}},["\u{1F3AE} Garena","\u{1F381} Qu\xE0 th\u1EADt","\u{1FA99} \u0110i\u1EC3m"].map(n=>React.createElement("span",{key:n,style:{fontFamily:l.game,fontSize:8,color:"rgba(255,255,255,0.45)",background:"rgba(255,255,255,0.08)",borderRadius:99,padding:"2px 6px"}},n)))),o==="opening"&&React.createElement(React.Fragment,null,React.createElement("div",{style:{fontFamily:l.game,fontWeight:900,fontSize:13,color:"white"}},"\u0110ang m\u1EDF..."),React.createElement("div",{style:{display:"flex",gap:5,marginTop:4}},[0,.15,.3].map((n,h)=>React.createElement("div",{key:h,style:{width:6,height:6,borderRadius:"50%",background:"#FFD700",animation:`sparkle 0.5s ${n}s ease-in-out infinite`}})))),o==="revealed"&&g&&React.createElement(React.Fragment,null,React.createElement("div",{style:{display:"inline-block",background:`${g.color}22`,border:`1.5px solid ${g.color}`,borderRadius:99,padding:"2px 8px",fontFamily:l.game,fontWeight:900,fontSize:8,color:g.color,marginBottom:3}},g.label),React.createElement("div",{style:{fontFamily:l.game,fontWeight:900,fontSize:13,color:"white"}},g.name),g.desc&&React.createElement("div",{style:{fontFamily:l.game,fontSize:9,color:"rgba(255,255,255,0.5)",marginTop:1}},g.desc))),React.createElement("div",{style:{flexShrink:0,display:"flex",flexDirection:"column",alignItems:"center",gap:5}},o==="idle"&&React.createElement("button",{onClick:B,disabled:e.giftBoxes<1,style:{background:e.giftBoxes>0?"linear-gradient(135deg,#FFD700,#FF9800)":"rgba(255,255,255,0.08)",border:"none",borderRadius:12,padding:"9px 14px",cursor:e.giftBoxes>0?"pointer":"not-allowed",fontFamily:l.game,fontWeight:900,fontSize:12,color:e.giftBoxes>0?"#1A1A1A":"rgba(255,255,255,0.25)",boxShadow:e.giftBoxes>0?"0 4px 14px rgba(255,215,0,0.4)":"none"}},"\u{1F381} M\u1EDF!"),o==="revealed"&&React.createElement("button",{onClick:()=>{s("idle"),m(null)},style:{background:"rgba(255,255,255,0.12)",border:"1.5px solid rgba(255,255,255,0.2)",borderRadius:12,padding:"9px 14px",cursor:"pointer",fontFamily:l.game,fontWeight:900,fontSize:11,color:"white"}},"OK \u2713"),React.createElement("div",{style:{background:"rgba(255,255,255,0.12)",borderRadius:10,padding:"4px 8px",textAlign:"center"}},React.createElement("div",{style:{fontFamily:l.game,fontSize:16,fontWeight:900,color:"#FFD700",lineHeight:1}},e.giftBoxes),React.createElement("div",{style:{fontFamily:l.game,fontSize:8,color:"rgba(255,255,255,0.5)"}},"h\u1ED9p"))))),React.createElement("div",{style:{display:"flex",gap:8,flexShrink:0}},React.createElement("div",{style:{flex:"0 0 auto",width:"42%",background:"linear-gradient(135deg,#FFFDE7,#FFF8E1)",borderRadius:14,padding:"9px 10px",border:"1.5px solid rgba(255,193,7,0.3)",display:"flex",flexDirection:"column",gap:3}},React.createElement("div",{style:{fontFamily:l.game,fontSize:9,fontWeight:800,color:"#E65100"}},"\u{1FA99} \u0110I\u1EC2M HI\u1EC6N T\u1EA0I"),React.createElement("div",{style:{fontFamily:l.game,fontSize:20,fontWeight:900,color:"#E65100",lineHeight:1}},e.points.toLocaleString()),React.createElement("div",{style:{fontFamily:l.game,fontSize:8,color:"#B0BEC5",lineHeight:1.4}},"D\xF9ng \u0111\u1EC3 nu\xF4i pet l\u1EDBn l\xEAn")),React.createElement("div",{style:{flex:1,background:"white",borderRadius:14,padding:"9px 10px",boxShadow:"0 2px 10px rgba(0,0,0,0.06)",display:"flex",flexDirection:"column",justifyContent:"space-between"}},React.createElement("div",{style:{fontFamily:l.game,fontWeight:900,fontSize:10,color:L.black,marginBottom:5}},"\u{1F381} Gift Code"),React.createElement("div",{style:{display:"flex",gap:5,marginBottom:3}},React.createElement("input",{value:b,onChange:n=>{f(n.target.value.toUpperCase()),u(null)},onKeyDown:n=>n.key==="Enter"&&k(),placeholder:"HEAVY2026",style:{flex:1,background:"#F9F9F9",border:"1.5px solid #EEEEEE",borderRadius:8,padding:"7px 8px",fontFamily:l.game,fontSize:10,fontWeight:800,outline:"none",letterSpacing:"0.04em",boxSizing:"border-box",minWidth:0}}),React.createElement("button",{onClick:k,style:{background:"#1A1A1A",border:"none",borderRadius:8,padding:"7px 10px",cursor:"pointer",fontFamily:l.game,fontWeight:900,fontSize:10,color:"white",flexShrink:0}},"\u2728")),d?React.createElement("div",{style:{fontFamily:l.game,fontSize:8,fontWeight:800,color:d.ok?L.green:"#E53935",textAlign:"center"}},d.msg):React.createElement("div",{style:{fontFamily:l.game,fontSize:7,color:"#CCC",textAlign:"center"}},"GARENA2026 \xB7 HEAVY2026"))))}function _t({player:e,myState:a,onClose:r}){let o=e.name==="B\u1EA1n",s=o?a.petData||{}:{color:e.petColor},g=o?a.petData?.name||"Pet c\u1EE7a b\u1EA1n":e.petName,m=o?a.level:e.lv,b=o?a.points:e.pts,f=o?a.hunger:e.hunger,d=o?a.happiness:e.happiness,u=o?a.clean:e.clean,B=o?a.energy:e.energy,k=Ke(b),x=Pe.find(h=>h.minPts>b),p=x?Math.round((b-k.minPts)/(x.minPts-k.minPts)*100):100,S=e.rank===1?"#FFD700":e.rank===2?"#B8C4CC":e.rank===3?"#CD8B52":null,n=({icon:h,label:A,value:U,color:Z})=>React.createElement("div",{style:{display:"flex",alignItems:"center",gap:8,marginBottom:8}},React.createElement("span",{style:{fontSize:16,width:22,textAlign:"center",flexShrink:0}},h),React.createElement("div",{style:{flex:1}},React.createElement("div",{style:{display:"flex",justifyContent:"space-between",marginBottom:3}},React.createElement("span",{style:{fontFamily:l.game,fontSize:10,fontWeight:800,color:"#888"}},A),React.createElement("span",{style:{fontFamily:l.game,fontSize:10,fontWeight:900,color:Z}},U,"/100")),React.createElement("div",{style:{height:7,borderRadius:99,background:"#F0F0F0",overflow:"hidden"}},React.createElement("div",{style:{width:`${U}%`,height:7,borderRadius:99,background:`linear-gradient(90deg,${Z}99,${Z})`,transition:"width 0.4s"}}))));return React.createElement("div",{onClick:r,style:{position:"fixed",inset:0,background:"rgba(0,0,0,0.6)",zIndex:80,display:"flex",flexDirection:"column",justifyContent:"flex-end"}},React.createElement("div",{onClick:h=>h.stopPropagation(),style:{background:"white",borderRadius:"28px 28px 0 0",animation:"slideUp 0.26s cubic-bezier(0.34,1.2,0.64,1)",overflow:"hidden",maxHeight:"88%",display:"flex",flexDirection:"column"}},React.createElement("div",{style:{background:S?`linear-gradient(135deg,${S}44,${S}18)`:`linear-gradient(135deg,${k.color}33,${k.color}0A)`,padding:"14px 16px 20px",borderBottom:`2px solid ${S||k.color}33`,position:"relative"}},React.createElement("div",{style:{width:40,height:5,borderRadius:99,background:"rgba(0,0,0,0.15)",margin:"0 auto 14px"}}),S&&React.createElement("div",{style:{position:"absolute",top:14,right:16,fontSize:28,filter:`drop-shadow(0 3px 8px ${S}88)`}},e.rank===1?"\u{1F947}":e.rank===2?"\u{1F948}":"\u{1F949}"),React.createElement("div",{style:{display:"flex",alignItems:"flex-end",gap:14}},React.createElement("div",{style:{background:"rgba(255,255,255,0.7)",borderRadius:20,padding:8,boxShadow:`0 6px 20px ${k.color}28`,border:`2px solid ${k.color}44`}},React.createElement(xe,{petData:s,size:100,bounce:!1,mood:d||70})),React.createElement("div",{style:{flex:1,paddingBottom:4}},React.createElement("div",{style:{fontFamily:l.game,fontWeight:900,fontSize:18,color:L.black,marginBottom:2}},e.icon," ",e.name),React.createElement("div",{style:{fontFamily:l.game,fontSize:12,color:"#888",marginBottom:6}},"\u{1F43E} ",g),React.createElement("div",{style:{display:"flex",alignItems:"center",gap:6,marginBottom:6}},React.createElement("div",{style:{background:"#1A1A1A",borderRadius:99,padding:"4px 10px",fontFamily:l.game,fontWeight:900,fontSize:11,color:"#B4FF00"}},"Lv.",m),React.createElement("div",{style:{background:`${k.color}22`,borderRadius:99,padding:"4px 10px",border:`1.5px solid ${k.color}66`,fontFamily:l.game,fontWeight:900,fontSize:11,color:k.color}},k.icon," ",k.name)),React.createElement("div",{style:{fontFamily:l.game,fontWeight:900,fontSize:15,color:"#E6A800",display:"flex",alignItems:"center",gap:4}},"\u{1F4B0} ",b.toLocaleString(),React.createElement("span",{style:{fontSize:10,color:"#BBB",fontWeight:700}},"\u0111i\u1EC3m")))),React.createElement("div",{style:{marginTop:10,background:"rgba(255,255,255,0.65)",borderRadius:12,padding:"7px 12px",fontFamily:l.game,fontSize:12,fontWeight:800,color:"#555",textAlign:"center",backdropFilter:"blur(4px)"}},e.tagline)),React.createElement("div",{style:{overflowY:"auto",flex:1,padding:"16px 16px 28px"}},x&&React.createElement("div",{style:{marginBottom:16}},React.createElement("div",{style:{display:"flex",justifyContent:"space-between",marginBottom:5}},React.createElement("span",{style:{fontFamily:l.game,fontSize:11,fontWeight:800,color:"#888"}},"Ti\u1EBFn \u0111\u1ED9 h\u1EA1ng"),React.createElement("span",{style:{fontFamily:l.game,fontSize:11,fontWeight:900,color:k.color}},p,"% \u2192 ",x.icon," ",x.name)),React.createElement("div",{style:{height:8,borderRadius:99,background:`${k.color}22`,overflow:"hidden"}},React.createElement("div",{style:{width:`${p}%`,height:8,borderRadius:99,background:`linear-gradient(90deg,${k.color}99,${k.color})`,transition:"width 0.5s"}}))),React.createElement("div",{style:{fontFamily:l.game,fontWeight:900,fontSize:13,color:L.black,marginBottom:12}},"\u{1F4CA} Ch\u1EC9 s\u1ED1 Pet"),React.createElement(n,{icon:"\u{1F34E}",label:"\u0110\xF3i",value:f,color:"#4CAF50"}),React.createElement(n,{icon:"\u2764\uFE0F",label:"H\u1EA1nh ph\xFAc",value:d,color:"#E53935"}),React.createElement(n,{icon:"\u{1F9FC}",label:"S\u1EA1ch s\u1EBD",value:u,color:"#039BE5"}),React.createElement(n,{icon:"\u26A1",label:"N\u0103ng l\u01B0\u1EE3ng",value:B,color:"#F9A825"}),React.createElement("div",{style:{marginTop:14,background:"#FAFAFA",borderRadius:16,padding:"12px 14px",border:"1.5px solid #EEEEEE"}},React.createElement("div",{style:{display:"flex",alignItems:"center",justifyContent:"space-between"}},React.createElement("div",null,React.createElement("div",{style:{fontFamily:l.game,fontSize:10,fontWeight:800,color:"#BBB",marginBottom:5}},"HUY HI\u1EC6U"),React.createElement("div",{style:{display:"flex",gap:6}},(e.badges||[]).map((h,A)=>React.createElement("span",{key:A,style:{fontSize:22}},h)))),React.createElement("div",{style:{textAlign:"center"}},React.createElement("div",{style:{fontFamily:l.game,fontSize:10,fontWeight:800,color:"#BBB",marginBottom:4}},"STREAK"),React.createElement("div",{style:{fontFamily:l.game,fontWeight:900,fontSize:22,color:"#FF9800",display:"flex",alignItems:"center",gap:4}},"\u{1F525} ",e.streak,React.createElement("span",{style:{fontSize:11,color:"#BBB",fontWeight:700}},"ng\xE0y"))))),React.createElement("button",{onClick:r,style:{width:"100%",marginTop:14,background:"#1A1A1A",border:"none",borderRadius:14,padding:"13px 0",cursor:"pointer",fontFamily:l.game,fontWeight:900,fontSize:14,color:"white",boxShadow:"0 4px 14px rgba(0,0,0,0.18)"}},"\u0110\xF3ng \u2715"))))}function Gt({state:e}){let{points:a,petData:r}=e,o=Ke(a),s=Pe.find(f=>f.minPts>a),g=s?Math.round((a-o.minPts)/(s.minPts-o.minPts)*100):100,[m,b]=(0,y.useState)(null);return React.createElement("div",{style:{padding:"16px 14px 0",overflowY:"auto",height:"100%",boxSizing:"border-box"}},React.createElement("div",{style:{background:`linear-gradient(145deg,${o.color}25,white,${o.color}0A)`,border:`2px solid ${o.color}99`,borderRadius:20,padding:"20px 18px 16px",textAlign:"center",marginBottom:14,boxShadow:`0 8px 28px ${o.color}28`}},React.createElement("div",{style:{display:"inline-block",marginBottom:4}},React.createElement(xe,{petData:r||{},size:90,bounce:!1,mood:70})),React.createElement("div",{style:{fontFamily:l.game,fontWeight:900,fontSize:22,color:o.color,marginBottom:4,textShadow:`0 2px 10px ${o.color}55`}},o.icon," H\u1EA1ng ",o.name),React.createElement("div",{style:{fontFamily:l.game,fontWeight:900,fontSize:20,color:L.black,marginBottom:12,display:"flex",alignItems:"center",justifyContent:"center",gap:6}},"\u{1F4B0} ",a.toLocaleString(),React.createElement("span",{style:{color:"#999",fontSize:12,fontWeight:700}},"\u0111i\u1EC3m")),s&&React.createElement(React.Fragment,null,React.createElement("div",{style:{background:`${o.color}20`,borderRadius:99,height:9,overflow:"hidden",marginBottom:5}},React.createElement("div",{style:{width:`${g}%`,height:9,borderRadius:99,background:`linear-gradient(90deg,${o.color}CC,${o.color})`,transition:"width 0.4s"}})),React.createElement("div",{style:{fontFamily:l.game,fontSize:11,color:"#999"}},"C\xF2n ",(s.minPts-a).toLocaleString()," \u0111i\u1EC3m \u2192 ",s.icon," ",s.name))),React.createElement("div",{style:{display:"grid",gridTemplateColumns:"repeat(5,1fr)",gap:5,marginBottom:14}},Pe.map(f=>{let d=a>=f.minPts;return React.createElement("div",{key:f.name,style:{background:d?`${f.color}1A`:"#F9F9F9",border:`1.5px solid ${d?f.color:"#EEEEEE"}`,borderRadius:11,padding:"8px 3px",textAlign:"center",boxShadow:d?`0 2px 10px ${f.color}28`:"none",opacity:d?1:.5}},React.createElement("div",{style:{fontSize:17}},f.icon),React.createElement("div",{style:{color:d?f.color:"#BDBDBD",fontFamily:l.game,fontSize:9,fontWeight:800,marginTop:2}},f.name))})),React.createElement("div",{style:{fontFamily:l.game,fontWeight:900,fontSize:14,color:L.black,marginBottom:8}},"\u{1F3C6} X\u1EBFp H\u1EA1ng"),React.createElement("div",{style:{display:"flex",flexDirection:"column",gap:7}},Rt.map(f=>{let d=f.rank===1?"#FFD700":f.rank===2?"#B8C4CC":f.rank===3?"#CD8B52":null,u=f.name==="B\u1EA1n";return React.createElement("div",{key:f.rank,onClick:()=>b(f),style:{background:u?"#E3F2FD":d?`${d}0E`:"white",borderRadius:13,padding:"11px 13px",display:"flex",alignItems:"center",gap:11,border:`1.5px solid ${u?"#90CAF9":d?d+"66":"#EEEEEE"}`,boxShadow:d?`0 3px 12px ${d}1E`:"0 1px 5px rgba(0,0,0,0.05)",cursor:"pointer",transition:"transform 0.12s, box-shadow 0.12s",active:{transform:"scale(0.98)"}},onMouseDown:B=>B.currentTarget.style.transform="scale(0.97)",onMouseUp:B=>B.currentTarget.style.transform="scale(1)",onTouchStart:B=>B.currentTarget.style.transform="scale(0.97)",onTouchEnd:B=>B.currentTarget.style.transform="scale(1)"},React.createElement("div",{style:{minWidth:30,height:30,borderRadius:"50%",background:d?`${d}22`:"#F5F5F5",border:`1.5px solid ${d||"#EEEEEE"}`,display:"flex",alignItems:"center",justifyContent:"center",fontFamily:l.game,fontWeight:900,fontSize:12,color:d||"#BDBDBD"}},d?["\u{1F947}","\u{1F948}","\u{1F949}"][f.rank-1]:`#${f.rank}`),React.createElement("span",{style:{fontSize:20}},f.icon),React.createElement("div",{style:{flex:1}},React.createElement("div",{style:{fontFamily:l.game,fontWeight:800,fontSize:13,color:u?"#1565C0":L.black}},f.name),React.createElement("div",{style:{fontFamily:l.game,fontSize:10,color:"#BDBDBD",display:"flex",gap:5,marginTop:1}},React.createElement("span",null,"Lv.",f.lv),f.streak&&React.createElement("span",null,"\u{1F525}",f.streak,"ng"))),React.createElement("div",{style:{display:"flex",alignItems:"center",gap:6}},React.createElement("div",{style:{fontFamily:l.game,fontWeight:900,fontSize:13,color:d||(u?"#1565C0":"#999")}},f.pts.toLocaleString()),React.createElement("span",{style:{fontSize:12,color:"#CCC"}},"\u203A")))})),React.createElement("div",{style:{height:20}}),m&&React.createElement(_t,{player:m,myState:e,onClose:()=>b(null)}))}var Be=280,Ae=300;function yt({color:e,onSave:a}){let r=(0,y.useRef)(null),o=(0,y.useRef)(null),s=(0,y.useRef)(!1),g=(0,y.useRef)([]),[m,b]=(0,y.useState)(!1),f=n=>{n.save(),n.setLineDash([6,6]),n.strokeStyle="rgba(0,0,0,0.15)",n.lineWidth=1.5,n.beginPath(),n.arc(Be/2,Ae/2,Math.min(Be,Ae)*.42,0,Math.PI*2),n.stroke(),n.restore()};(0,y.useEffect)(()=>{let h=r.current.getContext("2d");o.current=h,h.lineWidth=5,h.lineCap="round",h.lineJoin="round",h.strokeStyle=L.black,f(h)},[]),(0,y.useEffect)(()=>{d()},[e]);let d=()=>{let n=o.current;if(!n||g.current.length<3)return;n.clearRect(0,0,Be,Ae),f(n);let A=Xe(g.current,4);n.save(),n.beginPath(),n.moveTo(A[0].x,A[0].y);for(let U=1;U<A.length;U++)n.lineTo(A[U].x,A[U].y);n.closePath(),n.fillStyle=e+"CC",n.fill(),n.strokeStyle=L.black,n.lineWidth=3,n.stroke(),n.restore()},u=n=>{let h=r.current.getBoundingClientRect(),A=Be/h.width,U=Ae/h.height,Z=n.touches?n.touches[0]:n;return{x:(Z.clientX-h.left)*A,y:(Z.clientY-h.top)*U}},B=n=>{n.preventDefault();let h=o.current,A=u(n);s.current=!0,g.current=[A],h.clearRect(0,0,Be,Ae),f(h),h.beginPath(),h.moveTo(A.x,A.y)},k=n=>{if(n.preventDefault(),!s.current)return;let h=o.current,A=u(n);g.current.push(A),h.lineTo(A.x,A.y),h.stroke()},x=n=>{n.preventDefault(),s.current&&(s.current=!1,!(g.current.length<8)&&(b(!0),d()))},p=()=>{let h=Xe(g.current,4).map(A=>({x:A.x/Be,y:A.y/Ae}));a(h)};return React.createElement("div",{style:{display:"flex",flexDirection:"column",alignItems:"center",gap:12}},React.createElement("div",{style:{background:"rgba(255,255,255,0.9)",borderRadius:20,padding:4,boxShadow:"0 4px 20px rgba(0,0,0,0.15)"}},React.createElement("canvas",{ref:r,width:Be,height:Ae,style:{display:"block",borderRadius:16,touchAction:"none",cursor:"crosshair",maxWidth:"100%"},onMouseDown:B,onMouseMove:k,onMouseUp:x,onTouchStart:B,onTouchMove:k,onTouchEnd:x})),React.createElement("div",{style:{display:"flex",gap:10}},React.createElement("button",{onClick:()=>{g.current=[],b(!1);let n=o.current;n.clearRect(0,0,Be,Ae),f(n)},style:{background:"rgba(255,255,255,0.3)",border:"2px solid rgba(255,255,255,0.5)",borderRadius:14,padding:"10px 18px",cursor:"pointer",color:"white",fontFamily:l.game,fontWeight:800,fontSize:13}},"\u21BA X\xF3a"),m&&React.createElement("button",{onClick:p,style:{background:"white",border:"none",borderRadius:14,padding:"10px 24px",cursor:"pointer",color:L.black,fontFamily:l.game,fontWeight:900,fontSize:14,boxShadow:"0 4px 14px rgba(0,0,0,0.2)"}},"Ti\u1EBFp theo \u2192")))}function ht({petData:e,eyeLeft:a,eyeRight:r,mouth:o,setEyeLeft:s,setEyeRight:g,setMouth:m,onBack:b,onNext:f,isDark:d=!1}){let[u,B]=(0,y.useState)(()=>a?r?o?"done":"mouth":"eye2":"eye1"),[k,x]=(0,y.useState)(null),[p,S]=(0,y.useState)(null),n=(0,y.useRef)(null),h=200,A=d?"#00E5FF":"#C44DFF",U={background:"rgba(255,255,255,0.14)",border:"1.5px solid rgba(255,255,255,0.28)",borderRadius:12,padding:"9px 15px",cursor:"pointer",color:"white",fontFamily:l.game,fontWeight:800,fontSize:11},Z=F=>{let w=n.current;if(!w)return null;let W=w.getBoundingClientRect(),G,X;return F.changedTouches?.[0]?(G=F.changedTouches[0].clientX,X=F.changedTouches[0].clientY):F.touches?.[0]?(G=F.touches[0].clientX,X=F.touches[0].clientY):(G=F.clientX,X=F.clientY),{x:Math.max(.05,Math.min(.95,(G-W.left)/W.width)),y:Math.max(.05,Math.min(.95,(X-W.top)/W.height))}},ne=F=>{if(u==="done"||p||k)return;let w=Z(F);w&&x(w)},H=()=>{k&&(u==="eye1"?(s(k),B("eye2")):u==="eye2"?(g(k),B("mouth")):u==="mouth"&&(m(k),B("done")),x(null))},Q=()=>{s(null),g(null),m(null),B("eye1"),x(null),S(null)};(0,y.useEffect)(()=>{if(!p)return;let F=W=>{W.preventDefault();let G=n.current;if(!G)return;let X=G.getBoundingClientRect(),le,ie;W.touches?.[0]?(le=W.touches[0].clientX,ie=W.touches[0].clientY):(le=W.clientX,ie=W.clientY);let re=Math.max(.05,Math.min(.95,(le-X.left)/X.width)),pe=Math.max(.05,Math.min(.95,(ie-X.top)/X.height));p==="eyeLeft"?s({x:re,y:pe}):p==="eyeRight"?g({x:re,y:pe}):p==="mouth"&&m({x:re,y:pe})},w=()=>S(null);return window.addEventListener("mousemove",F),window.addEventListener("touchmove",F,{passive:!1}),window.addEventListener("mouseup",w),window.addEventListener("touchend",w),()=>{window.removeEventListener("mousemove",F),window.removeEventListener("touchmove",F),window.removeEventListener("mouseup",w),window.removeEventListener("touchend",w)}},[p]);let Y=({part:F,pos:w,emoji:W})=>{if(!w)return null;let G=p===F;return React.createElement("div",{onMouseDown:X=>{X.preventDefault(),X.stopPropagation(),S(F)},onTouchStart:X=>{X.preventDefault(),X.stopPropagation(),S(F)},style:{position:"absolute",left:`${w.x*100}%`,top:`${w.y*100}%`,transform:`translate(-50%,-50%) scale(${G?1.25:1})`,width:36,height:36,background:G?"#FFD700":"rgba(255,255,255,0.92)",border:`2.5px solid ${G?"#FF6D00":A}`,borderRadius:"50%",display:"flex",alignItems:"center",justifyContent:"center",fontSize:16,cursor:"grab",zIndex:20,boxShadow:"0 3px 10px rgba(0,0,0,0.35)",userSelect:"none",touchAction:"none",transition:G?"none":"transform 0.15s"}},W)},I=u==="eye1"&&!k?"\u{1F441}\uFE0F Tap \u0111\u1EB7t m\u1EAFt tr\xE1i":u==="eye1"&&k?"\u{1F441}\uFE0F X\xE1c nh\u1EADn m\u1EAFt tr\xE1i?":u==="eye2"&&!k?"\u{1F441}\uFE0F Tap \u0111\u1EB7t m\u1EAFt ph\u1EA3i":u==="eye2"&&k?"\u{1F441}\uFE0F X\xE1c nh\u1EADn m\u1EAFt ph\u1EA3i?":u==="mouth"&&!k?"\u{1F444} Tap \u0111\u1EB7t mi\u1EC7ng":u==="mouth"&&k?"\u{1F444} X\xE1c nh\u1EADn v\u1ECB tr\xED mi\u1EC7ng?":"\u2705 K\xE9o t\u1EEBng b\u1ED9 ph\u1EADn \u0111\u1EC3 \u0111i\u1EC1u ch\u1EC9nh";return React.createElement("div",{style:{display:"flex",flexDirection:"column",alignItems:"center",gap:14}},React.createElement("div",{style:{fontFamily:l.game,fontWeight:900,fontSize:14,color:A,textAlign:"center",lineHeight:1.5}},I,u==="done"&&React.createElement("div",{style:{fontFamily:l.game,fontSize:10,fontWeight:700,color:"rgba(255,255,255,0.55)",marginTop:4}},"Gi\u1EEF & k\xE9o \u{1F441}\uFE0F \u{1F441}\uFE0F \u{1F444} \u0111\u1EC3 tinh ch\u1EC9nh v\u1ECB tr\xED")),React.createElement("div",{onClick:ne,onTouchEnd:ne,style:{background:d?"rgba(255,255,255,0.07)":"rgba(255,255,255,0.18)",borderRadius:20,padding:10,boxShadow:`0 6px 24px ${d?"rgba(0,229,255,0.18)":"rgba(0,0,0,0.18)"}`,border:`3px solid ${A}55`,cursor:u!=="done"&&!k?"crosshair":"default",userSelect:"none"}},React.createElement("div",{ref:n,style:{position:"relative",lineHeight:0}},React.createElement(xe,{petData:{...e,eyeLeft:a,eyeRight:r,mouth:o},size:h,bounce:!1,mood:80}),k&&React.createElement("div",{style:{position:"absolute",left:`${k.x*100}%`,top:`${k.y*100}%`,transform:"translate(-50%,-50%)",width:34,height:34,background:"rgba(255,220,0,0.88)",borderRadius:"50%",border:"2.5px dashed #FF6D00",zIndex:15,display:"flex",alignItems:"center",justifyContent:"center",fontSize:18,animation:"sparkle 0.65s ease-in-out infinite",pointerEvents:"none"}},u==="mouth"?"\u{1F444}":"\u{1F441}\uFE0F"),a&&u!=="eye1"&&React.createElement(Y,{part:"eyeLeft",pos:a,emoji:"\u{1F441}"}),r&&!["eye1","eye2"].includes(u)&&React.createElement(Y,{part:"eyeRight",pos:r,emoji:"\u{1F441}"}),o&&u==="done"&&React.createElement(Y,{part:"mouth",pos:o,emoji:"\u{1F444}"}))),React.createElement("div",{style:{display:"flex",gap:8,flexWrap:"wrap",justifyContent:"center"}},React.createElement("button",{onClick:b,style:U},"\u2190 V\u1EBD l\u1EA1i"),React.createElement("button",{onClick:Q,style:U},"\u21BA \u0110\u1EB7t l\u1EA1i"),k&&React.createElement("button",{onClick:H,style:{background:"linear-gradient(135deg,#43A047,#1B5E20)",border:"none",borderRadius:12,padding:"9px 20px",cursor:"pointer",color:"white",fontFamily:l.game,fontWeight:900,fontSize:12,boxShadow:"0 4px 14px rgba(67,160,71,0.5)"}},"\u2713 X\xE1c nh\u1EADn"),u==="done"&&!k&&React.createElement("button",{onClick:f,style:{background:d?"#00E5FF":"white",border:"none",borderRadius:12,padding:"9px 22px",cursor:"pointer",color:d?"#0D1B2A":L.black,fontFamily:l.game,fontWeight:900,fontSize:13,boxShadow:`0 4px 14px ${d?"rgba(0,229,255,0.4)":"rgba(0,0,0,0.2)"}`}},"Ti\u1EBFp theo \u2192")))}function Ht({onComplete:e}){let[a,r]=(0,y.useState)(0),[o,s]=(0,y.useState)(null),[g,m]=(0,y.useState)("#C8956C"),[b,f]=(0,y.useState)(null),[d,u]=(0,y.useState)(null),[B,k]=(0,y.useState)(null),[x,p]=(0,y.useState)(""),S={drawnPath:o,color:g,eyeLeft:b,eyeRight:d,mouth:B,mouthType:"smile"};return React.createElement("div",{style:{minHeight:"100vh",background:"linear-gradient(160deg,#FF6B9D 0%,#C44DFF 50%,#4D79FF 100%)",display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",padding:"28px 20px",gap:16}},React.createElement("link",{rel:"stylesheet",href:je}),React.createElement("style",null,Ue),React.createElement("div",{style:{display:"flex",gap:6}},["1. V\u1EBD h\xECnh","2. \u0110\u1EB7t m\u1EB7t","3. M\xE0u & t\xEAn"].map((h,A)=>React.createElement("div",{key:A,style:{background:A===a?"white":"rgba(255,255,255,0.3)",borderRadius:99,padding:"5px 14px",fontFamily:l.game,fontWeight:800,fontSize:11,color:A===a?"#C44DFF":"white",transition:"all 0.2s"}},h))),a===0&&React.createElement("div",{style:{display:"flex",flexDirection:"column",alignItems:"center",gap:12}},React.createElement("div",{style:{fontFamily:l.game,fontWeight:900,fontSize:17,color:"white",textAlign:"center",lineHeight:1.4}},"\u270F\uFE0F V\u1EBD h\xECnh d\u1EA1ng pet c\u1EE7a b\u1EA1n!",React.createElement("br",null),React.createElement("span",{style:{fontSize:12,fontWeight:700,opacity:.8}},"V\u1EBD 1 v\xF2ng tr\xF2n k\xEDn")),React.createElement(yt,{color:g,onSave:h=>{s(h),r(1)}})),a===1&&React.createElement(ht,{petData:S,eyeLeft:b,setEyeLeft:f,eyeRight:d,setEyeRight:u,mouth:B,setMouth:k,onBack:()=>{f(null),u(null),k(null),r(0)},onNext:()=>r(2),isDark:!1}),a===2&&React.createElement("div",{style:{display:"flex",flexDirection:"column",alignItems:"center",gap:16}},React.createElement(xe,{petData:S,size:150,bounce:!0,mood:80}),React.createElement("div",{style:{background:"rgba(255,255,255,0.88)",borderRadius:20,padding:"18px 16px",width:"100%",maxWidth:320}},React.createElement("div",{style:{fontFamily:l.game,fontWeight:800,fontSize:14,color:L.black,marginBottom:12}},"\u{1F3A8} M\xE0u s\u1EAFc"),React.createElement("div",{style:{display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:8,marginBottom:16}},It.map(h=>React.createElement("button",{key:h,onClick:()=>m(h),style:{background:h,borderRadius:14,height:52,border:`3px solid ${g===h?L.black:"transparent"}`,cursor:"pointer",transform:g===h?"scale(1.1)":"scale(1)",transition:"all 0.2s",boxShadow:g===h?`0 4px 14px ${h}88`:"none",display:"flex",alignItems:"center",justifyContent:"center"}},g===h&&React.createElement("span",{style:{color:"white",fontSize:18,filter:"drop-shadow(0 1px 3px rgba(0,0,0,0.4))"}},"\u2713")))),React.createElement("div",{style:{fontFamily:l.game,fontWeight:800,fontSize:14,color:L.black,marginBottom:8}},"\u{1F3F7} T\xEAn Pet"),React.createElement("input",{value:x,onChange:h=>p(h.target.value),maxLength:14,placeholder:"VD: Mochi, Pou, Bean...",style:{width:"100%",background:"#F5F5F5",border:"2px solid #E0E0E0",borderRadius:12,padding:"12px 14px",textAlign:"center",fontFamily:l.game,fontSize:16,fontWeight:800,outline:"none",color:L.black,boxSizing:"border-box"}})),React.createElement("button",{onClick:()=>x.trim().length>=2&&e({...S,name:x.trim(),color:g}),style:{background:x.trim().length>=2?"white":"rgba(255,255,255,0.4)",border:"none",borderRadius:16,padding:"15px 40px",color:x.trim().length>=2?L.black:"rgba(255,255,255,0.5)",fontFamily:l.game,fontWeight:900,fontSize:16,cursor:x.trim().length>=2?"pointer":"not-allowed",boxShadow:x.trim().length>=2?"0 6px 22px rgba(0,0,0,0.22)":"none"}},"\u{1F680} B\u1EAFt \u0111\u1EA7u ch\u01A1i!")))}function Ot({onLogin:e}){let[a,r]=(0,y.useState)("login"),[o,s]=(0,y.useState)(""),[g,m]=(0,y.useState)(""),[b,f]=(0,y.useState)(""),d=()=>{if(!o.trim()){f("Nh\u1EADp t\xEAn \u0111\u0103ng nh\u1EADp!");return}if(g.length<4){f("M\u1EADt kh\u1EA9u \u2265 4 k\xFD t\u1EF1!");return}e(o.trim())};return React.createElement("div",{style:{minHeight:"100vh",background:"linear-gradient(160deg,#40C8E0 0%,#5BA8D4 50%,#3D88B8 100%)",display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",padding:"24px 20px"}},React.createElement("link",{rel:"stylesheet",href:je}),React.createElement("style",null,Ue),React.createElement("div",{style:{textAlign:"center",marginBottom:24}},React.createElement(xe,{petData:{color:"#C8956C"},size:110,bounce:!0,mood:80}),React.createElement("div",{style:{fontFamily:l.game,fontWeight:900,fontSize:36,color:"white",textShadow:"0 3px 12px rgba(0,0,0,0.2)",letterSpacing:"-0.01em"}},"Lootzy"),React.createElement("div",{style:{color:"rgba(255,255,255,0.8)",fontFamily:l.game,fontSize:13,marginTop:2}},"Nu\xF4i pet \xB7 Loot qu\xE0 \xB7 X\u1EBFp h\u1EA1ng")),React.createElement("div",{style:{background:"white",borderRadius:24,padding:"24px 20px",boxShadow:"0 14px 44px rgba(0,0,0,0.20)",width:"100%",maxWidth:340}},React.createElement("div",{style:{display:"grid",gridTemplateColumns:"1fr 1fr",gap:4,background:"#F5F5F5",borderRadius:14,padding:4,marginBottom:20}},["login","register"].map(u=>React.createElement("button",{key:u,onClick:()=>{r(u),f("")},style:{background:a===u?"#1A1A1A":"transparent",border:"none",borderRadius:11,padding:"10px 0",cursor:"pointer",color:a===u?"white":"#9E9E9E",fontFamily:l.game,fontWeight:800,fontSize:13}},u==="login"?"\u0110\u0103ng Nh\u1EADp":"T\u1EA1o T\xE0i Kho\u1EA3n"))),React.createElement("div",{style:{display:"flex",flexDirection:"column",gap:10,marginBottom:12}},[{val:o,set:s,ph:"T\xEAn \u0111\u0103ng nh\u1EADp",type:"text"},{val:g,set:m,ph:"M\u1EADt kh\u1EA9u (\u22654 k\xFD t\u1EF1)",type:"password"}].map(u=>React.createElement("input",{key:u.ph,type:u.type,value:u.val,onChange:B=>{u.set(B.target.value),f("")},onKeyDown:B=>B.key==="Enter"&&d(),placeholder:u.ph,style:{background:"#F5F5F5",border:"2px solid #EEEEEE",borderRadius:12,padding:"12px 14px",fontFamily:l.game,fontSize:14,fontWeight:700,outline:"none",color:L.black}}))),b&&React.createElement("div",{style:{background:"#FFEBEE",border:"1px solid #FFCDD2",borderRadius:10,padding:"8px 12px",marginBottom:10,color:"#C62828",fontFamily:l.game,fontSize:12,textAlign:"center"}},b),React.createElement("button",{onClick:d,style:{width:"100%",background:"#1A1A1A",border:"none",borderRadius:14,padding:"14px 0",color:"white",fontFamily:l.game,fontWeight:900,fontSize:15,cursor:"pointer",boxShadow:"0 6px 20px rgba(0,0,0,0.25)",marginBottom:14}},a==="login"?"\u{1F680} \u0110\u0103ng Nh\u1EADp":"\u2728 T\u1EA1o T\xE0i Kho\u1EA3n"),React.createElement("div",{style:{display:"flex",gap:8}},[{icon:"\u{1F310}",label:"Google"},{icon:"\u{1F4D8}",label:"Facebook"}].map(u=>React.createElement("button",{key:u.label,onClick:()=>e(u.label+"_User"),style:{flex:1,background:"#F5F5F5",border:"1.5px solid #EEEEEE",borderRadius:12,padding:"11px 0",cursor:"pointer",color:"#666",fontFamily:l.game,fontSize:12,fontWeight:700,display:"flex",alignItems:"center",justifyContent:"center",gap:5}},u.icon," ",u.label)))),React.createElement("div",{style:{color:"rgba(255,255,255,0.55)",fontFamily:l.game,fontSize:11,marginTop:16,textAlign:"center",lineHeight:1.6}},"Demo prototype \xB7 Lootzy Phase 1",React.createElement("br",null),React.createElement("span",{style:{opacity:.7,fontSize:10}},zt)))}function Vt({onClose:e,state:a,asTab:r=!1}){let[o,s]=(0,y.useState)("items"),g=(a.inventory||[]).filter(d=>!d.type||d.type==="pet_item"||d.type==="points"),m=(a.openedPrizes||[]).filter(d=>d.type==="voucher"||d.type==="physical"),b={common:"#9E9E9E",rare:"#039BE5",epic:"#E040FB"},f=React.createElement("div",{style:r?{flex:1,display:"flex",flexDirection:"column",overflow:"hidden",background:"#F9F9F9"}:{background:"#F9F9F9",borderRadius:"24px 24px 0 0",maxHeight:"76%",display:"flex",flexDirection:"column",animation:"slideUp 0.24s ease-out",overflow:"hidden"}},React.createElement("div",{style:{padding:"14px 16px 0",background:"white",flexShrink:0,borderBottom:"1.5px solid #F0F0F0"}},React.createElement("div",{style:{display:"flex",alignItems:"center",justifyContent:"space-between",marginBottom:12}},React.createElement("div",{style:{display:"flex",alignItems:"center",gap:8}},React.createElement("span",{style:{fontSize:22}},"\u{1F392}"),React.createElement("span",{style:{fontFamily:l.game,fontWeight:900,fontSize:15,color:L.black}},"Kho \u0110\u1ED3")),!r&&React.createElement("button",{onClick:e,style:{background:"#F0F0F0",border:"none",borderRadius:"50%",width:30,height:30,cursor:"pointer",fontSize:16,display:"flex",alignItems:"center",justifyContent:"center"}},"\xD7")),React.createElement("div",{style:{display:"flex",gap:0,marginBottom:0}},[{id:"items",label:"\u{1F34E} V\u1EADt ph\u1EA9m cho Pet",count:g.length},{id:"voucher",label:"\u{1F3AE} Voucher",count:m.length}].map(d=>React.createElement("button",{key:d.id,onClick:()=>s(d.id),style:{flex:1,background:"none",border:"none",cursor:"pointer",padding:"8px 0 10px",fontFamily:l.game,fontWeight:900,fontSize:11,color:o===d.id?L.black:"#BDBDBD",borderBottom:o===d.id?"2.5px solid #B4FF00":"2.5px solid transparent",transition:"color 0.2s",display:"flex",alignItems:"center",justifyContent:"center",gap:5}},d.label,d.count>0&&React.createElement("span",{style:{background:o===d.id?"#1A1A1A":"#E0E0E0",color:o===d.id?"white":"#999",borderRadius:99,padding:"1px 7px",fontFamily:l.game,fontSize:9,fontWeight:900}},d.count))))),React.createElement("div",{style:{flex:1,overflowY:"auto",padding:"14px 16px 24px"}},o==="items"&&(g.length===0?React.createElement("div",{style:{display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",padding:"32px 20px",gap:10}},React.createElement("span",{style:{fontSize:44,opacity:.2}},"\u{1F34E}"),React.createElement("div",{style:{fontFamily:l.game,fontWeight:900,fontSize:13,color:"#BDBDBD",textAlign:"center"}},"Ch\u01B0a c\xF3 v\u1EADt ph\u1EA9m n\xE0o"),React.createElement("div",{style:{fontFamily:l.game,fontSize:10,color:"#CCCCCC",textAlign:"center",lineHeight:1.5}},"Mua \u0111\u1ED3 \u1EDF Shop ho\u1EB7c m\u1EDF Loot Box",React.createElement("br",null),"\u0111\u1EC3 c\xF3 v\u1EADt ph\u1EA9m cho pet \u{1F6D2}"),React.createElement("div",{style:{display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:7,marginTop:6,width:"100%"}},Array.from({length:8}).map((d,u)=>React.createElement("div",{key:u,style:{aspectRatio:"1",background:"#F5F5F5",borderRadius:12,border:"1.5px dashed #E0E0E0",display:"flex",alignItems:"center",justifyContent:"center",fontSize:18,opacity:.25}},"?")))):React.createElement("div",{style:{display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:8}},g.map((d,u)=>{let B=typeof d=="object"&&d!==null,k=B&&d.emoji||"\u{1F4E6}",x=B&&d.name||String(d),p=B&&d.rarity||"common",S=b[p]||"#9E9E9E";return React.createElement("div",{key:u,style:{background:"white",borderRadius:12,padding:"10px 6px 8px",border:`1.5px solid ${S}44`,display:"flex",flexDirection:"column",alignItems:"center",gap:4,boxShadow:"0 2px 8px rgba(0,0,0,0.05)"}},React.createElement("span",{style:{fontSize:26,filter:`drop-shadow(0 2px 5px ${S}77)`}},k),React.createElement("div",{style:{fontFamily:l.game,fontSize:8,fontWeight:800,color:L.black,textAlign:"center",lineHeight:1.2}},x.length>10?x.slice(0,9)+"\u2026":x),React.createElement("div",{style:{fontFamily:l.game,fontSize:7,fontWeight:900,color:S,background:`${S}18`,borderRadius:99,padding:"1px 6px"}},p))}))),o==="voucher"&&(m.length===0?React.createElement("div",{style:{display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",padding:"32px 20px",gap:10}},React.createElement("span",{style:{fontSize:44,opacity:.2}},"\u{1F3AE}"),React.createElement("div",{style:{fontFamily:l.game,fontWeight:900,fontSize:13,color:"#BDBDBD",textAlign:"center"}},"Ch\u01B0a c\xF3 voucher n\xE0o"),React.createElement("div",{style:{fontFamily:l.game,fontSize:10,color:"#CCCCCC",textAlign:"center",lineHeight:1.5}},"M\u1EDF h\u1ED9p qu\xE0 \u0111\u1EC3 nh\u1EADn th\u1EBB Garena",React.createElement("br",null),"v\xE0 qu\xE0 th\u1EADt ngo\xE0i \u0111\u1EDDi \u{1F381}")):React.createElement("div",{style:{display:"flex",flexDirection:"column",gap:8}},m.map((d,u)=>{let B=b[d.rarity]||"#9E9E9E";return React.createElement("div",{key:u,style:{background:"white",borderRadius:14,padding:"12px 14px",border:`1.5px solid ${B}55`,display:"flex",alignItems:"center",gap:12,boxShadow:"0 2px 10px rgba(0,0,0,0.06)"}},React.createElement("span",{style:{fontSize:30,filter:`drop-shadow(0 2px 8px ${B}88)`}},d.emoji),React.createElement("div",{style:{flex:1}},React.createElement("div",{style:{fontFamily:l.game,fontWeight:900,fontSize:13,color:L.black}},d.name),d.desc&&React.createElement("div",{style:{fontFamily:l.game,fontSize:10,color:"#999",marginTop:2}},d.desc),React.createElement("div",{style:{display:"inline-block",marginTop:4,background:`${B}18`,border:`1px solid ${B}`,borderRadius:99,padding:"2px 8px",fontFamily:l.game,fontSize:8,fontWeight:900,color:B}},d.label)),React.createElement("button",{onClick:()=>showToast&&showToast(`${d.emoji} Li\xEAn h\u1EC7 HEAVY \u0111\u1EC3 nh\u1EADn!`),style:{background:"#1A1A1A",border:"none",borderRadius:10,padding:"8px 12px",cursor:"pointer",fontFamily:l.game,fontWeight:900,fontSize:10,color:"white"}},"Nh\u1EADn \u2192"))})))));return r?f:React.createElement("div",{onClick:e,style:{position:"fixed",inset:0,background:"rgba(0,0,0,0.55)",zIndex:80,display:"flex",flexDirection:"column",justifyContent:"flex-end"}},React.createElement("div",{onClick:d=>d.stopPropagation(),style:{flex:"none"}},f))}function Ut({currentPetData:e,onSave:a,onCancel:r}){let o=e?.color||"#C8956C",s=e?.name||"",[g,m]=(0,y.useState)(0),[b,f]=(0,y.useState)(null),[d,u]=(0,y.useState)(o),[B,k]=(0,y.useState)(null),[x,p]=(0,y.useState)(null),[S,n]=(0,y.useState)(null),[h,A]=(0,y.useState)(s),U={drawnPath:b,color:d,eyeLeft:B,eyeRight:x,mouth:S,mouthType:"smile"},Z=["1. V\u1EBD h\xECnh","2. \u0110\u1EB7t m\u1EB7t","3. M\xE0u & t\xEAn"],ne=["#C8956C","#F4A460","#DEB887","#BC8F8F","#708090","#5F9EA0","#8FBC8F","#E8A0BF","#9B59B6","#3498DB","#2ECC71","#E74C3C","#F39C12","#1ABC9C","#34495E","#E0E0E0"];return React.createElement("div",{style:{position:"absolute",inset:0,zIndex:60,background:"linear-gradient(160deg,#0D1B2A 0%,#1B2838 50%,#0F3460 100%)",display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"flex-start",padding:"32px 16px 24px",gap:14,overflowY:"auto"}},React.createElement("link",{rel:"stylesheet",href:je}),React.createElement("div",{style:{width:"100%",display:"flex",alignItems:"center",justifyContent:"space-between"}},React.createElement("div",{style:{display:"flex",alignItems:"center",gap:8}},React.createElement("span",{style:{fontSize:22}},"\u{1F52C}"),React.createElement("div",{style:{fontFamily:l.game,fontWeight:900,fontSize:16,color:"white"}},"Ph\u1EABu Thu\u1EADt Pet")),React.createElement("button",{onClick:r,style:{background:"rgba(255,255,255,0.12)",border:"1.5px solid rgba(255,255,255,0.25)",borderRadius:10,padding:"6px 14px",cursor:"pointer",fontFamily:l.game,fontWeight:900,fontSize:12,color:"rgba(255,255,255,0.8)"}},"\u2715 Hu\u1EF7")),React.createElement("div",{style:{display:"flex",gap:6}},Z.map((H,Q)=>React.createElement("div",{key:Q,style:{background:Q===g?"#00E5FF":"rgba(255,255,255,0.12)",borderRadius:99,padding:"5px 13px",fontFamily:l.game,fontWeight:800,fontSize:10,color:Q===g?"#0D1B2A":"rgba(255,255,255,0.5)",transition:"all 0.2s"}},H))),g===0&&React.createElement("div",{style:{display:"flex",flexDirection:"column",alignItems:"center",gap:12}},React.createElement("div",{style:{fontFamily:l.game,fontWeight:900,fontSize:15,color:"#00E5FF",textAlign:"center",lineHeight:1.4}},"\u270F\uFE0F V\u1EBD h\xECnh d\u1EA1ng m\u1EDBi cho pet!",React.createElement("br",null),React.createElement("span",{style:{fontSize:11,fontWeight:700,color:"rgba(255,255,255,0.6)"}},"V\u1EBD 1 v\xF2ng k\xEDn \u2192 t\u1EF1 \u0111\u1ED9ng l\u01B0u")),React.createElement(yt,{color:d,onSave:H=>{f(H),m(1)}})),g===1&&React.createElement(ht,{petData:U,eyeLeft:B,setEyeLeft:k,eyeRight:x,setEyeRight:p,mouth:S,setMouth:n,onBack:()=>{k(null),p(null),n(null),m(0)},onNext:()=>m(2),isDark:!0}),g===2&&React.createElement("div",{style:{display:"flex",flexDirection:"column",alignItems:"center",gap:14,width:"100%"}},React.createElement(xe,{petData:U,size:140,bounce:!0,mood:80}),React.createElement("div",{style:{background:"rgba(255,255,255,0.06)",borderRadius:20,padding:"16px 14px",width:"100%",maxWidth:320,border:"1.5px solid rgba(255,255,255,0.12)"}},React.createElement("div",{style:{fontFamily:l.game,fontWeight:800,fontSize:13,color:"#00E5FF",marginBottom:10}},"\u{1F3A8} M\xE0u s\u1EAFc"),React.createElement("div",{style:{display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:7,marginBottom:14}},ne.map(H=>React.createElement("button",{key:H,onClick:()=>u(H),style:{background:H,borderRadius:12,height:46,border:`3px solid ${d===H?"#00E5FF":"transparent"}`,cursor:"pointer",transform:d===H?"scale(1.1)":"scale(1)",transition:"all 0.15s",boxShadow:d===H?`0 4px 14px ${H}88`:"none",display:"flex",alignItems:"center",justifyContent:"center"}},d===H&&React.createElement("span",{style:{color:"white",fontSize:16,filter:"drop-shadow(0 1px 3px rgba(0,0,0,0.5))"}},"\u2713")))),React.createElement("div",{style:{fontFamily:l.game,fontWeight:800,fontSize:13,color:"#00E5FF",marginBottom:8}},"\u{1F3F7} T\xEAn Pet"),React.createElement("input",{value:h,onChange:H=>A(H.target.value),maxLength:14,placeholder:"T\xEAn m\u1EDBi cho pet...",style:{width:"100%",background:"rgba(255,255,255,0.08)",border:"1.5px solid rgba(0,229,255,0.4)",borderRadius:12,padding:"11px 14px",textAlign:"center",fontFamily:l.game,fontSize:15,fontWeight:800,outline:"none",color:"white",boxSizing:"border-box"}})),React.createElement("div",{style:{display:"flex",gap:10}},React.createElement("button",{onClick:()=>m(1),style:{background:"rgba(255,255,255,0.12)",border:"1.5px solid rgba(255,255,255,0.25)",borderRadius:14,padding:"11px 18px",cursor:"pointer",color:"white",fontFamily:l.game,fontWeight:800,fontSize:12}},"\u2190 Quay l\u1EA1i"),React.createElement("button",{onClick:()=>{h.trim().length<1||a({...U,name:h.trim(),color:d})},disabled:h.trim().length<1,style:{background:h.trim().length>=1?"linear-gradient(135deg,#00E5FF,#1976D2)":"rgba(255,255,255,0.2)",border:"none",borderRadius:14,padding:"12px 28px",color:h.trim().length>=1?"white":"rgba(255,255,255,0.4)",fontFamily:l.game,fontWeight:900,fontSize:14,cursor:h.trim().length>=1?"pointer":"not-allowed",boxShadow:h.trim().length>=1?"0 6px 22px rgba(0,229,255,0.4)":"none"}},"\u{1F489} L\u01B0u ph\u1EABu thu\u1EADt!"))))}function Ye({icon:e,label:a,active:r,onClick:o,badge:s}){return React.createElement("button",{onClick:o,style:{background:"none",border:"none",cursor:"pointer",display:"flex",flexDirection:"column",alignItems:"center",gap:2,padding:"4px 0",flex:1,position:"relative"}},React.createElement("span",{style:{fontSize:22,filter:r?"none":"grayscale(0.5) opacity(0.6)"}},e),React.createElement("span",{style:{fontFamily:l.game,fontWeight:900,fontSize:10,color:r?L.black:"#BDBDBD"}},a),r&&React.createElement("div",{style:{width:20,height:3,borderRadius:99,background:"linear-gradient(90deg,#B4FF00,#00E5FF)",marginTop:1}}),s?React.createElement("div",{style:{position:"absolute",top:2,right:"18%",background:"#FF5252",borderRadius:"50%",width:15,height:15,display:"flex",alignItems:"center",justifyContent:"center",fontFamily:l.game,fontSize:8,fontWeight:900,color:"white",boxShadow:"0 2px 6px rgba(255,82,82,0.5)"}},s>9?"9+":s):null)}function Kt({state:e,dispatch:a,showToast:r,onExit:o}){let g=Math.min(typeof window<"u"?window.innerWidth:390,420),m=typeof window<"u"?window.innerHeight:667,b=Math.floor((g-28)/8),f=Math.floor((m*.72-200)/8),d=Math.max(24,Math.min(38,b,f)),u=()=>Array(8).fill(null).map(()=>Array(8).fill(null)),B=()=>[Ve(),Ve(),Ve()],[k,x]=(0,y.useState)(u),[p,S]=(0,y.useState)(B),[n,h]=(0,y.useState)(null),[A,U]=(0,y.useState)(0),[Z,ne]=(0,y.useState)(!1),[H,Q]=(0,y.useState)(new Set),[Y,I]=(0,y.useState)(null),[F,w]=(0,y.useState)({e:0,cl:0,h:0}),[W,G]=(0,y.useState)(!1),[X,le]=(0,y.useState)(null),[ie,re]=(0,y.useState)({x:0,y:0}),pe=(0,y.useRef)(null),he=90,we=(0,y.useMemo)(()=>{if(n===null||!p[n])return new Set;let T=p[n],j=new Set;for(let z=0;z<8;z++)for(let t=0;t<8;t++)$e(T.shape,z,t,k)&&j.add(`${z},${t}`);return j},[n,p,k]),ee=(0,y.useMemo)(()=>{if(!Y||n===null||!p[n])return new Set;let T=p[n];if(!$e(T.shape,Y.r,Y.c,k))return new Set;let j=new Set;for(let z=0;z<T.shape.length;z++)for(let t=0;t<T.shape[z].length;t++)T.shape[z][t]&&j.add(`${Y.r+z},${Y.c+t}`);return j},[Y,n,p,k]),fe=(T,j)=>{if(!pe.current)return null;let z=pe.current.getBoundingClientRect(),t=d+2,c=Math.floor((T-z.left-4)/t),R=Math.floor((j-z.top-4)/t);return R<0||R>=8||c<0||c>=8?null:{r:R,c}};(0,y.useEffect)(()=>{if(!W||X===null)return;let T=z=>{z.preventDefault();let t=z.touches[0];t&&(re({x:t.clientX,y:t.clientY}),I(fe(t.clientX,t.clientY-he)))},j=z=>{let t=z.changedTouches[0];if(t){let c=fe(t.clientX,t.clientY-he);c&&We(c.r,c.c)}G(!1),le(null),I(null)};return window.addEventListener("touchmove",T,{passive:!1}),window.addEventListener("touchend",j,{passive:!1}),()=>{window.removeEventListener("touchmove",T),window.removeEventListener("touchend",j)}},[W,X]);let We=(T,j)=>{if(Z||n===null)return;let z=p[n];if(!z||!$e(z.shape,T,j,k))return;let t=k.map(M=>[...M]),c=0,R=0;for(let M=0;M<z.shape.length;M++)for(let P=0;P<z.shape[M].length;P++)z.shape[M][P]&&(t[T+M][j+P]={pts:z.pts[c++]||5,bg:z.rar.bg,border:z.rar.border},R++);let N=[],i=[];for(let M=0;M<8;M++)t[M].every(P=>P!==null)&&N.push(M);for(let M=0;M<8;M++)t.every(P=>P[M]!==null)&&i.push(M);let E=N.length+i.length,C=0,v=new Set;E>0&&(N.forEach(M=>{for(let P=0;P<8;P++)C+=t[M][P]?.pts||0,v.add(`${M},${P}`);for(let P=0;P<8;P++)t[M][P]=null}),i.forEach(M=>{for(let P=0;P<8;P++)t[P][M]!==null&&(C+=t[P][M]?.pts||0,v.add(`${P},${M}`)),t[P][M]=null}),C*=Math.max(1,E),Q(v),setTimeout(()=>Q(new Set),400),r(`\u2728 ${E>1?`COMBO \xD7${E}! `:""}+${C}\u{1FA99}`)),U(M=>M+C),x(t),I(null),w(M=>({e:M.e+R*1.5,cl:M.cl+R*.8,h:M.h+R*2+E*5}));let _=p.map((M,P)=>P===n?null:M),$=_.some(M=>M!==null)?_:B();S($),h(null),$.some(M=>{if(!M)return!1;for(let P=0;P<8;P++)for(let ae=0;ae<8;ae++)if($e(M.shape,P,ae,t))return!0;return!1})||ne(!0)},Te=()=>{let T=Math.max(0,Math.round(F.e)),j=Math.max(0,Math.round(F.cl)),z=Math.max(0,Math.round(F.h));a({type:"APPLY_GAME_RESULT",energyCost:T,cleanCost:j,happinessGain:z,gameScore:A}),(A>0||z>0)&&r(`\u{1F3AE} +${A}\u{1FA99} +${z}\u2764\uFE0F \u2212${T}\u26A1 \u2212${j}\u{1F9FC}`),o()},Re=n!==null?p[n]:null,be=d<32;return React.createElement("div",{style:{display:"flex",flexDirection:"column",alignItems:"center",background:"#1A1A2E",height:"100%",overflow:"hidden",padding:be?"4px 8px 6px":"6px 8px 10px",gap:be?4:6}},React.createElement("div",{style:{width:"100%",display:"flex",justifyContent:"space-between",alignItems:"center",background:"rgba(255,255,255,0.06)",borderRadius:14,padding:be?"5px 12px":"7px 14px",flexShrink:0}},React.createElement("div",null,React.createElement("div",{style:{fontFamily:l.game,fontSize:be?8:9,color:"#888",fontWeight:700}},"\u0110I\u1EC2M"),React.createElement("div",{style:{fontFamily:l.game,fontSize:be?15:20,color:"#FFD700",fontWeight:900,lineHeight:1}},A.toLocaleString())),React.createElement("div",{style:{textAlign:"center"}},React.createElement("div",{style:{fontFamily:l.game,fontSize:9,color:"#888",fontWeight:700,marginBottom:3}},"HI\u1EC6U \u1EE8NG PET"),F.h>0||F.e>0||F.cl>0?React.createElement("div",{style:{display:"flex",gap:8}},[{icon:"\u2764\uFE0F",v:F.h,sign:"+"},{icon:"\u26A1",v:F.e,sign:"\u2212"},{icon:"\u{1F9FC}",v:F.cl,sign:"\u2212"}].map(({icon:T,v:j,sign:z})=>React.createElement("div",{key:T,style:{fontFamily:l.game,fontSize:10,color:"rgba(255,255,255,0.7)",fontWeight:800}},z,Math.round(j),T))):React.createElement("div",{style:{fontFamily:l.game,fontSize:9,color:"rgba(255,255,255,0.3)",fontWeight:700}},"\u0110\u1EB7t kh\u1ED1i \u0111\u1EC3 b\u1EAFt \u0111\u1EA7u")),React.createElement("button",{onClick:Te,style:{background:"rgba(255,255,255,0.10)",border:"1.5px solid rgba(255,255,255,0.2)",borderRadius:10,padding:"6px 12px",cursor:"pointer",fontFamily:l.game,fontWeight:900,fontSize:11,color:"white"}},"Tho\xE1t")),React.createElement("div",{ref:pe,style:{background:"rgba(0,0,0,0.35)",borderRadius:14,padding:4,flexShrink:0,display:"grid",gridTemplateColumns:`repeat(8,${d}px)`,gridTemplateRows:`repeat(8,${d}px)`,gap:2}},Array.from({length:64},(T,j)=>{let z=Math.floor(j/8),t=j%8,c=`${z},${t}`,R=k[z][t],N=H.has(c),i=!R&&ee.has(c),E=!R&&n!==null&&we.has(c);return React.createElement("div",{key:c,onClick:()=>We(z,t),onMouseEnter:()=>{n!==null&&I({r:z,c:t})},onMouseLeave:()=>I(null),style:{width:d,height:d,borderRadius:5,cursor:n!==null?"pointer":"default",background:N?"#FFD700":R?`linear-gradient(135deg,${R.bg},rgba(120,210,255,0.45) 55%,${R.bg}99)`:i?(Re?.rar.bg||"#fff")+"66":E?"rgba(255,255,255,0.09)":"rgba(255,255,255,0.03)",border:R?"1.5px solid rgba(180,235,255,0.85)":i?`1.5px solid ${Re?.rar.bg||"#fff"}`:E?"1px dashed rgba(255,255,255,0.22)":"1px solid rgba(255,255,255,0.05)",boxShadow:R?`inset 0 0 ${d*.3}px rgba(80,180,255,0.35), 0 2px 6px rgba(0,0,0,0.3)`:"none",position:"relative",animation:N?"blockClear 0.35s ease-out forwards":R?"blockPlace 0.18s ease-out":"none",transition:"background 0.08s",overflow:"hidden"}},R&&React.createElement(React.Fragment,null,React.createElement("div",{style:{position:"absolute",inset:0,display:"flex",alignItems:"center",justifyContent:"center",paddingBottom:d*.18}},React.createElement(xe,{petData:e.petData,size:Math.round(d*.8),bounce:!1,mood:55,cleanLevel:100,isSleeping:!1,eyeOffset:{x:0,y:0}})),React.createElement("svg",{style:{position:"absolute",inset:0,width:"100%",height:"100%",pointerEvents:"none",opacity:.28},viewBox:"0 0 38 38"},React.createElement("line",{x1:"4",y1:"3",x2:"11",y2:"13",stroke:"white",strokeWidth:"0.9"}),React.createElement("line",{x1:"11",y1:"13",x2:"7",y2:"21",stroke:"white",strokeWidth:"0.65"}),React.createElement("line",{x1:"11",y1:"13",x2:"17",y2:"17",stroke:"white",strokeWidth:"0.65"}),React.createElement("line",{x1:"31",y1:"29",x2:"25",y2:"21",stroke:"white",strokeWidth:"0.8"}),React.createElement("line",{x1:"25",y1:"21",x2:"29",y2:"15",stroke:"white",strokeWidth:"0.55"}),React.createElement("line",{x1:"25",y1:"21",x2:"20",y2:"26",stroke:"white",strokeWidth:"0.55"})),React.createElement("div",{style:{position:"absolute",inset:0,background:"linear-gradient(160deg,rgba(180,235,255,0.30) 0%,rgba(80,170,255,0.12) 45%,transparent 70%)",pointerEvents:"none"}}),React.createElement("span",{style:{position:"absolute",bottom:2,left:0,right:0,textAlign:"center",fontFamily:l.game,fontSize:Math.max(7,d*.21),fontWeight:900,color:"white",lineHeight:1,textShadow:"0 1px 4px rgba(0,80,180,0.9),0 0 6px rgba(0,160,255,0.7)"}},R.pts)),i&&React.createElement("div",{style:{opacity:.55,display:"flex",alignItems:"center",justifyContent:"center",width:"100%",height:"100%"}},React.createElement(xe,{petData:e.petData,size:Math.round(d*.72),bounce:!1,mood:55,cleanLevel:100,isSleeping:!1,eyeOffset:{x:0,y:0}})))})),React.createElement("div",{style:{width:"100%",display:"flex",gap:8,justifyContent:"center",flexShrink:0}},p.map((T,j)=>React.createElement("div",{key:j,onClick:()=>{T&&!W&&h(j===n?null:j)},onTouchStart:z=>{if(!T||Z)return;z.preventDefault();let t=z.touches[0];h(j),le(j),re({x:t.clientX,y:t.clientY}),G(!0)},style:{flex:1,minHeight:be?52:68,maxWidth:115,background:T?"rgba(255,255,255,0.07)":"rgba(0,0,0,0.25)",borderRadius:14,border:`2px solid ${j===n&&T?"#B4FF00":"rgba(255,255,255,0.13)"}`,display:"flex",alignItems:"center",justifyContent:"center",cursor:T?"pointer":"default",transform:j===n&&T?"scale(1.07)":"scale(1)",transition:"transform 0.12s,border 0.12s,box-shadow 0.12s,opacity 0.12s",boxShadow:j===n&&T?"0 0 18px #B4FF0044":"none",opacity:W&&X===j?.3:1,touchAction:"none",padding:6,position:"relative"}},T?React.createElement("div",{style:{display:"grid",gridTemplateColumns:`repeat(${T.shape[0].length},16px)`,gridTemplateRows:`repeat(${T.shape.length},16px)`,gap:2}},T.shape.flatMap((z,t)=>z.map((c,R)=>React.createElement("div",{key:`${t},${R}`,style:{width:16,height:16,borderRadius:4,background:c?`linear-gradient(135deg,${T.rar.bg},rgba(140,215,255,0.5) 60%,${T.rar.bg}88)`:"transparent",border:c?"1px solid rgba(180,235,255,0.8)":"none",boxShadow:c?"inset 0 0 5px rgba(80,180,255,0.4)":"none",overflow:"hidden",position:"relative",display:"flex",alignItems:"center",justifyContent:"center"}},c&&React.createElement(React.Fragment,null,React.createElement(xe,{petData:e.petData,size:13,bounce:!1,mood:55,cleanLevel:100,isSleeping:!1,eyeOffset:{x:0,y:0}}),React.createElement("div",{style:{position:"absolute",inset:0,background:"rgba(100,200,255,0.22)",pointerEvents:"none"}})))))):React.createElement("span",{style:{fontSize:18,opacity:.25}},"\u2713"),T&&React.createElement("div",{style:{position:"absolute",top:4,right:5,fontFamily:l.game,fontSize:7,fontWeight:900,color:T.rar.bg,textShadow:`0 0 6px ${T.rar.bg}`}},T.rar.name==="epic"?"EPIC":T.rar.name==="rare"?"RARE":"")))),React.createElement("div",{style:{fontFamily:l.game,fontSize:10,color:"rgba(255,255,255,0.35)",textAlign:"center",flexShrink:0}},Z?"":n===null?"\u270B Gi\u1EEF & k\xE9o kh\u1ED1i l\xEAn b\u1EA3ng":W?"\u2B06\uFE0F Th\u1EA3 \u0111\u1EC3 \u0111\u1EB7t kh\u1ED1i":"\u{1F446} K\xE9o ho\u1EB7c ch\u1EA1m \xF4 \u0111\u1EC3 \u0111\u1EB7t"),W&&X!==null&&p[X]&&(()=>{let T=p[X],j=T.shape[0].length,z=T.shape.length,t=d;return React.createElement("div",{style:{position:"fixed",left:ie.x,top:ie.y-he,transform:"translate(-50%,-50%) scale(1.22)",pointerEvents:"none",zIndex:1e3,filter:`drop-shadow(0 6px 18px ${T.rar.bg}88)`}},React.createElement("div",{style:{display:"grid",gridTemplateColumns:`repeat(${j},${t}px)`,gridTemplateRows:`repeat(${z},${t}px)`,gap:2,background:"rgba(0,0,0,0.45)",borderRadius:10,padding:4}},T.shape.flatMap((c,R)=>c.map((N,i)=>React.createElement("div",{key:`${R},${i}`,style:{width:t,height:t,borderRadius:5,background:N?`linear-gradient(135deg,${T.rar.bg},rgba(140,215,255,0.5) 60%,${T.rar.bg}88)`:"transparent",border:N?"1.5px solid rgba(180,235,255,0.85)":"none",boxShadow:N?`inset 0 0 ${t*.3}px rgba(80,180,255,0.35)`:"none",overflow:"hidden",position:"relative",display:"flex",alignItems:"center",justifyContent:"center"}},N&&React.createElement(xe,{petData:e.petData,size:Math.round(t*.8),bounce:!1,mood:55,cleanLevel:100,isSleeping:!1,eyeOffset:{x:0,y:0}}))))))})(),Z&&React.createElement("div",{style:{position:"absolute",inset:0,background:"rgba(0,0,0,0.82)",display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",zIndex:50,gap:14,padding:24}},React.createElement("div",{style:{textAlign:"center"}},React.createElement("div",{style:{fontSize:56,lineHeight:1}},"\u{1F635}"),React.createElement("div",{style:{fontFamily:l.game,fontWeight:900,fontSize:24,color:"white",marginTop:8}},"Game Over!"),React.createElement("div",{style:{fontFamily:l.game,fontSize:15,color:"#FFD700",marginTop:4}},A.toLocaleString()," \u0111i\u1EC3m \u{1FA99}")),React.createElement("div",{style:{background:"rgba(255,255,255,0.09)",borderRadius:18,padding:"14px 28px",textAlign:"center",width:"100%",maxWidth:280}},React.createElement("div",{style:{fontFamily:l.game,fontWeight:900,fontSize:11,color:"#888",marginBottom:10}},"Hi\u1EC7u \u1EE9ng cho pet"),React.createElement("div",{style:{display:"flex",gap:0,justifyContent:"space-around"}},[{icon:"\u2764\uFE0F",v:`+${Math.max(0,Math.round(F.h))}`,col:"#EF9A9A"},{icon:"\u26A1",v:`\u2212${Math.max(0,Math.round(F.e))}`,col:"#FFF176"},{icon:"\u{1F9FC}",v:`\u2212${Math.max(0,Math.round(F.cl))}`,col:"#80D8FF"},{icon:"\u{1FA99}",v:`+${A}`,col:"#FFD700"}].map(({icon:T,v:j,col:z})=>React.createElement("div",{key:T,style:{textAlign:"center"}},React.createElement("div",{style:{fontSize:22}},T),React.createElement("div",{style:{fontFamily:l.game,fontWeight:900,fontSize:13,color:z}},j))))),React.createElement("button",{onClick:Te,style:{background:"linear-gradient(135deg,#B4FF00,#00E676)",border:"none",borderRadius:22,padding:"14px 44px",fontFamily:l.game,fontWeight:900,fontSize:16,color:"#1A1A1A",cursor:"pointer",boxShadow:"0 6px 28px rgba(0,200,83,0.45)",animation:"pulseBtn 1.8s ease-in-out infinite"}},"\u{1F389} Nh\u1EADn th\u01B0\u1EDFng!")))}function qt({state:e,dispatch:a,showToast:r,onExit:o}){let s=(0,y.useRef)(null),g=(0,y.useRef)([]),m=(0,y.useRef)(0),b=(0,y.useRef)(0),f=(0,y.useRef)(!1),d=(0,y.useRef)(180),u=(0,y.useRef)(0),B=(0,y.useRef)(null),k=(0,y.useRef)(!0),x=(0,y.useRef)(null),p=(0,y.useRef)(new Set),S=(0,y.useRef)({h:0,e:0,cl:0}),n=(0,y.useRef)(0),[h,A]=(0,y.useState)(0),[U,Z]=(0,y.useState)(!1),[ne,H]=(0,y.useState)(!0),[Q,Y]=(0,y.useState)(0),I=360,F=490,w=F-10,W=10,G=I-10,X=68,le=.3,ie=.98,re=.44,pe=(t,c)=>{let R=parseInt((t||"#888888").replace("#",""),16),N=Math.min(255,(R>>16&255)+Math.round(255*c)),i=Math.min(255,(R>>8&255)+Math.round(255*c)),E=Math.min(255,(R&255)+Math.round(255*c));return`rgb(${N},${i},${E})`},he=()=>Math.floor(Math.random()*4),we=(t,c,R,N=0,i=0,E=0)=>({id:m.current++,x:t,y:c,vx:N,vy:i,r:Ce[R].r,tier:R,flash:E,wobble:0,wobbleV:0,ripple:0,contacts:[],petX:(Math.random()-.5)*4,petY:(Math.random()-.5)*4,petVX:(Math.random()-.5)*.4,petVY:(Math.random()-.5)*.4,anger:0,petAngle:0,petAngleV:0,petIdleT:Math.random()*Math.PI*2,escapeTimer:Math.floor(Math.random()*100+60)}),ee=(t,c)=>{g.current.push(we(t,X+Ce[c].r+4,c))},fe=(t,c,R,N)=>{let E=[];for(let C=0;C<14;C++){let v=C/14*Math.PI*2,_=Math.cos(v)*c,D=Math.sin(v)*c;for(let $ of R){let J=_/c*$.nx+D/c*$.ny;if(J<0){let M=-J*$.str*c*.22;_+=$.nx*M,D+=$.ny*M}else if(J>0){let M=J*$.str*.11;_*=1+M,D*=1+M}}if(Math.abs(N)>.005){let $=Math.max(-.36,Math.min(.44,N));_*=1+$*Math.cos(v)*Math.cos(v),D*=1-$*Math.sin(v)*Math.sin(v)*.65}D+=D/c*c*.028,E.push({x:_,y:D})}t.beginPath(),t.moveTo(E[0].x,E[0].y);for(let C=0;C<14;C++){let v=E[(C-1+14)%14],_=E[C],D=E[(C+1)%14],$=E[(C+2)%14];t.bezierCurveTo(_.x+(D.x-v.x)/6,_.y+(D.y-v.y)/6,D.x-($.x-_.x)/6,D.y-($.y-_.y)/6,D.x,D.y)}t.closePath()},We=(t,c,R)=>{let{r:N,petX:i=0,petY:E=0,anger:C=0,petAngle:v=0,petIdleT:_=0,contacts:D=[],vy:$=0,petVX:J=0,petVY:M=0,flash:P=0,petAngleV:ae=0}=R,{drawnPath:se,color:Ee="#C8956C",eyeLeft:Fe,eyeRight:bt,mouth:vt,mouthType:Ne="smile"}=c||{},Me=se||ft,Ie=N*1.18,kt=N*.1,ge="normal";P>.2?ge="happy":Math.abs(ae)>.13?ge="dizzy":C>.3?ge="angry":$>4.5&&C<.3?ge="scared":D.length>=3&&C<.3&&(ge="squished");let Ft=Math.sin(_*.38)>.92&&ge==="normal",Qe=1+Math.sin(_*.22)*.025;t.save(),t.translate(i,kt+E),t.rotate(v),t.scale(Qe,Qe);let ve=q=>(q-.5)*Ie,ke=q=>(q-.5)*Ie,ze=Me.length;if(ze>=3){t.beginPath(),t.moveTo(ve(Me[0].x),ke(Me[0].y));for(let q=0;q<ze;q++){let te=Me[(q-1+ze)%ze],O=Me[q],V=Me[(q+1)%ze],ce=Me[(q+2)%ze];t.bezierCurveTo(ve(O.x)+(ve(V.x)-ve(te.x))/6,ke(O.y)+(ke(V.y)-ke(te.y))/6,ve(V.x)-(ve(ce.x)-ve(O.x))/6,ke(V.y)-(ke(ce.y)-ke(O.y))/6,ve(V.x),ke(V.y))}t.closePath(),t.fillStyle=Ee,t.fill(),t.fillStyle="rgba(255,255,255,0.16)",t.fill(),t.strokeStyle="rgba(0,0,0,0.48)",t.lineWidth=Math.max(.8,N*.022),t.lineJoin="round",t.stroke()}let Ze=Fe||{x:.36,y:.4},Je=bt||{x:.64,y:.4},et=vt||{x:.5,y:.62},K=Math.max(Ie*.1,1.8),ye=K*.5,_e=Math.max(1,K*.13),St=Math.max(1,Ie*.013),tt=ge==="normal"?Math.max(-ye*.5,Math.min(ye*.5,J*.9)):0,nt=ge==="normal"?Math.max(-ye*.5,Math.min(ye*.5,M*.9)):0,De=(q,te)=>({ex:ve(q),ey:ke(te),bs:q>.5?1:-1}),ot=(q,te,O)=>{t.beginPath(),t.ellipse(q+O*K*2.2,te+K*.8,K*1.4,K*.8,0,0,Math.PI*2),t.fillStyle="rgba(255,155,178,0.32)",t.fill()},it=(q,te,O=1,V=1,ce=0,Se=0)=>{t.beginPath(),t.arc(q,te,K*O,0,Math.PI*2),t.fillStyle="white",t.fill(),t.strokeStyle="rgba(0,0,0,0.82)",t.lineWidth=_e,t.stroke(),t.beginPath(),t.arc(q+tt+ce,te+nt+Se,ye*V,0,Math.PI*2),t.fillStyle="#1A1A2E",t.fill(),t.beginPath(),t.arc(q+tt+ce-ye*.35,te+nt+Se-ye*.4,ye*.25,0,Math.PI*2),t.fillStyle="white",t.fill()},at=ge==="angry"?(q,te)=>{let{ex:O,ey:V}=De(q,te);t.beginPath(),t.ellipse(O,V,K,K*.48,0,0,Math.PI*2),t.fillStyle="white",t.fill(),t.strokeStyle="rgba(0,0,0,0.82)",t.lineWidth=_e,t.stroke(),t.beginPath(),t.arc(O,V,ye*.68,0,Math.PI*2),t.fillStyle="#1A1A2E",t.fill(),t.beginPath(),t.arc(O-ye*.35,V-ye*.4,ye*.25,0,Math.PI*2),t.fillStyle="white",t.fill()}:ge==="scared"?(q,te)=>{let{ex:O,ey:V,bs:ce}=De(q,te);ot(O,V,ce);let Se=Math.sin(_*2.8)*K*.06;it(O+Se,V,1.28,.45,0,0)}:ge==="happy"?(q,te)=>{let{ex:O,ey:V}=De(q,te);t.fillStyle="#FFD700",t.strokeStyle="rgba(0,0,0,0.50)",t.lineWidth=_e,t.beginPath();for(let ce=0;ce<5;ce++){let Se=ce/5*Math.PI*2-Math.PI/2,rt=(ce+.5)/5*Math.PI*2-Math.PI/2;ce===0?t.moveTo(O+Math.cos(Se)*K*1.05,V+Math.sin(Se)*K*1.05):t.lineTo(O+Math.cos(Se)*K*1.05,V+Math.sin(Se)*K*1.05),t.lineTo(O+Math.cos(rt)*K*.4,V+Math.sin(rt)*K*.4)}t.closePath(),t.fill(),t.stroke()}:ge==="dizzy"?(q,te)=>{let{ex:O,ey:V}=De(q,te);t.strokeStyle="rgba(0,0,0,0.82)",t.lineWidth=Math.max(1.5,K*.36),t.lineCap="round",t.beginPath(),t.moveTo(O-K*.75,V-K*.75),t.lineTo(O+K*.75,V+K*.75),t.moveTo(O+K*.75,V-K*.75),t.lineTo(O-K*.75,V+K*.75),t.stroke(),t.beginPath(),t.arc(O,V,K*.18,0,Math.PI*2),t.fillStyle="rgba(255,255,255,0.60)",t.fill()}:ge==="squished"?(q,te)=>{let{ex:O,ey:V}=De(q,te);t.beginPath(),t.moveTo(O-K*.8,V),t.lineTo(O+K*.8,V),t.strokeStyle="rgba(0,0,0,0.82)",t.lineWidth=Math.max(1.5,K*.18),t.lineCap="round",t.stroke()}:(q,te)=>{let{ex:O,ey:V,bs:ce}=De(q,te);ot(O,V,ce),Ft?(t.beginPath(),t.moveTo(O-K*.8,V),t.lineTo(O+K*.8,V),t.strokeStyle="rgba(0,0,0,0.82)",t.lineWidth=Math.max(1.5,K*.18),t.lineCap="round",t.stroke()):it(O,V)};at(Ze.x,Ze.y),at(Je.x,Je.y);let me=ve(et.x),ue=ke(et.y),de=Ie*.09;t.strokeStyle="rgba(0,0,0,0.82)",t.lineWidth=St,t.lineCap="round",Ne==="big"?(t.beginPath(),t.moveTo(me-de*1.2,ue-de*.2),t.quadraticCurveTo(me,ue+de*1.5,me+de*1.2,ue-de*.2),t.fillStyle="#8B2020",t.fill(),t.stroke()):Ne==="flat"?(t.beginPath(),t.moveTo(me-de,ue),t.lineTo(me+de,ue),t.stroke()):Ne==="sad"?(t.beginPath(),t.moveTo(me-de,ue+de*.4),t.quadraticCurveTo(me,ue-de*.6,me+de,ue+de*.4),t.stroke()):(t.beginPath(),t.moveTo(me-de,ue),t.quadraticCurveTo(me,ue+de*1.2,me+de,ue),t.stroke()),t.restore()},Te=(t,c,R,N=1)=>{let i=Ce[c.tier],{x:E,y:C,r:v,wobble:_,contacts:D}=c,$=Math.sqrt(c.vx*c.vx+c.vy*c.vy),J=1,M=1;if($>1.2){let se=Math.min($*.013,.26),Ee=Math.abs(c.vy)/$;M=1+se*Ee,J=1/M}t.save(),N<1&&(t.globalAlpha=N),t.translate(E,C),t.scale(J,M),t.save(),t.translate(3,4),fe(t,v,D,_),t.fillStyle="rgba(0,0,0,0.22)",t.fill(),t.restore(),fe(t,v,D,_),t.fillStyle=i.color,t.fill(),t.save(),fe(t,v,D,_),t.clip();let P=t.createLinearGradient(0,-v,0,v);P.addColorStop(0,"rgba(255,255,255,0.08)"),P.addColorStop(.5,"rgba(0,0,0,0)"),P.addColorStop(1,"rgba(0,0,0,0.22)"),t.fillStyle=P,t.fillRect(-v,-v,v*2,v*2);let ae=Math.max(-v*.28,Math.min(v*.28,c.vx*.9));t.beginPath(),t.moveTo(-v*.88,v*.28+ae*.12);for(let se=-v*.88;se<=v*.88;se+=4)t.lineTo(se,v*.28+Math.sin(se*.1)*2.2+ae*.14);if(t.strokeStyle="rgba(255,255,255,0.18)",t.lineWidth=1.8,t.stroke(),We(t,R,c),t.restore(),fe(t,v,D,_),t.strokeStyle="rgba(0,0,0,0.55)",t.lineWidth=Math.max(1.8,v*.055),t.lineJoin="round",t.stroke(),t.beginPath(),t.ellipse(-v*.22,-v*.44,v*.22,v*.1,-.4,0,Math.PI*2),t.fillStyle="rgba(255,255,255,0.62)",t.fill(),t.beginPath(),t.arc(-v*.08,-v*.64,v*.07,0,Math.PI*2),t.fillStyle="rgba(255,255,255,0.38)",t.fill(),t.restore(),c.flash>0){let se=v*Math.max(J,M)+9*(1-c.flash);t.beginPath(),t.arc(E,C,se,0,Math.PI*2),t.strokeStyle=`rgba(255,255,180,${c.flash*.82})`,t.lineWidth=7*c.flash,t.stroke(),t.beginPath(),t.arc(E,C,se*.5,0,Math.PI*2),t.fillStyle=`rgba(255,255,255,${c.flash*.16})`,t.fill()}c.ripple>0&&(t.beginPath(),t.ellipse(E,w-2,v*J*(1.28+(1-c.ripple)*.45),6*c.ripple,0,0,Math.PI*2),t.strokeStyle=`rgba(120,200,255,${c.ripple*.48})`,t.lineWidth=2.5*c.ripple,t.stroke())},Re=(0,y.useCallback)(()=>{let t=g.current;for(let i of t){i.wobbleV+=-.28*i.wobble,i.wobble+=i.wobbleV,i.wobbleV*=.8,i.ripple>0&&(i.ripple=Math.max(0,i.ripple-.036));let E=i.r*.36;i.petVX+=i.vx*.018+(Math.random()-.5)*.04,i.petVY+=.045+i.vy*.018,i.petVX*=.94,i.petVY*=.94,i.petX+=i.petVX,i.petY+=i.petVY;let C=Math.sqrt(i.petX*i.petX+i.petY*i.petY);if(C>E){let D=i.petX/C,$=i.petY/C;i.petX=D*E,i.petY=$*E;let J=i.petVX*D+i.petVY*$;i.petVX-=D*J*1.55,i.petVY-=$*J*1.55}if(i.escapeTimer=(i.escapeTimer||80)-1,i.escapeTimer<=0){let D=Math.random()*Math.PI*2,$=i.r*.2;i.petVX+=Math.cos(D)*$,i.petVY+=Math.sin(D)*$*.75-$*.25,i.escapeTimer=Math.floor(Math.random()*110+70)}let v=Math.max(0,i.vy-3.5)*.06,_=i.contacts.length*.035;if(i.anger=Math.min(1,i.anger+v+_),i.anger*=.965,i.petAngleV+=(Math.random()-.5)*i.anger*.12,i.petAngleV*=.88,i.petAngle+=i.petAngleV,i.petIdleT=(i.petIdleT||0)+.045,i.vy+=le,i.vx*=ie,i.vy*=ie,i.x+=i.vx,i.y+=i.vy,i.y+i.r>w){i.y=w-i.r;let D=Math.abs(i.vy);i.vy*=-re,i.vx*=.86,D>1.8&&(i.wobble=Math.min(.46,D*.03),i.wobbleV=-.055,i.ripple=Math.min(1,D*.1),i.anger=Math.min(1,i.anger+D*.08),i.petAngleV+=(Math.random()>.5?1:-1)*D*.06)}if(i.x-i.r<W){i.x=W+i.r;let D=Math.abs(i.vx);i.vx*=-re,D>1.5&&(i.wobble=Math.min(.28,D*.02),i.wobbleV=-.04,i.anger=Math.min(1,i.anger+D*.06),i.petAngleV+=D*.05)}if(i.x+i.r>G){i.x=G-i.r;let D=Math.abs(i.vx);i.vx*=-re,D>1.5&&(i.wobble=Math.min(.28,D*.02),i.wobbleV=-.04,i.anger=Math.min(1,i.anger+D*.06),i.petAngleV-=D*.05)}i.flash>0&&(i.flash=Math.max(0,i.flash-.04))}let c=[],R=p.current;R.clear();for(let i=0;i<t.length;i++)for(let E=i+1;E<t.length;E++){let C=t[i],v=t[E];if(R.has(C.id)||R.has(v.id))continue;let _=v.x-C.x,D=v.y-C.y,$=Math.sqrt(_*_+D*D),J=C.r+v.r;if($<J)if(C.tier===v.tier&&C.tier<Ce.length-1)c.push([i,E]),R.add(C.id),R.add(v.id);else{let M=J-$+.5,P=$>0?_/$:1,ae=$>0?D/$:0;C.x-=P*M*.5,C.y-=ae*M*.5,v.x+=P*M*.5,v.y+=ae*M*.5;let se=(v.vx-C.vx)*P+(v.vy-C.vy)*ae;if(se<0){let Ee=se*.52;C.vx+=Ee*P,C.vy+=Ee*ae,v.vx-=Ee*P,v.vy-=Ee*ae;let Fe=Math.abs(se);Fe>1&&(C.wobble+=Fe*.016,v.wobble+=Fe*.016,C.anger=Math.min(1,C.anger+Fe*.05),v.anger=Math.min(1,v.anger+Fe*.05),C.petAngleV+=(Math.random()>.5?1:-1)*Fe*.04,v.petAngleV+=(Math.random()>.5?1:-1)*Fe*.04)}}}c.sort((i,E)=>E[0]-i[0]);let N=0;for(let[i,E]of c){let C=g.current[i],v=g.current[E],_=C.tier+1,D=(C.x+v.x)/2,$=(C.y+v.y)/2;g.current.splice(Math.max(i,E),1),g.current.splice(Math.min(i,E),1);let J=we(D,$,_,(C.vx+v.vx)*.38,(C.vy+v.vy)*.38-1.8,1);J.wobble=.44,J.wobbleV=-.07,J.ripple=.9,g.current.push(J),N+=Ce[_].pts,S.current.h+=3,S.current.e+=1.5,S.current.cl+=1}if(N>0&&(b.current+=N,A(b.current)),!f.current){let i=g.current.filter(E=>E.y-E.r<X);i.length>0&&i.every(E=>Math.abs(E.vy)<.85&&Math.abs(E.vx)<.85)&&(f.current=!0,Z(!0))}for(let i of t)i.contacts=[];for(let i=0;i<t.length;i++)for(let E=i+1;E<t.length;E++){let C=t[i],v=t[E],_=v.x-C.x,D=v.y-C.y,$=Math.sqrt(_*_+D*D),J=C.r+v.r;if($<J*1.05){let M=$>0?_/$:0,P=$>0?D/$:1,ae=Math.min(.82,Math.max(.18,(J*1.02-$)/(J*.1)));C.contacts.push({nx:-M,ny:-P,str:ae}),v.contacts.push({nx:M,ny:P,str:ae})}}for(let i of t){let E=w-(i.y+i.r);if(E<i.r*.18){let C=Math.min(.75,Math.max(.2,(i.r*.12-Math.max(0,E))/(i.r*.12)));i.contacts.push({nx:0,ny:-1,str:C})}}for(let i of t){let E=Math.sqrt(i.petX*i.petX+i.petY*i.petY);if(E>i.r*.26&&E>0){let C=i.petX/E,v=i.petY/E,_=Math.min(.28,(E-i.r*.26)/(i.r*.1));_>.03&&i.contacts.push({nx:C,ny:v,str:_})}}},[]),be=(0,y.useCallback)(()=>{let t=s.current;if(!t)return;let c=t.getContext("2d"),R=++n.current;c.clearRect(0,0,I,F),c.fillStyle="#1A1A2E",c.fillRect(0,0,I,F),c.fillStyle="#0D1B2A",c.fillRect(W,X,G-W,w-X),c.fillStyle="#16213E",c.fillRect(0,0,W,F),c.fillRect(G,0,I-G,F),c.beginPath(),c.moveTo(W,X),c.lineTo(W,w),c.moveTo(G,X),c.lineTo(G,w),c.strokeStyle="#B4FF0044",c.lineWidth=2,c.stroke(),c.fillStyle="#16213E",c.fillRect(W,w,G-W,F-w),c.beginPath(),c.moveTo(W,w),c.lineTo(G,w),c.strokeStyle="#B4FF0055",c.lineWidth=2,c.stroke(),c.beginPath(),c.moveTo(W,X),c.lineTo(G,X),c.strokeStyle="#FF4444",c.lineWidth=1.5,c.setLineDash([6,4]),c.stroke(),c.setLineDash([]),c.font="bold 9px 'Nunito',sans-serif",c.fillStyle="#FF5555",c.textAlign="right",c.textBaseline="bottom",c.fillText("\u26A0 Nguy hi\u1EC3m",G-4,X-2);let N=e.petData;for(let i of g.current)Te(c,i,N);if(!f.current){let i=Ce[u.current],E=(W+G)/2,C=X-i.r-7,v=k.current?.76+Math.sin(R*.07)*.08:.28;Te(c,{x:E,y:C,r:i.r,tier:u.current,flash:0,wobble:0,wobbleV:0,ripple:0,contacts:[],vx:0,vy:0,petX:0,petY:0,petVX:0,petVY:0,anger:0,petAngle:0,petAngleV:0,petIdleT:0},N,v),k.current&&(c.fillStyle="rgba(255,255,255,0.30)",c.font="bold 10px sans-serif",c.textAlign="center",c.textBaseline="top",c.fillText("ch\u1EA1m \u0111\u1EC3 th\u1EA3",E,C+i.r+5))}f.current||(Re(),B.current=requestAnimationFrame(be))},[Re,e.petData]);(0,y.useEffect)(()=>(u.current=he(),Y(u.current),B.current=requestAnimationFrame(be),()=>{B.current&&cancelAnimationFrame(B.current),x.current&&clearTimeout(x.current)}),[be]);let T=(0,y.useCallback)(t=>{if(!k.current||f.current)return;let c=s.current;if(!c)return;let R=c.getBoundingClientRect(),N=(t-R.left)*(I/R.width);d.current=Math.max(W+22,Math.min(G-22,N)),k.current=!1,H(!1),ee(d.current,u.current);let i=he();u.current=i,Y(i),x.current=setTimeout(()=>{k.current=!0,H(!0)},650)},[]),j=(0,y.useCallback)(()=>{let t=S.current;a({type:"APPLY_GAME_RESULT",gameScore:b.current,happinessGain:Math.round(t.h),energyCost:Math.round(t.e),cleanCost:Math.round(t.cl)}),r(`\u{1F4A7} \u0110i\u1EC3m: ${b.current} \u2022 +${Math.round(t.h)}\u2764\uFE0F`),o()},[a,r,o]),z=Ce[Q];return React.createElement("div",{style:{position:"absolute",inset:0,zIndex:60,background:"#1A1A2E",display:"flex",flexDirection:"column",fontFamily:l.game}},React.createElement("div",{style:{background:"linear-gradient(135deg,#1A1A2E,#16213E)",paddingTop:"max(28px,env(safe-area-inset-top,28px))",paddingBottom:8,paddingLeft:12,paddingRight:12,display:"flex",alignItems:"center",justifyContent:"space-between",flexShrink:0,boxShadow:"0 4px 20px rgba(0,0,0,0.35)"}},React.createElement("button",{onClick:()=>{B.current&&cancelAnimationFrame(B.current),j()},style:{background:"rgba(255,255,255,0.10)",border:"1.5px solid rgba(255,255,255,0.20)",borderRadius:20,padding:"6px 14px",color:"white",fontFamily:l.game,fontWeight:700,fontSize:13,cursor:"pointer"}},"\u2190 Tho\xE1t"),React.createElement("div",{style:{textAlign:"center"}},React.createElement("div",{style:{color:"#00E5FF",fontWeight:900,fontSize:14,letterSpacing:.5,textShadow:"0 0 10px rgba(0,229,255,0.6)"}},"\u{1F4A7} Th\u1EA3 B\xF3ng N\u01B0\u1EDBc"),React.createElement("div",{style:{display:"flex",alignItems:"center",gap:6,justifyContent:"center",marginTop:2}},React.createElement("div",{style:{background:"rgba(255,215,0,0.15)",borderRadius:16,padding:"4px 10px 4px 8px",display:"flex",alignItems:"center",gap:5,border:"1.5px solid rgba(255,215,0,0.30)"}},React.createElement("div",{style:{width:22,height:22,borderRadius:"50%",background:"radial-gradient(circle at 35% 30%,#FFE566,#E6A800)",border:"2px solid #D4A017",display:"flex",alignItems:"center",justifyContent:"center",fontSize:11,fontWeight:900,color:"#7A5000",fontFamily:l.game}},"P"),React.createElement("div",{style:{fontFamily:l.game,fontWeight:900,fontSize:16,color:"#FFD700"}},h.toLocaleString())))),React.createElement("div",{style:{background:`${z?.color}18`,border:`2px solid ${z?.color}55`,borderRadius:14,padding:"5px 9px",textAlign:"center",minWidth:58}},React.createElement("div",{style:{color:"rgba(255,255,255,0.45)",fontSize:8,fontWeight:700,letterSpacing:1.2}},"TI\u1EBEP"),React.createElement("div",{style:{width:26,height:26,borderRadius:"50%",background:`radial-gradient(circle at 35% 28%, ${pe(z?.color||"#00E5FF",.48)}, ${z?.color}, ${z?.dark})`,border:`2px solid ${z?.color}99`,margin:"3px auto 2px",boxShadow:`0 0 12px ${z?.color}, 0 0 4px ${z?.color}88`}}),React.createElement("div",{style:{color:z?.color,fontSize:9,fontWeight:900,textShadow:`0 0 6px ${z?.color}`}},z?.name))),React.createElement("div",{style:{flex:1,display:"flex",justifyContent:"center",alignItems:"center",padding:"2px 0",background:"#1A1A2E",overflow:"hidden",minHeight:0}},React.createElement("canvas",{ref:s,width:I,height:F,style:{height:"100%",width:"auto",maxWidth:"100%",maxHeight:F,borderRadius:12,border:"2px solid #B4FF0033",boxShadow:"4px 4px 0px #0D1B2A",touchAction:"none",cursor:ne?"crosshair":"default"},onMouseDown:t=>T(t.clientX),onTouchEnd:t=>{t.preventDefault(),t.changedTouches[0]&&T(t.changedTouches[0].clientX)}})),React.createElement("div",{style:{background:"linear-gradient(135deg,#1A1A2E,#16213E)",borderTop:"1px solid rgba(255,255,255,0.07)",padding:"4px 10px max(8px,env(safe-area-inset-bottom,8px))",flexShrink:0}},React.createElement("div",{style:{color:"rgba(255,255,255,0.28)",fontSize:8,fontWeight:700,letterSpacing:1.2,textAlign:"center",marginBottom:5}},"\u2190 GH\xC9P B\xD3NG \u0110\u1EC2 L\xCAN C\u1EA4P \u2192"),React.createElement("div",{style:{display:"flex",alignItems:"flex-end",justifyContent:"space-between",gap:0}},Ce.map((t,c)=>{let R=c===Q,N=c<=Q;return React.createElement("div",{key:c,style:{flex:1,display:"flex",flexDirection:"column",alignItems:"center",gap:2,opacity:N?1:.28,transition:"opacity 0.4s"}},React.createElement("div",{style:{height:8,display:"flex",alignItems:"center",justifyContent:"center"}},R&&React.createElement("div",{style:{width:0,height:0,borderLeft:"4px solid transparent",borderRight:"4px solid transparent",borderTop:`5px solid ${t.color}`,filter:`drop-shadow(0 0 4px ${t.color})`}})),React.createElement("div",{style:{width:8+c*2,height:8+c*2,borderRadius:"50%",background:t.color,border:`1.5px solid ${t.color}${N?"cc":"44"}`,boxShadow:R?`0 0 8px ${t.color}`:"none",transition:"box-shadow 0.3s",flexShrink:0}}),React.createElement("span",{style:{fontSize:6,fontWeight:900,lineHeight:1,color:N?t.color+"dd":"rgba(255,255,255,0.20)"}},t.pts,"p"))}))),U&&React.createElement("div",{style:{position:"absolute",inset:0,background:"rgba(0,0,0,0.85)",display:"flex",alignItems:"center",justifyContent:"center",zIndex:70}},React.createElement("div",{style:{background:"linear-gradient(160deg,#1A1A2E,#16213E)",borderRadius:28,padding:"30px 36px",border:"2px solid rgba(0,229,255,0.22)",boxShadow:"0 8px 40px rgba(0,229,255,0.12), 0 2px 0 rgba(255,255,255,0.06) inset",display:"flex",flexDirection:"column",alignItems:"center",gap:12,minWidth:260}},React.createElement("div",{style:{fontSize:44}},"\u{1F4A7}"),React.createElement("div",{style:{color:"white",fontWeight:900,fontSize:20}},"K\u1EBFt th\xFAc!"),React.createElement("div",{style:{background:"rgba(255,215,0,0.12)",borderRadius:20,padding:"8px 18px 8px 12px",display:"flex",alignItems:"center",gap:8,border:"1.5px solid rgba(255,215,0,0.28)"}},React.createElement("div",{style:{width:28,height:28,borderRadius:"50%",background:"radial-gradient(circle at 35% 30%,#FFE566,#E6A800)",border:"2px solid #D4A017",display:"flex",alignItems:"center",justifyContent:"center",fontSize:13,fontWeight:900,color:"#7A5000"}},"P"),React.createElement("div",{style:{fontFamily:l.game,fontWeight:900,fontSize:26,color:"#FFD700"}},"+",h.toLocaleString())),React.createElement("div",{style:{display:"flex",gap:10}},[["\u2764\uFE0F","#EF5350",`+${Math.round(S.current.h)}`],["\u26A1","#FF9800",`\u2212${Math.round(S.current.e)}`],["\u{1F9FC}","#29B6F6",`\u2212${Math.round(S.current.cl)}`]].map(([t,c,R])=>React.createElement("div",{key:t,style:{background:`${c}18`,borderRadius:12,padding:"5px 10px",border:`1px solid ${c}44`,color:c,fontWeight:700,fontSize:13}},R,t))),React.createElement("button",{onClick:j,style:{background:"linear-gradient(135deg,#00E5FF,#0077AA)",border:"none",borderRadius:24,padding:"13px 32px",color:"white",fontFamily:l.game,fontWeight:900,fontSize:15,cursor:"pointer",boxShadow:"0 4px 20px rgba(0,229,255,0.45)",animation:"pulseBtn 2s infinite",marginTop:4}},"L\u1EA5y th\u01B0\u1EDFng \u{1F381}"))))}function Qt({state:e,dispatch:a,onNavigate:r}){let[o,s]=(0,y.useState)("pet"),[g,m]=(0,y.useState)(!1),[b,f]=(0,y.useState)(!1),[d,u]=(0,y.useState)(!1),[B,k]=(0,y.useState)(null),x=(0,y.useCallback)(Q=>{k(Q),setTimeout(()=>k(null),2e3)},[]),{petData:p,level:S,xp:n,hunger:h,happiness:A,clean:U,energy:Z,points:ne}=e,H=S*100;return React.createElement("div",{style:{height:"100dvh",display:"flex",flexDirection:"column",overflow:"hidden",background:"#F5F5F5"}},React.createElement("link",{rel:"stylesheet",href:je}),React.createElement("style",null,Ue),React.createElement("style",null,`
+`;
+  var ACTIONS = [
+    {
+      id: "eat",
+      icon: "\u{1F356}",
+      label: "Cho \u0102n",
+      color: "#FF7043",
+      lightBg: "#FFF3F0",
+      particles: ["\u{1F357}", "\u{1F355}", "\u{1F34E}", "\u{1F32E}", "\u{1F363}", "\u{1F35C}", "\u{1F9C1}"],
+      petAnim: "petEat 1.6s ease-in-out",
+      mouthOverride: "big",
+      applyEffect: (s) => ({
+        hunger: Math.min(100, s.hunger + 32),
+        happiness: Math.min(100, s.happiness + 6),
+        xp: s.xp + 8,
+        points: s.points
+      })
+    },
+    {
+      id: "bath",
+      icon: "\u{1F6BF}",
+      label: "T\u1EAFm",
+      color: "#29B6F6",
+      lightBg: "#F0FAFF",
+      particles: ["\u{1F4A7}", "\u{1FAE7}", "\u2728", "\u{1F4A6}", "\u{1F30A}", "\u{1F9FC}"],
+      petAnim: "petShake 1.5s ease-in-out",
+      applyEffect: (s) => ({
+        clean: Math.min(100, s.clean + 38),
+        happiness: Math.min(100, s.happiness + 10),
+        xp: s.xp + 6,
+        points: s.points
+      })
+    },
+    {
+      id: "play",
+      icon: "\u{1F3AE}",
+      label: "Ch\u01A1i",
+      color: "#AB47BC",
+      lightBg: "#F9F0FF",
+      particles: ["\u2B50", "\u{1F31F}", "\u2728", "\u{1F389}", "\u{1F38A}", "\u{1F4AB}", "\u{1F308}"],
+      petAnim: "petWiggle 1.4s ease-in-out",
+      applyEffect: (s) => ({
+        happiness: Math.min(100, s.happiness + 28),
+        energy: Math.max(0, s.energy - 10),
+        xp: s.xp + 12,
+        points: s.points + 10
+      })
+    },
+    {
+      id: "sleep",
+      icon: "\u{1F634}",
+      label: "Ng\u1EE7",
+      color: "#7E57C2",
+      lightBg: "#F3F0FF",
+      particles: ["\u{1F4A4}", "\u{1F319}", "\u2B50", "\u2728", "\u{1F634}", "\u2601\uFE0F", "\u{1F4A4}"],
+      petAnim: "petSleep 2.5s ease-in-out",
+      applyEffect: (s) => ({
+        energy: Math.min(100, s.energy + 42),
+        happiness: Math.min(100, s.happiness + 8),
+        hunger: Math.max(0, s.hunger - 6),
+        xp: s.xp + 10,
+        points: s.points
+      })
+    }
+  ];
+  var GIFT_BOX_PRIZES = [
+    // Common — in-game currency rewards
+    { id: "pts100", emoji: "\u{1FA99}", name: "+100 \u0111i\u1EC3m", pts: 100, xp: 0, type: "points", rarity: "common", color: "#66BB6A", label: "Th\u01B0\u1EDDng" },
+    { id: "pts200", emoji: "\u{1F4B0}", name: "+200 \u0111i\u1EC3m", pts: 200, xp: 0, type: "points", rarity: "common", color: "#66BB6A", label: "Th\u01B0\u1EDDng" },
+    { id: "xp50", emoji: "\u2B50", name: "+50 XP", pts: 0, xp: 50, type: "points", rarity: "common", color: "#66BB6A", label: "Th\u01B0\u1EDDng" },
+    { id: "food3", emoji: "\u{1F34E}", name: "\u0110\u1ED3 \u0103n \xD73", pts: 0, xp: 10, type: "pet_item", rarity: "common", color: "#81C784", label: "Th\u01B0\u1EDDng" },
+    { id: "drink2", emoji: "\u{1F9C3}", name: "Th\u1EE9c u\u1ED1ng", pts: 30, xp: 0, type: "pet_item", rarity: "common", color: "#81C784", label: "Th\u01B0\u1EDDng" },
+    // Rare — small vouchers
+    { id: "garena5", emoji: "\u{1F3AE}", name: "Garena 5K", pts: 0, xp: 0, type: "voucher", rarity: "rare", color: "#29B6F6", label: "Hi\u1EBFm", desc: "Th\u1EBB n\u1EA1p Garena 5.000\u0111" },
+    { id: "garena10", emoji: "\u{1F0CF}", name: "Garena 10K", pts: 0, xp: 0, type: "voucher", rarity: "rare", color: "#29B6F6", label: "Hi\u1EBFm", desc: "Th\u1EBB n\u1EA1p Garena 10.000\u0111" },
+    { id: "pts500", emoji: "\u{1F48E}", name: "+500 \u0111i\u1EC3m", pts: 500, xp: 0, type: "points", rarity: "rare", color: "#29B6F6", label: "Hi\u1EBFm" },
+    // Epic — big prizes
+    { id: "garena50", emoji: "\u{1F396}\uFE0F", name: "Garena 50K", pts: 0, xp: 0, type: "voucher", rarity: "epic", color: "#FF9800", label: "Huy\u1EC1n tho\u1EA1i", desc: "Th\u1EBB n\u1EA1p Garena 50.000\u0111" },
+    { id: "garena100", emoji: "\u{1F4B3}", name: "Garena 100K", pts: 0, xp: 0, type: "voucher", rarity: "epic", color: "#FF9800", label: "Huy\u1EC1n tho\u1EA1i", desc: "Th\u1EBB n\u1EA1p Garena 100.000\u0111" },
+    { id: "gift_real", emoji: "\u{1F381}", name: "Qu\xE0 th\u1EADt", pts: 0, xp: 0, type: "physical", rarity: "epic", color: "#E040FB", label: "Huy\u1EC1n tho\u1EA1i", desc: "Li\xEAn h\u1EC7 HEAVY \u0111\u1EC3 nh\u1EADn" }
+  ];
+  var rollGiftBox = (level = 1) => {
+    const lv = Math.max(1, level);
+    const epicChance = Math.min(0.45, 0.05 + (lv - 1) * 0.014);
+    const rareChance = Math.min(0.48, 0.3 + (lv - 1) * 6e-3);
+    const r = Math.random();
+    const pool = r > 1 - epicChance ? GIFT_BOX_PRIZES.filter((i) => i.rarity === "epic") : r > 1 - epicChance - rareChance ? GIFT_BOX_PRIZES.filter((i) => i.rarity === "rare") : GIFT_BOX_PRIZES.filter((i) => i.rarity === "common");
+    return pool[Math.floor(Math.random() * pool.length)];
+  };
+  var BLOCK_SHAPES = [
+    [[1]],
+    [[1, 1]],
+    [[1], [1]],
+    [[1, 1, 1]],
+    [[1], [1], [1]],
+    [[1, 1], [1, 1]],
+    [[1, 1, 0], [0, 1, 1]],
+    [[0, 1, 1], [1, 1, 0]],
+    [[1, 0], [1, 0], [1, 1]],
+    [[0, 1], [0, 1], [1, 1]],
+    [[1, 1, 1], [0, 1, 0]],
+    [[1, 1, 1, 1]],
+    [[1, 1], [0, 1], [0, 1]],
+    [[1, 1], [1, 0], [1, 0]],
+    [[1, 0, 0], [1, 1, 1]],
+    [[0, 0, 1], [1, 1, 1]],
+    [[1, 0], [1, 1], [0, 1]],
+    [[0, 1], [1, 1], [1, 0]]
+  ];
+  var BLAST_RARITY = [
+    { name: "common", bg: "#66BB6A", border: "#388E3C", pts: [5, 8, 10], w: 65 },
+    { name: "rare", bg: "#42A5F5", border: "#0277BD", pts: [12, 15, 18], w: 28 },
+    { name: "epic", bg: "#CE93D8", border: "#7B1FA2", pts: [20, 25, 30], w: 7 }
+  ];
+  var WATER_TIERS = [
+    { tier: 0, r: 14, pts: 2, color: "#00E5FF", dark: "#006080", name: "T\xED Hon" },
+    // electric cyan
+    { tier: 1, r: 20, pts: 5, color: "#00BFA5", dark: "#005248", name: "Nh\u1ECF Nh\u1ECF" },
+    // teal
+    { tier: 2, r: 27, pts: 10, color: "#69F0AE", dark: "#1B5E20", name: "V\u1EEBa V\u1EEBa" },
+    // mint green
+    { tier: 3, r: 35, pts: 18, color: "#B4FF00", dark: "#4A6000", name: "Tr\xF2n Tr\u1ECBa" },
+    // neon lime (= game accent)
+    { tier: 4, r: 44, pts: 30, color: "#FFD740", dark: "#C67C00", name: "To \u0110\xF9ng" },
+    // gold (= coin)
+    { tier: 5, r: 54, pts: 50, color: "#FF6D00", dark: "#7F2800", name: "Kh\u1ED5ng L\u1ED3" },
+    // hot orange
+    { tier: 6, r: 65, pts: 80, color: "#E040FB", dark: "#5E0070", name: "Si\xEAu C\u1EA5p" },
+    // electric purple
+    { tier: 7, r: 77, pts: 120, color: "#FF1744", dark: "#7F0014", name: "Huy\u1EC1n Tho\u1EA1i" },
+    // red legendary
+    { tier: 8, r: 90, pts: 180, color: "#FAFAFA", dark: "#B0BEC5", name: "T\u1ED1i Th\u01B0\u1EE3ng" }
+    // white-gold ultimate
+  ];
+  var makeBlastPiece = () => {
+    const r = Math.random() * 100;
+    const rar = r < 7 ? BLAST_RARITY[2] : r < 35 ? BLAST_RARITY[1] : BLAST_RARITY[0];
+    const shape = BLOCK_SHAPES[Math.floor(Math.random() * BLOCK_SHAPES.length)];
+    const pts = [];
+    for (let i = 0; i < shape.length; i++) for (let j = 0; j < shape[i].length; j++)
+      if (shape[i][j]) pts.push(rar.pts[Math.floor(Math.random() * rar.pts.length)]);
+    return { shape, rar, pts };
+  };
+  var blastCanPlace = (shape, r0, c0, grid) => {
+    for (let r = 0; r < shape.length; r++) for (let c = 0; c < shape[r].length; c++) {
+      if (!shape[r][c]) continue;
+      const nr = r0 + r, nc = c0 + c;
+      if (nr < 0 || nr >= 8 || nc < 0 || nc >= 8 || grid[nr][nc] !== null) return false;
+    }
+    return true;
+  };
+  var CHECKIN_MILESTONES = [
+    { days: 3, icon: "\u{1F331}", boxes: 1, pts: 0, label: "3 ng\xE0y" },
+    { days: 7, icon: "\u{1F33F}", boxes: 2, pts: 100, label: "7 ng\xE0y" },
+    { days: 14, icon: "\u{1F333}", boxes: 3, pts: 300, label: "14 ng\xE0y" },
+    { days: 30, icon: "\u{1F3C6}", boxes: 5, pts: 500, label: "30 ng\xE0y" }
+  ];
+  var VALID_GIFTS = {
+    "LOOTZY2026": { msg: "\u{1F38A} +500 \u0111i\u1EC3m + 2 h\u1ED9p qu\xE0!", pts: 500, boxes: 2 },
+    "WELCOME100": { msg: "\u{1F389} +100 \u0111i\u1EC3m", pts: 100, boxes: 0 },
+    "HEAVY2026": { msg: "\u2B50 +1000 \u0111i\u1EC3m + 3 h\u1ED9p qu\xE0!", pts: 1e3, boxes: 3 },
+    "GARENA2026": { msg: "\u{1F3AE} +5 h\u1ED9p qu\xE0 Garena!", pts: 0, boxes: 5 }
+  };
+  var SHOP_ITEMS = [
+    { id: "apple", icon: "\u{1F34E}", name: "T\xE1o T\u01B0\u01A1i", category: "food", desc: "\u{1F34E} +20 no", cost: 25, effect: { hunger: 20 } },
+    { id: "meat", icon: "\u{1F356}", name: "Th\u1ECBt N\u01B0\u1EDBng", category: "food", desc: "\u{1F34E} +40 no", cost: 55, effect: { hunger: 40 } },
+    { id: "cake", icon: "\u{1F382}", name: "B\xE1nh Kem", category: "food", desc: "\u{1F34E}+20 \u2764\uFE0F+15", cost: 70, effect: { hunger: 20, happiness: 15 } },
+    { id: "milk", icon: "\u{1F95B}", name: "S\u1EEFa T\u01B0\u01A1i", category: "food", desc: "\u{1F34E}+15 \u26A1+20", cost: 65, effect: { hunger: 15, energy: 20 } },
+    { id: "soap", icon: "\u{1F9FC}", name: "X\xE0 Ph\xF2ng", category: "clean", desc: "\u{1F9FC} +30", cost: 40, effect: { clean: 30 } },
+    { id: "perfume", icon: "\u{1F338}", name: "N\u01B0\u1EDBc Hoa", category: "clean", desc: "\u{1F9FC} +50", cost: 85, effect: { clean: 50 } },
+    { id: "toy", icon: "\u{1F3AE}", name: "\u0110\u1ED3 Ch\u01A1i", category: "fun", desc: "\u2764\uFE0F +25", cost: 50, effect: { happiness: 25 } },
+    { id: "ball", icon: "\u26BD", name: "Qu\u1EA3 B\xF3ng", category: "fun", desc: "\u2764\uFE0F+30 XP+5", cost: 60, effect: { happiness: 30, xp: 5 } },
+    { id: "drink", icon: "\u26A1", name: "N\u01B0\u1EDBc T\u0103ng L\u1EF1c", category: "boost", desc: "\u26A1 +40", cost: 80, effect: { energy: 40 } },
+    { id: "potion", icon: "\u{1F9EA}", name: "Thu\u1ED1c \u0110\u1EB7c Bi\u1EC7t", category: "boost", desc: "+25 t\u1EA5t c\u1EA3", cost: 150, effect: { hunger: 25, happiness: 25, clean: 25, energy: 25 } },
+    { id: "crown", icon: "\u{1F451}", name: "V\u01B0\u01A1ng Mi\u1EC7n", category: "boost", desc: "\u2764\uFE0F+50 XP+30", cost: 200, effect: { happiness: 50, xp: 30 } },
+    { id: "star", icon: "\u2B50", name: "Ng\xF4i Sao May", category: "boost", desc: "XP +100", cost: 180, effect: { xp: 100 } }
+  ];
+  var RANKS = [
+    { name: "\u0110\u1ED3ng", icon: "\u{1F949}", color: "#CD8B52", minPts: 0 },
+    { name: "B\u1EA1c", icon: "\u{1F948}", color: "#B8C4CC", minPts: 500 },
+    { name: "V\xE0ng", icon: "\u{1F947}", color: "#FFD700", minPts: 1500 },
+    { name: "B\u1EA1ch Kim", icon: "\u{1F48E}", color: "#A78BFA", minPts: 3e3 },
+    { name: "Kim C\u01B0\u01A1ng", icon: "\u{1F48D}", color: "#22D3EE", minPts: 5e3 }
+  ];
+  var getRank = (pts) => [...RANKS].reverse().find((r) => pts >= r.minPts) || RANKS[0];
+  var LEADERBOARD = [
+    {
+      rank: 1,
+      name: "MeoNhon_99",
+      icon: "\u{1F431}",
+      lv: 28,
+      pts: 6720,
+      petColor: "#E8A87C",
+      hunger: 92,
+      happiness: 98,
+      clean: 78,
+      energy: 88,
+      tagline: "Nh\xE0 v\xF4 \u0111\u1ECBch kh\xF4ng ngai \u{1F451}",
+      petName: "Miu Miu",
+      badges: ["\u{1F947}", "\u{1F525}", "\u{1F48E}"],
+      streak: 21
+    },
+    {
+      rank: 2,
+      name: "HoThuong",
+      icon: "\u{1F42F}",
+      lv: 25,
+      pts: 5840,
+      petColor: "#FF9800",
+      hunger: 80,
+      happiness: 85,
+      clean: 94,
+      energy: 70,
+      tagline: "Chi\u1EBFn binh b\u1EA5t khu\u1EA5t \u{1F525}",
+      petName: "H\u1ED5 Con",
+      badges: ["\u{1F948}", "\u26A1", "\u{1F3CB}"],
+      streak: 14
+    },
+    {
+      rank: 3,
+      name: "CunCon2006",
+      icon: "\u{1F436}",
+      lv: 22,
+      pts: 4980,
+      petColor: "#90EE90",
+      hunger: 65,
+      happiness: 95,
+      clean: 60,
+      energy: 82,
+      tagline: "Vui v\u1EBB m\u1ED7i ng\xE0y \u{1F31F}",
+      petName: "B\xF4ng",
+      badges: ["\u{1F949}", "\u{1F31F}", "\u{1F3AE}"],
+      streak: 9
+    },
+    {
+      rank: 4,
+      name: "SoiGia",
+      icon: "\u{1F43A}",
+      lv: 17,
+      pts: 2750,
+      petColor: "#7CB9E8",
+      hunger: 50,
+      happiness: 72,
+      clean: 85,
+      energy: 58,
+      tagline: "\u0110ang leo rank nhanh \u26A1",
+      petName: "Wolf Jr",
+      badges: ["\u{1F680}", "\u{1F4AA}"],
+      streak: 5
+    },
+    {
+      rank: 5,
+      name: "B\u1EA1n",
+      icon: "\u{1F31F}",
+      lv: 6,
+      pts: 340,
+      petColor: null,
+      hunger: null,
+      happiness: null,
+      clean: null,
+      energy: null,
+      tagline: "\u0110\xF3 l\xE0 b\u1EA1n! \u{1F64B}",
+      petName: null,
+      badges: ["\u{1F331}"],
+      streak: 3
+    }
+  ];
+  var PET_COLORS = [
+    "#C8956C",
+    "#E8A87C",
+    "#8B6347",
+    "#D4A373",
+    "#F4A261",
+    "#E76F51",
+    "#6AB4C8",
+    "#7CB9E8",
+    "#90EE90",
+    "#FFB347",
+    "#DDA0DD",
+    "#FF69B4"
+  ];
+  var clamp = (v, lo, hi) => Math.min(hi, Math.max(lo, v));
+  function rdp(pts, eps = 4) {
+    if (pts.length <= 2) return pts;
+    const [a, b] = [pts[0], pts[pts.length - 1]];
+    let maxD = 0, idx = 0;
+    for (let i = 1; i < pts.length - 1; i++) {
+      const dx = b.x - a.x, dy = b.y - a.y, len = Math.sqrt(dx * dx + dy * dy);
+      const d = len === 0 ? Math.hypot(pts[i].x - a.x, pts[i].y - a.y) : Math.abs(dx * (a.y - pts[i].y) - (a.x - pts[i].x) * dy) / len;
+      if (d > maxD) {
+        maxD = d;
+        idx = i;
+      }
+    }
+    if (maxD > eps) return [...rdp(pts.slice(0, idx + 1), eps).slice(0, -1), ...rdp(pts.slice(idx), eps)];
+    return [a, b];
+  }
+  function crPath(pts) {
+    if (!pts || pts.length < 3) return "";
+    const n = pts.length;
+    let d = `M ${pts[0].x.toFixed(1)} ${pts[0].y.toFixed(1)}`;
+    for (let i = 0; i < n; i++) {
+      const p0 = pts[(i - 1 + n) % n], p1 = pts[i], p2 = pts[(i + 1) % n], p3 = pts[(i + 2) % n];
+      const cp1x = p1.x + (p2.x - p0.x) / 6, cp1y = p1.y + (p2.y - p0.y) / 6;
+      const cp2x = p2.x - (p3.x - p1.x) / 6, cp2y = p2.y - (p3.y - p1.y) / 6;
+      d += ` C ${cp1x.toFixed(1)} ${cp1y.toFixed(1)},${cp2x.toFixed(1)} ${cp2y.toFixed(1)},${p2.x.toFixed(1)} ${p2.y.toFixed(1)}`;
+    }
+    return d + " Z";
+  }
+  var DEFAULT_PATH = [
+    { x: 0.5, y: 0.08 },
+    { x: 0.63, y: 0.12 },
+    { x: 0.76, y: 0.22 },
+    { x: 0.85, y: 0.38 },
+    { x: 0.88, y: 0.56 },
+    { x: 0.82, y: 0.72 },
+    { x: 0.68, y: 0.82 },
+    { x: 0.52, y: 0.86 },
+    { x: 0.36, y: 0.86 },
+    { x: 0.22, y: 0.82 },
+    { x: 0.12, y: 0.72 },
+    { x: 0.1, y: 0.56 },
+    { x: 0.13, y: 0.38 },
+    { x: 0.22, y: 0.22 },
+    { x: 0.35, y: 0.12 }
+  ];
+  var scalePath = (pts, w, h) => pts.map((p) => ({ x: p.x * w, y: p.y * h }));
+  function PouPet({ petData = {}, size = 160, bounce = true, mood = 70, animStyle, eyeOffset = { x: 0, y: 0 }, cleanLevel = 100, isSleeping = false }) {
+    const { drawnPath, color = "#C8956C", eyeLeft, eyeRight, mouth, mouthType = "smile" } = petData;
+    const VW = 200, VH = 200;
+    const bodyPts = scalePath(drawnPath || DEFAULT_PATH, VW, VH);
+    const pathD = crPath(bodyPts);
+    const EL = eyeLeft || { x: 0.36, y: 0.4 };
+    const ER = eyeRight || { x: 0.64, y: 0.4 };
+    const MO = mouth || { x: 0.5, y: 0.62 };
+    const elX = EL.x * VW, elY = EL.y * VH, erX = ER.x * VW, erY = ER.y * VH, mX = MO.x * VW, mY = MO.y * VH;
+    const eyeR = VW * 0.1, pupR = eyeR * 0.5;
+    const ms = eyeR * 0.38;
+    const px = eyeOffset.x * ms;
+    const py = eyeOffset.y * ms;
+    const dirtiness = Math.max(0, 100 - cleanLevel);
+    const dirtOpacity = dirtiness / 100;
+    const DIRT_SPOTS = [
+      { cx: 0.58, cy: 0.55, r: 0.055 },
+      { cx: 0.35, cy: 0.6, r: 0.04 },
+      { cx: 0.72, cy: 0.4, r: 0.033 },
+      { cx: 0.28, cy: 0.45, r: 0.03 },
+      { cx: 0.5, cy: 0.7, r: 0.045 },
+      { cx: 0.65, cy: 0.72, r: 0.028 },
+      { cx: 0.4, cy: 0.75, r: 0.025 },
+      { cx: 0.55, cy: 0.38, r: 0.022 }
+    ];
+    const renderMouth = () => {
+      if (isSleeping) {
+        return /* @__PURE__ */ React.createElement("path", { d: `M ${mX - VW * 0.06} ${mY} Q ${mX} ${mY + VW * 0.04} ${mX + VW * 0.06} ${mY}`, stroke: C.black, strokeWidth: "2", fill: "none", strokeLinecap: "round" });
+      }
+      const r = VW * 0.09;
+      switch (mouthType) {
+        case "big":
+          return /* @__PURE__ */ React.createElement("path", { d: `M ${mX - r * 1.2} ${mY - r * 0.2} Q ${mX} ${mY + r * 1.5} ${mX + r * 1.2} ${mY - r * 0.2}`, fill: "#8B2020", stroke: C.black, strokeWidth: "2", strokeLinecap: "round" });
+        case "flat":
+          return /* @__PURE__ */ React.createElement("path", { d: `M ${mX - r} ${mY} L ${mX + r} ${mY}`, stroke: C.black, strokeWidth: "2.5", strokeLinecap: "round", fill: "none" });
+        case "sad":
+          return /* @__PURE__ */ React.createElement("path", { d: `M ${mX - r} ${mY + r * 0.4} Q ${mX} ${mY - r * 0.6} ${mX + r} ${mY + r * 0.4}`, stroke: C.black, strokeWidth: "2.5", fill: "none", strokeLinecap: "round" });
+        default:
+          return /* @__PURE__ */ React.createElement("path", { d: `M ${mX - r} ${mY} Q ${mX} ${mY + r * 1.2} ${mX + r} ${mY}`, stroke: C.black, strokeWidth: "2.5", fill: "none", strokeLinecap: "round" });
+      }
+    };
+    const wrapStyle = {
+      width: size,
+      height: size,
+      flexShrink: 0,
+      animation: isSleeping ? "petSleep 2.5s ease-in-out infinite" : animStyle || (bounce ? "pouBounce 2s ease-in-out infinite" : "none")
+    };
+    return /* @__PURE__ */ React.createElement("div", { style: wrapStyle }, /* @__PURE__ */ React.createElement("svg", { viewBox: `0 0 ${VW} ${VH}`, width: size, height: size, style: { overflow: "visible" } }, /* @__PURE__ */ React.createElement("ellipse", { cx: VW * 0.5, cy: VH * 0.97, rx: VW * 0.28, ry: VH * 0.045, fill: "rgba(0,0,0,0.12)" }), /* @__PURE__ */ React.createElement("path", { d: pathD, fill: color, stroke: C.black, strokeWidth: "3.5", strokeLinejoin: "round" }), /* @__PURE__ */ React.createElement("path", { d: pathD, fill: "rgba(255,255,255,0.22)" }), dirtiness > 20 && DIRT_SPOTS.slice(0, Math.ceil(dirtiness / 12)).map((s, i) => /* @__PURE__ */ React.createElement(
+      "ellipse",
+      {
+        key: i,
+        cx: s.cx * VW,
+        cy: s.cy * VH,
+        rx: s.r * VW * (0.7 + i * 0.05),
+        ry: s.r * VH * 0.75,
+        fill: `rgba(101,67,33,${Math.min(0.65, dirtOpacity * (0.4 + i * 0.06))})`,
+        transform: `rotate(${i * 23},${s.cx * VW},${s.cy * VH})`
+      }
+    )), cleanLevel < 30 && /* @__PURE__ */ React.createElement("path", { d: pathD, fill: `rgba(80,50,20,${0.18 + (30 - cleanLevel) * 5e-3})` }), mood < 30 && /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("circle", { cx: VW * 0.62, cy: VH * 0.52, r: 5, fill: "rgba(0,0,0,0.12)" }), /* @__PURE__ */ React.createElement("circle", { cx: VW * 0.44, cy: VH * 0.65, r: 4, fill: "rgba(0,0,0,0.10)" })), isSleeping ? /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("line", { x1: elX - eyeR * 0.8, y1: elY, x2: elX + eyeR * 0.8, y2: elY, stroke: C.black, strokeWidth: "3", strokeLinecap: "round" }), /* @__PURE__ */ React.createElement("line", { x1: erX - eyeR * 0.8, y1: erY, x2: erX + eyeR * 0.8, y2: erY, stroke: C.black, strokeWidth: "3", strokeLinecap: "round" })) : /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("g", { style: { animation: "pouBlink 3.5s infinite", transformOrigin: `${elX}px ${elY}px` } }, /* @__PURE__ */ React.createElement("circle", { cx: elX, cy: elY, r: eyeR, fill: "white", stroke: C.black, strokeWidth: "2.5" }), /* @__PURE__ */ React.createElement("circle", { cx: elX + px, cy: elY + py, r: pupR, fill: C.black }), /* @__PURE__ */ React.createElement("circle", { cx: elX + px - pupR * 0.35, cy: elY + py - pupR * 0.4, r: pupR * 0.25, fill: "white" })), /* @__PURE__ */ React.createElement("g", { style: { animation: "pouBlink 3.5s 0.18s infinite", transformOrigin: `${erX}px ${erY}px` } }, /* @__PURE__ */ React.createElement("circle", { cx: erX, cy: erY, r: eyeR, fill: "white", stroke: C.black, strokeWidth: "2.5" }), /* @__PURE__ */ React.createElement("circle", { cx: erX + px, cy: erY + py, r: pupR, fill: C.black }), /* @__PURE__ */ React.createElement("circle", { cx: erX + px - pupR * 0.35, cy: erY + py - pupR * 0.4, r: pupR * 0.25, fill: "white" }))), renderMouth(), isSleeping && /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement(
+      "text",
+      {
+        x: erX + eyeR * 2.5,
+        y: elY - eyeR * 2,
+        fontSize: VW * 0.1,
+        fill: "#7E57C2",
+        fontWeight: "900",
+        opacity: "0.9",
+        style: { animation: "floatZzz 2s 0s ease-in-out infinite" }
+      },
+      "z"
+    ), /* @__PURE__ */ React.createElement(
+      "text",
+      {
+        x: erX + eyeR * 3.5,
+        y: elY - eyeR * 3.4,
+        fontSize: VW * 0.07,
+        fill: "#9575CD",
+        fontWeight: "900",
+        opacity: "0.7",
+        style: { animation: "floatZzz 2s 0.7s ease-in-out infinite" }
+      },
+      "z"
+    ), /* @__PURE__ */ React.createElement(
+      "text",
+      {
+        x: erX + eyeR * 4.5,
+        y: elY - eyeR * 4.6,
+        fontSize: VW * 0.05,
+        fill: "#B39DDB",
+        fontWeight: "900",
+        opacity: "0.5",
+        style: { animation: "floatZzz 2s 1.4s ease-in-out infinite" }
+      },
+      "z"
+    )), !isSleeping && mood > 55 && /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("ellipse", { cx: elX - eyeR * 2.2, cy: elY + eyeR * 0.8, rx: eyeR * 1.4, ry: eyeR * 0.8, fill: "#FF9BB2", opacity: "0.32" }), /* @__PURE__ */ React.createElement("ellipse", { cx: erX + eyeR * 2.2, cy: erY + eyeR * 0.8, rx: eyeR * 1.4, ry: eyeR * 0.8, fill: "#FF9BB2", opacity: "0.32" }))));
+  }
+  function ParticleOverlay({ action }) {
+    const particles = (0, import_react.useRef)(
+      Array.from({ length: 14 }, (_, i) => {
+        const anims = ["floatUp", "floatUpL", "floatUpR"];
+        return {
+          emoji: action.particles[i % action.particles.length],
+          left: 8 + Math.random() * 84,
+          size: 16 + Math.random() * 18,
+          delay: i * 0.1,
+          dur: 0.75 + Math.random() * 0.55,
+          anim: anims[i % 3]
+        };
+      })
+    ).current;
+    return /* @__PURE__ */ React.createElement("div", { style: { position: "absolute", inset: 0, pointerEvents: "none", zIndex: 30, overflow: "hidden" } }, particles.map((p, i) => /* @__PURE__ */ React.createElement("div", { key: i, style: {
+      position: "absolute",
+      left: `${p.left}%`,
+      bottom: "20%",
+      fontSize: p.size,
+      opacity: 0,
+      animation: `${p.anim} ${p.dur}s ${p.delay}s ease-out forwards`
+    } }, p.emoji)));
+  }
+  function InteractPanel({ onAction, onClose, onStartGame, onStartWaterGame, state }) {
+    const row1 = ACTIONS.slice(0, 3);
+    const sleepAction = ACTIONS[3];
+    const inv = state.inventory || [];
+    const foodCount = inv.filter((i) => i && i.category === "food").length;
+    const cleanCount = inv.filter((i) => i && i.category === "clean").length;
+    const tooDirty = state.clean <= 85;
+    const toClean = state.clean > 85;
+    const getHint = (id) => {
+      if (id === "eat") {
+        if (foodCount === 0) return { text: "\u274C Kh\xF4ng c\xF3 \u0111\u1ED3 \u0103n", warn: true };
+        return { text: `\u{1F34E} \xD7${foodCount} trong t\xFAi`, warn: false };
+      }
+      if (id === "bath") {
+        if (toClean) return { text: "\u2705 \u0110ang s\u1EA1ch r\u1ED3i!", warn: true };
+        if (state.clean < 30) return { text: "\u{1F9FC} R\u1EA5t b\u1EA9n! T\u1EAFm ngay", warn: false };
+        return { text: cleanCount > 0 ? `\u{1F9FC} \xD7${cleanCount} trong t\xFAi` : "\u{1F9FC} B\u1EA9n - c\u1EA7n t\u1EAFm", warn: false };
+      }
+      if (id === "play") return { text: "+12 XP \xB7 +10 \u0111i\u1EC3m", warn: false };
+      return null;
+    };
+    const BtnItem = ({ a }) => {
+      const hint = getHint(a.id);
+      return /* @__PURE__ */ React.createElement(
+        "button",
+        {
+          onClick: () => onAction(a),
+          style: {
+            background: a.lightBg,
+            border: `2.5px solid ${a.color}55`,
+            borderRadius: 20,
+            padding: "12px 6px 10px",
+            cursor: "pointer",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            gap: 4,
+            transition: "transform 0.12s, box-shadow 0.12s",
+            boxShadow: `0 3px 12px ${a.color}22`,
+            flex: 1
+          },
+          onMouseDown: (e) => {
+            e.currentTarget.style.transform = "scale(0.90)";
+            e.currentTarget.style.boxShadow = "none";
+          },
+          onMouseUp: (e) => {
+            e.currentTarget.style.transform = "scale(1)";
+            e.currentTarget.style.boxShadow = `0 3px 12px ${a.color}22`;
+          }
+        },
+        /* @__PURE__ */ React.createElement("span", { style: { fontSize: 30, lineHeight: 1 } }, a.icon),
+        /* @__PURE__ */ React.createElement("span", { style: { fontFamily: F.game, fontWeight: 900, fontSize: 11, color: a.color, textAlign: "center" } }, a.label),
+        hint && /* @__PURE__ */ React.createElement("span", { style: {
+          fontFamily: F.game,
+          fontSize: 8,
+          fontWeight: 800,
+          textAlign: "center",
+          lineHeight: 1.2,
+          color: hint.warn ? "#E53935" : "#757575",
+          background: hint.warn ? "#FFEBEE" : "#F5F5F5",
+          borderRadius: 6,
+          padding: "2px 5px",
+          marginTop: 1
+        } }, hint.text)
+      );
+    };
+    return /* @__PURE__ */ React.createElement(
+      "div",
+      {
+        onClick: onClose,
+        style: {
+          position: "absolute",
+          inset: 0,
+          background: "rgba(0,0,0,0.4)",
+          zIndex: 40,
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "flex-end"
+        }
+      },
+      /* @__PURE__ */ React.createElement(
+        "div",
+        {
+          onClick: (e) => e.stopPropagation(),
+          style: {
+            background: "white",
+            borderRadius: "26px 26px 0 0",
+            padding: "14px 16px 24px",
+            animation: "slideUp 0.22s ease-out"
+          }
+        },
+        /* @__PURE__ */ React.createElement("div", { style: { width: 40, height: 5, borderRadius: 99, background: "#E0E0E0", margin: "0 auto 14px" } }),
+        /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 14 } }, /* @__PURE__ */ React.createElement("div", { style: { fontFamily: F.game, fontWeight: 900, fontSize: 15, color: C.black } }, "\u26A1 Ch\u0103m s\xF3c pet"), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", gap: 5 } }, [
+          { icon: "\u{1F34E}", v: state.hunger, c: "#4CAF50" },
+          { icon: "\u2764\uFE0F", v: state.happiness, c: "#E53935" },
+          { icon: "\u{1F9FC}", v: state.clean, c: "#29B6F6" },
+          { icon: "\u26A1", v: state.energy, c: "#F9A825" }
+        ].map((s) => /* @__PURE__ */ React.createElement("div", { key: s.icon, style: {
+          background: `${s.c}18`,
+          borderRadius: 8,
+          padding: "3px 5px",
+          textAlign: "center",
+          border: `1.5px solid ${s.v < 30 ? s.c + "88" : "transparent"}`
+        } }, /* @__PURE__ */ React.createElement("div", { style: { fontSize: 12 } }, s.icon), /* @__PURE__ */ React.createElement("div", { style: { fontFamily: F.game, fontSize: 8, fontWeight: 800, color: s.v < 30 ? s.c : "#BDBDBD", marginTop: 1 } }, s.v))))),
+        /* @__PURE__ */ React.createElement("div", { style: { display: "flex", gap: 10, marginBottom: 10 } }, row1.map((a) => /* @__PURE__ */ React.createElement(BtnItem, { key: a.id, a }))),
+        /* @__PURE__ */ React.createElement(
+          "button",
+          {
+            onClick: () => onAction(sleepAction),
+            disabled: state.isSleeping,
+            style: {
+              width: "100%",
+              background: state.isSleeping ? "#EDE7F6" : "linear-gradient(135deg,#EDE7F6,#D1C4E9)",
+              border: "2.5px solid #7E57C255",
+              borderRadius: 20,
+              padding: "14px 24px",
+              cursor: state.isSleeping ? "not-allowed" : "pointer",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: 14,
+              transition: "transform 0.12s, box-shadow 0.12s",
+              boxShadow: "0 3px 12px #7E57C222",
+              opacity: state.isSleeping ? 0.65 : 1
+            },
+            onMouseDown: (e) => {
+              if (!state.isSleeping) e.currentTarget.style.transform = "scale(0.97)";
+            },
+            onMouseUp: (e) => {
+              e.currentTarget.style.transform = "scale(1)";
+            }
+          },
+          /* @__PURE__ */ React.createElement("span", { style: { fontSize: 36, lineHeight: 1 } }, "\u{1F634}"),
+          /* @__PURE__ */ React.createElement("div", { style: { textAlign: "left" } }, /* @__PURE__ */ React.createElement("div", { style: { fontFamily: F.game, fontWeight: 900, fontSize: 14, color: "#5E35B1" } }, state.isSleeping ? "\u0110ang ng\u1EE7\u2026" : "Ng\u1EE7"), /* @__PURE__ */ React.createElement("div", { style: { fontFamily: F.game, fontSize: 11, color: "#9575CD", marginTop: 2 } }, state.isSleeping ? `\u23F3 Ch\u1EDD ${Math.max(0, Math.ceil(((state.sleepUntil || Date.now()) - Date.now()) / 1e3))}s n\u1EEFa th\u1EE9c` : `+45 \u26A1 \xB7 +8 \u2764\uFE0F \xB7 +15 XP \xB7 ng\u1EE7 ${state.SLEEP_SECS || 30}s`)),
+          /* @__PURE__ */ React.createElement("span", { style: { fontSize: 20, marginLeft: "auto", opacity: 0.6 } }, "\u{1F4A4}")
+        ),
+        /* @__PURE__ */ React.createElement(
+          "button",
+          {
+            onClick: () => {
+              onClose();
+              onStartGame && onStartGame();
+            },
+            style: {
+              width: "100%",
+              marginTop: 10,
+              background: "linear-gradient(135deg,#1A1A2E,#16213E)",
+              border: "2.5px solid #B4FF0055",
+              borderRadius: 20,
+              padding: "13px 24px",
+              cursor: "pointer",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: 14,
+              transition: "transform 0.12s, box-shadow 0.12s",
+              boxShadow: "0 4px 16px rgba(180,255,0,0.18)"
+            },
+            onMouseDown: (e) => {
+              e.currentTarget.style.transform = "scale(0.97)";
+            },
+            onMouseUp: (e) => {
+              e.currentTarget.style.transform = "scale(1)";
+            }
+          },
+          /* @__PURE__ */ React.createElement("span", { style: { fontSize: 34, lineHeight: 1 } }, "\u{1F3AE}"),
+          /* @__PURE__ */ React.createElement("div", { style: { textAlign: "left" } }, /* @__PURE__ */ React.createElement("div", { style: { fontFamily: F.game, fontWeight: 900, fontSize: 14, color: "#B4FF00" } }, "Ch\u01A1i Block Blast"), /* @__PURE__ */ React.createElement("div", { style: { fontFamily: F.game, fontSize: 11, color: "#78909C", marginTop: 2 } }, "Ki\u1EBFm \u{1FA99} \xB7 +\u2764\uFE0F h\u1EA1nh ph\xFAc \xB7 \u2212\u26A1 n\u0103ng l\u01B0\u1EE3ng")),
+          /* @__PURE__ */ React.createElement("span", { style: { fontSize: 18, marginLeft: "auto", color: "#B4FF00", opacity: 0.8 } }, "\u25B6")
+        ),
+        /* @__PURE__ */ React.createElement(
+          "button",
+          {
+            onClick: () => {
+              onClose();
+              onStartWaterGame && onStartWaterGame();
+            },
+            style: {
+              width: "100%",
+              marginTop: 8,
+              background: "linear-gradient(135deg,#0D1B2A,#1B3A5C)",
+              border: "2.5px solid rgba(41,182,246,0.45)",
+              borderRadius: 20,
+              padding: "13px 24px",
+              cursor: "pointer",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: 14,
+              transition: "transform 0.12s, box-shadow 0.12s",
+              boxShadow: "0 4px 16px rgba(41,182,246,0.22)"
+            },
+            onMouseDown: (e) => {
+              e.currentTarget.style.transform = "scale(0.97)";
+            },
+            onMouseUp: (e) => {
+              e.currentTarget.style.transform = "scale(1)";
+            }
+          },
+          /* @__PURE__ */ React.createElement("span", { style: { fontSize: 34, lineHeight: 1 } }, "\u{1F4A7}"),
+          /* @__PURE__ */ React.createElement("div", { style: { textAlign: "left" } }, /* @__PURE__ */ React.createElement("div", { style: { fontFamily: F.game, fontWeight: 900, fontSize: 14, color: "#29B6F6" } }, "Th\u1EA3 B\xF3ng N\u01B0\u1EDBc"), /* @__PURE__ */ React.createElement("div", { style: { fontFamily: F.game, fontSize: 11, color: "#78909C", marginTop: 2 } }, "Gh\xE9p b\xF3ng \u2192 b\xF3ng to \xB7 +\u2764\uFE0F h\u1EA1nh ph\xFAc \xB7 \u2212\u26A1 n\u0103ng l\u01B0\u1EE3ng")),
+          /* @__PURE__ */ React.createElement("span", { style: { fontSize: 18, marginLeft: "auto", color: "#29B6F6", opacity: 0.8 } }, "\u25B6")
+        )
+      )
+    );
+  }
+  function ShopPanel({ onClose, state, dispatch, showToast: showToast2 }) {
+    const { points } = state;
+    const [boughtId, setBoughtId] = (0, import_react.useState)(null);
+    const buy = (item) => {
+      if (points < item.cost) {
+        showToast2("\u274C Kh\xF4ng \u0111\u1EE7 \u0111i\u1EC3m!");
+        return;
+      }
+      dispatch({ type: "BUY_ITEM", id: item.id, icon: item.icon, name: item.name, category: item.category, cost: item.cost, effect: item.effect });
+      setBoughtId(item.id);
+      showToast2(`${item.icon} ${item.name} \u0111\xE3 mua! ${item.desc}`);
+      setTimeout(() => setBoughtId(null), 1200);
+      if (!state.doneMissions?.includes("d4")) {
+        dispatch({ type: "COMPLETE_MISSION", id: "d4", xp: 20, pts: 30 });
+      }
+    };
+    const CATS = [
+      { key: "all", label: "T\u1EA5t c\u1EA3", icon: "\u{1F6CD}\uFE0F" },
+      { key: "food", label: "Th\u1EE9c \u0103n", icon: "\u{1F34E}" },
+      { key: "clean", label: "V\u1EC7 sinh", icon: "\u{1F9FC}" },
+      { key: "fun", label: "Vui ch\u01A1i", icon: "\u{1F3AE}" },
+      { key: "boost", label: "Boost", icon: "\u26A1" }
+    ];
+    const [cat, setCat] = (0, import_react.useState)("all");
+    const ITEM_CATS = {
+      food: ["apple", "meat", "cake", "milk"],
+      clean: ["soap", "perfume"],
+      fun: ["toy", "ball", "crown"],
+      boost: ["drink", "potion", "star"]
+    };
+    const visible = cat === "all" ? SHOP_ITEMS : SHOP_ITEMS.filter((i) => (ITEM_CATS[cat] || []).includes(i.id));
+    return /* @__PURE__ */ React.createElement("div", { onClick: onClose, style: {
+      position: "absolute",
+      inset: 0,
+      background: "rgba(0,0,0,0.5)",
+      zIndex: 50,
+      display: "flex",
+      flexDirection: "column",
+      justifyContent: "flex-end"
+    } }, /* @__PURE__ */ React.createElement("div", { onClick: (e) => e.stopPropagation(), style: {
+      background: "#F9F9F9",
+      borderRadius: "24px 24px 0 0",
+      maxHeight: "78%",
+      display: "flex",
+      flexDirection: "column",
+      animation: "slideUp 0.24s ease-out",
+      overflow: "hidden"
+    } }, /* @__PURE__ */ React.createElement("div", { style: { padding: "10px 16px 0", flexShrink: 0 } }, /* @__PURE__ */ React.createElement("div", { style: { width: 40, height: 5, borderRadius: 99, background: "#E0E0E0", margin: "0 auto 12px" } }), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 10 } }, /* @__PURE__ */ React.createElement("div", { style: { fontFamily: F.game, fontWeight: 900, fontSize: 16, color: C.black } }, "\u{1F6D2} Shop Pet"), /* @__PURE__ */ React.createElement("div", { style: {
+      background: "rgba(255,215,0,0.15)",
+      borderRadius: 20,
+      padding: "5px 12px",
+      border: "1.5px solid rgba(255,215,0,0.4)",
+      fontFamily: F.game,
+      fontWeight: 900,
+      fontSize: 13,
+      color: "#E6A800",
+      display: "flex",
+      alignItems: "center",
+      gap: 5
+    } }, "\u{1F4B0} ", points.toLocaleString())), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", gap: 6, overflowX: "auto", paddingBottom: 10 } }, CATS.map((c) => /* @__PURE__ */ React.createElement("button", { key: c.key, onClick: () => setCat(c.key), style: {
+      background: cat === c.key ? "#1A1A1A" : "white",
+      border: "1.5px solid" + (cat === c.key ? "#1A1A1A" : "#EEEEEE"),
+      borderRadius: 99,
+      padding: "5px 12px",
+      cursor: "pointer",
+      flexShrink: 0,
+      display: "flex",
+      alignItems: "center",
+      gap: 4,
+      fontFamily: F.game,
+      fontWeight: 800,
+      fontSize: 11,
+      color: cat === c.key ? "white" : "#999"
+    } }, /* @__PURE__ */ React.createElement("span", null, c.icon), /* @__PURE__ */ React.createElement("span", null, c.label))))), /* @__PURE__ */ React.createElement("div", { style: { overflowY: "auto", padding: "0 12px 24px", flex: 1 } }, /* @__PURE__ */ React.createElement("div", { style: { display: "grid", gridTemplateColumns: "repeat(2,1fr)", gap: 10 } }, visible.map((item) => {
+      const canAfford = points >= item.cost;
+      const justBought = boughtId === item.id;
+      return /* @__PURE__ */ React.createElement("div", { key: item.id, style: {
+        background: justBought ? "#E8F5E9" : canAfford ? "white" : "#FAFAFA",
+        borderRadius: 18,
+        padding: "14px 12px",
+        border: `1.5px solid ${justBought ? "#66BB6A" : canAfford ? "#EEEEEE" : "#F0F0F0"}`,
+        boxShadow: canAfford ? "0 3px 12px rgba(0,0,0,0.06)" : "none",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        gap: 6,
+        transition: "all 0.2s"
+      } }, /* @__PURE__ */ React.createElement("span", { style: { fontSize: 36, filter: canAfford ? "none" : "grayscale(0.7) opacity(0.55)" } }, item.icon), /* @__PURE__ */ React.createElement("div", { style: { fontFamily: F.game, fontWeight: 900, fontSize: 12, color: canAfford ? C.black : "#BDBDBD", textAlign: "center" } }, item.name), /* @__PURE__ */ React.createElement("div", { style: { fontFamily: F.game, fontSize: 10, color: "#BDBDBD", textAlign: "center", lineHeight: 1.4 } }, item.desc), /* @__PURE__ */ React.createElement("button", { onClick: () => buy(item), style: {
+        background: justBought ? "#4CAF50" : canAfford ? "#1A1A1A" : "#E0E0E0",
+        border: "none",
+        borderRadius: 12,
+        padding: "8px 0",
+        width: "100%",
+        cursor: canAfford ? "pointer" : "not-allowed",
+        fontFamily: F.game,
+        fontWeight: 900,
+        fontSize: 12,
+        color: justBought ? "white" : canAfford ? "#FFD700" : "#BDBDBD",
+        transition: "background 0.2s"
+      } }, justBought ? "\u2713 \u0110\xE3 mua" : `\u{1F4B0} ${item.cost}`));
+    })))));
+  }
+  function StatBtn({ icon, value, max = 100, color = C.green }) {
+    const pct = Math.max(0, Math.min(100, value / max * 100));
+    const isLow = pct < 30;
+    return /* @__PURE__ */ React.createElement("div", { style: {
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      gap: 2,
+      minWidth: 32,
+      background: isLow ? `${color}22` : "rgba(255,255,255,0.07)",
+      borderRadius: 8,
+      padding: "4px 5px",
+      border: isLow ? `1px solid ${color}66` : "1px solid transparent",
+      transition: "background 0.3s"
+    } }, /* @__PURE__ */ React.createElement("div", { style: { fontSize: 14, lineHeight: 1 } }, icon), /* @__PURE__ */ React.createElement("div", { style: {
+      width: 28,
+      height: 4,
+      background: "rgba(255,255,255,0.15)",
+      borderRadius: 99,
+      overflow: "hidden"
+    } }, /* @__PURE__ */ React.createElement("div", { style: { width: `${pct}%`, height: 4, background: color, borderRadius: 99, transition: "width 0.3s" } })), /* @__PURE__ */ React.createElement("div", { style: {
+      fontFamily: F.game,
+      fontWeight: 900,
+      fontSize: 9,
+      color: isLow ? color : "rgba(255,255,255,0.75)"
+    } }, value));
+  }
+  function SleepCountdown({ sleepUntil }) {
+    const [secsLeft, setSecsLeft] = (0, import_react.useState)(Math.max(0, Math.ceil((sleepUntil - Date.now()) / 1e3)));
+    (0, import_react.useEffect)(() => {
+      const id = setInterval(() => {
+        const s = Math.max(0, Math.ceil((sleepUntil - Date.now()) / 1e3));
+        setSecsLeft(s);
+        if (s <= 0) clearInterval(id);
+      }, 500);
+      return () => clearInterval(id);
+    }, [sleepUntil]);
+    return /* @__PURE__ */ React.createElement("div", { style: {
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      gap: 6
+    } }, /* @__PURE__ */ React.createElement("div", { style: {
+      background: "rgba(126,87,194,0.85)",
+      borderRadius: 99,
+      padding: "10px 28px",
+      fontFamily: F.game,
+      fontWeight: 900,
+      fontSize: 14,
+      color: "white",
+      display: "flex",
+      alignItems: "center",
+      gap: 8,
+      boxShadow: "0 6px 20px rgba(126,87,194,0.45)"
+    } }, /* @__PURE__ */ React.createElement("span", { style: { fontSize: 20 } }, "\u{1F634}"), /* @__PURE__ */ React.createElement("span", null, "Pet \u0111ang ng\u1EE7..."), /* @__PURE__ */ React.createElement("span", { style: {
+      background: "rgba(255,255,255,0.2)",
+      borderRadius: 8,
+      padding: "3px 10px",
+      fontFamily: F.game,
+      fontSize: 13,
+      fontWeight: 900
+    } }, secsLeft, "s")), /* @__PURE__ */ React.createElement("div", { style: { fontFamily: F.game, fontSize: 10, color: "rgba(255,255,255,0.7)" } }, "\u{1F4A4} \u0110\u1EEBng l\xE0m phi\u1EC1n pet nh\xE9!"));
+  }
+  function HomeTab({ state, dispatch, showToast: showToast2, onStartGame, onStartWaterGame, onStartSurgery }) {
+    const [showInteract, setShowInteract] = (0, import_react.useState)(false);
+    const [currentAnim, setCurrentAnim] = (0, import_react.useState)(null);
+    const [mouthOverride, setMouthOverride] = (0, import_react.useState)(null);
+    const [eyeOffset, setEyeOffset] = (0, import_react.useState)({ x: 0, y: 0 });
+    const [showShopPanel, setShowShopPanel] = (0, import_react.useState)(false);
+    const petRef = (0, import_react.useRef)(null);
+    const { petData, happiness } = state;
+    const rank = getRank(state.points);
+    (0, import_react.useEffect)(() => {
+      if (!state.isSleeping || !state.sleepUntil) return;
+      const remaining = state.sleepUntil - Date.now();
+      if (remaining <= 0) {
+        dispatch({ type: "WAKE_UP" });
+        showToast2("\u{1F305} Pet \u0111\xE3 th\u1EE9c d\u1EADy! +45 \u26A1 N\u0103ng l\u01B0\u1EE3ng!");
+        return;
+      }
+      const t = setTimeout(() => {
+        dispatch({ type: "WAKE_UP" });
+        showToast2("\u{1F305} Pet \u0111\xE3 th\u1EE9c d\u1EADy! +45 \u26A1 N\u0103ng l\u01B0\u1EE3ng!");
+      }, remaining);
+      return () => clearTimeout(t);
+    }, [state.isSleeping, state.sleepUntil]);
+    (0, import_react.useEffect)(() => {
+      const id = setInterval(() => {
+        dispatch({ type: "DECREASE_CLEAN", amount: 1 });
+      }, 12e3);
+      return () => clearInterval(id);
+    }, []);
+    const triggerAction = (0, import_react.useCallback)((action) => {
+      setShowInteract(false);
+      if (action.id === "eat") {
+        const foods = (state.inventory || []).filter((i) => i && typeof i === "object" && i.category === "food");
+        if (foods.length === 0) {
+          showToast2("\u{1F34E} Kh\xF4ng c\xF3 \u0111\u1ED3 \u0103n trong t\xFAi! Mua \u1EDF Shop \u{1F6D2}");
+          return;
+        }
+        dispatch({ type: "USE_FOOD" });
+        const pick = foods[Math.floor(Math.random() * foods.length)];
+        showToast2(`${pick.icon} Cho \u0103n ${pick.name}! \u{1F34E} \u0110\xF3i +${pick.effect?.hunger || 20}`);
+        if (!state.doneMissions?.includes("d1")) dispatch({ type: "COMPLETE_MISSION", id: "d1", xp: 30, pts: 50 });
+      } else if (action.id === "bath") {
+        if (state.clean > 85) {
+          showToast2("\u{1F9FC} Pet ch\u01B0a b\u1EA9n! Ch\u1EDD th\xEAm r\u1ED3i t\u1EAFm nh\xE9 \u{1F43E}");
+          return;
+        }
+        const soaps = (state.inventory || []).filter((i) => i && typeof i === "object" && i.category === "clean");
+        dispatch({ type: "USE_CLEAN" });
+        if (soaps.length > 0) {
+          const pick = soaps[Math.floor(Math.random() * soaps.length)];
+          showToast2(`${pick.icon} D\xF9ng ${pick.name}! \u{1F9FC} S\u1EA1ch +${pick.effect?.clean || 30}`);
+        } else {
+          showToast2("\u{1F6BF} T\u1EAFm xong! (Kh\xF4ng c\xF3 x\xE0 ph\xF2ng \u2192 +20 s\u1EA1ch)");
+        }
+        if (!state.doneMissions?.includes("d2")) dispatch({ type: "COMPLETE_MISSION", id: "d2", xp: 20, pts: 30 });
+      } else if (action.id === "sleep") {
+        if (state.isSleeping) {
+          showToast2("\u{1F634} Pet \u0111ang ng\u1EE7 r\u1ED3i...");
+          return;
+        }
+        const SLEEP_MS = (state.SLEEP_SECS || 30) * 1e3;
+        dispatch({ type: "START_SLEEP", duration: SLEEP_MS });
+        showToast2(`\u{1F634} Pet \u0111i ng\u1EE7... D\u1EADy sau ${state.SLEEP_SECS || 30}s`);
+        if (!state.doneMissions?.includes("d3")) dispatch({ type: "COMPLETE_MISSION", id: "d3", xp: 25, pts: 40 });
+      } else {
+        const effects = action.applyEffect(state);
+        dispatch({ type: "APPLY_EFFECTS", payload: effects });
+        showToast2(`${action.icon} ${action.label} xong! +10 \u0111i\u1EC3m`);
+      }
+      setCurrentAnim(action);
+      if (action.mouthOverride) setMouthOverride(action.mouthOverride);
+      setTimeout(() => {
+        setCurrentAnim(null);
+        setMouthOverride(null);
+      }, 1900);
+    }, [state, dispatch, showToast2]);
+    (0, import_react.useEffect)(() => {
+      const handleMove = (cx, cy) => {
+        if (!petRef.current) return;
+        const rect = petRef.current.getBoundingClientRect();
+        const ox = rect.left + rect.width / 2;
+        const oy = rect.top + rect.height / 2;
+        const dx = cx - ox, dy = cy - oy;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < 1) return;
+        const factor = Math.min(dist / 150, 1);
+        const angle = Math.atan2(dy, dx);
+        setEyeOffset({ x: Math.cos(angle) * factor, y: Math.sin(angle) * factor });
+      };
+      const onMouse = (e) => handleMove(e.clientX, e.clientY);
+      const onTouch = (e) => {
+        if (e.touches[0]) handleMove(e.touches[0].clientX, e.touches[0].clientY);
+      };
+      window.addEventListener("mousemove", onMouse);
+      window.addEventListener("touchmove", onTouch, { passive: true });
+      return () => {
+        window.removeEventListener("mousemove", onMouse);
+        window.removeEventListener("touchmove", onTouch);
+      };
+    }, []);
+    const mouthType = mouthOverride || (happiness > 60 ? "smile" : happiness > 30 ? "flat" : "sad");
+    const petAnimStyle = currentAnim ? currentAnim.petAnim : void 0;
+    const xpPct = (state.xp || 0) / (state.level * 100) * 100;
+    return /* @__PURE__ */ React.createElement("div", { style: { flex: 1, display: "flex", flexDirection: "column", overflow: "hidden" } }, /* @__PURE__ */ React.createElement("div", { style: {
+      flex: 1,
+      position: "relative",
+      background: "linear-gradient(180deg,#5FC8F0 0%,#87CEEB 40%,#B8E4F7 100%)",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      overflow: "hidden",
+      minHeight: 0
+    } }, /* @__PURE__ */ React.createElement("div", { style: { position: "absolute", top: "8%", left: "6%", fontSize: "8vw", opacity: 0.5, animation: "float1 4s ease-in-out infinite", pointerEvents: "none" } }, "\u2601\uFE0F"), /* @__PURE__ */ React.createElement("div", { style: { position: "absolute", top: "16%", right: "5%", fontSize: "6vw", opacity: 0.4, animation: "float2 5s ease-in-out infinite", pointerEvents: "none" } }, "\u2601\uFE0F"), /* @__PURE__ */ React.createElement("div", { style: { position: "absolute", top: "4%", left: "38%", fontSize: "5vw", opacity: 0.3, animation: "float1 6.5s 1s ease-in-out infinite", pointerEvents: "none" } }, "\u2601\uFE0F"), /* @__PURE__ */ React.createElement("div", { style: { position: "absolute", top: "6%", right: "10%", fontSize: "7vw", opacity: 0.75, pointerEvents: "none" } }, "\u2600\uFE0F"), /* @__PURE__ */ React.createElement("div", { onClick: () => setShowShopPanel(true), style: {
+      position: "absolute",
+      top: "10%",
+      left: 10,
+      zIndex: 10,
+      cursor: "pointer"
+    } }, /* @__PURE__ */ React.createElement("div", { style: {
+      background: "linear-gradient(135deg,rgba(30,20,5,0.82),rgba(50,30,0,0.82))",
+      borderRadius: 16,
+      padding: "8px 10px",
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      gap: 3,
+      border: "1.5px solid rgba(255,167,0,0.55)",
+      boxShadow: "0 4px 16px rgba(0,0,0,0.28), 0 0 0 1px rgba(255,167,0,0.12)",
+      backdropFilter: "blur(8px)",
+      minWidth: 52
+    } }, /* @__PURE__ */ React.createElement("span", { style: { fontSize: 20 } }, "\u{1F6D2}"), /* @__PURE__ */ React.createElement("span", { style: { fontFamily: F.game, fontSize: 9, fontWeight: 900, color: "#FFB300" } }, "Shop"), /* @__PURE__ */ React.createElement("span", { style: { fontFamily: F.game, fontSize: 8, fontWeight: 800, color: "rgba(255,255,255,0.65)" } }, state.points.toLocaleString(), "\u0111"))), /* @__PURE__ */ React.createElement("div", { onClick: () => onStartSurgery && onStartSurgery(), style: {
+      position: "absolute",
+      top: "10%",
+      right: 10,
+      zIndex: 10,
+      cursor: "pointer"
+    } }, /* @__PURE__ */ React.createElement("div", { style: {
+      background: "linear-gradient(135deg,rgba(20,10,35,0.82),rgba(40,10,60,0.82))",
+      borderRadius: 16,
+      padding: "8px 10px",
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      gap: 3,
+      border: "1.5px solid rgba(180,100,255,0.55)",
+      boxShadow: "0 4px 16px rgba(0,0,0,0.28), 0 0 0 1px rgba(180,100,255,0.12)",
+      backdropFilter: "blur(8px)",
+      minWidth: 52
+    } }, /* @__PURE__ */ React.createElement("span", { style: { fontSize: 20 } }, "\u{1F52C}"), /* @__PURE__ */ React.createElement("span", { style: { fontFamily: F.game, fontSize: 9, fontWeight: 900, color: "#CE93D8" } }, "S\u1EEDa"), /* @__PURE__ */ React.createElement("span", { style: { fontFamily: F.game, fontSize: 8, fontWeight: 800, color: "rgba(255,255,255,0.65)" } }, "Pet"))), /* @__PURE__ */ React.createElement("div", { ref: petRef, style: {
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      gap: 6,
+      zIndex: 5
+    } }, /* @__PURE__ */ React.createElement(
+      PouPet,
+      {
+        petData: { ...petData || {}, mouthType },
+        size: Math.min(190, window.innerWidth * 0.48),
+        bounce: !currentAnim && !state.isSleeping,
+        mood: happiness,
+        animStyle: petAnimStyle,
+        eyeOffset,
+        cleanLevel: state.clean,
+        isSleeping: state.isSleeping
+      }
+    ), /* @__PURE__ */ React.createElement("div", { style: {
+      background: "rgba(255,255,255,0.90)",
+      borderRadius: 99,
+      padding: "5px 18px",
+      fontFamily: F.game,
+      fontWeight: 900,
+      fontSize: 13,
+      color: C.black,
+      boxShadow: "0 3px 14px rgba(0,0,0,0.13)",
+      display: "flex",
+      alignItems: "center",
+      gap: 5
+    } }, petData?.name || "Pou", state.clean < 25 && /* @__PURE__ */ React.createElement("span", { title: "R\u1EA5t b\u1EA9n!" }, "\u{1F4A9}"), state.clean >= 25 && state.clean < 50 && /* @__PURE__ */ React.createElement("span", { title: "Kh\xE1 b\u1EA9n" }, "\u{1F7E4}"), state.clean >= 50 && state.clean < 75 && /* @__PURE__ */ React.createElement("span", { title: "H\u01A1i b\u1EA9n" }, "\u{1F32B}\uFE0F"), state.isSleeping && /* @__PURE__ */ React.createElement("span", null, "\u{1F634}"))), currentAnim && /* @__PURE__ */ React.createElement(ParticleOverlay, { action: currentAnim }), currentAnim && /* @__PURE__ */ React.createElement("div", { style: {
+      position: "absolute",
+      top: "8%",
+      left: "50%",
+      transform: "translateX(-50%)",
+      background: "rgba(0,0,0,0.78)",
+      borderRadius: 22,
+      padding: "8px 22px",
+      fontFamily: F.game,
+      fontWeight: 900,
+      fontSize: 14,
+      color: "white",
+      whiteSpace: "nowrap",
+      zIndex: 35,
+      animation: "toastIn 0.3s ease-out"
+    } }, currentAnim.icon, " ", currentAnim.label, "!")), /* @__PURE__ */ React.createElement("div", { style: { height: 5, background: "rgba(0,0,0,0.12)", flexShrink: 0, zIndex: 6 } }, /* @__PURE__ */ React.createElement("div", { style: { width: `${xpPct}%`, height: 5, background: "linear-gradient(90deg,#CCFF00,#96D300)", transition: "width 0.4s" } })), /* @__PURE__ */ React.createElement("div", { style: {
+      height: 110,
+      flexShrink: 0,
+      background: "linear-gradient(180deg,#8BC34A 0%,#689F38 100%)",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      position: "relative",
+      overflow: "hidden",
+      borderTop: "3px solid #558B2F"
+    } }, [15, 35, 55, 75, 90].map((l, i) => /* @__PURE__ */ React.createElement("div", { key: i, style: {
+      position: "absolute",
+      bottom: "18%",
+      left: `${l}%`,
+      width: 6 + i % 3 * 2,
+      height: 6 + i % 3 * 2,
+      borderRadius: "50%",
+      background: "rgba(0,0,0,0.08)"
+    } })), state.isSleeping ? (
+      /* ── Sleeping state — countdown display ── */
+      /* @__PURE__ */ React.createElement(SleepCountdown, { sleepUntil: state.sleepUntil })
+    ) : !showInteract && !currentAnim ? /* @__PURE__ */ React.createElement(
+      "button",
+      {
+        onClick: () => setShowInteract(true),
+        style: {
+          background: "#1A1A1A",
+          border: "3px solid rgba(255,255,255,0.15)",
+          borderRadius: 99,
+          padding: "14px 40px",
+          fontFamily: F.game,
+          fontWeight: 900,
+          fontSize: 15,
+          color: "white",
+          cursor: "pointer",
+          boxShadow: "0 8px 28px rgba(0,0,0,0.35)",
+          display: "flex",
+          alignItems: "center",
+          gap: 8,
+          animation: "pulseBtn 2.5s ease-in-out infinite"
+        }
+      },
+      "\u26A1 T\u01B0\u01A1ng T\xE1c"
+    ) : currentAnim ? /* @__PURE__ */ React.createElement("div", { style: { fontFamily: F.game, fontWeight: 900, fontSize: 13, color: "rgba(255,255,255,0.8)" } }, currentAnim.icon, " ", currentAnim.label, "...") : null), showInteract && /* @__PURE__ */ React.createElement(
+      InteractPanel,
+      {
+        onAction: triggerAction,
+        onClose: () => setShowInteract(false),
+        onStartGame,
+        onStartWaterGame,
+        state
+      }
+    ), showShopPanel && /* @__PURE__ */ React.createElement(
+      ShopPanel,
+      {
+        onClose: () => setShowShopPanel(false),
+        state,
+        dispatch,
+        showToast: showToast2
+      }
+    ));
+  }
+  function LootTab({ state, dispatch, showToast: showToast2 }) {
+    const [openState, setOpenState] = (0, import_react.useState)("idle");
+    const [lastPrize, setLastPrize] = (0, import_react.useState)(null);
+    const [giftCode, setGiftCode] = (0, import_react.useState)("");
+    const [giftMsg, setGiftMsg] = (0, import_react.useState)(null);
+    const openBox = () => {
+      if (state.giftBoxes < 1 || openState !== "idle") return;
+      setOpenState("opening");
+      setTimeout(() => {
+        const prize = rollGiftBox();
+        dispatch({ type: "OPEN_GIFT_BOX" });
+        setLastPrize(prize);
+        setOpenState("revealed");
+        if (prize.rarity === "epic") showToast2(`\u{1F38A} HUY\u1EC0N THO\u1EA0I! ${prize.emoji} ${prize.name}`);
+        else if (prize.rarity === "rare") showToast2(`\u{1F48E} Hi\u1EBFm! ${prize.emoji} ${prize.name}`);
+        else showToast2(`${prize.emoji} ${prize.name}`);
+      }, 1100);
+    };
+    const redeemGift = () => {
+      const code = giftCode.trim().toUpperCase();
+      const found = VALID_GIFTS[code];
+      if (found) {
+        if (found.pts > 0) dispatch({ type: "ADD_POINTS", amount: found.pts });
+        if (found.boxes > 0) dispatch({ type: "ADD_GIFT_BOXES", amount: found.boxes });
+        setGiftMsg({ ok: true, msg: found.msg });
+        setGiftCode("");
+        showToast2(found.msg);
+      } else {
+        setGiftMsg({ ok: false, msg: "\u274C M\xE3 kh\xF4ng \u0111\xFAng" });
+      }
+      setTimeout(() => setGiftMsg(null), 2500);
+    };
+    const streak = state.streak || 3;
+    const done = (id) => state.doneMissions?.includes(id);
+    const RARITY_GRAD = {
+      common: "linear-gradient(135deg,#E8F5E9,#C8E6C9)",
+      rare: "linear-gradient(135deg,#E3F2FD,#BBDEFB)",
+      epic: "linear-gradient(135deg,#FFF3E0,#FFE0B2)"
+    };
+    return /* @__PURE__ */ React.createElement("div", { style: {
+      display: "flex",
+      flexDirection: "column",
+      padding: "10px 12px",
+      gap: 8,
+      boxSizing: "border-box"
+    } }, /* @__PURE__ */ React.createElement("div", { style: {
+      background: "white",
+      borderRadius: 16,
+      padding: "10px 12px",
+      flexShrink: 0,
+      boxShadow: "0 2px 10px rgba(0,0,0,0.06)"
+    } }, /* @__PURE__ */ React.createElement("div", { style: {
+      fontFamily: F.game,
+      fontWeight: 900,
+      fontSize: 11,
+      color: C.black,
+      marginBottom: 8,
+      display: "flex",
+      alignItems: "center",
+      gap: 5
+    } }, "\u{1F4CB} Nhi\u1EC7m V\u1EE5", /* @__PURE__ */ React.createElement("span", { style: { fontFamily: F.game, fontSize: 8, fontWeight: 700, color: "#999", marginLeft: "auto" } }, "Ho\xE0n th\xE0nh \u0111\u1EC3 nh\u1EADn \u{1F4E6}")), (() => {
+      const isDone = done("daily_checkin");
+      return /* @__PURE__ */ React.createElement("div", { style: {
+        display: "flex",
+        alignItems: "center",
+        gap: 8,
+        marginBottom: 6,
+        background: isDone ? "#F0FBF0" : "#FAFAFA",
+        borderRadius: 10,
+        padding: "6px 10px",
+        border: `1px solid ${isDone ? "#A5D6A9" : "#EEEEEE"}`
+      } }, /* @__PURE__ */ React.createElement("span", { style: { fontSize: 18, flexShrink: 0 } }, "\u{1F4C5}"), /* @__PURE__ */ React.createElement("div", { style: { flex: 1, minWidth: 0 } }, /* @__PURE__ */ React.createElement("div", { style: { fontFamily: F.game, fontWeight: 800, fontSize: 11, color: C.black } }, "Checkin h\xF4m nay"), /* @__PURE__ */ React.createElement("div", { style: { fontFamily: F.game, fontSize: 9, color: "#999", marginTop: 1 } }, "M\u1ED7i ng\xE0y nh\u1EADn 1 h\u1ED9p qu\xE0")), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "center", gap: 6, flexShrink: 0 } }, /* @__PURE__ */ React.createElement("span", { style: { fontFamily: F.game, fontSize: 10, fontWeight: 900, color: "#FF9800" } }, "\u{1F4E6}\xD71"), /* @__PURE__ */ React.createElement("button", { onClick: () => {
+        if (isDone) return;
+        dispatch({ type: "COMPLETE_MISSION", id: "daily_checkin", pts: 0, xp: 20, boxes: 1 });
+        showToast2("\u{1F4C5} Checkin! +1 h\u1ED9p qu\xE0 \u{1F381}");
+      }, style: {
+        background: isDone ? "#E8F5E9" : "linear-gradient(135deg,#FFD700,#FF9800)",
+        border: "none",
+        borderRadius: 8,
+        padding: "5px 12px",
+        cursor: isDone ? "default" : "pointer",
+        fontFamily: F.game,
+        fontWeight: 900,
+        fontSize: 10,
+        color: isDone ? "#66BB6A" : "#1A1A1A"
+      } }, isDone ? "\u2705 Xong" : "Nh\u1EADn")));
+    })(), (() => {
+      const isDone = done("invite_friends");
+      return /* @__PURE__ */ React.createElement("div", { style: {
+        display: "flex",
+        alignItems: "center",
+        gap: 8,
+        marginBottom: 6,
+        background: isDone ? "#F0FBF0" : "#FAFAFA",
+        borderRadius: 10,
+        padding: "6px 10px",
+        border: `1px solid ${isDone ? "#A5D6A9" : "#EEEEEE"}`
+      } }, /* @__PURE__ */ React.createElement("span", { style: { fontSize: 18, flexShrink: 0 } }, "\u{1F465}"), /* @__PURE__ */ React.createElement("div", { style: { flex: 1, minWidth: 0 } }, /* @__PURE__ */ React.createElement("div", { style: { fontFamily: F.game, fontWeight: 800, fontSize: 11, color: C.black } }, "M\u1EDDi b\u1EA1n b\xE8"), /* @__PURE__ */ React.createElement("div", { style: { fontFamily: F.game, fontSize: 9, color: "#999", marginTop: 1 } }, "B\u1EA1n ch\u1EA5p nh\u1EADn \u2192 +3 h\u1ED9p qu\xE0")), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "center", gap: 6, flexShrink: 0 } }, /* @__PURE__ */ React.createElement("span", { style: { fontFamily: F.game, fontSize: 10, fontWeight: 900, color: "#039BE5" } }, "\u{1F4E6}\xD73"), /* @__PURE__ */ React.createElement("button", { onClick: () => {
+        if (isDone) {
+          showToast2("\u{1F465} \u0110\xE3 m\u1EDDi r\u1ED3i!");
+          return;
+        }
+        showToast2("\u{1F517} \u0110\xE3 copy link m\u1EDDi!");
+        dispatch({ type: "COMPLETE_MISSION", id: "invite_friends", pts: 50, xp: 30, boxes: 3 });
+      }, style: {
+        background: isDone ? "#E8F5E9" : "#1A1A1A",
+        border: "none",
+        borderRadius: 8,
+        padding: "5px 12px",
+        cursor: "pointer",
+        fontFamily: F.game,
+        fontWeight: 900,
+        fontSize: 10,
+        color: isDone ? "#66BB6A" : "white"
+      } }, isDone ? "\u2705 Xong" : "\u{1F517} M\u1EDDi")));
+    })(), [
+      { emoji: "\u{1F3AE}", name: "Nhi\u1EC7m v\u1EE5 Garena", sub: "Ch\u01A1i game theo h\u01B0\u1EDBng d\u1EABn", reward: "\u{1F4E6}\xD72", color: "#29B6F6", id: "partner_garena" },
+      { emoji: "\u{1F3E6}", name: "K\u1EBFt n\u1ED1i V\xED \u0111i\u1EC7n t\u1EED", sub: "Li\xEAn k\u1EBFt t\xE0i kho\u1EA3n v\xED", reward: "\u{1F4E6}\xD71", color: "#66BB6A", id: "partner_wallet" },
+      { emoji: "\u{1F4F1}", name: "T\u1EA3i app HEAVY", sub: "M\u1EDF app \xEDt nh\u1EA5t 1 l\u1EA7n", reward: "\u{1F4E6}\xD73", color: "#FF9800", id: "partner_heavy" }
+    ].map((p, pi) => {
+      const isDone = done(p.id);
+      return /* @__PURE__ */ React.createElement("div", { key: p.id, style: {
+        display: "flex",
+        alignItems: "center",
+        gap: 8,
+        marginBottom: pi < 2 ? 6 : 0,
+        background: isDone ? "#F0FBF0" : `${p.color}12`,
+        borderRadius: 10,
+        padding: "6px 10px",
+        border: `1.5px solid ${isDone ? "#A5D6A9" : p.color + "55"}`
+      } }, /* @__PURE__ */ React.createElement("span", { style: { fontSize: 18, flexShrink: 0 } }, p.emoji), /* @__PURE__ */ React.createElement("div", { style: { flex: 1, minWidth: 0 } }, /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "center", gap: 4 } }, /* @__PURE__ */ React.createElement("div", { style: { fontFamily: F.game, fontWeight: 800, fontSize: 11, color: C.black } }, p.name), /* @__PURE__ */ React.createElement("span", { style: {
+        fontFamily: F.game,
+        fontSize: 7,
+        fontWeight: 900,
+        color: p.color,
+        background: `${p.color}22`,
+        borderRadius: 99,
+        padding: "1px 5px",
+        flexShrink: 0
+      } }, "\u0110\u1ED0I T\xC1C")), /* @__PURE__ */ React.createElement("div", { style: { fontFamily: F.game, fontSize: 9, color: "#999", marginTop: 1 } }, p.sub)), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "center", gap: 6, flexShrink: 0 } }, /* @__PURE__ */ React.createElement("span", { style: { fontFamily: F.game, fontSize: 10, fontWeight: 900, color: p.color } }, p.reward), /* @__PURE__ */ React.createElement("button", { onClick: () => {
+        if (isDone) return;
+        showToast2(`${p.emoji} ${p.name}: S\u1EAFp ra m\u1EAFt!`);
+      }, style: {
+        background: isDone ? "#E8F5E9" : `linear-gradient(135deg,${p.color},${p.color}BB)`,
+        border: "none",
+        borderRadius: 8,
+        padding: "5px 12px",
+        cursor: isDone ? "default" : "pointer",
+        fontFamily: F.game,
+        fontWeight: 900,
+        fontSize: 10,
+        color: isDone ? "#66BB6A" : "white"
+      } }, isDone ? "\u2705 Xong" : "L\xE0m")));
+    })), /* @__PURE__ */ React.createElement("div", { style: {
+      background: "linear-gradient(135deg,#1A1A2E,#16213E)",
+      borderRadius: 16,
+      padding: "10px 12px",
+      flexShrink: 0,
+      border: "1.5px solid rgba(255,255,255,0.08)",
+      boxShadow: "0 4px 18px rgba(0,0,0,0.25)",
+      position: "relative",
+      overflow: "hidden"
+    } }, [{ top: 4, right: 8, d: 0 }, { top: 16, right: 30, d: 0.7 }, { bottom: 4, left: 8, d: 1.2 }].map((s, i) => /* @__PURE__ */ React.createElement("div", { key: i, style: {
+      position: "absolute",
+      ...s.top !== void 0 ? { top: s.top } : { bottom: s.bottom },
+      ...s.right !== void 0 ? { right: s.right } : { left: s.left },
+      fontSize: 9,
+      animation: `sparkle 1.8s ${s.d}s ease-in-out infinite`,
+      pointerEvents: "none"
+    } }, "\u2728")), /* @__PURE__ */ React.createElement("div", { style: { marginBottom: 10 } }, /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 6 } }, /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "center", gap: 5 } }, /* @__PURE__ */ React.createElement("span", { style: { fontSize: 14 } }, "\u{1F525}"), /* @__PURE__ */ React.createElement("span", { style: { fontFamily: F.game, fontWeight: 900, fontSize: 11, color: "#FFD700" } }, "Chu\u1ED7i ", streak, " ng\xE0y")), /* @__PURE__ */ React.createElement("span", { style: { fontFamily: F.game, fontSize: 8, color: "rgba(255,255,255,0.4)" } }, "Nh\u1EADn th\u01B0\u1EDFng giai \u0111o\u1EA1n")), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", gap: 4 } }, CHECKIN_MILESTONES.map((m) => {
+      const reached = streak >= m.days;
+      const mId = `milestone_${m.days}`;
+      const claimed = done(mId);
+      const canClaim = reached && !claimed;
+      return /* @__PURE__ */ React.createElement("button", { key: m.days, onClick: () => {
+        if (!canClaim) return;
+        dispatch({ type: "COMPLETE_MISSION", id: mId, pts: m.pts, xp: m.days * 5, boxes: m.boxes });
+        showToast2(`${m.icon} ${m.label}: +${m.boxes} h\u1ED9p qu\xE0!`);
+      }, style: {
+        flex: 1,
+        borderRadius: 9,
+        padding: "5px 2px",
+        cursor: canClaim ? "pointer" : "default",
+        border: `1.5px solid ${claimed ? "#66BB6A" : reached ? "#FFB300" : "rgba(255,255,255,0.12)"}`,
+        background: claimed ? "rgba(102,187,106,0.18)" : reached ? "rgba(255,179,0,0.18)" : "rgba(255,255,255,0.05)",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        gap: 2,
+        transition: "transform 0.1s"
+      } }, /* @__PURE__ */ React.createElement("span", { style: { fontSize: 14 } }, claimed ? "\u2705" : m.icon), /* @__PURE__ */ React.createElement("span", { style: {
+        fontFamily: F.game,
+        fontSize: 7,
+        fontWeight: 900,
+        color: claimed ? "#66BB6A" : reached ? "#FFB300" : "rgba(255,255,255,0.3)"
+      } }, m.label), /* @__PURE__ */ React.createElement("span", { style: { fontFamily: F.game, fontSize: 7, color: "#FF9800", fontWeight: 900 } }, "\u{1F4E6}\xD7", m.boxes, m.pts ? ` +${m.pts}\u0111` : ""));
+    }))), /* @__PURE__ */ React.createElement("div", { style: { height: 1, background: "rgba(255,255,255,0.08)", marginBottom: 10 } }), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "center", gap: 12 } }, /* @__PURE__ */ React.createElement("div", { style: { flexShrink: 0, width: 50, textAlign: "center" } }, openState === "idle" && /* @__PURE__ */ React.createElement("div", { style: {
+      fontSize: 38,
+      animation: state.giftBoxes > 0 ? "float1 2s ease-in-out infinite" : "none",
+      filter: state.giftBoxes > 0 ? "drop-shadow(0 4px 12px rgba(255,200,0,0.55))" : "grayscale(1) opacity(0.4)"
+    } }, "\u{1F381}"), openState === "opening" && /* @__PURE__ */ React.createElement("div", { style: { fontSize: 38, animation: "boxShake 1.1s ease-in-out" } }, "\u{1F381}"), openState === "revealed" && lastPrize && /* @__PURE__ */ React.createElement("div", { style: {
+      fontSize: 38,
+      animation: "rewardIn 0.4s cubic-bezier(0.34,1.56,0.64,1)",
+      filter: `drop-shadow(0 3px 10px ${lastPrize.color}99)`
+    } }, lastPrize.emoji)), /* @__PURE__ */ React.createElement("div", { style: { flex: 1, minWidth: 0 } }, openState === "idle" && /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { style: { fontFamily: F.game, fontWeight: 900, fontSize: 13, color: "white", marginBottom: 2 } }, "H\u1ED9p Qu\xE0 Th\u1EF1c"), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", gap: 5, flexWrap: "wrap" } }, ["\u{1F3AE} Garena", "\u{1F381} Qu\xE0 th\u1EADt", "\u{1FA99} \u0110i\u1EC3m"].map((t) => /* @__PURE__ */ React.createElement("span", { key: t, style: {
+      fontFamily: F.game,
+      fontSize: 8,
+      color: "rgba(255,255,255,0.45)",
+      background: "rgba(255,255,255,0.08)",
+      borderRadius: 99,
+      padding: "2px 6px"
+    } }, t)))), openState === "opening" && /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { style: { fontFamily: F.game, fontWeight: 900, fontSize: 13, color: "white" } }, "\u0110ang m\u1EDF..."), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", gap: 5, marginTop: 4 } }, [0, 0.15, 0.3].map((d, i) => /* @__PURE__ */ React.createElement("div", { key: i, style: {
+      width: 6,
+      height: 6,
+      borderRadius: "50%",
+      background: "#FFD700",
+      animation: `sparkle 0.5s ${d}s ease-in-out infinite`
+    } })))), openState === "revealed" && lastPrize && /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { style: {
+      display: "inline-block",
+      background: `${lastPrize.color}22`,
+      border: `1.5px solid ${lastPrize.color}`,
+      borderRadius: 99,
+      padding: "2px 8px",
+      fontFamily: F.game,
+      fontWeight: 900,
+      fontSize: 8,
+      color: lastPrize.color,
+      marginBottom: 3
+    } }, lastPrize.label), /* @__PURE__ */ React.createElement("div", { style: { fontFamily: F.game, fontWeight: 900, fontSize: 13, color: "white" } }, lastPrize.name), lastPrize.desc && /* @__PURE__ */ React.createElement("div", { style: { fontFamily: F.game, fontSize: 9, color: "rgba(255,255,255,0.5)", marginTop: 1 } }, lastPrize.desc))), /* @__PURE__ */ React.createElement("div", { style: { flexShrink: 0, display: "flex", flexDirection: "column", alignItems: "center", gap: 5 } }, openState === "idle" && /* @__PURE__ */ React.createElement("button", { onClick: openBox, disabled: state.giftBoxes < 1, style: {
+      background: state.giftBoxes > 0 ? "linear-gradient(135deg,#FFD700,#FF9800)" : "rgba(255,255,255,0.08)",
+      border: "none",
+      borderRadius: 12,
+      padding: "9px 14px",
+      cursor: state.giftBoxes > 0 ? "pointer" : "not-allowed",
+      fontFamily: F.game,
+      fontWeight: 900,
+      fontSize: 12,
+      color: state.giftBoxes > 0 ? "#1A1A1A" : "rgba(255,255,255,0.25)",
+      boxShadow: state.giftBoxes > 0 ? "0 4px 14px rgba(255,215,0,0.4)" : "none"
+    } }, "\u{1F381} M\u1EDF!"), openState === "revealed" && /* @__PURE__ */ React.createElement("button", { onClick: () => {
+      setOpenState("idle");
+      setLastPrize(null);
+    }, style: {
+      background: "rgba(255,255,255,0.12)",
+      border: "1.5px solid rgba(255,255,255,0.2)",
+      borderRadius: 12,
+      padding: "9px 14px",
+      cursor: "pointer",
+      fontFamily: F.game,
+      fontWeight: 900,
+      fontSize: 11,
+      color: "white"
+    } }, "OK \u2713"), /* @__PURE__ */ React.createElement("div", { style: { background: "rgba(255,255,255,0.12)", borderRadius: 10, padding: "4px 8px", textAlign: "center" } }, /* @__PURE__ */ React.createElement("div", { style: { fontFamily: F.game, fontSize: 16, fontWeight: 900, color: "#FFD700", lineHeight: 1 } }, state.giftBoxes), /* @__PURE__ */ React.createElement("div", { style: { fontFamily: F.game, fontSize: 8, color: "rgba(255,255,255,0.5)" } }, "h\u1ED9p"))))), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", gap: 8, flexShrink: 0 } }, /* @__PURE__ */ React.createElement("div", { style: {
+      flex: "0 0 auto",
+      width: "42%",
+      background: "linear-gradient(135deg,#FFFDE7,#FFF8E1)",
+      borderRadius: 14,
+      padding: "9px 10px",
+      border: "1.5px solid rgba(255,193,7,0.3)",
+      display: "flex",
+      flexDirection: "column",
+      gap: 3
+    } }, /* @__PURE__ */ React.createElement("div", { style: { fontFamily: F.game, fontSize: 9, fontWeight: 800, color: "#E65100" } }, "\u{1FA99} \u0110I\u1EC2M HI\u1EC6N T\u1EA0I"), /* @__PURE__ */ React.createElement("div", { style: { fontFamily: F.game, fontSize: 20, fontWeight: 900, color: "#E65100", lineHeight: 1 } }, state.points.toLocaleString()), /* @__PURE__ */ React.createElement("div", { style: { fontFamily: F.game, fontSize: 8, color: "#B0BEC5", lineHeight: 1.4 } }, "D\xF9ng \u0111\u1EC3 nu\xF4i pet l\u1EDBn l\xEAn")), /* @__PURE__ */ React.createElement("div", { style: {
+      flex: 1,
+      background: "white",
+      borderRadius: 14,
+      padding: "9px 10px",
+      boxShadow: "0 2px 10px rgba(0,0,0,0.06)",
+      display: "flex",
+      flexDirection: "column",
+      justifyContent: "space-between"
+    } }, /* @__PURE__ */ React.createElement("div", { style: { fontFamily: F.game, fontWeight: 900, fontSize: 10, color: C.black, marginBottom: 5 } }, "\u{1F381} Gift Code"), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", gap: 5, marginBottom: 3 } }, /* @__PURE__ */ React.createElement(
+      "input",
+      {
+        value: giftCode,
+        onChange: (e) => {
+          setGiftCode(e.target.value.toUpperCase());
+          setGiftMsg(null);
+        },
+        onKeyDown: (e) => e.key === "Enter" && redeemGift(),
+        placeholder: "HEAVY2026",
+        style: {
+          flex: 1,
+          background: "#F9F9F9",
+          border: "1.5px solid #EEEEEE",
+          borderRadius: 8,
+          padding: "7px 8px",
+          fontFamily: F.game,
+          fontSize: 10,
+          fontWeight: 800,
+          outline: "none",
+          letterSpacing: "0.04em",
+          boxSizing: "border-box",
+          minWidth: 0
+        }
+      }
+    ), /* @__PURE__ */ React.createElement("button", { onClick: redeemGift, style: {
+      background: "#1A1A1A",
+      border: "none",
+      borderRadius: 8,
+      padding: "7px 10px",
+      cursor: "pointer",
+      fontFamily: F.game,
+      fontWeight: 900,
+      fontSize: 10,
+      color: "white",
+      flexShrink: 0
+    } }, "\u2728")), giftMsg ? /* @__PURE__ */ React.createElement("div", { style: {
+      fontFamily: F.game,
+      fontSize: 8,
+      fontWeight: 800,
+      color: giftMsg.ok ? C.green : "#E53935",
+      textAlign: "center"
+    } }, giftMsg.msg) : /* @__PURE__ */ React.createElement("div", { style: { fontFamily: F.game, fontSize: 7, color: "#CCC", textAlign: "center" } }, "GARENA2026 \xB7 HEAVY2026"))));
+  }
+  function PlayerProfileModal({ player, myState, onClose }) {
+    const isMe = player.name === "B\u1EA1n";
+    const petData = isMe ? myState.petData || {} : { color: player.petColor };
+    const pName = isMe ? myState.petData?.name || "Pet c\u1EE7a b\u1EA1n" : player.petName;
+    const lvl = isMe ? myState.level : player.lv;
+    const pts = isMe ? myState.points : player.pts;
+    const hunger = isMe ? myState.hunger : player.hunger;
+    const happy = isMe ? myState.happiness : player.happiness;
+    const clean = isMe ? myState.clean : player.clean;
+    const energy = isMe ? myState.energy : player.energy;
+    const rank = getRank(pts);
+    const nextRank = RANKS.find((r) => r.minPts > pts);
+    const prog = nextRank ? Math.round((pts - rank.minPts) / (nextRank.minPts - rank.minPts) * 100) : 100;
+    const mc = player.rank === 1 ? "#FFD700" : player.rank === 2 ? "#B8C4CC" : player.rank === 3 ? "#CD8B52" : null;
+    const StatRow = ({ icon, label, value, color }) => /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "center", gap: 8, marginBottom: 8 } }, /* @__PURE__ */ React.createElement("span", { style: { fontSize: 16, width: 22, textAlign: "center", flexShrink: 0 } }, icon), /* @__PURE__ */ React.createElement("div", { style: { flex: 1 } }, /* @__PURE__ */ React.createElement("div", { style: { display: "flex", justifyContent: "space-between", marginBottom: 3 } }, /* @__PURE__ */ React.createElement("span", { style: { fontFamily: F.game, fontSize: 10, fontWeight: 800, color: "#888" } }, label), /* @__PURE__ */ React.createElement("span", { style: { fontFamily: F.game, fontSize: 10, fontWeight: 900, color } }, value, "/100")), /* @__PURE__ */ React.createElement("div", { style: { height: 7, borderRadius: 99, background: "#F0F0F0", overflow: "hidden" } }, /* @__PURE__ */ React.createElement("div", { style: {
+      width: `${value}%`,
+      height: 7,
+      borderRadius: 99,
+      background: `linear-gradient(90deg,${color}99,${color})`,
+      transition: "width 0.4s"
+    } }))));
+    return /* @__PURE__ */ React.createElement(
+      "div",
+      {
+        onClick: onClose,
+        style: {
+          position: "fixed",
+          inset: 0,
+          background: "rgba(0,0,0,0.6)",
+          zIndex: 80,
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "flex-end"
+        }
+      },
+      /* @__PURE__ */ React.createElement(
+        "div",
+        {
+          onClick: (e) => e.stopPropagation(),
+          style: {
+            background: "white",
+            borderRadius: "28px 28px 0 0",
+            animation: "slideUp 0.26s cubic-bezier(0.34,1.2,0.64,1)",
+            overflow: "hidden",
+            maxHeight: "88%",
+            display: "flex",
+            flexDirection: "column"
+          }
+        },
+        /* @__PURE__ */ React.createElement("div", { style: {
+          background: mc ? `linear-gradient(135deg,${mc}44,${mc}18)` : `linear-gradient(135deg,${rank.color}33,${rank.color}0A)`,
+          padding: "14px 16px 20px",
+          borderBottom: `2px solid ${mc || rank.color}33`,
+          position: "relative"
+        } }, /* @__PURE__ */ React.createElement("div", { style: { width: 40, height: 5, borderRadius: 99, background: "rgba(0,0,0,0.15)", margin: "0 auto 14px" } }), mc && /* @__PURE__ */ React.createElement("div", { style: {
+          position: "absolute",
+          top: 14,
+          right: 16,
+          fontSize: 28,
+          filter: `drop-shadow(0 3px 8px ${mc}88)`
+        } }, player.rank === 1 ? "\u{1F947}" : player.rank === 2 ? "\u{1F948}" : "\u{1F949}"), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "flex-end", gap: 14 } }, /* @__PURE__ */ React.createElement("div", { style: {
+          background: "rgba(255,255,255,0.7)",
+          borderRadius: 20,
+          padding: 8,
+          boxShadow: `0 6px 20px ${rank.color}28`,
+          border: `2px solid ${rank.color}44`
+        } }, /* @__PURE__ */ React.createElement(PouPet, { petData, size: 100, bounce: false, mood: happy || 70 })), /* @__PURE__ */ React.createElement("div", { style: { flex: 1, paddingBottom: 4 } }, /* @__PURE__ */ React.createElement("div", { style: { fontFamily: F.game, fontWeight: 900, fontSize: 18, color: C.black, marginBottom: 2 } }, player.icon, " ", player.name), /* @__PURE__ */ React.createElement("div", { style: { fontFamily: F.game, fontSize: 12, color: "#888", marginBottom: 6 } }, "\u{1F43E} ", pName), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "center", gap: 6, marginBottom: 6 } }, /* @__PURE__ */ React.createElement("div", { style: {
+          background: "#1A1A1A",
+          borderRadius: 99,
+          padding: "4px 10px",
+          fontFamily: F.game,
+          fontWeight: 900,
+          fontSize: 11,
+          color: "#B4FF00"
+        } }, "Lv.", lvl), /* @__PURE__ */ React.createElement("div", { style: {
+          background: `${rank.color}22`,
+          borderRadius: 99,
+          padding: "4px 10px",
+          border: `1.5px solid ${rank.color}66`,
+          fontFamily: F.game,
+          fontWeight: 900,
+          fontSize: 11,
+          color: rank.color
+        } }, rank.icon, " ", rank.name)), /* @__PURE__ */ React.createElement("div", { style: {
+          fontFamily: F.game,
+          fontWeight: 900,
+          fontSize: 15,
+          color: "#E6A800",
+          display: "flex",
+          alignItems: "center",
+          gap: 4
+        } }, "\u{1F4B0} ", pts.toLocaleString(), /* @__PURE__ */ React.createElement("span", { style: { fontSize: 10, color: "#BBB", fontWeight: 700 } }, "\u0111i\u1EC3m")))), /* @__PURE__ */ React.createElement("div", { style: {
+          marginTop: 10,
+          background: "rgba(255,255,255,0.65)",
+          borderRadius: 12,
+          padding: "7px 12px",
+          fontFamily: F.game,
+          fontSize: 12,
+          fontWeight: 800,
+          color: "#555",
+          textAlign: "center",
+          backdropFilter: "blur(4px)"
+        } }, player.tagline)),
+        /* @__PURE__ */ React.createElement("div", { style: { overflowY: "auto", flex: 1, padding: "16px 16px 28px" } }, nextRank && /* @__PURE__ */ React.createElement("div", { style: { marginBottom: 16 } }, /* @__PURE__ */ React.createElement("div", { style: { display: "flex", justifyContent: "space-between", marginBottom: 5 } }, /* @__PURE__ */ React.createElement("span", { style: { fontFamily: F.game, fontSize: 11, fontWeight: 800, color: "#888" } }, "Ti\u1EBFn \u0111\u1ED9 h\u1EA1ng"), /* @__PURE__ */ React.createElement("span", { style: { fontFamily: F.game, fontSize: 11, fontWeight: 900, color: rank.color } }, prog, "% \u2192 ", nextRank.icon, " ", nextRank.name)), /* @__PURE__ */ React.createElement("div", { style: { height: 8, borderRadius: 99, background: `${rank.color}22`, overflow: "hidden" } }, /* @__PURE__ */ React.createElement("div", { style: {
+          width: `${prog}%`,
+          height: 8,
+          borderRadius: 99,
+          background: `linear-gradient(90deg,${rank.color}99,${rank.color})`,
+          transition: "width 0.5s"
+        } }))), /* @__PURE__ */ React.createElement("div", { style: { fontFamily: F.game, fontWeight: 900, fontSize: 13, color: C.black, marginBottom: 12 } }, "\u{1F4CA} Ch\u1EC9 s\u1ED1 Pet"), /* @__PURE__ */ React.createElement(StatRow, { icon: "\u{1F34E}", label: "\u0110\xF3i", value: hunger, color: "#4CAF50" }), /* @__PURE__ */ React.createElement(StatRow, { icon: "\u2764\uFE0F", label: "H\u1EA1nh ph\xFAc", value: happy, color: "#E53935" }), /* @__PURE__ */ React.createElement(StatRow, { icon: "\u{1F9FC}", label: "S\u1EA1ch s\u1EBD", value: clean, color: "#039BE5" }), /* @__PURE__ */ React.createElement(StatRow, { icon: "\u26A1", label: "N\u0103ng l\u01B0\u1EE3ng", value: energy, color: "#F9A825" }), /* @__PURE__ */ React.createElement("div", { style: {
+          marginTop: 14,
+          background: "#FAFAFA",
+          borderRadius: 16,
+          padding: "12px 14px",
+          border: "1.5px solid #EEEEEE"
+        } }, /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "center", justifyContent: "space-between" } }, /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("div", { style: { fontFamily: F.game, fontSize: 10, fontWeight: 800, color: "#BBB", marginBottom: 5 } }, "HUY HI\u1EC6U"), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", gap: 6 } }, (player.badges || []).map((b, i) => /* @__PURE__ */ React.createElement("span", { key: i, style: { fontSize: 22 } }, b)))), /* @__PURE__ */ React.createElement("div", { style: { textAlign: "center" } }, /* @__PURE__ */ React.createElement("div", { style: { fontFamily: F.game, fontSize: 10, fontWeight: 800, color: "#BBB", marginBottom: 4 } }, "STREAK"), /* @__PURE__ */ React.createElement("div", { style: {
+          fontFamily: F.game,
+          fontWeight: 900,
+          fontSize: 22,
+          color: "#FF9800",
+          display: "flex",
+          alignItems: "center",
+          gap: 4
+        } }, "\u{1F525} ", player.streak, /* @__PURE__ */ React.createElement("span", { style: { fontSize: 11, color: "#BBB", fontWeight: 700 } }, "ng\xE0y"))))), /* @__PURE__ */ React.createElement("button", { onClick: onClose, style: {
+          width: "100%",
+          marginTop: 14,
+          background: "#1A1A1A",
+          border: "none",
+          borderRadius: 14,
+          padding: "13px 0",
+          cursor: "pointer",
+          fontFamily: F.game,
+          fontWeight: 900,
+          fontSize: 14,
+          color: "white",
+          boxShadow: "0 4px 14px rgba(0,0,0,0.18)"
+        } }, "\u0110\xF3ng \u2715"))
+      )
+    );
+  }
+  function RankScreen({ state }) {
+    const { points, petData } = state;
+    const rank = getRank(points);
+    const nextRank = RANKS.find((r) => r.minPts > points);
+    const prog = nextRank ? Math.round((points - rank.minPts) / (nextRank.minPts - rank.minPts) * 100) : 100;
+    const [selectedPlayer, setSelectedPlayer] = (0, import_react.useState)(null);
+    return /* @__PURE__ */ React.createElement("div", { style: { padding: "16px 14px 0", overflowY: "auto", height: "100%", boxSizing: "border-box" } }, /* @__PURE__ */ React.createElement("div", { style: {
+      background: `linear-gradient(145deg,${rank.color}25,white,${rank.color}0A)`,
+      border: `2px solid ${rank.color}99`,
+      borderRadius: 20,
+      padding: "20px 18px 16px",
+      textAlign: "center",
+      marginBottom: 14,
+      boxShadow: `0 8px 28px ${rank.color}28`
+    } }, /* @__PURE__ */ React.createElement("div", { style: { display: "inline-block", marginBottom: 4 } }, /* @__PURE__ */ React.createElement(PouPet, { petData: petData || {}, size: 90, bounce: false, mood: 70 })), /* @__PURE__ */ React.createElement("div", { style: {
+      fontFamily: F.game,
+      fontWeight: 900,
+      fontSize: 22,
+      color: rank.color,
+      marginBottom: 4,
+      textShadow: `0 2px 10px ${rank.color}55`
+    } }, rank.icon, " H\u1EA1ng ", rank.name), /* @__PURE__ */ React.createElement("div", { style: {
+      fontFamily: F.game,
+      fontWeight: 900,
+      fontSize: 20,
+      color: C.black,
+      marginBottom: 12,
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      gap: 6
+    } }, "\u{1F4B0} ", points.toLocaleString(), /* @__PURE__ */ React.createElement("span", { style: { color: "#999", fontSize: 12, fontWeight: 700 } }, "\u0111i\u1EC3m")), nextRank && /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { style: { background: `${rank.color}20`, borderRadius: 99, height: 9, overflow: "hidden", marginBottom: 5 } }, /* @__PURE__ */ React.createElement("div", { style: {
+      width: `${prog}%`,
+      height: 9,
+      borderRadius: 99,
+      background: `linear-gradient(90deg,${rank.color}CC,${rank.color})`,
+      transition: "width 0.4s"
+    } })), /* @__PURE__ */ React.createElement("div", { style: { fontFamily: F.game, fontSize: 11, color: "#999" } }, "C\xF2n ", (nextRank.minPts - points).toLocaleString(), " \u0111i\u1EC3m \u2192 ", nextRank.icon, " ", nextRank.name))), /* @__PURE__ */ React.createElement("div", { style: { display: "grid", gridTemplateColumns: "repeat(5,1fr)", gap: 5, marginBottom: 14 } }, RANKS.map((r) => {
+      const ok = points >= r.minPts;
+      return /* @__PURE__ */ React.createElement("div", { key: r.name, style: {
+        background: ok ? `${r.color}1A` : "#F9F9F9",
+        border: `1.5px solid ${ok ? r.color : "#EEEEEE"}`,
+        borderRadius: 11,
+        padding: "8px 3px",
+        textAlign: "center",
+        boxShadow: ok ? `0 2px 10px ${r.color}28` : "none",
+        opacity: ok ? 1 : 0.5
+      } }, /* @__PURE__ */ React.createElement("div", { style: { fontSize: 17 } }, r.icon), /* @__PURE__ */ React.createElement("div", { style: { color: ok ? r.color : "#BDBDBD", fontFamily: F.game, fontSize: 9, fontWeight: 800, marginTop: 2 } }, r.name));
+    })), /* @__PURE__ */ React.createElement("div", { style: { fontFamily: F.game, fontWeight: 900, fontSize: 14, color: C.black, marginBottom: 8 } }, "\u{1F3C6} X\u1EBFp H\u1EA1ng"), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", flexDirection: "column", gap: 7 } }, LEADERBOARD.map((p) => {
+      const mc = p.rank === 1 ? "#FFD700" : p.rank === 2 ? "#B8C4CC" : p.rank === 3 ? "#CD8B52" : null;
+      const me = p.name === "B\u1EA1n";
+      return /* @__PURE__ */ React.createElement(
+        "div",
+        {
+          key: p.rank,
+          onClick: () => setSelectedPlayer(p),
+          style: {
+            background: me ? "#E3F2FD" : mc ? `${mc}0E` : "white",
+            borderRadius: 13,
+            padding: "11px 13px",
+            display: "flex",
+            alignItems: "center",
+            gap: 11,
+            border: `1.5px solid ${me ? "#90CAF9" : mc ? mc + "66" : "#EEEEEE"}`,
+            boxShadow: mc ? `0 3px 12px ${mc}1E` : "0 1px 5px rgba(0,0,0,0.05)",
+            cursor: "pointer",
+            transition: "transform 0.12s, box-shadow 0.12s",
+            active: { transform: "scale(0.98)" }
+          },
+          onMouseDown: (e) => e.currentTarget.style.transform = "scale(0.97)",
+          onMouseUp: (e) => e.currentTarget.style.transform = "scale(1)",
+          onTouchStart: (e) => e.currentTarget.style.transform = "scale(0.97)",
+          onTouchEnd: (e) => e.currentTarget.style.transform = "scale(1)"
+        },
+        /* @__PURE__ */ React.createElement("div", { style: {
+          minWidth: 30,
+          height: 30,
+          borderRadius: "50%",
+          background: mc ? `${mc}22` : "#F5F5F5",
+          border: `1.5px solid ${mc || "#EEEEEE"}`,
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          fontFamily: F.game,
+          fontWeight: 900,
+          fontSize: 12,
+          color: mc || "#BDBDBD"
+        } }, mc ? ["\u{1F947}", "\u{1F948}", "\u{1F949}"][p.rank - 1] : `#${p.rank}`),
+        /* @__PURE__ */ React.createElement("span", { style: { fontSize: 20 } }, p.icon),
+        /* @__PURE__ */ React.createElement("div", { style: { flex: 1 } }, /* @__PURE__ */ React.createElement("div", { style: { fontFamily: F.game, fontWeight: 800, fontSize: 13, color: me ? "#1565C0" : C.black } }, p.name), /* @__PURE__ */ React.createElement("div", { style: { fontFamily: F.game, fontSize: 10, color: "#BDBDBD", display: "flex", gap: 5, marginTop: 1 } }, /* @__PURE__ */ React.createElement("span", null, "Lv.", p.lv), p.streak && /* @__PURE__ */ React.createElement("span", null, "\u{1F525}", p.streak, "ng"))),
+        /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "center", gap: 6 } }, /* @__PURE__ */ React.createElement("div", { style: { fontFamily: F.game, fontWeight: 900, fontSize: 13, color: mc || (me ? "#1565C0" : "#999") } }, p.pts.toLocaleString()), /* @__PURE__ */ React.createElement("span", { style: { fontSize: 12, color: "#CCC" } }, "\u203A"))
+      );
+    })), /* @__PURE__ */ React.createElement("div", { style: { height: 20 } }), selectedPlayer && /* @__PURE__ */ React.createElement(
+      PlayerProfileModal,
+      {
+        player: selectedPlayer,
+        myState: state,
+        onClose: () => setSelectedPlayer(null)
+      }
+    ));
+  }
+  var CW = 280;
+  var CH = 300;
+  function DrawCanvas({ color, onSave }) {
+    const canvasRef = (0, import_react.useRef)(null);
+    const ctxRef = (0, import_react.useRef)(null);
+    const drawing = (0, import_react.useRef)(false);
+    const rawPts = (0, import_react.useRef)([]);
+    const [hasDraw, setHasDraw] = (0, import_react.useState)(false);
+    const drawGuide = (ctx) => {
+      ctx.save();
+      ctx.setLineDash([6, 6]);
+      ctx.strokeStyle = "rgba(0,0,0,0.15)";
+      ctx.lineWidth = 1.5;
+      ctx.beginPath();
+      ctx.arc(CW / 2, CH / 2, Math.min(CW, CH) * 0.42, 0, Math.PI * 2);
+      ctx.stroke();
+      ctx.restore();
+    };
+    (0, import_react.useEffect)(() => {
+      const canvas = canvasRef.current;
+      const ctx = canvas.getContext("2d");
+      ctxRef.current = ctx;
+      ctx.lineWidth = 5;
+      ctx.lineCap = "round";
+      ctx.lineJoin = "round";
+      ctx.strokeStyle = C.black;
+      drawGuide(ctx);
+    }, []);
+    (0, import_react.useEffect)(() => {
+      redrawFilled();
+    }, [color]);
+    const redrawFilled = () => {
+      const ctx = ctxRef.current;
+      if (!ctx || rawPts.current.length < 3) return;
+      ctx.clearRect(0, 0, CW, CH);
+      drawGuide(ctx);
+      const simplified = rdp(rawPts.current, 4);
+      const bodyPts = simplified;
+      ctx.save();
+      ctx.beginPath();
+      ctx.moveTo(bodyPts[0].x, bodyPts[0].y);
+      for (let i = 1; i < bodyPts.length; i++) ctx.lineTo(bodyPts[i].x, bodyPts[i].y);
+      ctx.closePath();
+      ctx.fillStyle = color + "CC";
+      ctx.fill();
+      ctx.strokeStyle = C.black;
+      ctx.lineWidth = 3;
+      ctx.stroke();
+      ctx.restore();
+    };
+    const getPos = (e) => {
+      const rect = canvasRef.current.getBoundingClientRect();
+      const scaleX = CW / rect.width, scaleY = CH / rect.height;
+      const src = e.touches ? e.touches[0] : e;
+      return { x: (src.clientX - rect.left) * scaleX, y: (src.clientY - rect.top) * scaleY };
+    };
+    const onStart = (e) => {
+      e.preventDefault();
+      const ctx = ctxRef.current, pos = getPos(e);
+      drawing.current = true;
+      rawPts.current = [pos];
+      ctx.clearRect(0, 0, CW, CH);
+      drawGuide(ctx);
+      ctx.beginPath();
+      ctx.moveTo(pos.x, pos.y);
+    };
+    const onMove = (e) => {
+      e.preventDefault();
+      if (!drawing.current) return;
+      const ctx = ctxRef.current, pos = getPos(e);
+      rawPts.current.push(pos);
+      ctx.lineTo(pos.x, pos.y);
+      ctx.stroke();
+    };
+    const onEnd = (e) => {
+      e.preventDefault();
+      if (!drawing.current) return;
+      drawing.current = false;
+      if (rawPts.current.length < 8) return;
+      setHasDraw(true);
+      redrawFilled();
+    };
+    const saveDrawing = () => {
+      const simplified = rdp(rawPts.current, 4);
+      const normalized = simplified.map((p) => ({ x: p.x / CW, y: p.y / CH }));
+      onSave(normalized);
+    };
+    const reset = () => {
+      rawPts.current = [];
+      setHasDraw(false);
+      const ctx = ctxRef.current;
+      ctx.clearRect(0, 0, CW, CH);
+      drawGuide(ctx);
+    };
+    return /* @__PURE__ */ React.createElement("div", { style: { display: "flex", flexDirection: "column", alignItems: "center", gap: 12 } }, /* @__PURE__ */ React.createElement("div", { style: { background: "rgba(255,255,255,0.9)", borderRadius: 20, padding: 4, boxShadow: "0 4px 20px rgba(0,0,0,0.15)" } }, /* @__PURE__ */ React.createElement(
+      "canvas",
+      {
+        ref: canvasRef,
+        width: CW,
+        height: CH,
+        style: { display: "block", borderRadius: 16, touchAction: "none", cursor: "crosshair", maxWidth: "100%" },
+        onMouseDown: onStart,
+        onMouseMove: onMove,
+        onMouseUp: onEnd,
+        onTouchStart: onStart,
+        onTouchMove: onMove,
+        onTouchEnd: onEnd
+      }
+    )), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", gap: 10 } }, /* @__PURE__ */ React.createElement("button", { onClick: reset, style: {
+      background: "rgba(255,255,255,0.3)",
+      border: "2px solid rgba(255,255,255,0.5)",
+      borderRadius: 14,
+      padding: "10px 18px",
+      cursor: "pointer",
+      color: "white",
+      fontFamily: F.game,
+      fontWeight: 800,
+      fontSize: 13
+    } }, "\u21BA X\xF3a"), hasDraw && /* @__PURE__ */ React.createElement("button", { onClick: saveDrawing, style: {
+      background: "white",
+      border: "none",
+      borderRadius: 14,
+      padding: "10px 24px",
+      cursor: "pointer",
+      color: C.black,
+      fontFamily: F.game,
+      fontWeight: 900,
+      fontSize: 14,
+      boxShadow: "0 4px 14px rgba(0,0,0,0.2)"
+    } }, "Ti\u1EBFp theo \u2192")));
+  }
+  function FacePlacerStep({
+    petData,
+    eyeLeft,
+    eyeRight,
+    mouth,
+    setEyeLeft,
+    setEyeRight,
+    setMouth,
+    onBack,
+    onNext,
+    isDark = false
+  }) {
+    const [faceStep, setFaceStep] = (0, import_react.useState)(() => {
+      if (!eyeLeft) return "eye1";
+      if (!eyeRight) return "eye2";
+      if (!mouth) return "mouth";
+      return "done";
+    });
+    const [pendingPos, setPendingPos] = (0, import_react.useState)(null);
+    const [dragPart, setDragPart] = (0, import_react.useState)(null);
+    const svgWrapRef = (0, import_react.useRef)(null);
+    const PSIZE = 200;
+    const accent = isDark ? "#00E5FF" : "#C44DFF";
+    const btnBase = {
+      background: "rgba(255,255,255,0.14)",
+      border: "1.5px solid rgba(255,255,255,0.28)",
+      borderRadius: 12,
+      padding: "9px 15px",
+      cursor: "pointer",
+      color: "white",
+      fontFamily: F.game,
+      fontWeight: 800,
+      fontSize: 11
+    };
+    const getPos = (e) => {
+      const el = svgWrapRef.current;
+      if (!el) return null;
+      const rect = el.getBoundingClientRect();
+      let cx, cy;
+      if (e.changedTouches?.[0]) {
+        cx = e.changedTouches[0].clientX;
+        cy = e.changedTouches[0].clientY;
+      } else if (e.touches?.[0]) {
+        cx = e.touches[0].clientX;
+        cy = e.touches[0].clientY;
+      } else {
+        cx = e.clientX;
+        cy = e.clientY;
+      }
+      return {
+        x: Math.max(0.05, Math.min(0.95, (cx - rect.left) / rect.width)),
+        y: Math.max(0.05, Math.min(0.95, (cy - rect.top) / rect.height))
+      };
+    };
+    const handleContainerTap = (e) => {
+      if (faceStep === "done" || dragPart || pendingPos) return;
+      const pos = getPos(e);
+      if (!pos) return;
+      setPendingPos(pos);
+    };
+    const confirmPending = () => {
+      if (!pendingPos) return;
+      if (faceStep === "eye1") {
+        setEyeLeft(pendingPos);
+        setFaceStep("eye2");
+      } else if (faceStep === "eye2") {
+        setEyeRight(pendingPos);
+        setFaceStep("mouth");
+      } else if (faceStep === "mouth") {
+        setMouth(pendingPos);
+        setFaceStep("done");
+      }
+      setPendingPos(null);
+    };
+    const resetAll = () => {
+      setEyeLeft(null);
+      setEyeRight(null);
+      setMouth(null);
+      setFaceStep("eye1");
+      setPendingPos(null);
+      setDragPart(null);
+    };
+    (0, import_react.useEffect)(() => {
+      if (!dragPart) return;
+      const onMove = (e) => {
+        e.preventDefault();
+        const el = svgWrapRef.current;
+        if (!el) return;
+        const rect = el.getBoundingClientRect();
+        let cx, cy;
+        if (e.touches?.[0]) {
+          cx = e.touches[0].clientX;
+          cy = e.touches[0].clientY;
+        } else {
+          cx = e.clientX;
+          cy = e.clientY;
+        }
+        const nx = Math.max(0.05, Math.min(0.95, (cx - rect.left) / rect.width));
+        const ny = Math.max(0.05, Math.min(0.95, (cy - rect.top) / rect.height));
+        if (dragPart === "eyeLeft") setEyeLeft({ x: nx, y: ny });
+        else if (dragPart === "eyeRight") setEyeRight({ x: nx, y: ny });
+        else if (dragPart === "mouth") setMouth({ x: nx, y: ny });
+      };
+      const onEnd = () => setDragPart(null);
+      window.addEventListener("mousemove", onMove);
+      window.addEventListener("touchmove", onMove, { passive: false });
+      window.addEventListener("mouseup", onEnd);
+      window.addEventListener("touchend", onEnd);
+      return () => {
+        window.removeEventListener("mousemove", onMove);
+        window.removeEventListener("touchmove", onMove);
+        window.removeEventListener("mouseup", onEnd);
+        window.removeEventListener("touchend", onEnd);
+      };
+    }, [dragPart]);
+    const Handle = ({ part, pos, emoji }) => {
+      if (!pos) return null;
+      const active = dragPart === part;
+      return /* @__PURE__ */ React.createElement(
+        "div",
+        {
+          onMouseDown: (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            setDragPart(part);
+          },
+          onTouchStart: (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            setDragPart(part);
+          },
+          style: {
+            position: "absolute",
+            left: `${pos.x * 100}%`,
+            top: `${pos.y * 100}%`,
+            transform: `translate(-50%,-50%) scale(${active ? 1.25 : 1})`,
+            width: 36,
+            height: 36,
+            background: active ? "#FFD700" : "rgba(255,255,255,0.92)",
+            border: `2.5px solid ${active ? "#FF6D00" : accent}`,
+            borderRadius: "50%",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            fontSize: 16,
+            cursor: "grab",
+            zIndex: 20,
+            boxShadow: "0 3px 10px rgba(0,0,0,0.35)",
+            userSelect: "none",
+            touchAction: "none",
+            transition: active ? "none" : "transform 0.15s"
+          }
+        },
+        emoji
+      );
+    };
+    const label = faceStep === "eye1" && !pendingPos ? "\u{1F441}\uFE0F Tap \u0111\u1EB7t m\u1EAFt tr\xE1i" : faceStep === "eye1" && pendingPos ? "\u{1F441}\uFE0F X\xE1c nh\u1EADn m\u1EAFt tr\xE1i?" : faceStep === "eye2" && !pendingPos ? "\u{1F441}\uFE0F Tap \u0111\u1EB7t m\u1EAFt ph\u1EA3i" : faceStep === "eye2" && pendingPos ? "\u{1F441}\uFE0F X\xE1c nh\u1EADn m\u1EAFt ph\u1EA3i?" : faceStep === "mouth" && !pendingPos ? "\u{1F444} Tap \u0111\u1EB7t mi\u1EC7ng" : faceStep === "mouth" && pendingPos ? "\u{1F444} X\xE1c nh\u1EADn v\u1ECB tr\xED mi\u1EC7ng?" : "\u2705 K\xE9o t\u1EEBng b\u1ED9 ph\u1EADn \u0111\u1EC3 \u0111i\u1EC1u ch\u1EC9nh";
+    return /* @__PURE__ */ React.createElement("div", { style: { display: "flex", flexDirection: "column", alignItems: "center", gap: 14 } }, /* @__PURE__ */ React.createElement("div", { style: {
+      fontFamily: F.game,
+      fontWeight: 900,
+      fontSize: 14,
+      color: accent,
+      textAlign: "center",
+      lineHeight: 1.5
+    } }, label, faceStep === "done" && /* @__PURE__ */ React.createElement("div", { style: {
+      fontFamily: F.game,
+      fontSize: 10,
+      fontWeight: 700,
+      color: "rgba(255,255,255,0.55)",
+      marginTop: 4
+    } }, "Gi\u1EEF & k\xE9o \u{1F441}\uFE0F \u{1F441}\uFE0F \u{1F444} \u0111\u1EC3 tinh ch\u1EC9nh v\u1ECB tr\xED")), /* @__PURE__ */ React.createElement(
+      "div",
+      {
+        onClick: handleContainerTap,
+        onTouchEnd: handleContainerTap,
+        style: {
+          background: isDark ? "rgba(255,255,255,0.07)" : "rgba(255,255,255,0.18)",
+          borderRadius: 20,
+          padding: 10,
+          boxShadow: `0 6px 24px ${isDark ? "rgba(0,229,255,0.18)" : "rgba(0,0,0,0.18)"}`,
+          border: `3px solid ${accent}55`,
+          cursor: faceStep !== "done" && !pendingPos ? "crosshair" : "default",
+          userSelect: "none"
+        }
+      },
+      /* @__PURE__ */ React.createElement("div", { ref: svgWrapRef, style: { position: "relative", lineHeight: 0 } }, /* @__PURE__ */ React.createElement(PouPet, { petData: { ...petData, eyeLeft, eyeRight, mouth }, size: PSIZE, bounce: false, mood: 80 }), pendingPos && /* @__PURE__ */ React.createElement("div", { style: {
+        position: "absolute",
+        left: `${pendingPos.x * 100}%`,
+        top: `${pendingPos.y * 100}%`,
+        transform: "translate(-50%,-50%)",
+        width: 34,
+        height: 34,
+        background: "rgba(255,220,0,0.88)",
+        borderRadius: "50%",
+        border: "2.5px dashed #FF6D00",
+        zIndex: 15,
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        fontSize: 18,
+        animation: "sparkle 0.65s ease-in-out infinite",
+        pointerEvents: "none"
+      } }, faceStep === "mouth" ? "\u{1F444}" : "\u{1F441}\uFE0F"), eyeLeft && faceStep !== "eye1" && /* @__PURE__ */ React.createElement(Handle, { part: "eyeLeft", pos: eyeLeft, emoji: "\u{1F441}" }), eyeRight && !["eye1", "eye2"].includes(faceStep) && /* @__PURE__ */ React.createElement(Handle, { part: "eyeRight", pos: eyeRight, emoji: "\u{1F441}" }), mouth && faceStep === "done" && /* @__PURE__ */ React.createElement(Handle, { part: "mouth", pos: mouth, emoji: "\u{1F444}" }))
+    ), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", gap: 8, flexWrap: "wrap", justifyContent: "center" } }, /* @__PURE__ */ React.createElement("button", { onClick: onBack, style: btnBase }, "\u2190 V\u1EBD l\u1EA1i"), /* @__PURE__ */ React.createElement("button", { onClick: resetAll, style: btnBase }, "\u21BA \u0110\u1EB7t l\u1EA1i"), pendingPos && /* @__PURE__ */ React.createElement("button", { onClick: confirmPending, style: {
+      background: "linear-gradient(135deg,#43A047,#1B5E20)",
+      border: "none",
+      borderRadius: 12,
+      padding: "9px 20px",
+      cursor: "pointer",
+      color: "white",
+      fontFamily: F.game,
+      fontWeight: 900,
+      fontSize: 12,
+      boxShadow: "0 4px 14px rgba(67,160,71,0.5)"
+    } }, "\u2713 X\xE1c nh\u1EADn"), faceStep === "done" && !pendingPos && /* @__PURE__ */ React.createElement("button", { onClick: onNext, style: {
+      background: isDark ? "#00E5FF" : "white",
+      border: "none",
+      borderRadius: 12,
+      padding: "9px 22px",
+      cursor: "pointer",
+      color: isDark ? "#0D1B2A" : C.black,
+      fontFamily: F.game,
+      fontWeight: 900,
+      fontSize: 13,
+      boxShadow: `0 4px 14px ${isDark ? "rgba(0,229,255,0.4)" : "rgba(0,0,0,0.2)"}`
+    } }, "Ti\u1EBFp theo \u2192")));
+  }
+  function PetCreatorScreen({ onComplete }) {
+    const [step, setStep] = (0, import_react.useState)(0);
+    const [drawnPath, setDrawnPath] = (0, import_react.useState)(null);
+    const [color, setColor] = (0, import_react.useState)("#C8956C");
+    const [eyeLeft, setEyeLeft] = (0, import_react.useState)(null);
+    const [eyeRight, setEyeRight] = (0, import_react.useState)(null);
+    const [mouth, setMouth] = (0, import_react.useState)(null);
+    const [petName, setPetName] = (0, import_react.useState)("");
+    const petData = { drawnPath, color, eyeLeft, eyeRight, mouth, mouthType: "smile" };
+    const steps = ["1. V\u1EBD h\xECnh", "2. \u0110\u1EB7t m\u1EB7t", "3. M\xE0u & t\xEAn"];
+    return /* @__PURE__ */ React.createElement("div", { style: {
+      minHeight: "100vh",
+      background: "linear-gradient(160deg,#FF6B9D 0%,#C44DFF 50%,#4D79FF 100%)",
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      justifyContent: "center",
+      padding: "28px 20px",
+      gap: 16
+    } }, /* @__PURE__ */ React.createElement("link", { rel: "stylesheet", href: FONT_LINK }), /* @__PURE__ */ React.createElement("style", null, KEYFRAMES), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", gap: 6 } }, steps.map((s, i) => /* @__PURE__ */ React.createElement("div", { key: i, style: {
+      background: i === step ? "white" : "rgba(255,255,255,0.3)",
+      borderRadius: 99,
+      padding: "5px 14px",
+      fontFamily: F.game,
+      fontWeight: 800,
+      fontSize: 11,
+      color: i === step ? "#C44DFF" : "white",
+      transition: "all 0.2s"
+    } }, s))), step === 0 && /* @__PURE__ */ React.createElement("div", { style: { display: "flex", flexDirection: "column", alignItems: "center", gap: 12 } }, /* @__PURE__ */ React.createElement("div", { style: { fontFamily: F.game, fontWeight: 900, fontSize: 17, color: "white", textAlign: "center", lineHeight: 1.4 } }, "\u270F\uFE0F V\u1EBD h\xECnh d\u1EA1ng pet c\u1EE7a b\u1EA1n!", /* @__PURE__ */ React.createElement("br", null), /* @__PURE__ */ React.createElement("span", { style: { fontSize: 12, fontWeight: 700, opacity: 0.8 } }, "V\u1EBD 1 v\xF2ng tr\xF2n k\xEDn")), /* @__PURE__ */ React.createElement(DrawCanvas, { color, onSave: (pts) => {
+      setDrawnPath(pts);
+      setStep(1);
+    } })), step === 1 && /* @__PURE__ */ React.createElement(
+      FacePlacerStep,
+      {
+        petData,
+        eyeLeft,
+        setEyeLeft,
+        eyeRight,
+        setEyeRight,
+        mouth,
+        setMouth,
+        onBack: () => {
+          setEyeLeft(null);
+          setEyeRight(null);
+          setMouth(null);
+          setStep(0);
+        },
+        onNext: () => setStep(2),
+        isDark: false
+      }
+    ), step === 2 && /* @__PURE__ */ React.createElement("div", { style: { display: "flex", flexDirection: "column", alignItems: "center", gap: 16 } }, /* @__PURE__ */ React.createElement(PouPet, { petData, size: 150, bounce: true, mood: 80 }), /* @__PURE__ */ React.createElement("div", { style: { background: "rgba(255,255,255,0.88)", borderRadius: 20, padding: "18px 16px", width: "100%", maxWidth: 320 } }, /* @__PURE__ */ React.createElement("div", { style: { fontFamily: F.game, fontWeight: 800, fontSize: 14, color: C.black, marginBottom: 12 } }, "\u{1F3A8} M\xE0u s\u1EAFc"), /* @__PURE__ */ React.createElement("div", { style: { display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 8, marginBottom: 16 } }, PET_COLORS.map((pc) => /* @__PURE__ */ React.createElement("button", { key: pc, onClick: () => setColor(pc), style: {
+      background: pc,
+      borderRadius: 14,
+      height: 52,
+      border: `3px solid ${color === pc ? C.black : "transparent"}`,
+      cursor: "pointer",
+      transform: color === pc ? "scale(1.1)" : "scale(1)",
+      transition: "all 0.2s",
+      boxShadow: color === pc ? `0 4px 14px ${pc}88` : "none",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center"
+    } }, color === pc && /* @__PURE__ */ React.createElement("span", { style: { color: "white", fontSize: 18, filter: "drop-shadow(0 1px 3px rgba(0,0,0,0.4))" } }, "\u2713")))), /* @__PURE__ */ React.createElement("div", { style: { fontFamily: F.game, fontWeight: 800, fontSize: 14, color: C.black, marginBottom: 8 } }, "\u{1F3F7} T\xEAn Pet"), /* @__PURE__ */ React.createElement(
+      "input",
+      {
+        value: petName,
+        onChange: (e) => setPetName(e.target.value),
+        maxLength: 14,
+        placeholder: "VD: Mochi, Pou, Bean...",
+        style: {
+          width: "100%",
+          background: "#F5F5F5",
+          border: "2px solid #E0E0E0",
+          borderRadius: 12,
+          padding: "12px 14px",
+          textAlign: "center",
+          fontFamily: F.game,
+          fontSize: 16,
+          fontWeight: 800,
+          outline: "none",
+          color: C.black,
+          boxSizing: "border-box"
+        }
+      }
+    )), /* @__PURE__ */ React.createElement(
+      "button",
+      {
+        onClick: () => petName.trim().length >= 2 && onComplete({ ...petData, name: petName.trim(), color }),
+        style: {
+          background: petName.trim().length >= 2 ? "white" : "rgba(255,255,255,0.4)",
+          border: "none",
+          borderRadius: 16,
+          padding: "15px 40px",
+          color: petName.trim().length >= 2 ? C.black : "rgba(255,255,255,0.5)",
+          fontFamily: F.game,
+          fontWeight: 900,
+          fontSize: 16,
+          cursor: petName.trim().length >= 2 ? "pointer" : "not-allowed",
+          boxShadow: petName.trim().length >= 2 ? "0 6px 22px rgba(0,0,0,0.22)" : "none"
+        }
+      },
+      "\u{1F680} B\u1EAFt \u0111\u1EA7u ch\u01A1i!"
+    )));
+  }
+  function LoginScreen({ onLogin }) {
+    const [mode, setMode] = (0, import_react.useState)("login");
+    const [user, setUser] = (0, import_react.useState)("");
+    const [pass, setPass] = (0, import_react.useState)("");
+    const [err, setErr] = (0, import_react.useState)("");
+    const submit = () => {
+      if (!user.trim()) {
+        setErr("Nh\u1EADp t\xEAn \u0111\u0103ng nh\u1EADp!");
+        return;
+      }
+      if (pass.length < 4) {
+        setErr("M\u1EADt kh\u1EA9u \u2265 4 k\xFD t\u1EF1!");
+        return;
+      }
+      onLogin(user.trim());
+    };
+    return /* @__PURE__ */ React.createElement("div", { style: {
+      minHeight: "100vh",
+      background: "linear-gradient(160deg,#40C8E0 0%,#5BA8D4 50%,#3D88B8 100%)",
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      justifyContent: "center",
+      padding: "24px 20px"
+    } }, /* @__PURE__ */ React.createElement("link", { rel: "stylesheet", href: FONT_LINK }), /* @__PURE__ */ React.createElement("style", null, KEYFRAMES), /* @__PURE__ */ React.createElement("div", { style: { textAlign: "center", marginBottom: 24 } }, /* @__PURE__ */ React.createElement(PouPet, { petData: { color: "#C8956C" }, size: 110, bounce: true, mood: 80 }), /* @__PURE__ */ React.createElement("div", { style: {
+      fontFamily: F.game,
+      fontWeight: 900,
+      fontSize: 36,
+      color: "white",
+      textShadow: "0 3px 12px rgba(0,0,0,0.2)",
+      letterSpacing: "-0.01em"
+    } }, "Lootzy"), /* @__PURE__ */ React.createElement("div", { style: { color: "rgba(255,255,255,0.8)", fontFamily: F.game, fontSize: 13, marginTop: 2 } }, "Nu\xF4i pet \xB7 Loot qu\xE0 \xB7 X\u1EBFp h\u1EA1ng")), /* @__PURE__ */ React.createElement("div", { style: {
+      background: "white",
+      borderRadius: 24,
+      padding: "24px 20px",
+      boxShadow: "0 14px 44px rgba(0,0,0,0.20)",
+      width: "100%",
+      maxWidth: 340
+    } }, /* @__PURE__ */ React.createElement("div", { style: {
+      display: "grid",
+      gridTemplateColumns: "1fr 1fr",
+      gap: 4,
+      background: "#F5F5F5",
+      borderRadius: 14,
+      padding: 4,
+      marginBottom: 20
+    } }, ["login", "register"].map((m) => /* @__PURE__ */ React.createElement("button", { key: m, onClick: () => {
+      setMode(m);
+      setErr("");
+    }, style: {
+      background: mode === m ? "#1A1A1A" : "transparent",
+      border: "none",
+      borderRadius: 11,
+      padding: "10px 0",
+      cursor: "pointer",
+      color: mode === m ? "white" : "#9E9E9E",
+      fontFamily: F.game,
+      fontWeight: 800,
+      fontSize: 13
+    } }, m === "login" ? "\u0110\u0103ng Nh\u1EADp" : "T\u1EA1o T\xE0i Kho\u1EA3n"))), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", flexDirection: "column", gap: 10, marginBottom: 12 } }, [
+      { val: user, set: setUser, ph: "T\xEAn \u0111\u0103ng nh\u1EADp", type: "text" },
+      { val: pass, set: setPass, ph: "M\u1EADt kh\u1EA9u (\u22654 k\xFD t\u1EF1)", type: "password" }
+    ].map((f) => /* @__PURE__ */ React.createElement(
+      "input",
+      {
+        key: f.ph,
+        type: f.type,
+        value: f.val,
+        onChange: (e) => {
+          f.set(e.target.value);
+          setErr("");
+        },
+        onKeyDown: (e) => e.key === "Enter" && submit(),
+        placeholder: f.ph,
+        style: {
+          background: "#F5F5F5",
+          border: "2px solid #EEEEEE",
+          borderRadius: 12,
+          padding: "12px 14px",
+          fontFamily: F.game,
+          fontSize: 14,
+          fontWeight: 700,
+          outline: "none",
+          color: C.black
+        }
+      }
+    ))), err && /* @__PURE__ */ React.createElement("div", { style: {
+      background: "#FFEBEE",
+      border: "1px solid #FFCDD2",
+      borderRadius: 10,
+      padding: "8px 12px",
+      marginBottom: 10,
+      color: "#C62828",
+      fontFamily: F.game,
+      fontSize: 12,
+      textAlign: "center"
+    } }, err), /* @__PURE__ */ React.createElement("button", { onClick: submit, style: {
+      width: "100%",
+      background: "#1A1A1A",
+      border: "none",
+      borderRadius: 14,
+      padding: "14px 0",
+      color: "white",
+      fontFamily: F.game,
+      fontWeight: 900,
+      fontSize: 15,
+      cursor: "pointer",
+      boxShadow: "0 6px 20px rgba(0,0,0,0.25)",
+      marginBottom: 14
+    } }, mode === "login" ? "\u{1F680} \u0110\u0103ng Nh\u1EADp" : "\u2728 T\u1EA1o T\xE0i Kho\u1EA3n"), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", gap: 8 } }, [{ icon: "\u{1F310}", label: "Google" }, { icon: "\u{1F4D8}", label: "Facebook" }].map((s) => /* @__PURE__ */ React.createElement("button", { key: s.label, onClick: () => onLogin(s.label + "_User"), style: {
+      flex: 1,
+      background: "#F5F5F5",
+      border: "1.5px solid #EEEEEE",
+      borderRadius: 12,
+      padding: "11px 0",
+      cursor: "pointer",
+      color: "#666",
+      fontFamily: F.game,
+      fontSize: 12,
+      fontWeight: 700,
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      gap: 5
+    } }, s.icon, " ", s.label)))), /* @__PURE__ */ React.createElement("div", { style: { color: "rgba(255,255,255,0.55)", fontFamily: F.game, fontSize: 11, marginTop: 16, textAlign: "center", lineHeight: 1.6 } }, "Demo prototype \xB7 Lootzy Phase 1", /* @__PURE__ */ React.createElement("br", null), /* @__PURE__ */ React.createElement("span", { style: { opacity: 0.7, fontSize: 10 } }, BUILD)));
+  }
+  function InventoryPanel({ onClose, state, asTab = false }) {
+    const [tab, setTab] = (0, import_react.useState)("items");
+    const petItems = (state.inventory || []).filter((i) => !i.type || i.type === "pet_item" || i.type === "points");
+    const vouchers = (state.openedPrizes || []).filter((i) => i.type === "voucher" || i.type === "physical");
+    const RARITY_COL = { common: "#9E9E9E", rare: "#039BE5", epic: "#E040FB" };
+    const innerContent = /* @__PURE__ */ React.createElement("div", { style: asTab ? { flex: 1, display: "flex", flexDirection: "column", overflow: "hidden", background: "#F9F9F9" } : { background: "#F9F9F9", borderRadius: "24px 24px 0 0", maxHeight: "76%", display: "flex", flexDirection: "column", animation: "slideUp 0.24s ease-out", overflow: "hidden" } }, /* @__PURE__ */ React.createElement("div", { style: {
+      padding: "14px 16px 0",
+      background: "white",
+      flexShrink: 0,
+      borderBottom: "1.5px solid #F0F0F0"
+    } }, /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 12 } }, /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "center", gap: 8 } }, /* @__PURE__ */ React.createElement("span", { style: { fontSize: 22 } }, "\u{1F392}"), /* @__PURE__ */ React.createElement("span", { style: { fontFamily: F.game, fontWeight: 900, fontSize: 15, color: C.black } }, "Kho \u0110\u1ED3")), !asTab && /* @__PURE__ */ React.createElement("button", { onClick: onClose, style: {
+      background: "#F0F0F0",
+      border: "none",
+      borderRadius: "50%",
+      width: 30,
+      height: 30,
+      cursor: "pointer",
+      fontSize: 16,
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center"
+    } }, "\xD7")), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", gap: 0, marginBottom: 0 } }, [
+      { id: "items", label: "\u{1F34E} V\u1EADt ph\u1EA9m cho Pet", count: petItems.length },
+      { id: "voucher", label: "\u{1F3AE} Voucher", count: vouchers.length }
+    ].map((t) => /* @__PURE__ */ React.createElement("button", { key: t.id, onClick: () => setTab(t.id), style: {
+      flex: 1,
+      background: "none",
+      border: "none",
+      cursor: "pointer",
+      padding: "8px 0 10px",
+      fontFamily: F.game,
+      fontWeight: 900,
+      fontSize: 11,
+      color: tab === t.id ? C.black : "#BDBDBD",
+      borderBottom: tab === t.id ? "2.5px solid #B4FF00" : "2.5px solid transparent",
+      transition: "color 0.2s",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      gap: 5
+    } }, t.label, t.count > 0 && /* @__PURE__ */ React.createElement("span", { style: {
+      background: tab === t.id ? "#1A1A1A" : "#E0E0E0",
+      color: tab === t.id ? "white" : "#999",
+      borderRadius: 99,
+      padding: "1px 7px",
+      fontFamily: F.game,
+      fontSize: 9,
+      fontWeight: 900
+    } }, t.count))))), /* @__PURE__ */ React.createElement("div", { style: { flex: 1, overflowY: "auto", padding: "14px 16px 24px" } }, tab === "items" && (petItems.length === 0 ? /* @__PURE__ */ React.createElement("div", { style: {
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      justifyContent: "center",
+      padding: "32px 20px",
+      gap: 10
+    } }, /* @__PURE__ */ React.createElement("span", { style: { fontSize: 44, opacity: 0.2 } }, "\u{1F34E}"), /* @__PURE__ */ React.createElement("div", { style: { fontFamily: F.game, fontWeight: 900, fontSize: 13, color: "#BDBDBD", textAlign: "center" } }, "Ch\u01B0a c\xF3 v\u1EADt ph\u1EA9m n\xE0o"), /* @__PURE__ */ React.createElement("div", { style: { fontFamily: F.game, fontSize: 10, color: "#CCCCCC", textAlign: "center", lineHeight: 1.5 } }, "Mua \u0111\u1ED3 \u1EDF Shop ho\u1EB7c m\u1EDF Loot Box", /* @__PURE__ */ React.createElement("br", null), "\u0111\u1EC3 c\xF3 v\u1EADt ph\u1EA9m cho pet \u{1F6D2}"), /* @__PURE__ */ React.createElement("div", { style: { display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 7, marginTop: 6, width: "100%" } }, Array.from({ length: 8 }).map((_, i) => /* @__PURE__ */ React.createElement("div", { key: i, style: {
+      aspectRatio: "1",
+      background: "#F5F5F5",
+      borderRadius: 12,
+      border: "1.5px dashed #E0E0E0",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      fontSize: 18,
+      opacity: 0.25
+    } }, "?")))) : /* @__PURE__ */ React.createElement("div", { style: { display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 8 } }, petItems.map((item, i) => {
+      const isObj = typeof item === "object" && item !== null;
+      const icon = isObj ? item.emoji || "\u{1F4E6}" : "\u{1F4E6}";
+      const name = isObj ? item.name || String(item) : String(item);
+      const rarity = isObj ? item.rarity || "common" : "common";
+      const col = RARITY_COL[rarity] || "#9E9E9E";
+      return /* @__PURE__ */ React.createElement("div", { key: i, style: {
+        background: "white",
+        borderRadius: 12,
+        padding: "10px 6px 8px",
+        border: `1.5px solid ${col}44`,
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        gap: 4,
+        boxShadow: "0 2px 8px rgba(0,0,0,0.05)"
+      } }, /* @__PURE__ */ React.createElement("span", { style: { fontSize: 26, filter: `drop-shadow(0 2px 5px ${col}77)` } }, icon), /* @__PURE__ */ React.createElement("div", { style: {
+        fontFamily: F.game,
+        fontSize: 8,
+        fontWeight: 800,
+        color: C.black,
+        textAlign: "center",
+        lineHeight: 1.2
+      } }, name.length > 10 ? name.slice(0, 9) + "\u2026" : name), /* @__PURE__ */ React.createElement("div", { style: {
+        fontFamily: F.game,
+        fontSize: 7,
+        fontWeight: 900,
+        color: col,
+        background: `${col}18`,
+        borderRadius: 99,
+        padding: "1px 6px"
+      } }, rarity));
+    }))), tab === "voucher" && (vouchers.length === 0 ? /* @__PURE__ */ React.createElement("div", { style: {
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      justifyContent: "center",
+      padding: "32px 20px",
+      gap: 10
+    } }, /* @__PURE__ */ React.createElement("span", { style: { fontSize: 44, opacity: 0.2 } }, "\u{1F3AE}"), /* @__PURE__ */ React.createElement("div", { style: { fontFamily: F.game, fontWeight: 900, fontSize: 13, color: "#BDBDBD", textAlign: "center" } }, "Ch\u01B0a c\xF3 voucher n\xE0o"), /* @__PURE__ */ React.createElement("div", { style: { fontFamily: F.game, fontSize: 10, color: "#CCCCCC", textAlign: "center", lineHeight: 1.5 } }, "M\u1EDF h\u1ED9p qu\xE0 \u0111\u1EC3 nh\u1EADn th\u1EBB Garena", /* @__PURE__ */ React.createElement("br", null), "v\xE0 qu\xE0 th\u1EADt ngo\xE0i \u0111\u1EDDi \u{1F381}")) : /* @__PURE__ */ React.createElement("div", { style: { display: "flex", flexDirection: "column", gap: 8 } }, vouchers.map((v, i) => {
+      const col = RARITY_COL[v.rarity] || "#9E9E9E";
+      return /* @__PURE__ */ React.createElement("div", { key: i, style: {
+        background: "white",
+        borderRadius: 14,
+        padding: "12px 14px",
+        border: `1.5px solid ${col}55`,
+        display: "flex",
+        alignItems: "center",
+        gap: 12,
+        boxShadow: "0 2px 10px rgba(0,0,0,0.06)"
+      } }, /* @__PURE__ */ React.createElement("span", { style: { fontSize: 30, filter: `drop-shadow(0 2px 8px ${col}88)` } }, v.emoji), /* @__PURE__ */ React.createElement("div", { style: { flex: 1 } }, /* @__PURE__ */ React.createElement("div", { style: { fontFamily: F.game, fontWeight: 900, fontSize: 13, color: C.black } }, v.name), v.desc && /* @__PURE__ */ React.createElement("div", { style: { fontFamily: F.game, fontSize: 10, color: "#999", marginTop: 2 } }, v.desc), /* @__PURE__ */ React.createElement("div", { style: {
+        display: "inline-block",
+        marginTop: 4,
+        background: `${col}18`,
+        border: `1px solid ${col}`,
+        borderRadius: 99,
+        padding: "2px 8px",
+        fontFamily: F.game,
+        fontSize: 8,
+        fontWeight: 900,
+        color: col
+      } }, v.label)), /* @__PURE__ */ React.createElement("button", { onClick: () => showToast && showToast(`${v.emoji} Li\xEAn h\u1EC7 HEAVY \u0111\u1EC3 nh\u1EADn!`), style: {
+        background: "#1A1A1A",
+        border: "none",
+        borderRadius: 10,
+        padding: "8px 12px",
+        cursor: "pointer",
+        fontFamily: F.game,
+        fontWeight: 900,
+        fontSize: 10,
+        color: "white"
+      } }, "Nh\u1EADn \u2192"));
+    })))));
+    if (asTab) return innerContent;
+    return /* @__PURE__ */ React.createElement("div", { onClick: onClose, style: {
+      position: "fixed",
+      inset: 0,
+      background: "rgba(0,0,0,0.55)",
+      zIndex: 80,
+      display: "flex",
+      flexDirection: "column",
+      justifyContent: "flex-end"
+    } }, /* @__PURE__ */ React.createElement("div", { onClick: (e) => e.stopPropagation(), style: { flex: "none" } }, innerContent));
+  }
+  function SurgeryPanel({ currentPetData, onSave, onCancel }) {
+    const initColor = currentPetData?.color || "#C8956C";
+    const initName = currentPetData?.name || "";
+    const [step, setStep] = (0, import_react.useState)(0);
+    const [drawnPath, setDrawnPath] = (0, import_react.useState)(null);
+    const [color, setColor] = (0, import_react.useState)(initColor);
+    const [eyeLeft, setEyeLeft] = (0, import_react.useState)(null);
+    const [eyeRight, setEyeRight] = (0, import_react.useState)(null);
+    const [mouth, setMouth] = (0, import_react.useState)(null);
+    const [petName, setPetName] = (0, import_react.useState)(initName);
+    const petData = { drawnPath, color, eyeLeft, eyeRight, mouth, mouthType: "smile" };
+    const steps = ["1. V\u1EBD h\xECnh", "2. \u0110\u1EB7t m\u1EB7t", "3. M\xE0u & t\xEAn"];
+    const SURGERY_COLORS = [
+      "#C8956C",
+      "#F4A460",
+      "#DEB887",
+      "#BC8F8F",
+      "#708090",
+      "#5F9EA0",
+      "#8FBC8F",
+      "#E8A0BF",
+      "#9B59B6",
+      "#3498DB",
+      "#2ECC71",
+      "#E74C3C",
+      "#F39C12",
+      "#1ABC9C",
+      "#34495E",
+      "#E0E0E0"
+    ];
+    return /* @__PURE__ */ React.createElement("div", { style: {
+      position: "absolute",
+      inset: 0,
+      zIndex: 60,
+      background: "linear-gradient(160deg,#0D1B2A 0%,#1B2838 50%,#0F3460 100%)",
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      justifyContent: "flex-start",
+      padding: "32px 16px 24px",
+      gap: 14,
+      overflowY: "auto"
+    } }, /* @__PURE__ */ React.createElement("link", { rel: "stylesheet", href: FONT_LINK }), /* @__PURE__ */ React.createElement("div", { style: { width: "100%", display: "flex", alignItems: "center", justifyContent: "space-between" } }, /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "center", gap: 8 } }, /* @__PURE__ */ React.createElement("span", { style: { fontSize: 22 } }, "\u{1F52C}"), /* @__PURE__ */ React.createElement("div", { style: { fontFamily: F.game, fontWeight: 900, fontSize: 16, color: "white" } }, "Ph\u1EABu Thu\u1EADt Pet")), /* @__PURE__ */ React.createElement("button", { onClick: onCancel, style: {
+      background: "rgba(255,255,255,0.12)",
+      border: "1.5px solid rgba(255,255,255,0.25)",
+      borderRadius: 10,
+      padding: "6px 14px",
+      cursor: "pointer",
+      fontFamily: F.game,
+      fontWeight: 900,
+      fontSize: 12,
+      color: "rgba(255,255,255,0.8)"
+    } }, "\u2715 Hu\u1EF7")), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", gap: 6 } }, steps.map((s, i) => /* @__PURE__ */ React.createElement("div", { key: i, style: {
+      background: i === step ? "#00E5FF" : "rgba(255,255,255,0.12)",
+      borderRadius: 99,
+      padding: "5px 13px",
+      fontFamily: F.game,
+      fontWeight: 800,
+      fontSize: 10,
+      color: i === step ? "#0D1B2A" : "rgba(255,255,255,0.5)",
+      transition: "all 0.2s"
+    } }, s))), step === 0 && /* @__PURE__ */ React.createElement("div", { style: { display: "flex", flexDirection: "column", alignItems: "center", gap: 12 } }, /* @__PURE__ */ React.createElement("div", { style: { fontFamily: F.game, fontWeight: 900, fontSize: 15, color: "#00E5FF", textAlign: "center", lineHeight: 1.4 } }, "\u270F\uFE0F V\u1EBD h\xECnh d\u1EA1ng m\u1EDBi cho pet!", /* @__PURE__ */ React.createElement("br", null), /* @__PURE__ */ React.createElement("span", { style: { fontSize: 11, fontWeight: 700, color: "rgba(255,255,255,0.6)" } }, "V\u1EBD 1 v\xF2ng k\xEDn \u2192 t\u1EF1 \u0111\u1ED9ng l\u01B0u")), /* @__PURE__ */ React.createElement(DrawCanvas, { color, onSave: (pts) => {
+      setDrawnPath(pts);
+      setStep(1);
+    } })), step === 1 && /* @__PURE__ */ React.createElement(
+      FacePlacerStep,
+      {
+        petData,
+        eyeLeft,
+        setEyeLeft,
+        eyeRight,
+        setEyeRight,
+        mouth,
+        setMouth,
+        onBack: () => {
+          setEyeLeft(null);
+          setEyeRight(null);
+          setMouth(null);
+          setStep(0);
+        },
+        onNext: () => setStep(2),
+        isDark: true
+      }
+    ), step === 2 && /* @__PURE__ */ React.createElement("div", { style: { display: "flex", flexDirection: "column", alignItems: "center", gap: 14, width: "100%" } }, /* @__PURE__ */ React.createElement(PouPet, { petData, size: 140, bounce: true, mood: 80 }), /* @__PURE__ */ React.createElement("div", { style: {
+      background: "rgba(255,255,255,0.06)",
+      borderRadius: 20,
+      padding: "16px 14px",
+      width: "100%",
+      maxWidth: 320,
+      border: "1.5px solid rgba(255,255,255,0.12)"
+    } }, /* @__PURE__ */ React.createElement("div", { style: { fontFamily: F.game, fontWeight: 800, fontSize: 13, color: "#00E5FF", marginBottom: 10 } }, "\u{1F3A8} M\xE0u s\u1EAFc"), /* @__PURE__ */ React.createElement("div", { style: { display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 7, marginBottom: 14 } }, SURGERY_COLORS.map((pc) => /* @__PURE__ */ React.createElement("button", { key: pc, onClick: () => setColor(pc), style: {
+      background: pc,
+      borderRadius: 12,
+      height: 46,
+      border: `3px solid ${color === pc ? "#00E5FF" : "transparent"}`,
+      cursor: "pointer",
+      transform: color === pc ? "scale(1.1)" : "scale(1)",
+      transition: "all 0.15s",
+      boxShadow: color === pc ? `0 4px 14px ${pc}88` : "none",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center"
+    } }, color === pc && /* @__PURE__ */ React.createElement("span", { style: { color: "white", fontSize: 16, filter: "drop-shadow(0 1px 3px rgba(0,0,0,0.5))" } }, "\u2713")))), /* @__PURE__ */ React.createElement("div", { style: { fontFamily: F.game, fontWeight: 800, fontSize: 13, color: "#00E5FF", marginBottom: 8 } }, "\u{1F3F7} T\xEAn Pet"), /* @__PURE__ */ React.createElement(
+      "input",
+      {
+        value: petName,
+        onChange: (e) => setPetName(e.target.value),
+        maxLength: 14,
+        placeholder: "T\xEAn m\u1EDBi cho pet...",
+        style: {
+          width: "100%",
+          background: "rgba(255,255,255,0.08)",
+          border: "1.5px solid rgba(0,229,255,0.4)",
+          borderRadius: 12,
+          padding: "11px 14px",
+          textAlign: "center",
+          fontFamily: F.game,
+          fontSize: 15,
+          fontWeight: 800,
+          outline: "none",
+          color: "white",
+          boxSizing: "border-box"
+        }
+      }
+    )), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", gap: 10 } }, /* @__PURE__ */ React.createElement("button", { onClick: () => setStep(1), style: {
+      background: "rgba(255,255,255,0.12)",
+      border: "1.5px solid rgba(255,255,255,0.25)",
+      borderRadius: 14,
+      padding: "11px 18px",
+      cursor: "pointer",
+      color: "white",
+      fontFamily: F.game,
+      fontWeight: 800,
+      fontSize: 12
+    } }, "\u2190 Quay l\u1EA1i"), /* @__PURE__ */ React.createElement(
+      "button",
+      {
+        onClick: () => {
+          if (petName.trim().length < 1) return;
+          onSave({ ...petData, name: petName.trim(), color });
+        },
+        disabled: petName.trim().length < 1,
+        style: {
+          background: petName.trim().length >= 1 ? "linear-gradient(135deg,#00E5FF,#1976D2)" : "rgba(255,255,255,0.2)",
+          border: "none",
+          borderRadius: 14,
+          padding: "12px 28px",
+          color: petName.trim().length >= 1 ? "white" : "rgba(255,255,255,0.4)",
+          fontFamily: F.game,
+          fontWeight: 900,
+          fontSize: 14,
+          cursor: petName.trim().length >= 1 ? "pointer" : "not-allowed",
+          boxShadow: petName.trim().length >= 1 ? "0 6px 22px rgba(0,229,255,0.4)" : "none"
+        }
+      },
+      "\u{1F489} L\u01B0u ph\u1EABu thu\u1EADt!"
+    ))));
+  }
+  function TabBtn({ icon, label, active, onClick, badge }) {
+    return /* @__PURE__ */ React.createElement("button", { onClick, style: {
+      background: "none",
+      border: "none",
+      cursor: "pointer",
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      gap: 2,
+      padding: "4px 0",
+      flex: 1,
+      position: "relative"
+    } }, /* @__PURE__ */ React.createElement("span", { style: { fontSize: 22, filter: active ? "none" : "grayscale(0.5) opacity(0.6)" } }, icon), /* @__PURE__ */ React.createElement("span", { style: {
+      fontFamily: F.game,
+      fontWeight: 900,
+      fontSize: 10,
+      color: active ? C.black : "#BDBDBD"
+    } }, label), active && /* @__PURE__ */ React.createElement("div", { style: { width: 20, height: 3, borderRadius: 99, background: "linear-gradient(90deg,#B4FF00,#00E5FF)", marginTop: 1 } }), badge ? /* @__PURE__ */ React.createElement("div", { style: {
+      position: "absolute",
+      top: 2,
+      right: "18%",
+      background: "#FF5252",
+      borderRadius: "50%",
+      width: 15,
+      height: 15,
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      fontFamily: F.game,
+      fontSize: 8,
+      fontWeight: 900,
+      color: "white",
+      boxShadow: "0 2px 6px rgba(255,82,82,0.5)"
+    } }, badge > 9 ? "9+" : badge) : null);
+  }
+  function MiniGameTab({ state, dispatch, showToast: showToast2, onExit }) {
+    const GRID = 8;
+    const vw = Math.min(typeof window !== "undefined" ? window.innerWidth : 390, 420);
+    const vh = typeof window !== "undefined" ? window.innerHeight : 667;
+    const cellFromW = Math.floor((vw - 28) / GRID);
+    const cellFromH = Math.floor((vh * 0.72 - 200) / GRID);
+    const CELL = Math.max(24, Math.min(38, cellFromW, cellFromH));
+    const makeGrid = () => Array(GRID).fill(null).map(() => Array(GRID).fill(null));
+    const freshPieces = () => [makeBlastPiece(), makeBlastPiece(), makeBlastPiece()];
+    const [grid, setGrid] = (0, import_react.useState)(makeGrid);
+    const [pieces, setPieces] = (0, import_react.useState)(freshPieces);
+    const [sel, setSel] = (0, import_react.useState)(null);
+    const [score, setScore] = (0, import_react.useState)(0);
+    const [gameOver, setGameOver] = (0, import_react.useState)(false);
+    const [flash, setFlash] = (0, import_react.useState)(/* @__PURE__ */ new Set());
+    const [ghostPos, setGhostPos] = (0, import_react.useState)(null);
+    const [effects, setEffects] = (0, import_react.useState)({ e: 0, cl: 0, h: 0 });
+    const [isDragging, setIsDragging] = (0, import_react.useState)(false);
+    const [dragIdx, setDragIdx] = (0, import_react.useState)(null);
+    const [dragPos, setDragPos] = (0, import_react.useState)({ x: 0, y: 0 });
+    const gridRef = (0, import_react.useRef)(null);
+    const LIFT = 90;
+    const validCells = (0, import_react.useMemo)(() => {
+      if (sel === null || !pieces[sel]) return /* @__PURE__ */ new Set();
+      const p = pieces[sel];
+      const s = /* @__PURE__ */ new Set();
+      for (let r = 0; r < GRID; r++) for (let c = 0; c < GRID; c++)
+        if (blastCanPlace(p.shape, r, c, grid)) s.add(`${r},${c}`);
+      return s;
+    }, [sel, pieces, grid]);
+    const ghostCells = (0, import_react.useMemo)(() => {
+      if (!ghostPos || sel === null || !pieces[sel]) return /* @__PURE__ */ new Set();
+      const p = pieces[sel];
+      if (!blastCanPlace(p.shape, ghostPos.r, ghostPos.c, grid)) return /* @__PURE__ */ new Set();
+      const s = /* @__PURE__ */ new Set();
+      for (let r = 0; r < p.shape.length; r++) for (let c = 0; c < p.shape[r].length; c++)
+        if (p.shape[r][c]) s.add(`${ghostPos.r + r},${ghostPos.c + c}`);
+      return s;
+    }, [ghostPos, sel, pieces, grid]);
+    const screenToCell = (x, y) => {
+      if (!gridRef.current) return null;
+      const rect = gridRef.current.getBoundingClientRect();
+      const step = CELL + 2;
+      const c = Math.floor((x - rect.left - 4) / step);
+      const r = Math.floor((y - rect.top - 4) / step);
+      if (r < 0 || r >= GRID || c < 0 || c >= GRID) return null;
+      return { r, c };
+    };
+    (0, import_react.useEffect)(() => {
+      if (!isDragging || dragIdx === null) return;
+      const onMove = (e) => {
+        e.preventDefault();
+        const t = e.touches[0];
+        if (!t) return;
+        setDragPos({ x: t.clientX, y: t.clientY });
+        setGhostPos(screenToCell(t.clientX, t.clientY - LIFT));
+      };
+      const onEnd = (e) => {
+        const t = e.changedTouches[0];
+        if (t) {
+          const cell = screenToCell(t.clientX, t.clientY - LIFT);
+          if (cell) handleCellTap(cell.r, cell.c);
+        }
+        setIsDragging(false);
+        setDragIdx(null);
+        setGhostPos(null);
+      };
+      window.addEventListener("touchmove", onMove, { passive: false });
+      window.addEventListener("touchend", onEnd, { passive: false });
+      return () => {
+        window.removeEventListener("touchmove", onMove);
+        window.removeEventListener("touchend", onEnd);
+      };
+    }, [isDragging, dragIdx]);
+    const handleCellTap = (r0, c0) => {
+      if (gameOver || sel === null) return;
+      const piece = pieces[sel];
+      if (!piece || !blastCanPlace(piece.shape, r0, c0, grid)) return;
+      const newGrid = grid.map((row) => [...row]);
+      let ptsIdx = 0, cellCount = 0;
+      for (let r = 0; r < piece.shape.length; r++) for (let c = 0; c < piece.shape[r].length; c++) {
+        if (!piece.shape[r][c]) continue;
+        newGrid[r0 + r][c0 + c] = { pts: piece.pts[ptsIdx++] || 5, bg: piece.rar.bg, border: piece.rar.border };
+        cellCount++;
+      }
+      const fullRows = [], fullCols = [];
+      for (let r = 0; r < GRID; r++) if (newGrid[r].every((c) => c !== null)) fullRows.push(r);
+      for (let c = 0; c < GRID; c++) if (newGrid.every((row) => row[c] !== null)) fullCols.push(c);
+      const lines = fullRows.length + fullCols.length;
+      let earned = 0;
+      const flashSet = /* @__PURE__ */ new Set();
+      if (lines > 0) {
+        fullRows.forEach((r) => {
+          for (let c = 0; c < GRID; c++) {
+            earned += newGrid[r][c]?.pts || 0;
+            flashSet.add(`${r},${c}`);
+          }
+          for (let c = 0; c < GRID; c++) newGrid[r][c] = null;
+        });
+        fullCols.forEach((col) => {
+          for (let r = 0; r < GRID; r++) {
+            if (newGrid[r][col] !== null) {
+              earned += newGrid[r][col]?.pts || 0;
+              flashSet.add(`${r},${col}`);
+            }
+            newGrid[r][col] = null;
+          }
+        });
+        earned *= Math.max(1, lines);
+        setFlash(flashSet);
+        setTimeout(() => setFlash(/* @__PURE__ */ new Set()), 400);
+        showToast2(`\u2728 ${lines > 1 ? `COMBO \xD7${lines}! ` : ""}+${earned}\u{1FA99}`);
+      }
+      setScore((s) => s + earned);
+      setGrid(newGrid);
+      setGhostPos(null);
+      setEffects((prev) => ({
+        e: prev.e + cellCount * 1.5,
+        cl: prev.cl + cellCount * 0.8,
+        h: prev.h + cellCount * 2 + lines * 5
+      }));
+      const newPieces = pieces.map((p, i) => i === sel ? null : p);
+      const anyLeft = newPieces.some((p) => p !== null);
+      const finalPieces = anyLeft ? newPieces : freshPieces();
+      setPieces(finalPieces);
+      setSel(null);
+      const hasMove = finalPieces.some((p) => {
+        if (!p) return false;
+        for (let r = 0; r < GRID; r++) for (let c = 0; c < GRID; c++)
+          if (blastCanPlace(p.shape, r, c, newGrid)) return true;
+        return false;
+      });
+      if (!hasMove) setGameOver(true);
+    };
+    const doExit = () => {
+      const e = Math.max(0, Math.round(effects.e));
+      const cl = Math.max(0, Math.round(effects.cl));
+      const h = Math.max(0, Math.round(effects.h));
+      dispatch({ type: "APPLY_GAME_RESULT", energyCost: e, cleanCost: cl, happinessGain: h, gameScore: score });
+      if (score > 0 || h > 0) {
+        showToast2(`\u{1F3AE} +${score}\u{1FA99} +${h}\u2764\uFE0F \u2212${e}\u26A1 \u2212${cl}\u{1F9FC}`);
+      }
+      onExit();
+    };
+    const selPiece = sel !== null ? pieces[sel] : null;
+    const compact = CELL < 32;
+    return /* @__PURE__ */ React.createElement("div", { style: {
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      background: "#1A1A2E",
+      height: "100%",
+      overflow: "hidden",
+      padding: compact ? "4px 8px 6px" : "6px 8px 10px",
+      gap: compact ? 4 : 6
+    } }, /* @__PURE__ */ React.createElement("div", { style: {
+      width: "100%",
+      display: "flex",
+      justifyContent: "space-between",
+      alignItems: "center",
+      background: "rgba(255,255,255,0.06)",
+      borderRadius: 14,
+      padding: compact ? "5px 12px" : "7px 14px",
+      flexShrink: 0
+    } }, /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("div", { style: { fontFamily: F.game, fontSize: compact ? 8 : 9, color: "#888", fontWeight: 700 } }, "\u0110I\u1EC2M"), /* @__PURE__ */ React.createElement("div", { style: { fontFamily: F.game, fontSize: compact ? 15 : 20, color: "#FFD700", fontWeight: 900, lineHeight: 1 } }, score.toLocaleString())), /* @__PURE__ */ React.createElement("div", { style: { textAlign: "center" } }, /* @__PURE__ */ React.createElement("div", { style: { fontFamily: F.game, fontSize: 9, color: "#888", fontWeight: 700, marginBottom: 3 } }, "HI\u1EC6U \u1EE8NG PET"), effects.h > 0 || effects.e > 0 || effects.cl > 0 ? /* @__PURE__ */ React.createElement("div", { style: { display: "flex", gap: 8 } }, [{ icon: "\u2764\uFE0F", v: effects.h, sign: "+" }, { icon: "\u26A1", v: effects.e, sign: "\u2212" }, { icon: "\u{1F9FC}", v: effects.cl, sign: "\u2212" }].map(({ icon, v, sign }) => /* @__PURE__ */ React.createElement("div", { key: icon, style: { fontFamily: F.game, fontSize: 10, color: "rgba(255,255,255,0.7)", fontWeight: 800 } }, sign, Math.round(v), icon))) : /* @__PURE__ */ React.createElement("div", { style: { fontFamily: F.game, fontSize: 9, color: "rgba(255,255,255,0.3)", fontWeight: 700 } }, "\u0110\u1EB7t kh\u1ED1i \u0111\u1EC3 b\u1EAFt \u0111\u1EA7u")), /* @__PURE__ */ React.createElement("button", { onClick: doExit, style: {
+      background: "rgba(255,255,255,0.10)",
+      border: "1.5px solid rgba(255,255,255,0.2)",
+      borderRadius: 10,
+      padding: "6px 12px",
+      cursor: "pointer",
+      fontFamily: F.game,
+      fontWeight: 900,
+      fontSize: 11,
+      color: "white"
+    } }, "Tho\xE1t")), /* @__PURE__ */ React.createElement("div", { ref: gridRef, style: {
+      background: "rgba(0,0,0,0.35)",
+      borderRadius: 14,
+      padding: 4,
+      flexShrink: 0,
+      display: "grid",
+      gridTemplateColumns: `repeat(${GRID},${CELL}px)`,
+      gridTemplateRows: `repeat(${GRID},${CELL}px)`,
+      gap: 2
+    } }, Array.from({ length: GRID * GRID }, (_, idx) => {
+      const r = Math.floor(idx / GRID), c = idx % GRID;
+      const key = `${r},${c}`;
+      const cell = grid[r][c];
+      const isFlash = flash.has(key);
+      const isGhost = !cell && ghostCells.has(key);
+      const isValid = !cell && sel !== null && validCells.has(key);
+      return /* @__PURE__ */ React.createElement(
+        "div",
+        {
+          key,
+          onClick: () => handleCellTap(r, c),
+          onMouseEnter: () => {
+            if (sel !== null) setGhostPos({ r, c });
+          },
+          onMouseLeave: () => setGhostPos(null),
+          style: {
+            width: CELL,
+            height: CELL,
+            borderRadius: 5,
+            cursor: sel !== null ? "pointer" : "default",
+            background: isFlash ? "#FFD700" : cell ? `linear-gradient(135deg,${cell.bg},rgba(120,210,255,0.45) 55%,${cell.bg}99)` : isGhost ? (selPiece?.rar.bg || "#fff") + "66" : isValid ? "rgba(255,255,255,0.09)" : "rgba(255,255,255,0.03)",
+            border: cell ? `1.5px solid rgba(180,235,255,0.85)` : isGhost ? `1.5px solid ${selPiece?.rar.bg || "#fff"}` : isValid ? "1px dashed rgba(255,255,255,0.22)" : "1px solid rgba(255,255,255,0.05)",
+            boxShadow: cell ? `inset 0 0 ${CELL * 0.3}px rgba(80,180,255,0.35), 0 2px 6px rgba(0,0,0,0.3)` : "none",
+            position: "relative",
+            animation: isFlash ? "blockClear 0.35s ease-out forwards" : cell ? "blockPlace 0.18s ease-out" : "none",
+            transition: "background 0.08s",
+            overflow: "hidden"
+          }
+        },
+        cell && /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { style: {
+          position: "absolute",
+          inset: 0,
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          paddingBottom: CELL * 0.18
+        } }, /* @__PURE__ */ React.createElement(
+          PouPet,
+          {
+            petData: state.petData,
+            size: Math.round(CELL * 0.8),
+            bounce: false,
+            mood: 55,
+            cleanLevel: 100,
+            isSleeping: false,
+            eyeOffset: { x: 0, y: 0 }
+          }
+        )), /* @__PURE__ */ React.createElement("svg", { style: { position: "absolute", inset: 0, width: "100%", height: "100%", pointerEvents: "none", opacity: 0.28 }, viewBox: "0 0 38 38" }, /* @__PURE__ */ React.createElement("line", { x1: "4", y1: "3", x2: "11", y2: "13", stroke: "white", strokeWidth: "0.9" }), /* @__PURE__ */ React.createElement("line", { x1: "11", y1: "13", x2: "7", y2: "21", stroke: "white", strokeWidth: "0.65" }), /* @__PURE__ */ React.createElement("line", { x1: "11", y1: "13", x2: "17", y2: "17", stroke: "white", strokeWidth: "0.65" }), /* @__PURE__ */ React.createElement("line", { x1: "31", y1: "29", x2: "25", y2: "21", stroke: "white", strokeWidth: "0.8" }), /* @__PURE__ */ React.createElement("line", { x1: "25", y1: "21", x2: "29", y2: "15", stroke: "white", strokeWidth: "0.55" }), /* @__PURE__ */ React.createElement("line", { x1: "25", y1: "21", x2: "20", y2: "26", stroke: "white", strokeWidth: "0.55" })), /* @__PURE__ */ React.createElement("div", { style: {
+          position: "absolute",
+          inset: 0,
+          background: "linear-gradient(160deg,rgba(180,235,255,0.30) 0%,rgba(80,170,255,0.12) 45%,transparent 70%)",
+          pointerEvents: "none"
+        } }), /* @__PURE__ */ React.createElement("span", { style: {
+          position: "absolute",
+          bottom: 2,
+          left: 0,
+          right: 0,
+          textAlign: "center",
+          fontFamily: F.game,
+          fontSize: Math.max(7, CELL * 0.21),
+          fontWeight: 900,
+          color: "white",
+          lineHeight: 1,
+          textShadow: "0 1px 4px rgba(0,80,180,0.9),0 0 6px rgba(0,160,255,0.7)"
+        } }, cell.pts)),
+        isGhost && /* @__PURE__ */ React.createElement("div", { style: { opacity: 0.55, display: "flex", alignItems: "center", justifyContent: "center", width: "100%", height: "100%" } }, /* @__PURE__ */ React.createElement(
+          PouPet,
+          {
+            petData: state.petData,
+            size: Math.round(CELL * 0.72),
+            bounce: false,
+            mood: 55,
+            cleanLevel: 100,
+            isSleeping: false,
+            eyeOffset: { x: 0, y: 0 }
+          }
+        ))
+      );
+    })), /* @__PURE__ */ React.createElement("div", { style: { width: "100%", display: "flex", gap: 8, justifyContent: "center", flexShrink: 0 } }, pieces.map((piece, i) => /* @__PURE__ */ React.createElement(
+      "div",
+      {
+        key: i,
+        onClick: () => {
+          if (piece && !isDragging) setSel(i === sel ? null : i);
+        },
+        onTouchStart: (e) => {
+          if (!piece || gameOver) return;
+          e.preventDefault();
+          const t = e.touches[0];
+          setSel(i);
+          setDragIdx(i);
+          setDragPos({ x: t.clientX, y: t.clientY });
+          setIsDragging(true);
+        },
+        style: {
+          flex: 1,
+          minHeight: compact ? 52 : 68,
+          maxWidth: 115,
+          background: piece ? "rgba(255,255,255,0.07)" : "rgba(0,0,0,0.25)",
+          borderRadius: 14,
+          border: `2px solid ${i === sel && piece ? "#B4FF00" : "rgba(255,255,255,0.13)"}`,
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          cursor: piece ? "pointer" : "default",
+          transform: i === sel && piece ? "scale(1.07)" : "scale(1)",
+          transition: "transform 0.12s,border 0.12s,box-shadow 0.12s,opacity 0.12s",
+          boxShadow: i === sel && piece ? "0 0 18px #B4FF0044" : "none",
+          opacity: isDragging && dragIdx === i ? 0.3 : 1,
+          touchAction: "none",
+          padding: 6,
+          position: "relative"
+        }
+      },
+      piece ? /* @__PURE__ */ React.createElement("div", { style: {
+        display: "grid",
+        gridTemplateColumns: `repeat(${piece.shape[0].length},16px)`,
+        gridTemplateRows: `repeat(${piece.shape.length},16px)`,
+        gap: 2
+      } }, piece.shape.flatMap((row, r) => row.map((on, c) => /* @__PURE__ */ React.createElement("div", { key: `${r},${c}`, style: {
+        width: 16,
+        height: 16,
+        borderRadius: 4,
+        background: on ? `linear-gradient(135deg,${piece.rar.bg},rgba(140,215,255,0.5) 60%,${piece.rar.bg}88)` : "transparent",
+        border: on ? `1px solid rgba(180,235,255,0.8)` : "none",
+        boxShadow: on ? `inset 0 0 5px rgba(80,180,255,0.4)` : "none",
+        overflow: "hidden",
+        position: "relative",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center"
+      } }, on && /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement(
+        PouPet,
+        {
+          petData: state.petData,
+          size: 13,
+          bounce: false,
+          mood: 55,
+          cleanLevel: 100,
+          isSleeping: false,
+          eyeOffset: { x: 0, y: 0 }
+        }
+      ), /* @__PURE__ */ React.createElement("div", { style: { position: "absolute", inset: 0, background: "rgba(100,200,255,0.22)", pointerEvents: "none" } })))))) : /* @__PURE__ */ React.createElement("span", { style: { fontSize: 18, opacity: 0.25 } }, "\u2713"),
+      piece && /* @__PURE__ */ React.createElement("div", { style: {
+        position: "absolute",
+        top: 4,
+        right: 5,
+        fontFamily: F.game,
+        fontSize: 7,
+        fontWeight: 900,
+        color: piece.rar.bg,
+        textShadow: `0 0 6px ${piece.rar.bg}`
+      } }, piece.rar.name === "epic" ? "EPIC" : piece.rar.name === "rare" ? "RARE" : "")
+    ))), /* @__PURE__ */ React.createElement("div", { style: {
+      fontFamily: F.game,
+      fontSize: 10,
+      color: "rgba(255,255,255,0.35)",
+      textAlign: "center",
+      flexShrink: 0
+    } }, gameOver ? "" : sel === null ? "\u270B Gi\u1EEF & k\xE9o kh\u1ED1i l\xEAn b\u1EA3ng" : isDragging ? "\u2B06\uFE0F Th\u1EA3 \u0111\u1EC3 \u0111\u1EB7t kh\u1ED1i" : "\u{1F446} K\xE9o ho\u1EB7c ch\u1EA1m \xF4 \u0111\u1EC3 \u0111\u1EB7t"), isDragging && dragIdx !== null && pieces[dragIdx] && (() => {
+      const p = pieces[dragIdx];
+      const cols = p.shape[0].length;
+      const rows = p.shape.length;
+      const CS = CELL;
+      return /* @__PURE__ */ React.createElement("div", { style: {
+        position: "fixed",
+        left: dragPos.x,
+        top: dragPos.y - LIFT,
+        transform: "translate(-50%,-50%) scale(1.22)",
+        pointerEvents: "none",
+        zIndex: 1e3,
+        filter: `drop-shadow(0 6px 18px ${p.rar.bg}88)`
+      } }, /* @__PURE__ */ React.createElement("div", { style: {
+        display: "grid",
+        gridTemplateColumns: `repeat(${cols},${CS}px)`,
+        gridTemplateRows: `repeat(${rows},${CS}px)`,
+        gap: 2,
+        background: "rgba(0,0,0,0.45)",
+        borderRadius: 10,
+        padding: 4
+      } }, p.shape.flatMap((row, r) => row.map((on, c) => /* @__PURE__ */ React.createElement("div", { key: `${r},${c}`, style: {
+        width: CS,
+        height: CS,
+        borderRadius: 5,
+        background: on ? `linear-gradient(135deg,${p.rar.bg},rgba(140,215,255,0.5) 60%,${p.rar.bg}88)` : "transparent",
+        border: on ? "1.5px solid rgba(180,235,255,0.85)" : "none",
+        boxShadow: on ? `inset 0 0 ${CS * 0.3}px rgba(80,180,255,0.35)` : "none",
+        overflow: "hidden",
+        position: "relative",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center"
+      } }, on && /* @__PURE__ */ React.createElement(
+        PouPet,
+        {
+          petData: state.petData,
+          size: Math.round(CS * 0.8),
+          bounce: false,
+          mood: 55,
+          cleanLevel: 100,
+          isSleeping: false,
+          eyeOffset: { x: 0, y: 0 }
+        }
+      ))))));
+    })(), gameOver && /* @__PURE__ */ React.createElement("div", { style: {
+      position: "absolute",
+      inset: 0,
+      background: "rgba(0,0,0,0.82)",
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      justifyContent: "center",
+      zIndex: 50,
+      gap: 14,
+      padding: 24
+    } }, /* @__PURE__ */ React.createElement("div", { style: { textAlign: "center" } }, /* @__PURE__ */ React.createElement("div", { style: { fontSize: 56, lineHeight: 1 } }, "\u{1F635}"), /* @__PURE__ */ React.createElement("div", { style: { fontFamily: F.game, fontWeight: 900, fontSize: 24, color: "white", marginTop: 8 } }, "Game Over!"), /* @__PURE__ */ React.createElement("div", { style: { fontFamily: F.game, fontSize: 15, color: "#FFD700", marginTop: 4 } }, score.toLocaleString(), " \u0111i\u1EC3m \u{1FA99}")), /* @__PURE__ */ React.createElement("div", { style: {
+      background: "rgba(255,255,255,0.09)",
+      borderRadius: 18,
+      padding: "14px 28px",
+      textAlign: "center",
+      width: "100%",
+      maxWidth: 280
+    } }, /* @__PURE__ */ React.createElement("div", { style: { fontFamily: F.game, fontWeight: 900, fontSize: 11, color: "#888", marginBottom: 10 } }, "Hi\u1EC7u \u1EE9ng cho pet"), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", gap: 0, justifyContent: "space-around" } }, [
+      { icon: "\u2764\uFE0F", v: `+${Math.max(0, Math.round(effects.h))}`, col: "#EF9A9A" },
+      { icon: "\u26A1", v: `\u2212${Math.max(0, Math.round(effects.e))}`, col: "#FFF176" },
+      { icon: "\u{1F9FC}", v: `\u2212${Math.max(0, Math.round(effects.cl))}`, col: "#80D8FF" },
+      { icon: "\u{1FA99}", v: `+${score}`, col: "#FFD700" }
+    ].map(({ icon, v, col }) => /* @__PURE__ */ React.createElement("div", { key: icon, style: { textAlign: "center" } }, /* @__PURE__ */ React.createElement("div", { style: { fontSize: 22 } }, icon), /* @__PURE__ */ React.createElement("div", { style: { fontFamily: F.game, fontWeight: 900, fontSize: 13, color: col } }, v))))), /* @__PURE__ */ React.createElement("button", { onClick: doExit, style: {
+      background: "linear-gradient(135deg,#B4FF00,#00E676)",
+      border: "none",
+      borderRadius: 22,
+      padding: "14px 44px",
+      fontFamily: F.game,
+      fontWeight: 900,
+      fontSize: 16,
+      color: "#1A1A1A",
+      cursor: "pointer",
+      boxShadow: "0 6px 28px rgba(0,200,83,0.45)",
+      animation: "pulseBtn 1.8s ease-in-out infinite"
+    } }, "\u{1F389} Nh\u1EADn th\u01B0\u1EDFng!")));
+  }
+  function WaterBallGame({ state, dispatch, showToast: showToast2, onExit }) {
+    const canvasRef = (0, import_react.useRef)(null);
+    const ballsRef = (0, import_react.useRef)([]);
+    const nextIdRef = (0, import_react.useRef)(0);
+    const scoreRef = (0, import_react.useRef)(0);
+    const gameOverRef = (0, import_react.useRef)(false);
+    const dropXRef = (0, import_react.useRef)(180);
+    const nextTierRef = (0, import_react.useRef)(0);
+    const rafRef = (0, import_react.useRef)(null);
+    const canDropRef = (0, import_react.useRef)(true);
+    const dropTimerRef = (0, import_react.useRef)(null);
+    const mergeSetRef = (0, import_react.useRef)(/* @__PURE__ */ new Set());
+    const effectsRef = (0, import_react.useRef)({ h: 0, e: 0, cl: 0 });
+    const frameRef = (0, import_react.useRef)(0);
+    const stripePatRef = (0, import_react.useRef)(null);
+    const queueRef = (0, import_react.useRef)([]);
+    const [score, setScore] = (0, import_react.useState)(0);
+    const [gameOver, setGameOver] = (0, import_react.useState)(false);
+    const [canDrop, setCanDrop] = (0, import_react.useState)(true);
+    const [nextTier, setNextTier] = (0, import_react.useState)(0);
+    const W = 360, H = 540;
+    const CONT_TOP_Y = 82;
+    const CONT_BOT_Y = 458;
+    const CONT_TLL = 22;
+    const CONT_TRL = 338;
+    const CONT_BLL = 90;
+    const CONT_BRL = 270;
+    const FLOOR = CONT_BOT_Y;
+    const WALL_L = CONT_TLL;
+    const WALL_R = CONT_TRL;
+    const DANGER_Y = CONT_TOP_Y;
+    const WALL_W = 18;
+    const LWALL_DX = CONT_BLL - CONT_TLL;
+    const LWALL_DY = CONT_BOT_Y - CONT_TOP_Y;
+    const LWALL_LEN = Math.sqrt(LWALL_DX * LWALL_DX + LWALL_DY * LWALL_DY);
+    const LWALL_NX = LWALL_DY / LWALL_LEN;
+    const LWALL_NY = -LWALL_DX / LWALL_LEN;
+    const GRAVITY = 0.3;
+    const FRICTION = 0.982;
+    const DAMPING = 0.72;
+    const wlighten = (hex, amt) => {
+      const n = parseInt((hex || "#888888").replace("#", ""), 16);
+      const r = Math.min(255, (n >> 16 & 255) + Math.round(255 * amt));
+      const g = Math.min(255, (n >> 8 & 255) + Math.round(255 * amt));
+      const b = Math.min(255, (n & 255) + Math.round(255 * amt));
+      return `rgb(${r},${g},${b})`;
+    };
+    const randNextTier = () => Math.floor(Math.random() * 4);
+    const makeBall = (x, y, tier, vx = 0, vy = 0, flash = 0) => ({
+      id: nextIdRef.current++,
+      x,
+      y,
+      vx,
+      vy,
+      r: WATER_TIERS[tier].r,
+      tier,
+      flash,
+      wobble: 0,
+      wobbleV: 0,
+      ripple: 0,
+      contacts: [],
+      // visual contact deformation list (computed end of step)
+      /* pet floats freely inside the bag */
+      petX: (Math.random() - 0.5) * 4,
+      petY: (Math.random() - 0.5) * 4,
+      petVX: (Math.random() - 0.5) * 0.4,
+      petVY: (Math.random() - 0.5) * 0.4,
+      /* anger: rises on hard fall / being squeezed, decays over time */
+      anger: 0,
+      /* spin: tumbles when angry/thrown */
+      petAngle: 0,
+      petAngleV: 0,
+      /* idle phase — unique per ball for natural variety */
+      petIdleT: Math.random() * Math.PI * 2,
+      /* escape: countdown to next dash toward the ball wall */
+      escapeTimer: Math.floor(Math.random() * 100 + 60)
+    });
+    const addBall = (x, tier) => {
+      ballsRef.current.push(makeBall(x, DANGER_Y + WATER_TIERS[tier].r + 4, tier));
+    };
+    const blobPath = (ctx, r, contacts, wobble) => {
+      const N = 14;
+      const pts = [];
+      for (let i = 0; i < N; i++) {
+        const angle = i / N * Math.PI * 2;
+        let px = Math.cos(angle) * r;
+        let py = Math.sin(angle) * r;
+        for (const c of contacts) {
+          const dot = px / r * c.nx + py / r * c.ny;
+          if (dot < 0) {
+            const sq = -dot * c.str * r * 0.22;
+            px += c.nx * sq;
+            py += c.ny * sq;
+          } else if (dot > 0) {
+            const bl = dot * c.str * 0.11;
+            px *= 1 + bl;
+            py *= 1 + bl;
+          }
+        }
+        if (Math.abs(wobble) > 5e-3) {
+          const w = Math.max(-0.36, Math.min(0.44, wobble));
+          px *= 1 + w * Math.cos(angle) * Math.cos(angle);
+          py *= 1 - w * Math.sin(angle) * Math.sin(angle) * 0.65;
+        }
+        py += py / r * r * 0.028;
+        pts.push({ x: px, y: py });
+      }
+      ctx.beginPath();
+      ctx.moveTo(pts[0].x, pts[0].y);
+      for (let i = 0; i < N; i++) {
+        const p0 = pts[(i - 1 + N) % N], p1 = pts[i], p2 = pts[(i + 1) % N], p3 = pts[(i + 2) % N];
+        ctx.bezierCurveTo(
+          p1.x + (p2.x - p0.x) / 6,
+          p1.y + (p2.y - p0.y) / 6,
+          p2.x - (p3.x - p1.x) / 6,
+          p2.y - (p3.y - p1.y) / 6,
+          p2.x,
+          p2.y
+        );
+      }
+      ctx.closePath();
+    };
+    const drawPetInBall = (ctx, petData, ball) => {
+      const {
+        r,
+        petX = 0,
+        petY = 0,
+        anger = 0,
+        petAngle = 0,
+        petIdleT = 0,
+        contacts = [],
+        vy = 0,
+        petVX = 0,
+        petVY = 0,
+        flash = 0,
+        petAngleV = 0
+      } = ball;
+      const { drawnPath, color = "#C8956C", eyeLeft, eyeRight, mouth, mouthType = "smile" } = petData || {};
+      const pts = drawnPath || DEFAULT_PATH;
+      const petSize = r * 1.18;
+      const gravityY = r * 0.1;
+      let expr = "normal";
+      if (flash > 0.2) expr = "happy";
+      else if (Math.abs(petAngleV) > 0.13) expr = "dizzy";
+      else if (anger > 0.3) expr = "angry";
+      else if (vy > 4.5 && anger < 0.3) expr = "scared";
+      else if (contacts.length >= 3 && anger < 0.3) expr = "squished";
+      const blinkPhase = Math.sin(petIdleT * 0.38);
+      const isBlinking = blinkPhase > 0.92 && expr === "normal";
+      const breathScale = 1 + Math.sin(petIdleT * 0.22) * 0.025;
+      ctx.save();
+      ctx.translate(petX, gravityY + petY);
+      ctx.rotate(petAngle);
+      ctx.scale(breathScale, breathScale);
+      const tx = (nx) => (nx - 0.5) * petSize;
+      const ty = (ny) => (ny - 0.5) * petSize;
+      const n = pts.length;
+      if (n >= 3) {
+        ctx.beginPath();
+        ctx.moveTo(tx(pts[0].x), ty(pts[0].y));
+        for (let i = 0; i < n; i++) {
+          const p0 = pts[(i - 1 + n) % n], p1 = pts[i], p2 = pts[(i + 1) % n], p3 = pts[(i + 2) % n];
+          ctx.bezierCurveTo(
+            tx(p1.x) + (tx(p2.x) - tx(p0.x)) / 6,
+            ty(p1.y) + (ty(p2.y) - ty(p0.y)) / 6,
+            tx(p2.x) - (tx(p3.x) - tx(p1.x)) / 6,
+            ty(p2.y) - (ty(p3.y) - ty(p1.y)) / 6,
+            tx(p2.x),
+            ty(p2.y)
+          );
+        }
+        ctx.closePath();
+        ctx.fillStyle = color;
+        ctx.fill();
+        ctx.fillStyle = "rgba(255,255,255,0.16)";
+        ctx.fill();
+        ctx.strokeStyle = "rgba(0,0,0,0.48)";
+        ctx.lineWidth = Math.max(0.8, r * 0.022);
+        ctx.lineJoin = "round";
+        ctx.stroke();
+      }
+      const EL = eyeLeft || { x: 0.36, y: 0.4 };
+      const ER = eyeRight || { x: 0.64, y: 0.4 };
+      const MO = mouth || { x: 0.5, y: 0.62 };
+      const eyeR = Math.max(petSize * 0.1, 1.8);
+      const pupR = eyeR * 0.5;
+      const eSW = Math.max(1, eyeR * 0.13);
+      const mSW = Math.max(1, petSize * 0.013);
+      const pfx = expr === "normal" ? Math.max(-pupR * 0.5, Math.min(pupR * 0.5, petVX * 0.9)) : 0;
+      const pfy = expr === "normal" ? Math.max(-pupR * 0.5, Math.min(pupR * 0.5, petVY * 0.9)) : 0;
+      const ea = (enx, eny) => ({ ex: tx(enx), ey: ty(eny), bs: enx > 0.5 ? 1 : -1 });
+      const drawBlush = (ex, ey, bs) => {
+        ctx.beginPath();
+        ctx.ellipse(ex + bs * eyeR * 2.2, ey + eyeR * 0.8, eyeR * 1.4, eyeR * 0.8, 0, 0, Math.PI * 2);
+        ctx.fillStyle = "rgba(255,155,178,0.32)";
+        ctx.fill();
+      };
+      const drawBaseEye = (ex, ey, eScale = 1, pupScale = 1, pox = 0, poy = 0) => {
+        ctx.beginPath();
+        ctx.arc(ex, ey, eyeR * eScale, 0, Math.PI * 2);
+        ctx.fillStyle = "white";
+        ctx.fill();
+        ctx.strokeStyle = "rgba(0,0,0,0.82)";
+        ctx.lineWidth = eSW;
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.arc(ex + pfx + pox, ey + pfy + poy, pupR * pupScale, 0, Math.PI * 2);
+        ctx.fillStyle = "#1A1A2E";
+        ctx.fill();
+        ctx.beginPath();
+        ctx.arc(ex + pfx + pox - pupR * 0.35, ey + pfy + poy - pupR * 0.4, pupR * 0.25, 0, Math.PI * 2);
+        ctx.fillStyle = "white";
+        ctx.fill();
+      };
+      const eyeNormal = (enx, eny) => {
+        const { ex, ey, bs } = ea(enx, eny);
+        drawBlush(ex, ey, bs);
+        if (isBlinking) {
+          ctx.beginPath();
+          ctx.moveTo(ex - eyeR * 0.8, ey);
+          ctx.lineTo(ex + eyeR * 0.8, ey);
+          ctx.strokeStyle = "rgba(0,0,0,0.82)";
+          ctx.lineWidth = Math.max(1.5, eyeR * 0.18);
+          ctx.lineCap = "round";
+          ctx.stroke();
+        } else {
+          drawBaseEye(ex, ey);
+        }
+      };
+      const eyeAngry = (enx, eny) => {
+        const { ex, ey } = ea(enx, eny);
+        ctx.beginPath();
+        ctx.ellipse(ex, ey, eyeR, eyeR * 0.48, 0, 0, Math.PI * 2);
+        ctx.fillStyle = "white";
+        ctx.fill();
+        ctx.strokeStyle = "rgba(0,0,0,0.82)";
+        ctx.lineWidth = eSW;
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.arc(ex, ey, pupR * 0.68, 0, Math.PI * 2);
+        ctx.fillStyle = "#1A1A2E";
+        ctx.fill();
+        ctx.beginPath();
+        ctx.arc(ex - pupR * 0.35, ey - pupR * 0.4, pupR * 0.25, 0, Math.PI * 2);
+        ctx.fillStyle = "white";
+        ctx.fill();
+      };
+      const eyeScared = (enx, eny) => {
+        const { ex, ey, bs } = ea(enx, eny);
+        drawBlush(ex, ey, bs);
+        const tr = Math.sin(petIdleT * 2.8) * eyeR * 0.06;
+        drawBaseEye(ex + tr, ey, 1.28, 0.45, 0, 0);
+      };
+      const eyeHappy = (enx, eny) => {
+        const { ex, ey } = ea(enx, eny);
+        ctx.fillStyle = "#FFD700";
+        ctx.strokeStyle = "rgba(0,0,0,0.50)";
+        ctx.lineWidth = eSW;
+        ctx.beginPath();
+        for (let k = 0; k < 5; k++) {
+          const a1 = k / 5 * Math.PI * 2 - Math.PI / 2, a2 = (k + 0.5) / 5 * Math.PI * 2 - Math.PI / 2;
+          k === 0 ? ctx.moveTo(ex + Math.cos(a1) * eyeR * 1.05, ey + Math.sin(a1) * eyeR * 1.05) : ctx.lineTo(ex + Math.cos(a1) * eyeR * 1.05, ey + Math.sin(a1) * eyeR * 1.05);
+          ctx.lineTo(ex + Math.cos(a2) * eyeR * 0.4, ey + Math.sin(a2) * eyeR * 0.4);
+        }
+        ctx.closePath();
+        ctx.fill();
+        ctx.stroke();
+      };
+      const eyeDizzy = (enx, eny) => {
+        const { ex, ey } = ea(enx, eny);
+        ctx.strokeStyle = "rgba(0,0,0,0.82)";
+        ctx.lineWidth = Math.max(1.5, eyeR * 0.36);
+        ctx.lineCap = "round";
+        ctx.beginPath();
+        ctx.moveTo(ex - eyeR * 0.75, ey - eyeR * 0.75);
+        ctx.lineTo(ex + eyeR * 0.75, ey + eyeR * 0.75);
+        ctx.moveTo(ex + eyeR * 0.75, ey - eyeR * 0.75);
+        ctx.lineTo(ex - eyeR * 0.75, ey + eyeR * 0.75);
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.arc(ex, ey, eyeR * 0.18, 0, Math.PI * 2);
+        ctx.fillStyle = "rgba(255,255,255,0.60)";
+        ctx.fill();
+      };
+      const eyeSquished = (enx, eny) => {
+        const { ex, ey } = ea(enx, eny);
+        ctx.beginPath();
+        ctx.moveTo(ex - eyeR * 0.8, ey);
+        ctx.lineTo(ex + eyeR * 0.8, ey);
+        ctx.strokeStyle = "rgba(0,0,0,0.82)";
+        ctx.lineWidth = Math.max(1.5, eyeR * 0.18);
+        ctx.lineCap = "round";
+        ctx.stroke();
+      };
+      const drawEye = expr === "angry" ? eyeAngry : expr === "scared" ? eyeScared : expr === "happy" ? eyeHappy : expr === "dizzy" ? eyeDizzy : expr === "squished" ? eyeSquished : eyeNormal;
+      drawEye(EL.x, EL.y);
+      drawEye(ER.x, ER.y);
+      const mx = tx(MO.x), my = ty(MO.y), mR = petSize * 0.09;
+      ctx.strokeStyle = "rgba(0,0,0,0.82)";
+      ctx.lineWidth = mSW;
+      ctx.lineCap = "round";
+      if (mouthType === "big") {
+        ctx.beginPath();
+        ctx.moveTo(mx - mR * 1.2, my - mR * 0.2);
+        ctx.quadraticCurveTo(mx, my + mR * 1.5, mx + mR * 1.2, my - mR * 0.2);
+        ctx.fillStyle = "#8B2020";
+        ctx.fill();
+        ctx.stroke();
+      } else if (mouthType === "flat") {
+        ctx.beginPath();
+        ctx.moveTo(mx - mR, my);
+        ctx.lineTo(mx + mR, my);
+        ctx.stroke();
+      } else if (mouthType === "sad") {
+        ctx.beginPath();
+        ctx.moveTo(mx - mR, my + mR * 0.4);
+        ctx.quadraticCurveTo(mx, my - mR * 0.6, mx + mR, my + mR * 0.4);
+        ctx.stroke();
+      } else {
+        ctx.beginPath();
+        ctx.moveTo(mx - mR, my);
+        ctx.quadraticCurveTo(mx, my + mR * 1.2, mx + mR, my);
+        ctx.stroke();
+      }
+      ctx.restore();
+    };
+    const drawBall = (ctx, b, petData, alpha = 1) => {
+      const t = WATER_TIERS[b.tier];
+      const { x, y, r, wobble, contacts } = b;
+      const spd = Math.sqrt(b.vx * b.vx + b.vy * b.vy);
+      let velSX = 1, velSY = 1;
+      if (spd > 1.2) {
+        const st = Math.min(spd * 0.013, 0.26);
+        const vf = Math.abs(b.vy) / spd;
+        velSY = 1 + st * vf;
+        velSX = 1 / velSY;
+      }
+      ctx.save();
+      if (alpha < 1) ctx.globalAlpha = alpha;
+      ctx.translate(x, y);
+      ctx.scale(velSX, velSY);
+      ctx.save();
+      ctx.translate(3, 4);
+      blobPath(ctx, r, contacts, wobble);
+      ctx.fillStyle = "rgba(0,0,0,0.22)";
+      ctx.fill();
+      ctx.restore();
+      blobPath(ctx, r, contacts, wobble);
+      ctx.fillStyle = t.color;
+      ctx.fill();
+      ctx.save();
+      blobPath(ctx, r, contacts, wobble);
+      ctx.clip();
+      const flat = ctx.createLinearGradient(0, -r, 0, r);
+      flat.addColorStop(0, "rgba(255,255,255,0.08)");
+      flat.addColorStop(0.5, "rgba(0,0,0,0)");
+      flat.addColorStop(1, "rgba(0,0,0,0.22)");
+      ctx.fillStyle = flat;
+      ctx.fillRect(-r, -r, r * 2, r * 2);
+      const sloshX = Math.max(-r * 0.28, Math.min(r * 0.28, b.vx * 0.9));
+      ctx.beginPath();
+      ctx.moveTo(-r * 0.88, r * 0.28 + sloshX * 0.12);
+      for (let px = -r * 0.88; px <= r * 0.88; px += 4) {
+        ctx.lineTo(px, r * 0.28 + Math.sin(px * 0.1) * 2.2 + sloshX * 0.14);
+      }
+      ctx.strokeStyle = "rgba(255,255,255,0.18)";
+      ctx.lineWidth = 1.8;
+      ctx.stroke();
+      drawPetInBall(ctx, petData, b);
+      ctx.restore();
+      blobPath(ctx, r, contacts, wobble);
+      ctx.strokeStyle = "rgba(0,0,0,0.55)";
+      ctx.lineWidth = Math.max(1.8, r * 0.055);
+      ctx.lineJoin = "round";
+      ctx.stroke();
+      ctx.beginPath();
+      ctx.ellipse(-r * 0.22, -r * 0.44, r * 0.22, r * 0.1, -0.4, 0, Math.PI * 2);
+      ctx.fillStyle = "rgba(255,255,255,0.62)";
+      ctx.fill();
+      ctx.beginPath();
+      ctx.arc(-r * 0.08, -r * 0.64, r * 0.07, 0, Math.PI * 2);
+      ctx.fillStyle = "rgba(255,255,255,0.38)";
+      ctx.fill();
+      ctx.restore();
+      if (b.flash > 0) {
+        const fRad = r * Math.max(velSX, velSY) + 9 * (1 - b.flash);
+        ctx.beginPath();
+        ctx.arc(x, y, fRad, 0, Math.PI * 2);
+        ctx.strokeStyle = `rgba(255,255,180,${b.flash * 0.82})`;
+        ctx.lineWidth = 7 * b.flash;
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.arc(x, y, fRad * 0.5, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(255,255,255,${b.flash * 0.16})`;
+        ctx.fill();
+      }
+      if (b.ripple > 0) {
+        ctx.beginPath();
+        ctx.ellipse(x, CONT_BOT_Y - 2, r * velSX * (1.28 + (1 - b.ripple) * 0.45), 6 * b.ripple, 0, 0, Math.PI * 2);
+        ctx.strokeStyle = `rgba(120,200,255,${b.ripple * 0.48})`;
+        ctx.lineWidth = 2.5 * b.ripple;
+        ctx.stroke();
+      }
+    };
+    const step = (0, import_react.useCallback)(() => {
+      const balls = ballsRef.current;
+      for (const b of balls) {
+        b.wobbleV += -0.28 * b.wobble;
+        b.wobble += b.wobbleV;
+        b.wobbleV *= 0.8;
+        if (b.ripple > 0) b.ripple = Math.max(0, b.ripple - 0.036);
+        const INNER_R = b.r * 0.36;
+        b.petVX += b.vx * 0.018 + (Math.random() - 0.5) * 0.04;
+        b.petVY += 0.045 + b.vy * 0.018;
+        b.petVX *= 0.94;
+        b.petVY *= 0.94;
+        b.petX += b.petVX;
+        b.petY += b.petVY;
+        const pd = Math.sqrt(b.petX * b.petX + b.petY * b.petY);
+        if (pd > INNER_R) {
+          const pnx = b.petX / pd, pny = b.petY / pd;
+          b.petX = pnx * INNER_R;
+          b.petY = pny * INNER_R;
+          const bounce = b.petVX * pnx + b.petVY * pny;
+          b.petVX -= pnx * bounce * 1.55;
+          b.petVY -= pny * bounce * 1.55;
+        }
+        b.escapeTimer = (b.escapeTimer || 80) - 1;
+        if (b.escapeTimer <= 0) {
+          const eA = Math.random() * Math.PI * 2;
+          const eStr = b.r * 0.2;
+          b.petVX += Math.cos(eA) * eStr;
+          b.petVY += Math.sin(eA) * eStr * 0.75 - eStr * 0.25;
+          b.escapeTimer = Math.floor(Math.random() * 110 + 70);
+        }
+        const fallStress = Math.max(0, b.vy - 3.5) * 0.06;
+        const squishStress = b.contacts.length * 0.035;
+        b.anger = Math.min(1, b.anger + fallStress + squishStress);
+        b.anger *= 0.965;
+        b.petAngleV += (Math.random() - 0.5) * b.anger * 0.12;
+        b.petAngleV *= 0.88;
+        b.petAngle += b.petAngleV;
+        b.petIdleT = (b.petIdleT || 0) + 0.045;
+        b.vy += GRAVITY;
+        b.vx *= FRICTION;
+        b.vy *= FRICTION;
+        b.x += b.vx;
+        b.y += b.vy;
+        if (b.y + b.r > FLOOR) {
+          b.y = FLOOR - b.r;
+          const imp = Math.abs(b.vy);
+          b.vy *= -DAMPING;
+          b.vx *= 0.88;
+          if (imp > 1.8) {
+            b.wobble = Math.min(0.46, imp * 0.03);
+            b.wobbleV = -0.055;
+            b.ripple = Math.min(1, imp * 0.1);
+            b.anger = Math.min(1, b.anger + imp * 0.08);
+            b.petAngleV += (Math.random() > 0.5 ? 1 : -1) * imp * 0.06;
+          }
+        }
+        if (b.y > CONT_TOP_Y - b.r && b.y < CONT_BOT_Y + b.r) {
+          const t = Math.max(0, Math.min(1, (b.y - CONT_TOP_Y) / (CONT_BOT_Y - CONT_TOP_Y)));
+          const lx = CONT_TLL + LWALL_DX * t;
+          const rx = CONT_TRL - LWALL_DX * t;
+          if (b.x - b.r < lx) {
+            b.x = lx + b.r;
+            const vn = b.vx * LWALL_NX + b.vy * LWALL_NY;
+            if (vn < 0) {
+              const imp = Math.abs(vn);
+              b.vx -= (1 + DAMPING) * vn * LWALL_NX;
+              b.vy -= (1 + DAMPING) * vn * LWALL_NY;
+              b.vx *= 0.9;
+              if (imp > 1.5) {
+                b.wobble = Math.min(0.3, imp * 0.022);
+                b.wobbleV = -0.04;
+                b.anger = Math.min(1, b.anger + imp * 0.06);
+                b.petAngleV += imp * 0.05;
+              }
+            }
+          }
+          if (b.x + b.r > rx) {
+            b.x = rx - b.r;
+            const vn = b.vx * -LWALL_NX + b.vy * LWALL_NY;
+            if (vn < 0) {
+              const imp = Math.abs(vn);
+              b.vx -= (1 + DAMPING) * vn * -LWALL_NX;
+              b.vy -= (1 + DAMPING) * vn * LWALL_NY;
+              b.vx *= 0.9;
+              if (imp > 1.5) {
+                b.wobble = Math.min(0.3, imp * 0.022);
+                b.wobbleV = -0.04;
+                b.anger = Math.min(1, b.anger + imp * 0.06);
+                b.petAngleV -= imp * 0.05;
+              }
+            }
+          }
+        }
+        if (b.flash > 0) b.flash = Math.max(0, b.flash - 0.04);
+      }
+      const toMerge = [];
+      const merged = mergeSetRef.current;
+      merged.clear();
+      for (let i = 0; i < balls.length; i++) {
+        for (let j = i + 1; j < balls.length; j++) {
+          const a = balls[i], bB = balls[j];
+          if (merged.has(a.id) || merged.has(bB.id)) continue;
+          const dx = bB.x - a.x, dy = bB.y - a.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          const minD = a.r + bB.r;
+          if (dist < minD) {
+            if (a.tier === bB.tier && a.tier < WATER_TIERS.length - 1) {
+              toMerge.push([i, j]);
+              merged.add(a.id);
+              merged.add(bB.id);
+            } else {
+              const ov = minD - dist + 0.5;
+              const nx = dist > 0 ? dx / dist : 1, ny = dist > 0 ? dy / dist : 0;
+              a.x -= nx * ov * 0.5;
+              a.y -= ny * ov * 0.5;
+              bB.x += nx * ov * 0.5;
+              bB.y += ny * ov * 0.5;
+              const relV = (bB.vx - a.vx) * nx + (bB.vy - a.vy) * ny;
+              if (relV < 0) {
+                const imp = relV * 0.65;
+                a.vx += imp * nx;
+                a.vy += imp * ny;
+                bB.vx -= imp * nx;
+                bB.vy -= imp * ny;
+                const cI = Math.abs(relV);
+                if (cI > 1) {
+                  a.wobble += cI * 0.016;
+                  bB.wobble += cI * 0.016;
+                  a.anger = Math.min(1, a.anger + cI * 0.05);
+                  bB.anger = Math.min(1, bB.anger + cI * 0.05);
+                  a.petAngleV += (Math.random() > 0.5 ? 1 : -1) * cI * 0.04;
+                  bB.petAngleV += (Math.random() > 0.5 ? 1 : -1) * cI * 0.04;
+                }
+              }
+            }
+          }
+        }
+      }
+      toMerge.sort((a, b) => b[0] - a[0]);
+      let gain = 0;
+      for (const [i, j] of toMerge) {
+        const a = ballsRef.current[i], bB = ballsRef.current[j];
+        const nt = a.tier + 1;
+        const nx = (a.x + bB.x) / 2, ny2 = (a.y + bB.y) / 2;
+        ballsRef.current.splice(Math.max(i, j), 1);
+        ballsRef.current.splice(Math.min(i, j), 1);
+        const nb = makeBall(nx, ny2, nt, (a.vx + bB.vx) * 0.38, (a.vy + bB.vy) * 0.38 - 1.8, 1);
+        nb.wobble = 0.44;
+        nb.wobbleV = -0.07;
+        nb.ripple = 0.9;
+        ballsRef.current.push(nb);
+        gain += WATER_TIERS[nt].pts;
+        effectsRef.current.h += 3;
+        effectsRef.current.e += 1.5;
+        effectsRef.current.cl += 1;
+      }
+      if (gain > 0) {
+        scoreRef.current += gain;
+        setScore(scoreRef.current);
+      }
+      if (!gameOverRef.current) {
+        const danger = ballsRef.current.filter((b) => b.y - b.r < DANGER_Y);
+        if (danger.length > 0 && danger.every((b) => Math.abs(b.vy) < 0.85 && Math.abs(b.vx) < 0.85)) {
+          gameOverRef.current = true;
+          setGameOver(true);
+        }
+      }
+      for (const b of balls) b.contacts = [];
+      for (let i = 0; i < balls.length; i++) {
+        for (let j = i + 1; j < balls.length; j++) {
+          const a = balls[i], bB = balls[j];
+          const dx = bB.x - a.x, dy = bB.y - a.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          const minD = a.r + bB.r;
+          if (dist < minD * 1.05) {
+            const nx = dist > 0 ? dx / dist : 0, ny = dist > 0 ? dy / dist : 1;
+            const str = Math.min(0.82, Math.max(0.18, (minD * 1.02 - dist) / (minD * 0.1)));
+            a.contacts.push({ nx: -nx, ny: -ny, str });
+            bB.contacts.push({ nx, ny, str });
+          }
+        }
+      }
+      for (const b of balls) {
+        const dFloor = FLOOR - (b.y + b.r);
+        if (dFloor < b.r * 0.18) {
+          const str = Math.min(0.75, Math.max(0.2, (b.r * 0.12 - Math.max(0, dFloor)) / (b.r * 0.12)));
+          b.contacts.push({ nx: 0, ny: -1, str });
+        }
+      }
+      for (const b of balls) {
+        const pd2 = Math.sqrt(b.petX * b.petX + b.petY * b.petY);
+        if (pd2 > b.r * 0.26 && pd2 > 0) {
+          const pnx = b.petX / pd2, pny = b.petY / pd2;
+          const pushStr = Math.min(0.28, (pd2 - b.r * 0.26) / (b.r * 0.1));
+          if (pushStr > 0.03) b.contacts.push({ nx: pnx, ny: pny, str: pushStr });
+        }
+      }
+    }, []);
+    const render = (0, import_react.useCallback)(() => {
+      const canvas = canvasRef.current;
+      if (!canvas) return;
+      const ctx = canvas.getContext("2d");
+      const T = ++frameRef.current;
+      ctx.clearRect(0, 0, W, H);
+      ctx.fillStyle = "#EBEBEB";
+      ctx.fillRect(0, 0, W, H);
+      ctx.strokeStyle = "rgba(180,180,180,0.55)";
+      ctx.lineWidth = 0.8;
+      for (let gx = 0; gx <= W; gx += 20) {
+        ctx.beginPath();
+        ctx.moveTo(gx, 0);
+        ctx.lineTo(gx, H);
+        ctx.stroke();
+      }
+      for (let gy = 0; gy <= H; gy += 20) {
+        ctx.beginPath();
+        ctx.moveTo(0, gy);
+        ctx.lineTo(W, gy);
+        ctx.stroke();
+      }
+      if (!stripePatRef.current) {
+        const pc = document.createElement("canvas");
+        pc.width = 10;
+        pc.height = 10;
+        const p2 = pc.getContext("2d");
+        p2.fillStyle = "#ffffff";
+        p2.fillRect(0, 0, 10, 10);
+        p2.fillStyle = "#222222";
+        p2.beginPath();
+        p2.moveTo(0, 0);
+        p2.lineTo(5, 0);
+        p2.lineTo(10, 5);
+        p2.lineTo(10, 10);
+        p2.lineTo(5, 10);
+        p2.lineTo(0, 5);
+        p2.closePath();
+        p2.fill();
+        stripePatRef.current = ctx.createPattern(pc, "repeat");
+      }
+      const pat = stripePatRef.current;
+      ctx.save();
+      ctx.beginPath();
+      ctx.moveTo(CONT_TLL, CONT_TOP_Y);
+      ctx.lineTo(CONT_TRL, CONT_TOP_Y);
+      ctx.lineTo(CONT_BRL, CONT_BOT_Y);
+      ctx.lineTo(CONT_BLL, CONT_BOT_Y);
+      ctx.closePath();
+      ctx.fillStyle = "#F9F9F9";
+      ctx.fill();
+      ctx.restore();
+      ctx.save();
+      ctx.beginPath();
+      ctx.moveTo(CONT_TLL - WALL_W, CONT_TOP_Y);
+      ctx.lineTo(CONT_TLL, CONT_TOP_Y);
+      ctx.lineTo(CONT_BLL, CONT_BOT_Y);
+      ctx.lineTo(CONT_BLL - WALL_W, CONT_BOT_Y);
+      ctx.closePath();
+      ctx.fillStyle = pat;
+      ctx.fill();
+      ctx.strokeStyle = "#111";
+      ctx.lineWidth = 2;
+      ctx.stroke();
+      ctx.restore();
+      ctx.save();
+      ctx.beginPath();
+      ctx.moveTo(CONT_TRL, CONT_TOP_Y);
+      ctx.lineTo(CONT_TRL + WALL_W, CONT_TOP_Y);
+      ctx.lineTo(CONT_BRL + WALL_W, CONT_BOT_Y);
+      ctx.lineTo(CONT_BRL, CONT_BOT_Y);
+      ctx.closePath();
+      ctx.fillStyle = pat;
+      ctx.fill();
+      ctx.strokeStyle = "#111";
+      ctx.lineWidth = 2;
+      ctx.stroke();
+      ctx.restore();
+      ctx.save();
+      ctx.beginPath();
+      ctx.moveTo(CONT_BLL - WALL_W, CONT_BOT_Y);
+      ctx.lineTo(CONT_BRL + WALL_W, CONT_BOT_Y);
+      ctx.lineTo(CONT_BRL + WALL_W, CONT_BOT_Y + 14);
+      ctx.lineTo(CONT_BLL - WALL_W, CONT_BOT_Y + 14);
+      ctx.closePath();
+      ctx.fillStyle = pat;
+      ctx.fill();
+      ctx.strokeStyle = "#111";
+      ctx.lineWidth = 2;
+      ctx.stroke();
+      ctx.restore();
+      ctx.beginPath();
+      ctx.moveTo(CONT_TLL, CONT_TOP_Y);
+      ctx.lineTo(CONT_BLL, CONT_BOT_Y);
+      ctx.moveTo(CONT_TRL, CONT_TOP_Y);
+      ctx.lineTo(CONT_BRL, CONT_BOT_Y);
+      ctx.strokeStyle = "#111";
+      ctx.lineWidth = 2;
+      ctx.stroke();
+      ctx.save();
+      ctx.beginPath();
+      ctx.moveTo(CONT_TLL, DANGER_Y);
+      ctx.lineTo(CONT_TRL, DANGER_Y);
+      ctx.strokeStyle = "#FF3B30";
+      ctx.lineWidth = 1.5;
+      ctx.setLineDash([5, 4]);
+      ctx.stroke();
+      ctx.setLineDash([]);
+      ctx.font = "bold 8px 'Nunito',sans-serif";
+      ctx.fillStyle = "#FF3B30";
+      ctx.textAlign = "right";
+      ctx.textBaseline = "bottom";
+      ctx.fillText("\u26A0 danger", CONT_TRL - 4, DANGER_Y - 1);
+      ctx.restore();
+      ctx.save();
+      ctx.fillStyle = "rgba(0,0,0,0.55)";
+      ctx.beginPath();
+      const hx = 6, hy = 6, hw = 88, hh = 44;
+      ctx.roundRect ? ctx.roundRect(hx, hy, hw, hh, 8) : ctx.rect(hx, hy, hw, hh);
+      ctx.fill();
+      ctx.font = "bold 9px 'Nunito',sans-serif";
+      ctx.fillStyle = "rgba(255,255,255,0.55)";
+      ctx.textAlign = "left";
+      ctx.textBaseline = "top";
+      ctx.fillText("SCORE", hx + 6, hy + 5);
+      ctx.font = "bold 17px 'Nunito',sans-serif";
+      ctx.fillStyle = "#FFD700";
+      ctx.fillText(scoreRef.current.toLocaleString(), hx + 6, hy + 15);
+      ctx.font = "bold 8px 'Nunito',sans-serif";
+      ctx.fillStyle = "rgba(255,255,255,0.40)";
+      ctx.fillText("BEST", hx + 6, hy + 34);
+      ctx.fillStyle = "rgba(255,255,255,0.65)";
+      ctx.fillText(Math.max(scoreRef.current, 0).toLocaleString(), hx + 32, hy + 34);
+      ctx.restore();
+      ctx.save();
+      ctx.fillStyle = "rgba(0,0,0,0.55)";
+      ctx.beginPath();
+      const rx2 = W - 82, ry = 6, rw = 76, rh = 28;
+      ctx.roundRect ? ctx.roundRect(rx2, ry, rw, rh, 8) : ctx.rect(rx2, ry, rw, rh);
+      ctx.fill();
+      ctx.font = "bold 8px 'Nunito',sans-serif";
+      ctx.fillStyle = "rgba(255,255,255,0.55)";
+      ctx.textAlign = "center";
+      ctx.textBaseline = "top";
+      ctx.fillText("GLOBAL", rx2 + rw / 2, ry + 4);
+      ctx.font = "bold 13px 'Nunito',sans-serif";
+      ctx.fillStyle = "#B4FF00";
+      ctx.fillText("#1 \u{1F451}", rx2 + rw / 2, ry + 13);
+      ctx.restore();
+      const petData = state.petData;
+      for (const b of ballsRef.current) drawBall(ctx, b, petData);
+      if (!gameOverRef.current) {
+        const nt = WATER_TIERS[nextTierRef.current];
+        const px = (CONT_TLL + CONT_TRL) / 2;
+        const py = CONT_TOP_Y - nt.r - 10;
+        const aF = canDropRef.current ? 0.8 + Math.sin(T * 0.07) * 0.08 : 0.28;
+        ctx.save();
+        ctx.setLineDash([4, 6]);
+        ctx.strokeStyle = "rgba(0,0,0,0.18)";
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.moveTo(px, py + nt.r);
+        ctx.lineTo(px, CONT_TOP_Y + 10);
+        ctx.stroke();
+        ctx.setLineDash([]);
+        ctx.restore();
+        drawBall(ctx, { x: px, y: py, r: nt.r, tier: nextTierRef.current, flash: 0, wobble: 0, wobbleV: 0, ripple: 0, contacts: [], vx: 0, vy: 0, petX: 0, petY: 0, petVX: 0, petVY: 0, anger: 0, petAngle: 0, petAngleV: 0, petIdleT: 0 }, petData, aF);
+        if (canDropRef.current) {
+          ctx.fillStyle = "rgba(0,0,0,0.35)";
+          ctx.font = "bold 9px 'Nunito',sans-serif";
+          ctx.textAlign = "center";
+          ctx.textBaseline = "top";
+          ctx.fillText("tap to drop", px, py + nt.r + 4);
+        }
+      }
+      {
+        const QY = CONT_BOT_Y + 20;
+        const QH = H - QY - 4;
+        const QCX = W / 2;
+        ctx.save();
+        ctx.fillStyle = "rgba(0,0,0,0.50)";
+        ctx.beginPath();
+        ctx.roundRect ? ctx.roundRect(8, QY, W - 16, QH, 10) : ctx.rect(8, QY, W - 16, QH);
+        ctx.fill();
+        ctx.font = "bold 7px 'Nunito',sans-serif";
+        ctx.fillStyle = "rgba(255,255,255,0.40)";
+        ctx.textAlign = "left";
+        ctx.textBaseline = "middle";
+        ctx.fillText("NEXT", 14, QY + QH / 2);
+        const nt0 = WATER_TIERS[nextTierRef.current];
+        const big = Math.min(14, nt0.r * 0.5);
+        ctx.beginPath();
+        ctx.arc(QCX - 80, QY + QH / 2, big, 0, Math.PI * 2);
+        ctx.fillStyle = nt0.color;
+        ctx.fill();
+        ctx.strokeStyle = "#333";
+        ctx.lineWidth = 1.5;
+        ctx.stroke();
+        for (let qi = 0; qi < 5; qi++) {
+          const qt = queueRef.current[qi];
+          const qx = QCX - 30 + qi * 32;
+          const qcy = QY + QH / 2;
+          if (qt !== void 0) {
+            const qt2 = WATER_TIERS[qt];
+            ctx.beginPath();
+            ctx.arc(qx, qcy, 10, 0, Math.PI * 2);
+            ctx.fillStyle = qt2.color;
+            ctx.fill();
+            ctx.strokeStyle = "#333";
+            ctx.lineWidth = 1.2;
+            ctx.stroke();
+          } else {
+            ctx.beginPath();
+            ctx.arc(qx, qcy, 10, 0, Math.PI * 2);
+            ctx.fillStyle = "rgba(255,255,255,0.15)";
+            ctx.fill();
+            ctx.strokeStyle = "rgba(255,255,255,0.30)";
+            ctx.lineWidth = 1;
+            ctx.stroke();
+            ctx.fillStyle = "rgba(255,255,255,0.40)";
+            ctx.font = "bold 9px sans-serif";
+            ctx.textAlign = "center";
+            ctx.textBaseline = "middle";
+            ctx.fillText("?", qx, qcy);
+          }
+        }
+        ctx.restore();
+      }
+      if (!gameOverRef.current) {
+        step();
+        rafRef.current = requestAnimationFrame(render);
+      }
+    }, [step, state.petData]);
+    (0, import_react.useEffect)(() => {
+      nextTierRef.current = randNextTier();
+      setNextTier(nextTierRef.current);
+      queueRef.current = Array.from({ length: 5 }, () => randNextTier());
+      rafRef.current = requestAnimationFrame(render);
+      return () => {
+        if (rafRef.current) cancelAnimationFrame(rafRef.current);
+        if (dropTimerRef.current) clearTimeout(dropTimerRef.current);
+      };
+    }, [render]);
+    const handleTap = (0, import_react.useCallback)((clientX) => {
+      if (!canDropRef.current || gameOverRef.current) return;
+      const canvas = canvasRef.current;
+      if (!canvas) return;
+      const rect = canvas.getBoundingClientRect();
+      const rawX = (clientX - rect.left) * (W / rect.width);
+      dropXRef.current = Math.max(CONT_TLL + 18, Math.min(CONT_TRL - 18, rawX));
+      canDropRef.current = false;
+      setCanDrop(false);
+      addBall(dropXRef.current, nextTierRef.current);
+      const nt = queueRef.current.length > 0 ? queueRef.current.shift() : randNextTier();
+      queueRef.current.push(randNextTier());
+      nextTierRef.current = nt;
+      setNextTier(nt);
+      dropTimerRef.current = setTimeout(() => {
+        canDropRef.current = true;
+        setCanDrop(true);
+      }, 650);
+    }, []);
+    const handleFinish = (0, import_react.useCallback)(() => {
+      const ef = effectsRef.current;
+      dispatch({
+        type: "APPLY_GAME_RESULT",
+        gameScore: scoreRef.current,
+        happinessGain: Math.round(ef.h),
+        energyCost: Math.round(ef.e),
+        cleanCost: Math.round(ef.cl)
+      });
+      showToast2(`\u{1F4A7} \u0110i\u1EC3m: ${scoreRef.current} \u2022 +${Math.round(ef.h)}\u2764\uFE0F`);
+      onExit();
+    }, [dispatch, showToast2, onExit]);
+    const nextT = WATER_TIERS[nextTier];
+    return /* @__PURE__ */ React.createElement("div", { style: {
+      position: "absolute",
+      inset: 0,
+      zIndex: 60,
+      background: "#D8D8D8",
+      display: "flex",
+      flexDirection: "column",
+      fontFamily: F.game
+    } }, /* @__PURE__ */ React.createElement("div", { style: {
+      background: "rgba(30,30,30,0.92)",
+      paddingTop: "max(24px,env(safe-area-inset-top,24px))",
+      paddingBottom: 6,
+      paddingLeft: 10,
+      paddingRight: 10,
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "space-between",
+      flexShrink: 0,
+      gap: 6
+    } }, /* @__PURE__ */ React.createElement(
+      "button",
+      {
+        onClick: () => {
+          if (rafRef.current) cancelAnimationFrame(rafRef.current);
+          handleFinish();
+        },
+        style: {
+          background: "rgba(255,255,255,0.12)",
+          border: "1.5px solid rgba(255,255,255,0.22)",
+          borderRadius: 18,
+          padding: "5px 12px",
+          color: "white",
+          fontFamily: F.game,
+          fontWeight: 700,
+          fontSize: 12,
+          cursor: "pointer",
+          flexShrink: 0
+        }
+      },
+      "\u2190 Tho\xE1t"
+    ), /* @__PURE__ */ React.createElement("div", { style: {
+      color: "#B4FF00",
+      fontWeight: 900,
+      fontSize: 13,
+      letterSpacing: 0.4,
+      textShadow: "0 0 8px rgba(180,255,0,0.6)",
+      flex: 1,
+      textAlign: "center"
+    } }, "\u{1F4A7} Th\u1EA3 B\xF3ng N\u01B0\u1EDBc"), /* @__PURE__ */ React.createElement("div", { style: {
+      background: `${nextT?.color}22`,
+      border: `1.5px solid ${nextT?.color}66`,
+      borderRadius: 12,
+      padding: "3px 8px",
+      textAlign: "center",
+      flexShrink: 0
+    } }, /* @__PURE__ */ React.createElement("div", { style: { color: "rgba(255,255,255,0.40)", fontSize: 7, fontWeight: 700, letterSpacing: 1 } }, "NEXT"), /* @__PURE__ */ React.createElement("div", { style: {
+      width: 22,
+      height: 22,
+      borderRadius: "50%",
+      background: nextT?.color,
+      margin: "2px auto 1px",
+      border: `1.5px solid ${nextT?.color}cc`
+    } }), /* @__PURE__ */ React.createElement("div", { style: { color: nextT?.color, fontSize: 8, fontWeight: 900 } }, nextT?.name))), /* @__PURE__ */ React.createElement("div", { style: { flex: 1, display: "flex", alignItems: "stretch", overflow: "hidden", minHeight: 0 } }, /* @__PURE__ */ React.createElement("div", { style: {
+      width: 44,
+      flexShrink: 0,
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      justifyContent: "center",
+      gap: 8,
+      background: "rgba(30,30,30,0.85)",
+      borderRight: "1px solid rgba(255,255,255,0.08)",
+      padding: "8px 0"
+    } }, ["\u{1F500}", "\u23F8", "\u{1F4A5}"].map((ic, i) => /* @__PURE__ */ React.createElement("div", { key: i, style: {
+      width: 34,
+      height: 34,
+      borderRadius: 10,
+      background: "rgba(255,255,255,0.10)",
+      border: "1px solid rgba(255,255,255,0.18)",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      fontSize: 16,
+      cursor: "pointer"
+    } }, ic)), /* @__PURE__ */ React.createElement("div", { style: {
+      marginTop: 6,
+      background: "linear-gradient(135deg,#B4FF00,#7ACC00)",
+      borderRadius: 8,
+      padding: "4px 2px",
+      textAlign: "center",
+      width: 34,
+      fontSize: 6,
+      fontWeight: 900,
+      color: "#1A1A1A",
+      lineHeight: 1.3,
+      cursor: "pointer"
+    } }, "Get", /* @__PURE__ */ React.createElement("br", null), "Ability!")), /* @__PURE__ */ React.createElement("div", { style: {
+      flex: 1,
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      overflow: "hidden",
+      minHeight: 0,
+      background: "#D8D8D8"
+    } }, /* @__PURE__ */ React.createElement(
+      "canvas",
+      {
+        ref: canvasRef,
+        width: W,
+        height: H,
+        style: {
+          height: "100%",
+          width: "auto",
+          maxWidth: "100%",
+          maxHeight: H,
+          touchAction: "none",
+          cursor: canDrop ? "crosshair" : "default",
+          display: "block"
+        },
+        onMouseDown: (e) => handleTap(e.clientX),
+        onTouchEnd: (e) => {
+          e.preventDefault();
+          if (e.changedTouches[0]) handleTap(e.changedTouches[0].clientX);
+        }
+      }
+    )), /* @__PURE__ */ React.createElement("div", { style: {
+      width: 44,
+      flexShrink: 0,
+      background: "rgba(30,30,30,0.85)",
+      borderLeft: "1px solid rgba(255,255,255,0.08)"
+    } })), /* @__PURE__ */ React.createElement("div", { style: {
+      background: "rgba(25,25,25,0.94)",
+      borderTop: "1px solid rgba(255,255,255,0.08)",
+      padding: "4px 8px max(6px,env(safe-area-inset-bottom,6px))",
+      flexShrink: 0
+    } }, /* @__PURE__ */ React.createElement("div", { style: {
+      color: "rgba(255,255,255,0.35)",
+      fontSize: 7,
+      fontWeight: 700,
+      letterSpacing: 1.1,
+      textAlign: "center",
+      marginBottom: 3
+    } }, "CHECK OUT VALUES \u2014 GH\xC9P \u0110\u1EC2 L\xCAN C\u1EA4P"), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "flex-end", justifyContent: "space-between" } }, WATER_TIERS.map((t, i) => {
+      const isNext = i === nextTier;
+      const unlocked = i <= nextTier;
+      return /* @__PURE__ */ React.createElement("div", { key: i, style: {
+        flex: 1,
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        gap: 1,
+        opacity: unlocked ? 1 : 0.3
+      } }, isNext && /* @__PURE__ */ React.createElement("div", { style: {
+        width: 0,
+        height: 0,
+        borderLeft: "4px solid transparent",
+        borderRight: "4px solid transparent",
+        borderTop: `5px solid ${t.color}`,
+        marginBottom: 1
+      } }), /* @__PURE__ */ React.createElement("div", { style: {
+        width: 7 + i * 2,
+        height: 7 + i * 2,
+        borderRadius: "50%",
+        background: t.color,
+        flexShrink: 0,
+        boxShadow: isNext ? `0 0 6px ${t.color}` : "none"
+      } }), /* @__PURE__ */ React.createElement("span", { style: { fontSize: 5, fontWeight: 900, color: unlocked ? t.color + "cc" : "rgba(255,255,255,0.20)" } }, t.pts));
+    }))), gameOver && /* @__PURE__ */ React.createElement("div", { style: {
+      position: "absolute",
+      inset: 0,
+      background: "rgba(0,0,0,0.85)",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      zIndex: 70
+    } }, /* @__PURE__ */ React.createElement("div", { style: {
+      background: "linear-gradient(160deg,#1A1A2E,#16213E)",
+      borderRadius: 28,
+      padding: "30px 36px",
+      border: "2px solid rgba(0,229,255,0.22)",
+      boxShadow: "0 8px 40px rgba(0,229,255,0.12), 0 2px 0 rgba(255,255,255,0.06) inset",
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      gap: 12,
+      minWidth: 260
+    } }, /* @__PURE__ */ React.createElement("div", { style: { fontSize: 44 } }, "\u{1F4A7}"), /* @__PURE__ */ React.createElement("div", { style: { color: "white", fontWeight: 900, fontSize: 20 } }, "K\u1EBFt th\xFAc!"), /* @__PURE__ */ React.createElement("div", { style: {
+      background: "rgba(255,215,0,0.12)",
+      borderRadius: 20,
+      padding: "8px 18px 8px 12px",
+      display: "flex",
+      alignItems: "center",
+      gap: 8,
+      border: "1.5px solid rgba(255,215,0,0.28)"
+    } }, /* @__PURE__ */ React.createElement("div", { style: {
+      width: 28,
+      height: 28,
+      borderRadius: "50%",
+      background: "radial-gradient(circle at 35% 30%,#FFE566,#E6A800)",
+      border: "2px solid #D4A017",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      fontSize: 13,
+      fontWeight: 900,
+      color: "#7A5000"
+    } }, "P"), /* @__PURE__ */ React.createElement("div", { style: { fontFamily: F.game, fontWeight: 900, fontSize: 26, color: "#FFD700" } }, "+", score.toLocaleString())), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", gap: 10 } }, [
+      ["\u2764\uFE0F", "#EF5350", `+${Math.round(effectsRef.current.h)}`],
+      ["\u26A1", "#FF9800", `\u2212${Math.round(effectsRef.current.e)}`],
+      ["\u{1F9FC}", "#29B6F6", `\u2212${Math.round(effectsRef.current.cl)}`]
+    ].map(([icon, clr, val]) => /* @__PURE__ */ React.createElement("div", { key: icon, style: {
+      background: `${clr}18`,
+      borderRadius: 12,
+      padding: "5px 10px",
+      border: `1px solid ${clr}44`,
+      color: clr,
+      fontWeight: 700,
+      fontSize: 13
+    } }, val, icon))), /* @__PURE__ */ React.createElement("button", { onClick: handleFinish, style: {
+      background: "linear-gradient(135deg,#00E5FF,#0077AA)",
+      border: "none",
+      borderRadius: 24,
+      padding: "13px 32px",
+      color: "white",
+      fontFamily: F.game,
+      fontWeight: 900,
+      fontSize: 15,
+      cursor: "pointer",
+      boxShadow: "0 4px 20px rgba(0,229,255,0.45)",
+      animation: "pulseBtn 2s infinite",
+      marginTop: 4
+    } }, "L\u1EA5y th\u01B0\u1EDFng \u{1F381}"))));
+  }
+  function GameScreen({ state, dispatch, onNavigate }) {
+    const [activeTab, setActiveTab] = (0, import_react.useState)("pet");
+    const [showGame, setShowGame] = (0, import_react.useState)(false);
+    const [showSurgery, setShowSurgery] = (0, import_react.useState)(false);
+    const [showWaterGame, setShowWaterGame] = (0, import_react.useState)(false);
+    const [toast, setToast] = (0, import_react.useState)(null);
+    const showToast2 = (0, import_react.useCallback)((msg) => {
+      setToast(msg);
+      setTimeout(() => setToast(null), 2e3);
+    }, []);
+    const { petData, level, xp, hunger, happiness, clean, energy, points } = state;
+    const xpMax = level * 100;
+    return /* @__PURE__ */ React.createElement("div", { style: {
+      height: "100dvh",
+      display: "flex",
+      flexDirection: "column",
+      overflow: "hidden",
+      background: "#F5F5F5"
+    } }, /* @__PURE__ */ React.createElement("link", { rel: "stylesheet", href: FONT_LINK }), /* @__PURE__ */ React.createElement("style", null, KEYFRAMES), /* @__PURE__ */ React.createElement("style", null, `
         html,body{height:100%;height:100dvh;margin:0;padding:0;overflow:hidden;background:#1A1A2E;}
         @supports not (height:100dvh){html,body{height:100vh;}}
-      `),React.createElement("div",{style:{background:"linear-gradient(135deg,#1A1A2E,#16213E)",paddingTop:"env(safe-area-inset-top, 36px)",padding:"max(36px, env(safe-area-inset-top, 36px)) 12px 10px",display:"flex",alignItems:"center",justifyContent:"space-between",flexShrink:0,boxShadow:"0 4px 16px rgba(0,0,0,0.2)"}},React.createElement("div",{style:{background:"rgba(255,215,0,0.15)",borderRadius:20,padding:"6px 12px 6px 8px",display:"flex",alignItems:"center",gap:6,border:"1.5px solid rgba(255,215,0,0.35)"}},React.createElement("div",{style:{width:28,height:28,borderRadius:"50%",background:"radial-gradient(circle at 35% 30%,#FFE566,#E6A800)",border:"2px solid #D4A017",display:"flex",alignItems:"center",justifyContent:"center",fontSize:13,fontWeight:900,color:"#7A5000",fontFamily:l.game}},"P"),React.createElement("div",{style:{fontFamily:l.game,fontWeight:900,fontSize:14,color:"#FFD700"}},ne.toLocaleString())),React.createElement("div",{style:{display:"flex",gap:5}},React.createElement(Le,{icon:"\u{1F34E}",value:h,max:100,color:"#4CAF50"}),React.createElement(Le,{icon:"\u2764\uFE0F",value:A,max:100,color:"#E53935"}),React.createElement(Le,{icon:"\u{1F9FC}",value:U,max:100,color:"#039BE5"}),React.createElement(Le,{icon:"\u26A1",value:Z,max:100,color:"#F9A825"})),React.createElement("div",{style:{background:"rgba(255,255,255,0.12)",borderRadius:20,padding:"6px 12px 6px 8px",display:"flex",alignItems:"center",gap:5,border:"1.5px solid rgba(255,255,255,0.2)"}},React.createElement("span",{style:{fontSize:22}},"\u{1F95A}"),React.createElement("div",null,React.createElement("div",{style:{fontFamily:l.game,fontWeight:900,fontSize:13,color:"white"}},"Lv.",S),React.createElement("div",{style:{width:36,background:"rgba(255,255,255,0.2)",borderRadius:99,height:3}},React.createElement("div",{style:{width:`${n/H*100}%`,height:3,borderRadius:99,background:"#B4FF00",transition:"width 0.3s"}}))))),React.createElement("div",{style:{flex:1,overflow:"hidden",position:"relative",display:"flex",flexDirection:"column"}},React.createElement("div",{style:{display:o==="pet"?"flex":"none",flexDirection:"column",flex:1,overflow:"hidden",position:"relative"}},React.createElement(jt,{state:e,dispatch:a,showToast:x,onStartGame:()=>m(!0),onStartWaterGame:()=>u(!0),onStartSurgery:()=>f(!0)}),g&&React.createElement("div",{style:{position:"absolute",inset:0,zIndex:50,display:"flex",flexDirection:"column",background:"#1A1A2E"}},React.createElement(Kt,{state:e,dispatch:a,showToast:x,onExit:()=>{m(!1)}})),b&&React.createElement(Ut,{currentPetData:e.petData,onSave:Q=>{a({type:"SET_PET",petData:Q}),f(!1),x("\u{1F52C} Ph\u1EABu thu\u1EADt th\xE0nh c\xF4ng! Pet m\u1EDBi toanh \u2728")},onCancel:()=>f(!1)}),d&&React.createElement(qt,{state:e,dispatch:a,showToast:x,onExit:()=>u(!1)})),o==="loot"&&React.createElement("div",{style:{flex:1,background:"#F2F4F8",overflowY:"auto",WebkitOverflowScrolling:"touch",display:"flex",flexDirection:"column"}},React.createElement("div",{style:{padding:"18px 16px 10px",background:"white",borderBottom:"1.5px solid #F0F0F0",flexShrink:0}},React.createElement("div",{style:{fontFamily:"'Press Start 2P', monospace",fontWeight:900,fontSize:17,color:"#1A1A1A"}},"\u{1F381} Loot & Qu\xE0"),React.createElement("div",{style:{fontFamily:"'Press Start 2P', monospace",fontSize:9,color:"#999",marginTop:4}},"Ho\xE0n th\xE0nh nhi\u1EC7m v\u1EE5 \xB7 Nh\u1EADn h\u1ED9p qu\xE0")),React.createElement(Nt,{state:e,dispatch:a,showToast:x})),o==="rank"&&React.createElement("div",{style:{flex:1,overflow:"hidden",display:"flex",flexDirection:"column"}},React.createElement("div",{style:{padding:"18px 16px 10px",background:"white",borderBottom:"1.5px solid #F0F0F0",flexShrink:0}},React.createElement("div",{style:{fontFamily:"'Press Start 2P', monospace",fontWeight:900,fontSize:17,color:"#1A1A1A"}},"\u{1F3C6} B\u1EA3ng X\u1EBFp H\u1EA1ng"),React.createElement("div",{style:{fontFamily:"'Press Start 2P', monospace",fontSize:9,color:"#999",marginTop:4}},"Top ng\u01B0\u1EDDi ch\u01A1i tu\u1EA7n n\xE0y")),React.createElement("div",{style:{flex:1,overflow:"hidden"}},React.createElement(Gt,{state:e}))),o==="bag"&&React.createElement(Vt,{asTab:!0,state:e,onClose:()=>s("pet")})),React.createElement("div",{style:{background:"white",paddingTop:6,paddingBottom:"max(8px, env(safe-area-inset-bottom, 8px))",borderTop:"1.5px solid #EEEEEE",flexShrink:0,boxShadow:"0 -4px 20px rgba(0,0,0,0.07)",display:"flex",alignItems:"center",justifyContent:"space-around",paddingLeft:4,paddingRight:4}},React.createElement(Ye,{icon:"\u{1F423}",label:"Pet",active:o==="pet",onClick:()=>{s("pet"),m(!1),u(!1)}}),React.createElement(Ye,{icon:"\u{1F381}",label:"Loot",active:o==="loot",onClick:()=>s("loot"),badge:e.giftBoxes>0?e.giftBoxes:null}),React.createElement(Ye,{icon:"\u{1F3C6}",label:"Rank",active:o==="rank",onClick:()=>s("rank")}),React.createElement(Ye,{icon:"\u{1F392}",label:"Kho \u0110\u1ED3",active:o==="bag",onClick:()=>s("bag"),badge:(e.inventory||[]).length||null})),B&&React.createElement("div",{style:{position:"fixed",top:90,left:"50%",transform:"translateX(-50%)",background:"rgba(0,0,0,0.82)",borderRadius:22,padding:"11px 22px",fontFamily:l.game,fontWeight:900,fontSize:13,color:"white",whiteSpace:"nowrap",zIndex:999,animation:"toastIn 0.3s ease-out",pointerEvents:"none",boxShadow:"0 6px 24px rgba(0,0,0,0.25)"}},B))}var Zt={level:1,xp:0,happiness:70,hunger:80,clean:75,energy:60,points:340,streak:3,giftBoxes:2,openedPrizes:[],isSleeping:!1,sleepUntil:null,SLEEP_SECS:30,inventory:[],doneMissions:[]};function Jt(e,a){switch(a.type){case"APPLY_EFFECTS":{let r=a.payload,o=r.xp!==void 0?r.xp:e.xp,s=e.level*100,g=o>=s;return{...e,hunger:r.hunger!==void 0?r.hunger:e.hunger,happiness:r.happiness!==void 0?r.happiness:e.happiness,clean:r.clean!==void 0?r.clean:e.clean,energy:r.energy!==void 0?r.energy:e.energy,points:r.points!==void 0?r.points:e.points,xp:g?o-s:o,level:g?e.level+1:e.level}}case"START_SLEEP":return{...e,isSleeping:!0,sleepUntil:Date.now()+(a.duration||3e4)};case"WAKE_UP":{let r=e.xp+15,o=e.level*100;return{...e,isSleeping:!1,sleepUntil:null,energy:oe(e.energy+45,0,100),happiness:oe(e.happiness+8,0,100),hunger:oe(e.hunger-8,0,100),xp:r>=o?r-o:r,level:r>=o?e.level+1:e.level}}case"DECREASE_CLEAN":return{...e,clean:Math.max(0,e.clean-(a.amount||1))};case"USE_FOOD":{let r=(e.inventory||[]).filter(f=>f&&typeof f=="object"&&f.category==="food");if(r.length===0)return e;let o=r[Math.floor(Math.random()*r.length)],s=[...e.inventory];s.splice(s.findIndex(f=>f&&f.id===o.id&&f.category==="food"),1);let g=o.effect||{},m=e.xp+8,b=e.level*100;return{...e,inventory:s,hunger:oe(e.hunger+(g.hunger||20),0,100),happiness:oe(e.happiness+(g.happiness||5),0,100),xp:m>=b?m-b:m,level:m>=b?e.level+1:e.level,_lastFood:o}}case"USE_CLEAN":{let r=(e.inventory||[]).filter(f=>f&&typeof f=="object"&&f.category==="clean");if(r.length===0)return{...e,clean:oe(e.clean+20,0,100),happiness:oe(e.happiness+5,0,100),xp:e.xp+4};let o=r[Math.floor(Math.random()*r.length)],s=[...e.inventory];s.splice(s.findIndex(f=>f&&f.id===o.id&&f.category==="clean"),1);let g=o.effect||{},m=e.xp+6,b=e.level*100;return{...e,inventory:s,clean:oe(e.clean+(g.clean||30),0,100),happiness:oe(e.happiness+10,0,100),xp:m>=b?m-b:m,level:m>=b?e.level+1:e.level,_lastClean:o}}case"PLAY":return{...e,happiness:oe(e.happiness+15,0,100),energy:oe(e.energy-8,0,100),points:e.points+10,xp:e.xp+8};case"BUY_ITEM":{if(a.category==="food"||a.category==="clean")return{...e,points:e.points-(a.cost||0),inventory:[...e.inventory,{id:a.id,icon:a.icon||"\u{1F4E6}",name:a.name||"Item",category:a.category,type:"pet_item",effect:a.effect||{},rarity:"common",color:"#81C784",label:"Th\u01B0\u1EDDng"}]};let o=a.effect||{},s=e.xp+(o.xp||0),g=e.level*100;return{...e,points:e.points-(a.cost||0),hunger:o.hunger?oe(e.hunger+o.hunger,0,100):e.hunger,happiness:o.happiness?oe(e.happiness+o.happiness,0,100):e.happiness,clean:o.clean?oe(e.clean+o.clean,0,100):e.clean,energy:o.energy?oe(e.energy+o.energy,0,100):e.energy,xp:s>=g?s-g:s,level:s>=g?e.level+1:e.level}}case"ADD_GIFT_BOXES":return{...e,giftBoxes:e.giftBoxes+(a.amount||0)};case"OPEN_GIFT_BOX":{if(e.giftBoxes<=0)return e;let r=gt(e.level),o=e.xp+(r.xp||0),s=e.level*100,g=r.type==="voucher"||r.type==="physical";return{...e,giftBoxes:e.giftBoxes-1,points:e.points+(r.pts||0),xp:o>=s?o-s:o,level:o>=s?e.level+1:e.level,openedPrizes:g?[...e.openedPrizes,r]:e.openedPrizes,inventory:!g&&r.type==="pet_item"?[...e.inventory,r]:e.inventory,_lastPrize:r}}case"ADD_POINTS":return{...e,points:e.points+(a.amount||0)};case"ADD_XP":{let r=e.xp+(a.amount||0),o=e.level*100;return{...e,xp:r>=o?r-o:r,level:r>=o?e.level+1:e.level}}case"COMPLETE_MISSION":{if(e.doneMissions.includes(a.id))return e;let r=e.xp+(a.xp||0),o=e.level*100;return{...e,doneMissions:[...e.doneMissions,a.id],points:e.points+(a.pts||0),giftBoxes:e.giftBoxes+(a.boxes||0),xp:r>=o?r-o:r,level:r>=o?e.level+1:e.level}}case"APPLY_GAME_RESULT":{let r=oe(e.energy-(a.energyCost||0),0,100),o=oe(e.clean-(a.cleanCost||0),0,100),s=oe(e.happiness+(a.happinessGain||0),0,100),g=e.points+(a.gameScore||0),m=Math.floor((a.gameScore||0)/8),b=e.xp+m,f=e.level*100;return{...e,energy:r,clean:o,happiness:s,points:g,xp:b>=f?b-f:b,level:b>=f?e.level+1:e.level}}case"SET_PET":return{...e,petData:a.petData};case"SET_MOOD":return{...e,happiness:oe(e.happiness+(a.delta||0),0,100)};default:return e}}function qe(){let[e,a]=(0,y.useState)("login"),[r,o]=(0,y.useState)(""),[s,g]=(0,y.useReducer)(Jt,Zt),m=(0,y.useCallback)(d=>{a(d==="login"?"login":d==="create"?"create":"main")},[]),b=(0,y.useCallback)(d=>{o(d),a("create")},[]),f=(0,y.useCallback)(d=>{g({type:"SET_PET",petData:d}),a("main")},[]);return React.createElement("div",{style:{maxWidth:420,margin:"0 auto",height:"100dvh",overflow:"hidden",position:"relative",background:"#000"}},React.createElement("style",null,`
+      `), /* @__PURE__ */ React.createElement("div", { style: {
+      background: "linear-gradient(135deg,#1A1A2E,#16213E)",
+      paddingTop: "env(safe-area-inset-top, 36px)",
+      padding: "max(36px, env(safe-area-inset-top, 36px)) 12px 10px",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "space-between",
+      flexShrink: 0,
+      boxShadow: "0 4px 16px rgba(0,0,0,0.2)"
+    } }, /* @__PURE__ */ React.createElement("div", { style: {
+      background: "rgba(255,215,0,0.15)",
+      borderRadius: 20,
+      padding: "6px 12px 6px 8px",
+      display: "flex",
+      alignItems: "center",
+      gap: 6,
+      border: "1.5px solid rgba(255,215,0,0.35)"
+    } }, /* @__PURE__ */ React.createElement("div", { style: {
+      width: 28,
+      height: 28,
+      borderRadius: "50%",
+      background: "radial-gradient(circle at 35% 30%,#FFE566,#E6A800)",
+      border: "2px solid #D4A017",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      fontSize: 13,
+      fontWeight: 900,
+      color: "#7A5000",
+      fontFamily: F.game
+    } }, "P"), /* @__PURE__ */ React.createElement("div", { style: { fontFamily: F.game, fontWeight: 900, fontSize: 14, color: "#FFD700" } }, points.toLocaleString())), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", gap: 5 } }, /* @__PURE__ */ React.createElement(StatBtn, { icon: "\u{1F34E}", value: hunger, max: 100, color: "#4CAF50" }), /* @__PURE__ */ React.createElement(StatBtn, { icon: "\u2764\uFE0F", value: happiness, max: 100, color: "#E53935" }), /* @__PURE__ */ React.createElement(StatBtn, { icon: "\u{1F9FC}", value: clean, max: 100, color: "#039BE5" }), /* @__PURE__ */ React.createElement(StatBtn, { icon: "\u26A1", value: energy, max: 100, color: "#F9A825" })), /* @__PURE__ */ React.createElement("div", { style: {
+      background: "rgba(255,255,255,0.12)",
+      borderRadius: 20,
+      padding: "6px 12px 6px 8px",
+      display: "flex",
+      alignItems: "center",
+      gap: 5,
+      border: "1.5px solid rgba(255,255,255,0.2)"
+    } }, /* @__PURE__ */ React.createElement("span", { style: { fontSize: 22 } }, "\u{1F95A}"), /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("div", { style: { fontFamily: F.game, fontWeight: 900, fontSize: 13, color: "white" } }, "Lv.", level), /* @__PURE__ */ React.createElement("div", { style: { width: 36, background: "rgba(255,255,255,0.2)", borderRadius: 99, height: 3 } }, /* @__PURE__ */ React.createElement("div", { style: { width: `${xp / xpMax * 100}%`, height: 3, borderRadius: 99, background: "#B4FF00", transition: "width 0.3s" } }))))), /* @__PURE__ */ React.createElement("div", { style: { flex: 1, overflow: "hidden", position: "relative", display: "flex", flexDirection: "column" } }, /* @__PURE__ */ React.createElement("div", { style: { display: activeTab === "pet" ? "flex" : "none", flexDirection: "column", flex: 1, overflow: "hidden", position: "relative" } }, /* @__PURE__ */ React.createElement(
+      HomeTab,
+      {
+        state,
+        dispatch,
+        showToast: showToast2,
+        onStartGame: () => setShowGame(true),
+        onStartWaterGame: () => setShowWaterGame(true),
+        onStartSurgery: () => setShowSurgery(true)
+      }
+    ), showGame && /* @__PURE__ */ React.createElement("div", { style: { position: "absolute", inset: 0, zIndex: 50, display: "flex", flexDirection: "column", background: "#1A1A2E" } }, /* @__PURE__ */ React.createElement(MiniGameTab, { state, dispatch, showToast: showToast2, onExit: () => {
+      setShowGame(false);
+    } })), showSurgery && /* @__PURE__ */ React.createElement(
+      SurgeryPanel,
+      {
+        currentPetData: state.petData,
+        onSave: (newPetData) => {
+          dispatch({ type: "SET_PET", petData: newPetData });
+          setShowSurgery(false);
+          showToast2("\u{1F52C} Ph\u1EABu thu\u1EADt th\xE0nh c\xF4ng! Pet m\u1EDBi toanh \u2728");
+        },
+        onCancel: () => setShowSurgery(false)
+      }
+    ), showWaterGame && /* @__PURE__ */ React.createElement(
+      WaterBallGame,
+      {
+        state,
+        dispatch,
+        showToast: showToast2,
+        onExit: () => setShowWaterGame(false)
+      }
+    )), activeTab === "loot" && /* @__PURE__ */ React.createElement("div", { style: { flex: 1, background: "#F2F4F8", overflowY: "auto", WebkitOverflowScrolling: "touch", display: "flex", flexDirection: "column" } }, /* @__PURE__ */ React.createElement("div", { style: { padding: "18px 16px 10px", background: "white", borderBottom: "1.5px solid #F0F0F0", flexShrink: 0 } }, /* @__PURE__ */ React.createElement("div", { style: { fontFamily: "'Press Start 2P', monospace", fontWeight: 900, fontSize: 17, color: "#1A1A1A" } }, "\u{1F381} Loot & Qu\xE0"), /* @__PURE__ */ React.createElement("div", { style: { fontFamily: "'Press Start 2P', monospace", fontSize: 9, color: "#999", marginTop: 4 } }, "Ho\xE0n th\xE0nh nhi\u1EC7m v\u1EE5 \xB7 Nh\u1EADn h\u1ED9p qu\xE0")), /* @__PURE__ */ React.createElement(LootTab, { state, dispatch, showToast: showToast2 })), activeTab === "rank" && /* @__PURE__ */ React.createElement("div", { style: { flex: 1, overflow: "hidden", display: "flex", flexDirection: "column" } }, /* @__PURE__ */ React.createElement("div", { style: { padding: "18px 16px 10px", background: "white", borderBottom: "1.5px solid #F0F0F0", flexShrink: 0 } }, /* @__PURE__ */ React.createElement("div", { style: { fontFamily: "'Press Start 2P', monospace", fontWeight: 900, fontSize: 17, color: "#1A1A1A" } }, "\u{1F3C6} B\u1EA3ng X\u1EBFp H\u1EA1ng"), /* @__PURE__ */ React.createElement("div", { style: { fontFamily: "'Press Start 2P', monospace", fontSize: 9, color: "#999", marginTop: 4 } }, "Top ng\u01B0\u1EDDi ch\u01A1i tu\u1EA7n n\xE0y")), /* @__PURE__ */ React.createElement("div", { style: { flex: 1, overflow: "hidden" } }, /* @__PURE__ */ React.createElement(RankScreen, { state }))), activeTab === "bag" && /* @__PURE__ */ React.createElement(InventoryPanel, { asTab: true, state, onClose: () => setActiveTab("pet") })), /* @__PURE__ */ React.createElement("div", { style: {
+      background: "white",
+      paddingTop: 6,
+      paddingBottom: "max(8px, env(safe-area-inset-bottom, 8px))",
+      borderTop: "1.5px solid #EEEEEE",
+      flexShrink: 0,
+      boxShadow: "0 -4px 20px rgba(0,0,0,0.07)",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "space-around",
+      paddingLeft: 4,
+      paddingRight: 4
+    } }, /* @__PURE__ */ React.createElement(TabBtn, { icon: "\u{1F423}", label: "Pet", active: activeTab === "pet", onClick: () => {
+      setActiveTab("pet");
+      setShowGame(false);
+      setShowWaterGame(false);
+    } }), /* @__PURE__ */ React.createElement(TabBtn, { icon: "\u{1F381}", label: "Loot", active: activeTab === "loot", onClick: () => setActiveTab("loot"), badge: state.giftBoxes > 0 ? state.giftBoxes : null }), /* @__PURE__ */ React.createElement(TabBtn, { icon: "\u{1F3C6}", label: "Rank", active: activeTab === "rank", onClick: () => setActiveTab("rank") }), /* @__PURE__ */ React.createElement(TabBtn, { icon: "\u{1F392}", label: "Kho \u0110\u1ED3", active: activeTab === "bag", onClick: () => setActiveTab("bag"), badge: (state.inventory || []).length || null })), toast && /* @__PURE__ */ React.createElement("div", { style: {
+      position: "fixed",
+      top: 90,
+      left: "50%",
+      transform: "translateX(-50%)",
+      background: "rgba(0,0,0,0.82)",
+      borderRadius: 22,
+      padding: "11px 22px",
+      fontFamily: F.game,
+      fontWeight: 900,
+      fontSize: 13,
+      color: "white",
+      whiteSpace: "nowrap",
+      zIndex: 999,
+      animation: "toastIn 0.3s ease-out",
+      pointerEvents: "none",
+      boxShadow: "0 6px 24px rgba(0,0,0,0.25)"
+    } }, toast));
+  }
+  var initState = {
+    level: 1,
+    xp: 0,
+    happiness: 70,
+    hunger: 80,
+    clean: 75,
+    energy: 60,
+    points: 340,
+    streak: 3,
+    giftBoxes: 2,
+    openedPrizes: [],
+    // Sleep system
+    isSleeping: false,
+    sleepUntil: null,
+    // timestamp (ms) when pet wakes up
+    SLEEP_SECS: 30,
+    // demo: 30s; real game can bump to 120s+
+    // Inventory — food/clean items from Shop live here
+    inventory: [],
+    doneMissions: []
+  };
+  function reducer(s, action) {
+    switch (action.type) {
+      case "APPLY_EFFECTS": {
+        const e = action.payload;
+        const newXp = e.xp !== void 0 ? e.xp : s.xp;
+        const thresh = s.level * 100;
+        const lvlUp = newXp >= thresh;
+        return {
+          ...s,
+          hunger: e.hunger !== void 0 ? e.hunger : s.hunger,
+          happiness: e.happiness !== void 0 ? e.happiness : s.happiness,
+          clean: e.clean !== void 0 ? e.clean : s.clean,
+          energy: e.energy !== void 0 ? e.energy : s.energy,
+          points: e.points !== void 0 ? e.points : s.points,
+          xp: lvlUp ? newXp - thresh : newXp,
+          level: lvlUp ? s.level + 1 : s.level
+        };
+      }
+      // ── Sleep system ─────────────────────────────────────────────────────────
+      case "START_SLEEP":
+        return { ...s, isSleeping: true, sleepUntil: Date.now() + (action.duration || 3e4) };
+      case "WAKE_UP": {
+        const newXp = s.xp + 15, thresh = s.level * 100;
+        return {
+          ...s,
+          isSleeping: false,
+          sleepUntil: null,
+          energy: clamp(s.energy + 45, 0, 100),
+          happiness: clamp(s.happiness + 8, 0, 100),
+          hunger: clamp(s.hunger - 8, 0, 100),
+          xp: newXp >= thresh ? newXp - thresh : newXp,
+          level: newXp >= thresh ? s.level + 1 : s.level
+        };
+      }
+      // ── Dirt system ───────────────────────────────────────────────────────────
+      case "DECREASE_CLEAN":
+        return { ...s, clean: Math.max(0, s.clean - (action.amount || 1)) };
+      // ── Eat from inventory ────────────────────────────────────────────────────
+      case "USE_FOOD": {
+        const foods = (s.inventory || []).filter((i) => i && typeof i === "object" && i.category === "food");
+        if (foods.length === 0) return s;
+        const pick = foods[Math.floor(Math.random() * foods.length)];
+        const inv = [...s.inventory];
+        inv.splice(inv.findIndex((i) => i && i.id === pick.id && i.category === "food"), 1);
+        const eff = pick.effect || {};
+        const newXp = s.xp + 8, thresh = s.level * 100;
+        return {
+          ...s,
+          inventory: inv,
+          hunger: clamp(s.hunger + (eff.hunger || 20), 0, 100),
+          happiness: clamp(s.happiness + (eff.happiness || 5), 0, 100),
+          xp: newXp >= thresh ? newXp - thresh : newXp,
+          level: newXp >= thresh ? s.level + 1 : s.level,
+          _lastFood: pick
+        };
+      }
+      // ── Bath from inventory ───────────────────────────────────────────────────
+      case "USE_CLEAN": {
+        const cleans = (s.inventory || []).filter((i) => i && typeof i === "object" && i.category === "clean");
+        if (cleans.length === 0) {
+          return { ...s, clean: clamp(s.clean + 20, 0, 100), happiness: clamp(s.happiness + 5, 0, 100), xp: s.xp + 4 };
+        }
+        const pick = cleans[Math.floor(Math.random() * cleans.length)];
+        const inv = [...s.inventory];
+        inv.splice(inv.findIndex((i) => i && i.id === pick.id && i.category === "clean"), 1);
+        const eff = pick.effect || {};
+        const newXp = s.xp + 6, thresh = s.level * 100;
+        return {
+          ...s,
+          inventory: inv,
+          clean: clamp(s.clean + (eff.clean || 30), 0, 100),
+          happiness: clamp(s.happiness + 10, 0, 100),
+          xp: newXp >= thresh ? newXp - thresh : newXp,
+          level: newXp >= thresh ? s.level + 1 : s.level,
+          _lastClean: pick
+        };
+      }
+      case "PLAY":
+        return { ...s, happiness: clamp(s.happiness + 15, 0, 100), energy: clamp(s.energy - 8, 0, 100), points: s.points + 10, xp: s.xp + 8 };
+      // ── Shop: food/clean → inventory; others → instant effect ────────────────
+      case "BUY_ITEM": {
+        const isConsumable = action.category === "food" || action.category === "clean";
+        if (isConsumable) {
+          return {
+            ...s,
+            points: s.points - (action.cost || 0),
+            inventory: [...s.inventory, {
+              id: action.id,
+              icon: action.icon || "\u{1F4E6}",
+              name: action.name || "Item",
+              category: action.category,
+              type: "pet_item",
+              effect: action.effect || {},
+              rarity: "common",
+              color: "#81C784",
+              label: "Th\u01B0\u1EDDng"
+            }]
+          };
+        }
+        const e = action.effect || {};
+        const newXp = s.xp + (e.xp || 0), thresh = s.level * 100;
+        return {
+          ...s,
+          points: s.points - (action.cost || 0),
+          hunger: e.hunger ? clamp(s.hunger + e.hunger, 0, 100) : s.hunger,
+          happiness: e.happiness ? clamp(s.happiness + e.happiness, 0, 100) : s.happiness,
+          clean: e.clean ? clamp(s.clean + e.clean, 0, 100) : s.clean,
+          energy: e.energy ? clamp(s.energy + e.energy, 0, 100) : s.energy,
+          xp: newXp >= thresh ? newXp - thresh : newXp,
+          level: newXp >= thresh ? s.level + 1 : s.level
+        };
+      }
+      case "ADD_GIFT_BOXES":
+        return { ...s, giftBoxes: s.giftBoxes + (action.amount || 0) };
+      case "OPEN_GIFT_BOX": {
+        if (s.giftBoxes <= 0) return s;
+        const prize = rollGiftBox(s.level);
+        const newXp = s.xp + (prize.xp || 0), thresh = s.level * 100;
+        const isVoucher = prize.type === "voucher" || prize.type === "physical";
+        return {
+          ...s,
+          giftBoxes: s.giftBoxes - 1,
+          points: s.points + (prize.pts || 0),
+          xp: newXp >= thresh ? newXp - thresh : newXp,
+          level: newXp >= thresh ? s.level + 1 : s.level,
+          openedPrizes: isVoucher ? [...s.openedPrizes, prize] : s.openedPrizes,
+          inventory: !isVoucher && prize.type === "pet_item" ? [...s.inventory, prize] : s.inventory,
+          _lastPrize: prize
+        };
+      }
+      case "ADD_POINTS":
+        return { ...s, points: s.points + (action.amount || 0) };
+      case "ADD_XP": {
+        const newXp = s.xp + (action.amount || 0), thresh = s.level * 100;
+        return { ...s, xp: newXp >= thresh ? newXp - thresh : newXp, level: newXp >= thresh ? s.level + 1 : s.level };
+      }
+      case "COMPLETE_MISSION": {
+        if (s.doneMissions.includes(action.id)) return s;
+        const newXp = s.xp + (action.xp || 0), thresh = s.level * 100;
+        return {
+          ...s,
+          doneMissions: [...s.doneMissions, action.id],
+          points: s.points + (action.pts || 0),
+          giftBoxes: s.giftBoxes + (action.boxes || 0),
+          xp: newXp >= thresh ? newXp - thresh : newXp,
+          level: newXp >= thresh ? s.level + 1 : s.level
+        };
+      }
+      case "APPLY_GAME_RESULT": {
+        const newE = clamp(s.energy - (action.energyCost || 0), 0, 100);
+        const newCl = clamp(s.clean - (action.cleanCost || 0), 0, 100);
+        const newH = clamp(s.happiness + (action.happinessGain || 0), 0, 100);
+        const newPts = s.points + (action.gameScore || 0);
+        const gainXp = Math.floor((action.gameScore || 0) / 8);
+        const newXp = s.xp + gainXp, thresh = s.level * 100;
+        return {
+          ...s,
+          energy: newE,
+          clean: newCl,
+          happiness: newH,
+          points: newPts,
+          xp: newXp >= thresh ? newXp - thresh : newXp,
+          level: newXp >= thresh ? s.level + 1 : s.level
+        };
+      }
+      case "SET_PET":
+        return { ...s, petData: action.petData };
+      case "SET_MOOD":
+        return { ...s, happiness: clamp(s.happiness + (action.delta || 0), 0, 100) };
+      default:
+        return s;
+    }
+  }
+  function App() {
+    const [screen, setScreen] = (0, import_react.useState)("login");
+    const [username, setUsername] = (0, import_react.useState)("");
+    const [state, dispatch] = (0, import_react.useReducer)(reducer, initState);
+    const navigate = (0, import_react.useCallback)((dest) => {
+      if (dest === "login") setScreen("login");
+      else if (dest === "create") setScreen("create");
+      else setScreen("main");
+    }, []);
+    const handleLogin = (0, import_react.useCallback)((uname) => {
+      setUsername(uname);
+      setScreen("create");
+    }, []);
+    const handlePetCreated = (0, import_react.useCallback)((petData) => {
+      dispatch({ type: "SET_PET", petData });
+      setScreen("main");
+    }, []);
+    return /* @__PURE__ */ React.createElement("div", { style: { maxWidth: 420, margin: "0 auto", height: "100dvh", overflow: "hidden", position: "relative", background: "#000" } }, /* @__PURE__ */ React.createElement("style", null, `
         *{box-sizing:border-box;-webkit-tap-highlight-color:transparent;user-select:none;}
         html,body{margin:0;padding:0;height:100%;height:100dvh;overflow:hidden;background:#1A1A2E;}
         @supports not (height:100dvh){html,body{height:100vh;}}
-      `),e==="login"&&React.createElement(Ot,{onLogin:b}),e==="create"&&React.createElement(Ht,{onComplete:f}),e==="main"&&React.createElement(Qt,{state:s,dispatch:g,onNavigate:m}))}var mt=document.getElementById("loading");mt&&(mt.style.display="none");xt.default.createRoot(document.getElementById("root")).render(ut.default.createElement(qe));})();
+      `), screen === "login" && /* @__PURE__ */ React.createElement(LoginScreen, { onLogin: handleLogin }), screen === "create" && /* @__PURE__ */ React.createElement(PetCreatorScreen, { onComplete: handlePetCreated }), screen === "main" && /* @__PURE__ */ React.createElement(GameScreen, { state, dispatch, onNavigate: navigate }));
+  }
+
+  // lootzy-entry.jsx
+  var loadingEl = document.getElementById("loading");
+  if (loadingEl) loadingEl.style.display = "none";
+  import_client.default.createRoot(document.getElementById("root")).render(
+    import_react2.default.createElement(App)
+  );
+})();
