@@ -3142,7 +3142,7 @@ var LootzyApp = (() => {
       ballsRef.current.push(makeBall(x, DANGER_Y + WATER_TIERS[tier].r + 4, tier));
     };
     const blobPath = (ctx, r, contacts, wobble) => {
-      const N = 14;
+      const N = 20;
       const pts = [];
       for (let i = 0; i < N; i++) {
         const angle = i / N * Math.PI * 2;
@@ -3151,21 +3151,21 @@ var LootzyApp = (() => {
         for (const c of contacts) {
           const dot = px / r * c.nx + py / r * c.ny;
           if (dot < 0) {
-            const sq = -dot * c.str * r * 0.22;
+            const sq = -dot * c.str * r * 0.38;
             px += c.nx * sq;
             py += c.ny * sq;
           } else if (dot > 0) {
-            const bl = dot * c.str * 0.11;
+            const bl = dot * c.str * 0.2;
             px *= 1 + bl;
             py *= 1 + bl;
           }
         }
         if (Math.abs(wobble) > 5e-3) {
-          const w = Math.max(-0.36, Math.min(0.44, wobble));
+          const w = Math.max(-0.52, Math.min(0.6, wobble));
           px *= 1 + w * Math.cos(angle) * Math.cos(angle);
           py *= 1 - w * Math.sin(angle) * Math.sin(angle) * 0.65;
         }
-        py += py / r * r * 0.028;
+        py += py / r * r * 0.055;
         pts.push({ x: px, y: py });
       }
       ctx.beginPath();
@@ -3468,9 +3468,9 @@ var LootzyApp = (() => {
     const step = (0, import_react.useCallback)(() => {
       const balls = ballsRef.current;
       for (const b of balls) {
-        b.wobbleV += -0.28 * b.wobble;
+        b.wobbleV += -0.18 * b.wobble;
         b.wobble += b.wobbleV;
-        b.wobbleV *= 0.8;
+        b.wobbleV *= 0.88;
         if (b.ripple > 0) b.ripple = Math.max(0, b.ripple - 0.036);
         const INNER_R = b.r * 0.36;
         b.petVX += b.vx * 0.018 + (Math.random() - 0.5) * 0.04;
@@ -3670,149 +3670,57 @@ var LootzyApp = (() => {
       const ctx = canvas.getContext("2d");
       const T = ++frameRef.current;
       ctx.clearRect(0, 0, W, H);
-      ctx.fillStyle = "#EBEBEB";
+      ctx.fillStyle = "#1A1A2E";
       ctx.fillRect(0, 0, W, H);
-      ctx.strokeStyle = "rgba(180,180,180,0.55)";
-      ctx.lineWidth = 0.8;
-      for (let gx = 0; gx <= W; gx += 20) {
-        ctx.beginPath();
-        ctx.moveTo(gx, 0);
-        ctx.lineTo(gx, H);
-        ctx.stroke();
-      }
-      for (let gy = 0; gy <= H; gy += 20) {
-        ctx.beginPath();
-        ctx.moveTo(0, gy);
-        ctx.lineTo(W, gy);
-        ctx.stroke();
-      }
-      if (!stripePatRef.current) {
-        const pc = document.createElement("canvas");
-        pc.width = 10;
-        pc.height = 10;
-        const p2 = pc.getContext("2d");
-        p2.fillStyle = "#ffffff";
-        p2.fillRect(0, 0, 10, 10);
-        p2.fillStyle = "#222222";
-        p2.beginPath();
-        p2.moveTo(0, 0);
-        p2.lineTo(5, 0);
-        p2.lineTo(10, 5);
-        p2.lineTo(10, 10);
-        p2.lineTo(5, 10);
-        p2.lineTo(0, 5);
-        p2.closePath();
-        p2.fill();
-        stripePatRef.current = ctx.createPattern(pc, "repeat");
-      }
-      const pat = stripePatRef.current;
-      ctx.save();
+      ctx.beginPath();
+      ctx.moveTo(0, 0);
+      ctx.lineTo(CONT_TLL, CONT_TOP_Y);
+      ctx.lineTo(CONT_BLL, CONT_BOT_Y);
+      ctx.lineTo(0, CONT_BOT_Y + 14);
+      ctx.closePath();
+      ctx.fillStyle = "#16213E";
+      ctx.fill();
+      ctx.beginPath();
+      ctx.moveTo(W, 0);
+      ctx.lineTo(CONT_TRL, CONT_TOP_Y);
+      ctx.lineTo(CONT_BRL, CONT_BOT_Y);
+      ctx.lineTo(W, CONT_BOT_Y + 14);
+      ctx.closePath();
+      ctx.fillStyle = "#16213E";
+      ctx.fill();
+      ctx.fillStyle = "#16213E";
+      ctx.fillRect(0, CONT_BOT_Y, W, H - CONT_BOT_Y);
       ctx.beginPath();
       ctx.moveTo(CONT_TLL, CONT_TOP_Y);
       ctx.lineTo(CONT_TRL, CONT_TOP_Y);
       ctx.lineTo(CONT_BRL, CONT_BOT_Y);
       ctx.lineTo(CONT_BLL, CONT_BOT_Y);
       ctx.closePath();
-      ctx.fillStyle = "#F9F9F9";
+      ctx.fillStyle = "#0D1B2A";
       ctx.fill();
-      ctx.restore();
-      ctx.save();
-      ctx.beginPath();
-      ctx.moveTo(CONT_TLL - WALL_W, CONT_TOP_Y);
-      ctx.lineTo(CONT_TLL, CONT_TOP_Y);
-      ctx.lineTo(CONT_BLL, CONT_BOT_Y);
-      ctx.lineTo(CONT_BLL - WALL_W, CONT_BOT_Y);
-      ctx.closePath();
-      ctx.fillStyle = pat;
-      ctx.fill();
-      ctx.strokeStyle = "#111";
-      ctx.lineWidth = 2;
-      ctx.stroke();
-      ctx.restore();
-      ctx.save();
-      ctx.beginPath();
-      ctx.moveTo(CONT_TRL, CONT_TOP_Y);
-      ctx.lineTo(CONT_TRL + WALL_W, CONT_TOP_Y);
-      ctx.lineTo(CONT_BRL + WALL_W, CONT_BOT_Y);
-      ctx.lineTo(CONT_BRL, CONT_BOT_Y);
-      ctx.closePath();
-      ctx.fillStyle = pat;
-      ctx.fill();
-      ctx.strokeStyle = "#111";
-      ctx.lineWidth = 2;
-      ctx.stroke();
-      ctx.restore();
-      ctx.save();
-      ctx.beginPath();
-      ctx.moveTo(CONT_BLL - WALL_W, CONT_BOT_Y);
-      ctx.lineTo(CONT_BRL + WALL_W, CONT_BOT_Y);
-      ctx.lineTo(CONT_BRL + WALL_W, CONT_BOT_Y + 14);
-      ctx.lineTo(CONT_BLL - WALL_W, CONT_BOT_Y + 14);
-      ctx.closePath();
-      ctx.fillStyle = pat;
-      ctx.fill();
-      ctx.strokeStyle = "#111";
-      ctx.lineWidth = 2;
-      ctx.stroke();
-      ctx.restore();
       ctx.beginPath();
       ctx.moveTo(CONT_TLL, CONT_TOP_Y);
       ctx.lineTo(CONT_BLL, CONT_BOT_Y);
       ctx.moveTo(CONT_TRL, CONT_TOP_Y);
       ctx.lineTo(CONT_BRL, CONT_BOT_Y);
-      ctx.strokeStyle = "#111";
+      ctx.moveTo(CONT_BLL, CONT_BOT_Y);
+      ctx.lineTo(CONT_BRL, CONT_BOT_Y);
+      ctx.strokeStyle = "#B4FF0055";
       ctx.lineWidth = 2;
       ctx.stroke();
-      ctx.save();
       ctx.beginPath();
       ctx.moveTo(CONT_TLL, DANGER_Y);
       ctx.lineTo(CONT_TRL, DANGER_Y);
-      ctx.strokeStyle = "#FF3B30";
+      ctx.strokeStyle = "#FF4444";
       ctx.lineWidth = 1.5;
-      ctx.setLineDash([5, 4]);
+      ctx.setLineDash([6, 4]);
       ctx.stroke();
       ctx.setLineDash([]);
       ctx.font = "bold 8px 'Nunito',sans-serif";
-      ctx.fillStyle = "#FF3B30";
+      ctx.fillStyle = "#FF5555";
       ctx.textAlign = "right";
       ctx.textBaseline = "bottom";
-      ctx.fillText("\u26A0 danger", CONT_TRL - 4, DANGER_Y - 1);
-      ctx.restore();
-      ctx.save();
-      ctx.fillStyle = "rgba(0,0,0,0.55)";
-      ctx.beginPath();
-      const hx = 6, hy = 6, hw = 88, hh = 44;
-      ctx.roundRect ? ctx.roundRect(hx, hy, hw, hh, 8) : ctx.rect(hx, hy, hw, hh);
-      ctx.fill();
-      ctx.font = "bold 9px 'Nunito',sans-serif";
-      ctx.fillStyle = "rgba(255,255,255,0.55)";
-      ctx.textAlign = "left";
-      ctx.textBaseline = "top";
-      ctx.fillText("SCORE", hx + 6, hy + 5);
-      ctx.font = "bold 17px 'Nunito',sans-serif";
-      ctx.fillStyle = "#FFD700";
-      ctx.fillText(scoreRef.current.toLocaleString(), hx + 6, hy + 15);
-      ctx.font = "bold 8px 'Nunito',sans-serif";
-      ctx.fillStyle = "rgba(255,255,255,0.40)";
-      ctx.fillText("BEST", hx + 6, hy + 34);
-      ctx.fillStyle = "rgba(255,255,255,0.65)";
-      ctx.fillText(Math.max(scoreRef.current, 0).toLocaleString(), hx + 32, hy + 34);
-      ctx.restore();
-      ctx.save();
-      ctx.fillStyle = "rgba(0,0,0,0.55)";
-      ctx.beginPath();
-      const rx2 = W - 82, ry = 6, rw = 76, rh = 28;
-      ctx.roundRect ? ctx.roundRect(rx2, ry, rw, rh, 8) : ctx.rect(rx2, ry, rw, rh);
-      ctx.fill();
-      ctx.font = "bold 8px 'Nunito',sans-serif";
-      ctx.fillStyle = "rgba(255,255,255,0.55)";
-      ctx.textAlign = "center";
-      ctx.textBaseline = "top";
-      ctx.fillText("GLOBAL", rx2 + rw / 2, ry + 4);
-      ctx.font = "bold 13px 'Nunito',sans-serif";
-      ctx.fillStyle = "#B4FF00";
-      ctx.fillText("#1 \u{1F451}", rx2 + rw / 2, ry + 13);
-      ctx.restore();
+      ctx.fillText("\u26A0 Nguy hi\u1EC3m", CONT_TRL - 4, DANGER_Y - 2);
       const petData = state.petData;
       for (const b of ballsRef.current) drawBall(ctx, b, petData);
       if (!gameOverRef.current) {
@@ -3822,21 +3730,21 @@ var LootzyApp = (() => {
         const aF = canDropRef.current ? 0.8 + Math.sin(T * 0.07) * 0.08 : 0.28;
         ctx.save();
         ctx.setLineDash([4, 6]);
-        ctx.strokeStyle = "rgba(0,0,0,0.18)";
+        ctx.strokeStyle = "rgba(255,255,255,0.22)";
         ctx.lineWidth = 1;
         ctx.beginPath();
         ctx.moveTo(px, py + nt.r);
-        ctx.lineTo(px, CONT_TOP_Y + 10);
+        ctx.lineTo(px, DANGER_Y + 10);
         ctx.stroke();
         ctx.setLineDash([]);
         ctx.restore();
         drawBall(ctx, { x: px, y: py, r: nt.r, tier: nextTierRef.current, flash: 0, wobble: 0, wobbleV: 0, ripple: 0, contacts: [], vx: 0, vy: 0, petX: 0, petY: 0, petVX: 0, petVY: 0, anger: 0, petAngle: 0, petAngleV: 0, petIdleT: 0 }, petData, aF);
         if (canDropRef.current) {
-          ctx.fillStyle = "rgba(0,0,0,0.35)";
+          ctx.fillStyle = "rgba(255,255,255,0.30)";
           ctx.font = "bold 9px 'Nunito',sans-serif";
           ctx.textAlign = "center";
           ctx.textBaseline = "top";
-          ctx.fillText("tap to drop", px, py + nt.r + 4);
+          ctx.fillText("ch\u1EA1m \u0111\u1EC3 th\u1EA3", px, py + nt.r + 4);
         }
       }
       {
@@ -3943,21 +3851,21 @@ var LootzyApp = (() => {
       position: "absolute",
       inset: 0,
       zIndex: 60,
-      background: "#D8D8D8",
+      background: "#1A1A2E",
       display: "flex",
       flexDirection: "column",
       fontFamily: F.game
     } }, /* @__PURE__ */ React.createElement("div", { style: {
-      background: "rgba(30,30,30,0.92)",
-      paddingTop: "max(24px,env(safe-area-inset-top,24px))",
-      paddingBottom: 6,
-      paddingLeft: 10,
-      paddingRight: 10,
+      background: "linear-gradient(135deg,#1A1A2E,#16213E)",
+      paddingTop: "max(28px,env(safe-area-inset-top,28px))",
+      paddingBottom: 8,
+      paddingLeft: 12,
+      paddingRight: 12,
       display: "flex",
       alignItems: "center",
       justifyContent: "space-between",
       flexShrink: 0,
-      gap: 6
+      boxShadow: "0 4px 20px rgba(0,0,0,0.35)"
     } }, /* @__PURE__ */ React.createElement(
       "button",
       {
@@ -3966,83 +3874,48 @@ var LootzyApp = (() => {
           handleFinish();
         },
         style: {
-          background: "rgba(255,255,255,0.12)",
-          border: "1.5px solid rgba(255,255,255,0.22)",
-          borderRadius: 18,
-          padding: "5px 12px",
+          background: "rgba(255,255,255,0.10)",
+          border: "1.5px solid rgba(255,255,255,0.20)",
+          borderRadius: 20,
+          padding: "6px 14px",
           color: "white",
           fontFamily: F.game,
           fontWeight: 700,
-          fontSize: 12,
-          cursor: "pointer",
-          flexShrink: 0
+          fontSize: 13,
+          cursor: "pointer"
         }
       },
       "\u2190 Tho\xE1t"
-    ), /* @__PURE__ */ React.createElement("div", { style: {
-      color: "#B4FF00",
+    ), /* @__PURE__ */ React.createElement("div", { style: { textAlign: "center" } }, /* @__PURE__ */ React.createElement("div", { style: {
+      color: "#00E5FF",
       fontWeight: 900,
-      fontSize: 13,
-      letterSpacing: 0.4,
-      textShadow: "0 0 8px rgba(180,255,0,0.6)",
-      flex: 1,
-      textAlign: "center"
-    } }, "\u{1F4A7} Th\u1EA3 B\xF3ng N\u01B0\u1EDBc"), /* @__PURE__ */ React.createElement("div", { style: {
-      background: `${nextT?.color}22`,
-      border: `1.5px solid ${nextT?.color}66`,
-      borderRadius: 12,
-      padding: "3px 8px",
+      fontSize: 14,
+      letterSpacing: 0.5,
+      textShadow: "0 0 10px rgba(0,229,255,0.6)"
+    } }, "\u{1F4A7} Th\u1EA3 B\xF3ng N\u01B0\u1EDBc"), /* @__PURE__ */ React.createElement("div", { style: { color: "#FFD700", fontWeight: 900, fontSize: 18, marginTop: 2, fontFamily: F.game } }, score.toLocaleString())), /* @__PURE__ */ React.createElement("div", { style: {
+      background: `${nextT?.color}18`,
+      border: `2px solid ${nextT?.color}55`,
+      borderRadius: 14,
+      padding: "5px 9px",
       textAlign: "center",
-      flexShrink: 0
-    } }, /* @__PURE__ */ React.createElement("div", { style: { color: "rgba(255,255,255,0.40)", fontSize: 7, fontWeight: 700, letterSpacing: 1 } }, "NEXT"), /* @__PURE__ */ React.createElement("div", { style: {
-      width: 22,
-      height: 22,
+      minWidth: 58
+    } }, /* @__PURE__ */ React.createElement("div", { style: { color: "rgba(255,255,255,0.45)", fontSize: 8, fontWeight: 700, letterSpacing: 1.2 } }, "TI\u1EBEP"), /* @__PURE__ */ React.createElement("div", { style: {
+      width: 26,
+      height: 26,
       borderRadius: "50%",
       background: nextT?.color,
-      margin: "2px auto 1px",
-      border: `1.5px solid ${nextT?.color}cc`
-    } }), /* @__PURE__ */ React.createElement("div", { style: { color: nextT?.color, fontSize: 8, fontWeight: 900 } }, nextT?.name))), /* @__PURE__ */ React.createElement("div", { style: { flex: 1, display: "flex", alignItems: "stretch", overflow: "hidden", minHeight: 0 } }, /* @__PURE__ */ React.createElement("div", { style: {
-      width: 44,
-      flexShrink: 0,
-      display: "flex",
-      flexDirection: "column",
-      alignItems: "center",
-      justifyContent: "center",
-      gap: 8,
-      background: "rgba(30,30,30,0.85)",
-      borderRight: "1px solid rgba(255,255,255,0.08)",
-      padding: "8px 0"
-    } }, ["\u{1F500}", "\u23F8", "\u{1F4A5}"].map((ic, i) => /* @__PURE__ */ React.createElement("div", { key: i, style: {
-      width: 34,
-      height: 34,
-      borderRadius: 10,
-      background: "rgba(255,255,255,0.10)",
-      border: "1px solid rgba(255,255,255,0.18)",
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center",
-      fontSize: 16,
-      cursor: "pointer"
-    } }, ic)), /* @__PURE__ */ React.createElement("div", { style: {
-      marginTop: 6,
-      background: "linear-gradient(135deg,#B4FF00,#7ACC00)",
-      borderRadius: 8,
-      padding: "4px 2px",
-      textAlign: "center",
-      width: 34,
-      fontSize: 6,
-      fontWeight: 900,
-      color: "#1A1A1A",
-      lineHeight: 1.3,
-      cursor: "pointer"
-    } }, "Get", /* @__PURE__ */ React.createElement("br", null), "Ability!")), /* @__PURE__ */ React.createElement("div", { style: {
+      border: `2px solid ${nextT?.color}99`,
+      margin: "3px auto 2px",
+      boxShadow: `0 0 10px ${nextT?.color}`
+    } }), /* @__PURE__ */ React.createElement("div", { style: { color: nextT?.color, fontSize: 9, fontWeight: 900 } }, nextT?.name))), /* @__PURE__ */ React.createElement("div", { style: {
       flex: 1,
       display: "flex",
       justifyContent: "center",
       alignItems: "center",
+      padding: "2px 0",
+      background: "#1A1A2E",
       overflow: "hidden",
-      minHeight: 0,
-      background: "#D8D8D8"
+      minHeight: 0
     } }, /* @__PURE__ */ React.createElement(
       "canvas",
       {
@@ -4054,9 +3927,11 @@ var LootzyApp = (() => {
           width: "auto",
           maxWidth: "100%",
           maxHeight: H,
+          borderRadius: 12,
+          border: "2px solid #B4FF0033",
+          boxShadow: "4px 4px 0px #0D1B2A",
           touchAction: "none",
-          cursor: canDrop ? "crosshair" : "default",
-          display: "block"
+          cursor: canDrop ? "crosshair" : "default"
         },
         onMouseDown: (e) => handleTap(e.clientX),
         onTouchEnd: (e) => {
@@ -4065,23 +3940,18 @@ var LootzyApp = (() => {
         }
       }
     )), /* @__PURE__ */ React.createElement("div", { style: {
-      width: 44,
-      flexShrink: 0,
-      background: "rgba(30,30,30,0.85)",
-      borderLeft: "1px solid rgba(255,255,255,0.08)"
-    } })), /* @__PURE__ */ React.createElement("div", { style: {
-      background: "rgba(25,25,25,0.94)",
-      borderTop: "1px solid rgba(255,255,255,0.08)",
-      padding: "4px 8px max(6px,env(safe-area-inset-bottom,6px))",
+      background: "linear-gradient(135deg,#1A1A2E,#16213E)",
+      borderTop: "1px solid rgba(255,255,255,0.07)",
+      padding: "4px 10px max(8px,env(safe-area-inset-bottom,8px))",
       flexShrink: 0
     } }, /* @__PURE__ */ React.createElement("div", { style: {
-      color: "rgba(255,255,255,0.35)",
-      fontSize: 7,
+      color: "rgba(255,255,255,0.28)",
+      fontSize: 8,
       fontWeight: 700,
-      letterSpacing: 1.1,
+      letterSpacing: 1.2,
       textAlign: "center",
-      marginBottom: 3
-    } }, "CHECK OUT VALUES \u2014 GH\xC9P \u0110\u1EC2 L\xCAN C\u1EA4P"), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "flex-end", justifyContent: "space-between" } }, WATER_TIERS.map((t, i) => {
+      marginBottom: 5
+    } }, "\u2190 GH\xC9P B\xD3NG \u0110\u1EC2 L\xCAN C\u1EA4P \u2192"), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "flex-end", justifyContent: "space-between" } }, WATER_TIERS.map((t, i) => {
       const isNext = i === nextTier;
       const unlocked = i <= nextTier;
       return /* @__PURE__ */ React.createElement("div", { key: i, style: {
@@ -4089,23 +3959,29 @@ var LootzyApp = (() => {
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        gap: 1,
-        opacity: unlocked ? 1 : 0.3
-      } }, isNext && /* @__PURE__ */ React.createElement("div", { style: {
+        gap: 2,
+        opacity: unlocked ? 1 : 0.28
+      } }, /* @__PURE__ */ React.createElement("div", { style: { height: 8, display: "flex", alignItems: "center", justifyContent: "center" } }, isNext && /* @__PURE__ */ React.createElement("div", { style: {
         width: 0,
         height: 0,
         borderLeft: "4px solid transparent",
         borderRight: "4px solid transparent",
         borderTop: `5px solid ${t.color}`,
-        marginBottom: 1
-      } }), /* @__PURE__ */ React.createElement("div", { style: {
-        width: 7 + i * 2,
-        height: 7 + i * 2,
+        filter: `drop-shadow(0 0 4px ${t.color})`
+      } })), /* @__PURE__ */ React.createElement("div", { style: {
+        width: 8 + i * 2,
+        height: 8 + i * 2,
         borderRadius: "50%",
         background: t.color,
+        border: `1.5px solid ${t.color}${unlocked ? "cc" : "44"}`,
         flexShrink: 0,
-        boxShadow: isNext ? `0 0 6px ${t.color}` : "none"
-      } }), /* @__PURE__ */ React.createElement("span", { style: { fontSize: 5, fontWeight: 900, color: unlocked ? t.color + "cc" : "rgba(255,255,255,0.20)" } }, t.pts));
+        boxShadow: isNext ? `0 0 8px ${t.color}` : "none"
+      } }), /* @__PURE__ */ React.createElement("span", { style: {
+        fontSize: 6,
+        fontWeight: 900,
+        lineHeight: 1,
+        color: unlocked ? t.color + "dd" : "rgba(255,255,255,0.20)"
+      } }, t.pts, "p"));
     }))), gameOver && /* @__PURE__ */ React.createElement("div", { style: {
       position: "absolute",
       inset: 0,
