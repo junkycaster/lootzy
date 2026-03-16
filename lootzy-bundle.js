@@ -57,6 +57,7 @@ var LootzyApp = (() => {
   @keyframes pouBounce{0%,100%{transform:translateY(0) scaleX(1)}45%{transform:translateY(-9px) scaleX(0.95)}75%{transform:translateY(2px) scaleX(1.04)}}
   @keyframes pouBlink{0%,88%,100%{transform:scaleY(1)}92%{transform:scaleY(0.06)}}
   @keyframes toastIn{from{opacity:0;transform:translateX(-50%) translateY(-10px)}to{opacity:1;transform:translateX(-50%) translateY(0)}}
+  @keyframes petBump{0%{transform:scale(1)}30%{transform:scale(1.12) rotate(-4deg)}60%{transform:scale(0.96) rotate(3deg)}100%{transform:scale(1) rotate(0deg)}}
   @keyframes slideUp{from{transform:translateY(100%)}to{transform:translateY(0)}}
   @keyframes floatUp{0%{opacity:1;transform:translateY(0) scale(1) rotate(0deg)}60%{opacity:0.9}100%{opacity:0;transform:translateY(-150px) scale(0.7) rotate(20deg)}}
   @keyframes floatUpL{0%{opacity:1;transform:translateY(0) scale(1) rotate(0deg)}100%{opacity:0;transform:translateY(-140px) translateX(-40px) scale(0.6) rotate(-25deg)}}
@@ -895,13 +896,23 @@ var LootzyApp = (() => {
       fontWeight: 900
     } }, secsLeft, "s")), /* @__PURE__ */ React.createElement("div", { style: { fontFamily: F.game, fontSize: 10, color: "rgba(255,255,255,0.7)" } }, "\u{1F4A4} \u0110\u1EEBng l\xE0m phi\u1EC1n pet nh\xE9!"));
   }
+  var PET_SPEECH = {
+    vhappy: ["Y\xEAu b\u1EA1n l\u1EAFm l\u1EAFm! \u{1F970}", "H\u1EA1nh ph\xFAc qu\xE1 \u0111iiiii! \u{1F31F}", "\xD4m m\xECnh \u0111i b\u1EA1n \u01A1i~ \u2764\uFE0F", "M\xECnh vui l\u1EAFm! Ch\u01A1i ti\u1EBFp nh\xE9! \u{1F389}", "B\u1EA1n l\xE0 ng\u01B0\u1EDDi b\u1EA1n t\u1ED1t nh\u1EA5t! \u2728"],
+    happy: ["Hi b\u1EA1n! \u{1F60A}", "Ch\u01A1i v\u1EDBi m\xECnh nha~ \u{1F3AE}", "H\xF4m nay vui gh\xEA! \u{1F604}", "M\xECnh \u0111ang r\u1EA5t \u1ED5n! \u{1F44D}", "C\u1EA3m \u01A1n \u0111\xE3 ch\u0103m m\xECnh \u{1F64F}"],
+    ok: ["\u1EEAm... b\xECnh th\u01B0\u1EDDng th\xF4i \u{1F610}", "B\u1EA1n c\xF3 kh\u1ECFe kh\xF4ng? \u{1F642}", "Ch\u01A1i th\xEAm \u0111i b\u1EA1n \u01A1i...", "H\u01A1i bu\u1ED3n ng\u1EE7... \u{1F62A}", "Ok ok... \u{1FAE4}"],
+    sad: ["M\xECnh h\u01A1i bu\u1ED3n... \u{1F614}", "Ch\u0103m m\xECnh th\xEAm \u0111\u01B0\u1EE3c kh\xF4ng? \u{1F97A}", "L\xE2u l\u1EAFm kh\xF4ng \u0111\u01B0\u1EE3c vui r\u1ED3i \u{1F61E}", "\u0110\xF3i m\u1ED9t ch\xFAt r\u1ED3i \u0111\xF3... \u{1F34E}", "C\u1EA7n b\u1EA1n b\xEAn c\u1EA1nh \u{1FAC2}"],
+    vsad: ["M\xECnh b\u1ECB b\u1ECF r\u01A1i r\u1ED3i \u{1F622}", "\u0110\xF3i v\xE0 b\u1EA9n qu\xE1 h\xE0! \u{1F624}", "Kh\xF4ng ai ch\u0103m m\xECnh h\u1EBFt \u{1F4A2}", "M\xECnh mu\u1ED1n \u0103n c\u01A1m \u{1F62D}", "L\xE2u l\u1EAFm r\u1ED3i... \u{1F5A4}"]
+  };
   function HomeTab({ state, dispatch, showToast: showToast2, onStartGame, onStartWaterGame, onStartSurgery }) {
     const [showInteract, setShowInteract] = (0, import_react.useState)(false);
     const [currentAnim, setCurrentAnim] = (0, import_react.useState)(null);
     const [mouthOverride, setMouthOverride] = (0, import_react.useState)(null);
     const [eyeOffset, setEyeOffset] = (0, import_react.useState)({ x: 0, y: 0 });
     const [showShopPanel, setShowShopPanel] = (0, import_react.useState)(false);
+    const [petSpeech, setPetSpeech] = (0, import_react.useState)(null);
+    const [petBump, setPetBump] = (0, import_react.useState)(false);
     const petRef = (0, import_react.useRef)(null);
+    const speechTimer = (0, import_react.useRef)(null);
     const { petData, happiness } = state;
     const rank = getRank(state.points);
     (0, import_react.useEffect)(() => {
@@ -971,6 +982,17 @@ var LootzyApp = (() => {
         setMouthOverride(null);
       }, 1900);
     }, [state, dispatch, showToast2]);
+    const handlePetTap = (0, import_react.useCallback)(() => {
+      if (currentAnim) return;
+      const h = state.happiness ?? 70;
+      const pool = h >= 85 ? PET_SPEECH.vhappy : h >= 65 ? PET_SPEECH.happy : h >= 40 ? PET_SPEECH.ok : h >= 20 ? PET_SPEECH.sad : PET_SPEECH.vsad;
+      const line = pool[Math.floor(Math.random() * pool.length)];
+      setPetSpeech(line);
+      setPetBump(true);
+      setTimeout(() => setPetBump(false), 400);
+      if (speechTimer.current) clearTimeout(speechTimer.current);
+      speechTimer.current = setTimeout(() => setPetSpeech(null), 2600);
+    }, [state.happiness, currentAnim]);
     (0, import_react.useEffect)(() => {
       const handleMove = (cx, cy) => {
         if (!petRef.current) return;
@@ -1043,37 +1065,81 @@ var LootzyApp = (() => {
       boxShadow: "0 4px 16px rgba(0,0,0,0.28), 0 0 0 1px rgba(180,100,255,0.12)",
       backdropFilter: "blur(8px)",
       minWidth: 52
-    } }, /* @__PURE__ */ React.createElement("span", { style: { fontSize: 20 } }, "\u{1F52C}"), /* @__PURE__ */ React.createElement("span", { style: { fontFamily: F.game, fontSize: 9, fontWeight: 900, color: "#CE93D8" } }, "S\u1EEDa"), /* @__PURE__ */ React.createElement("span", { style: { fontFamily: F.game, fontSize: 8, fontWeight: 800, color: "rgba(255,255,255,0.65)" } }, "Pet"))), /* @__PURE__ */ React.createElement("div", { ref: petRef, style: {
-      display: "flex",
-      flexDirection: "column",
-      alignItems: "center",
-      gap: 6,
-      zIndex: 5
-    } }, /* @__PURE__ */ React.createElement(
-      PouPet,
+    } }, /* @__PURE__ */ React.createElement("span", { style: { fontSize: 20 } }, "\u{1F52C}"), /* @__PURE__ */ React.createElement("span", { style: { fontFamily: F.game, fontSize: 9, fontWeight: 900, color: "#CE93D8" } }, "S\u1EEDa"), /* @__PURE__ */ React.createElement("span", { style: { fontFamily: F.game, fontSize: 8, fontWeight: 800, color: "rgba(255,255,255,0.65)" } }, "Pet"))), /* @__PURE__ */ React.createElement(
+      "div",
       {
-        petData: { ...petData || {}, mouthType },
-        size: Math.min(190, window.innerWidth * 0.48),
-        bounce: !currentAnim && !state.isSleeping,
-        mood: happiness,
-        animStyle: petAnimStyle,
-        eyeOffset,
-        cleanLevel: state.clean,
-        isSleeping: state.isSleeping
-      }
-    ), /* @__PURE__ */ React.createElement("div", { style: {
-      background: "rgba(255,255,255,0.90)",
-      borderRadius: 99,
-      padding: "5px 18px",
-      fontFamily: F.game,
-      fontWeight: 900,
-      fontSize: 13,
-      color: C.black,
-      boxShadow: "0 3px 14px rgba(0,0,0,0.13)",
-      display: "flex",
-      alignItems: "center",
-      gap: 5
-    } }, petData?.name || "Pou", state.clean < 25 && /* @__PURE__ */ React.createElement("span", { title: "R\u1EA5t b\u1EA9n!" }, "\u{1F4A9}"), state.clean >= 25 && state.clean < 50 && /* @__PURE__ */ React.createElement("span", { title: "Kh\xE1 b\u1EA9n" }, "\u{1F7E4}"), state.clean >= 50 && state.clean < 75 && /* @__PURE__ */ React.createElement("span", { title: "H\u01A1i b\u1EA9n" }, "\u{1F32B}\uFE0F"), state.isSleeping && /* @__PURE__ */ React.createElement("span", null, "\u{1F634}"))), currentAnim && /* @__PURE__ */ React.createElement(ParticleOverlay, { action: currentAnim }), currentAnim && /* @__PURE__ */ React.createElement("div", { style: {
+        ref: petRef,
+        style: {
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          gap: 6,
+          zIndex: 5,
+          cursor: "pointer",
+          position: "relative"
+        },
+        onClick: handlePetTap,
+        onTouchEnd: (e) => {
+          e.preventDefault();
+          handlePetTap();
+        }
+      },
+      petSpeech && /* @__PURE__ */ React.createElement("div", { style: {
+        position: "absolute",
+        bottom: "100%",
+        left: "50%",
+        transform: "translateX(-50%)",
+        marginBottom: 10,
+        zIndex: 20,
+        background: "white",
+        color: "#222",
+        borderRadius: 14,
+        padding: "8px 14px",
+        fontFamily: "'Nunito',sans-serif",
+        fontWeight: 800,
+        fontSize: 13,
+        boxShadow: "0 4px 16px rgba(0,0,0,0.18)",
+        whiteSpace: "nowrap",
+        pointerEvents: "none",
+        animation: "toastIn 0.25s ease-out"
+      } }, petSpeech, /* @__PURE__ */ React.createElement("div", { style: {
+        position: "absolute",
+        bottom: -8,
+        left: "50%",
+        transform: "translateX(-50%)",
+        width: 0,
+        height: 0,
+        borderLeft: "8px solid transparent",
+        borderRight: "8px solid transparent",
+        borderTop: "8px solid white"
+      } })),
+      /* @__PURE__ */ React.createElement(
+        PouPet,
+        {
+          petData: { ...petData || {}, mouthType },
+          size: Math.min(190, window.innerWidth * 0.48),
+          bounce: !currentAnim && !state.isSleeping,
+          mood: happiness,
+          animStyle: petBump ? { animation: "petBump 0.35s ease-out" } : petAnimStyle,
+          eyeOffset,
+          cleanLevel: state.clean,
+          isSleeping: state.isSleeping
+        }
+      ),
+      /* @__PURE__ */ React.createElement("div", { style: {
+        background: "rgba(255,255,255,0.90)",
+        borderRadius: 99,
+        padding: "5px 18px",
+        fontFamily: F.game,
+        fontWeight: 900,
+        fontSize: 13,
+        color: C.black,
+        boxShadow: "0 3px 14px rgba(0,0,0,0.13)",
+        display: "flex",
+        alignItems: "center",
+        gap: 5
+      } }, petData?.name || "Pou", state.clean < 25 && /* @__PURE__ */ React.createElement("span", { title: "R\u1EA5t b\u1EA9n!" }, "\u{1F4A9}"), state.clean >= 25 && state.clean < 50 && /* @__PURE__ */ React.createElement("span", { title: "Kh\xE1 b\u1EA9n" }, "\u{1F7E4}"), state.clean >= 50 && state.clean < 75 && /* @__PURE__ */ React.createElement("span", { title: "H\u01A1i b\u1EA9n" }, "\u{1F32B}\uFE0F"), state.isSleeping && /* @__PURE__ */ React.createElement("span", null, "\u{1F634}"))
+    ), currentAnim && /* @__PURE__ */ React.createElement(ParticleOverlay, { action: currentAnim }), currentAnim && /* @__PURE__ */ React.createElement("div", { style: {
       position: "absolute",
       top: "8%",
       left: "50%",
