@@ -3081,7 +3081,7 @@ var LootzyApp = (() => {
     const [gameOver, setGameOver] = (0, import_react.useState)(false);
     const [canDrop, setCanDrop] = (0, import_react.useState)(true);
     const [nextTier, setNextTier] = (0, import_react.useState)(0);
-    const W = 360, H = 540;
+    const W = 360, H = 490;
     const CONT_TOP_Y = 82;
     const CONT_BOT_Y = 458;
     const CONT_TLL = 22;
@@ -3746,59 +3746,6 @@ var LootzyApp = (() => {
           ctx.textBaseline = "top";
           ctx.fillText("ch\u1EA1m \u0111\u1EC3 th\u1EA3", px, py + nt.r + 4);
         }
-      }
-      {
-        const QY = CONT_BOT_Y + 20;
-        const QH = H - QY - 4;
-        const QCX = W / 2;
-        ctx.save();
-        ctx.fillStyle = "rgba(0,0,0,0.50)";
-        ctx.beginPath();
-        ctx.roundRect ? ctx.roundRect(8, QY, W - 16, QH, 10) : ctx.rect(8, QY, W - 16, QH);
-        ctx.fill();
-        ctx.font = "bold 7px 'Nunito',sans-serif";
-        ctx.fillStyle = "rgba(255,255,255,0.40)";
-        ctx.textAlign = "left";
-        ctx.textBaseline = "middle";
-        ctx.fillText("NEXT", 14, QY + QH / 2);
-        const nt0 = WATER_TIERS[nextTierRef.current];
-        const big = Math.min(14, nt0.r * 0.5);
-        ctx.beginPath();
-        ctx.arc(QCX - 80, QY + QH / 2, big, 0, Math.PI * 2);
-        ctx.fillStyle = nt0.color;
-        ctx.fill();
-        ctx.strokeStyle = "#333";
-        ctx.lineWidth = 1.5;
-        ctx.stroke();
-        for (let qi = 0; qi < 5; qi++) {
-          const qt = queueRef.current[qi];
-          const qx = QCX - 30 + qi * 32;
-          const qcy = QY + QH / 2;
-          if (qt !== void 0) {
-            const qt2 = WATER_TIERS[qt];
-            ctx.beginPath();
-            ctx.arc(qx, qcy, 10, 0, Math.PI * 2);
-            ctx.fillStyle = qt2.color;
-            ctx.fill();
-            ctx.strokeStyle = "#333";
-            ctx.lineWidth = 1.2;
-            ctx.stroke();
-          } else {
-            ctx.beginPath();
-            ctx.arc(qx, qcy, 10, 0, Math.PI * 2);
-            ctx.fillStyle = "rgba(255,255,255,0.15)";
-            ctx.fill();
-            ctx.strokeStyle = "rgba(255,255,255,0.30)";
-            ctx.lineWidth = 1;
-            ctx.stroke();
-            ctx.fillStyle = "rgba(255,255,255,0.40)";
-            ctx.font = "bold 9px sans-serif";
-            ctx.textAlign = "center";
-            ctx.textBaseline = "middle";
-            ctx.fillText("?", qx, qcy);
-          }
-        }
-        ctx.restore();
       }
       if (!gameOverRef.current) {
         step();
